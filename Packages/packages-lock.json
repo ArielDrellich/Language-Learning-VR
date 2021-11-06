@@ -103,7 +103,10 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1f7031d (Change the project to Android project and set the VR cardboard settings. Add initial version of room)
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
