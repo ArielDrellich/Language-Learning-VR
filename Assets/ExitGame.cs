@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+// using System.Collections.Generic;
 using UnityEngine;
 
 public class ExitGame : MonoBehaviour
@@ -10,12 +10,22 @@ public class ExitGame : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            // We'll change this later to be a double back click
-            Application.Quit();
-        }
-    }
+    private int click = 0;
+     void Update()
+     {
+         if (Input.GetKeyDown(KeyCode.Escape))
+         {
+            click++;
+            StartCoroutine(ClickTime());
+ 
+            if (click > 1)
+                Application.Quit();
+         }
+     }
+     IEnumerator ClickTime()
+     {
+        //  1 second max in between clicking back
+        yield return new WaitForSeconds(1.0f);
+        click = 0;
+     }
 }
