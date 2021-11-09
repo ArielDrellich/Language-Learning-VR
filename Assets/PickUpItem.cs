@@ -5,40 +5,59 @@ using UnityEngine;
 public class PickUpItem : MonoBehaviour
 {
     public Transform destination;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public float grabDistance = 1f;
     public float distance;
+    bool isHolding = false;
+
     // Update is called once per frame
     void Update()
     { 
-        // should probably calculate to end outside distance of object
-        distance = Vector3.Distance(transform.position, GameObject.Find("Player").transform.position);
-        if (distance > grabDistance)
+        Vector3 playerPos = destination.transform.position;
+        distance = Vector3.Distance(GetComponent<Collider>().ClosestPoint(playerPos), playerPos);
+        if (distance > grabDistance) {
             OnMouseUp();
-    
+        }
+
+        if (isHolding) {
+            GetComponent<Rigidbody>().useGravity = false;
+            this.transform.position = destination.position;
+            this.transform.parent = destination;
+            GetComponent<Rigidbody>().freezeRotation = true;
+        }
+        // Vector3 playerPos = destination.transform.position;
+        // distance = Vector3.Distance(GetComponent<Collider>().ClosestPoint(playerPos), playerPos);
+        // if (distance > grabDistance) {
+        //     OnMouseUp();
+        // }
     }
 
-    public float grabDistance = 4f;
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.name != "Player")
+            OnMouseUp();
+    }
 
     void OnMouseDown() 
     {
         if (distance <= grabDistance) {
-            GetComponent<Rigidbody>().useGravity = false;
-            this.transform.position = destination.position;
-            this.transform.parent = GameObject.Find("Item Destination").transform;
-            GetComponent<Rigidbody>().freezeRotation = true;
+            isHolding = true;
         }
-
+        // if (distance <= grabDistance) {
+        //     GetComponent<Rigidbody>().useGravity = false;
+        //     this.transform.position = destination.position;
+        //     // this.transform.parent = GameObject.Find("Item Destination").transform;
+        //     this.transform.parent = destination;
+        //     GetComponent<Rigidbody>().freezeRotation = true;
+        // }
     }
 
     void OnMouseUp()
     {
+        isHolding = false;
         GetComponent<Rigidbody>().freezeRotation = false;
         GetComponent<Rigidbody>().useGravity = true;
         this.transform.parent = null;
+        // GetComponent<Rigidbody>().freezeRotation = false;
+        // GetComponent<Rigidbody>().useGravity = true;
+        // this.transform.parent = null;
     }
 }
