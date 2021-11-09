@@ -6,58 +6,43 @@ public class PickUpItem : MonoBehaviour
 {
     public Transform destination;
     public float grabDistance = 1f;
-    public float distance;
+    public float distance;//make private when done
     bool isHolding = false;
 
     // Update is called once per frame
-    void Update()
-    { 
+    void Update() { 
         Vector3 playerPos = destination.transform.position;
         distance = Vector3.Distance(GetComponent<Collider>().ClosestPoint(playerPos), playerPos);
-        if (distance > grabDistance) {
-            OnMouseUp();
-        }
-
-        if (isHolding) {
-            GetComponent<Rigidbody>().useGravity = false;
-            this.transform.position = destination.position;
-            this.transform.parent = destination;
-            GetComponent<Rigidbody>().freezeRotation = true;
-        }
-        // Vector3 playerPos = destination.transform.position;
-        // distance = Vector3.Distance(GetComponent<Collider>().ClosestPoint(playerPos), playerPos);
-        // if (distance > grabDistance) {
-        //     OnMouseUp();
-        // }
-    }
-
-    void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.name != "Player")
-            OnMouseUp();
-    }
-
-    void OnMouseDown() 
-    {
-        if (distance <= grabDistance) {
+        
+        if(Input.GetButtonDown("Fire1")) {
             isHolding = true;
         }
-        // if (distance <= grabDistance) {
-        //     GetComponent<Rigidbody>().useGravity = false;
-        //     this.transform.position = destination.position;
-        //     // this.transform.parent = GameObject.Find("Item Destination").transform;
-        //     this.transform.parent = destination;
-        //     GetComponent<Rigidbody>().freezeRotation = true;
-        // }
+
+        if(Input.GetButtonUp("Fire1") || distance > grabDistance) {
+            putDown();
+        }
+        
+        if (isHolding)
+            pickUp();
     }
 
-    void OnMouseUp()
-    {
+    void pickUp() {
+        GetComponent<Rigidbody>().useGravity = false;
+        this.transform.position = destination.position;
+        this.transform.parent = destination;
+        GetComponent<Rigidbody>().freezeRotation = true;
+    }
+
+    void putDown() {
         isHolding = false;
         GetComponent<Rigidbody>().freezeRotation = false;
         GetComponent<Rigidbody>().useGravity = true;
         this.transform.parent = null;
-        // GetComponent<Rigidbody>().freezeRotation = false;
-        // GetComponent<Rigidbody>().useGravity = true;
-        // this.transform.parent = null;
     }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.name != "Player")
+            putDown();
+    }
+
 }
