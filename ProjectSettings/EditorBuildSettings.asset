@@ -4,21 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - {enabled: 0, path: Assets/Scenes/SampleScene.unity, guid: 9fc0d4010bbf28b4594072e72b8655ab}
-  - {enabled: 1, path: Assets/Scenes/scene1.unity, guid: c389aff5a3eb4bb46b0aacc3294930a4}
-  - enabled: 1
-    path: Assets/Scenes/Start Menu.unity
-    guid: 8c7c1e04e98c98e4abb791af8d644922
-  - enabled: 1
-    path: Assets/Scenes/TeleportTest.unity
-    guid: e0d9db8d2be2fce4fbe70d0b271b76f3
-  - enabled: 1
-    path: Assets/Scenes/Objects test.unity
-    guid: 21fe10410c20bad48b426eb99d132977
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  m_Scenes: [{enabled: 1, path: Assets/Scenes/Living-Room.unity, guid: c389aff5a3eb4bb46b0aacc3294930a4},
+    {enabled: 1, path: Assets/Scenes/Start Menu.unity, guid: 8c7c1e04e98c98e4abb791af8d644922},
+    {enabled: 1, path: Assets/Scenes/TeleportTest.unity, guid: e0d9db8d2be2fce4fbe70d0b271b76f3},
+    {enabled: 1, path: Assets/Scenes/Objects test.unity, guid: 21fe10410c20bad48b426eb99d132977},
+    {enabled: 0, path: Assets/Scenes/SampleScene.unity, guid: 9fc0d4010bbf28b4594072e72b8655ab}]
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 774877e7cc929ed4bbf382c9491af67b,
       type: 2}
