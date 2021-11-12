@@ -46,13 +46,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.subsystemregistration": {
-      "version": "1.0.6",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.unity.test-framework": {
       "version": "1.1.29",
       "depth": 0,
@@ -103,10 +96,6 @@
       },
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-
-=======
->>>>>>> 1f7031d (Change the project to Android project and set the VR cardboard settings. Add initial version of room)
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
