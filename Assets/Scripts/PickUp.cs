@@ -35,7 +35,6 @@ public class PickUp : MonoBehaviour
 
     void PickUpObject(GameObject pickUpObject) {
         Rigidbody objectRigid = pickUpObject.GetComponent<Rigidbody>();
-        print(objectRigid);
         if (objectRigid != null) {
             objectRigid.useGravity = false;
             objectRigid.transform.parent = destination;

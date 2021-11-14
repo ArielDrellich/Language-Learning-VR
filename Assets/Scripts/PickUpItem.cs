@@ -11,8 +11,10 @@ public class PickUpItem : MonoBehaviour
     bool isHolding = false;
     static object Lock = new object();//doesn't seem to work for some reason
     Holding holdingScript;
+    GameObject redReticle;
     void Start() {
         holdingScript = GameObject.Find("Item Destination").GetComponent<Holding>();
+        redReticle = GameObject.Find("Red reticle");
     }
 
     // Update is called once per frame
@@ -43,6 +45,7 @@ public class PickUpItem : MonoBehaviour
         transform.position = destination.position;
         transform.parent = destination;
         GetComponent<Rigidbody>().freezeRotation = true;
+
     }
 
     void MoveObject() {
@@ -58,6 +61,8 @@ public class PickUpItem : MonoBehaviour
         GetComponent<Rigidbody>().freezeRotation = false;
         GetComponent<Rigidbody>().useGravity = true;
         this.transform.parent = null;
+ 
+
     }
 
     void OnCollisionEnter(Collision collision) {
