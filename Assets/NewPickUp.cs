@@ -10,6 +10,7 @@ public class NewPickUp : MonoBehaviour
     [SerializeField] private float grabDistance = 5f;
     [SerializeField] private float distance;
     bool isHolding = false;
+    private Vector3 nextPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,11 @@ public class NewPickUp : MonoBehaviour
     void Update()
     {
         bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
+        if (didHit && isHolding && hit.collider.GetComponent<CanPlaceOn>())
+            reticle.color = Color.green;
+        else if (isHolding) 
+                reticle.color = Color.red;
+        
         if (didHit && hit.collider.GetComponent<CanPickUp>()) {
             reticle.color = Color.red;
             if (Input.GetButtonDown("Fire1")) {
@@ -35,34 +41,39 @@ public class NewPickUp : MonoBehaviour
         if (!isHolding && !didHit)
             reticle.color = Color.white;
 
-        //         distance = Vector3.Distance(holding.transform.position, transform.position);
-        // if (isHolding && distance > 0.01)
-        //     if (distance < 1)
-        //         holding.transform.position = transform.position;
-            // else holding.AddForce( (transform.position - holding.transform.position).normalized * 1 );
-
         if (isHolding && Input.GetButtonUp("Fire1")) {
             Drop();
         }
     }
 
     void PickUp() {
+
+        // test
+        // holding.transform.localScale = new Vector3(5,5,5);
+        nextPosition = holding.transform.position;///
         isHolding = true;
         holding.transform.position = transform.position;
         holding.transform.parent = transform;
         holding.useGravity = false;
-        // holding.isKinematic = true;
+        // holding.isKinematic = true;///
         holding.GetComponent<Collider>().isTrigger = true;
-        holding.freezeRotation = true;
+        // holding.freezeRotation = true;
     }
 
     void Drop() {
+        bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
+        if (didHit && hit.collider.GetComponent<CanPlaceOn>()) {
+            nextPosition = hit.transform.position;
+            nextPosition.y += 0.25f;
+        }
         isHolding = false;            
-        // holding.isKinematic = false;
+        // holding.isKinematic = false;///
         holding.GetComponent<Collider>().isTrigger = false;
-        holding.freezeRotation = false;
+        // holding.freezeRotation = false;
         holding.useGravity = true;
         holding.transform.parent = null;
+        nextPosition.y += 0.25f;
+        holding.transform.position = nextPosition;
         holding = null;
     }
 }
