@@ -2005,6 +2005,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3098983056027174688, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056201747757, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056201747757, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3098983056246256745, guid: 1dbe1e584d2774649add480e916bfbda,
         type: 3}
       propertyPath: m_Name
@@ -2063,6 +2078,46 @@ PrefabInstance:
     - target: {fileID: 3098983056246256748, guid: 1dbe1e584d2774649add480e916bfbda,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056246256751, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056363304445, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056363304445, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056407508368, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056407508368, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056787420430, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056787420430, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098983056787420430, guid: 1dbe1e584d2774649add480e916bfbda,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
