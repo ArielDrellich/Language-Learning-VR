@@ -7,8 +7,8 @@ public class NewPickUp : MonoBehaviour
     SpriteRenderer reticle;
     RaycastHit hit;
     Rigidbody holding;
-    [SerializeField] private float grabDistance = 5f;
-    [SerializeField] private float distance;
+    [SerializeField] private float grabDistance = 2f;
+    [SerializeField] private Transform HoldDestination;
     bool isHolding = false;
     private Vector3 nextPosition;
 
@@ -23,7 +23,8 @@ public class NewPickUp : MonoBehaviour
     void Update()
     {
         // searches for nearby colliders
-        bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
+        bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance) 
+        || Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, grabDistance);
         bool canPickUp = false;
         if (didHit)
             canPickUp = hit.collider.GetComponent<CanPickUp>();
@@ -66,7 +67,8 @@ public class NewPickUp : MonoBehaviour
 
         isHolding = true;
         // Set new position for holding
-        holding.transform.position = transform.position;
+        holding.transform.position = HoldDestination.transform.position;
+
         holding.transform.parent = transform;
         holding.useGravity = false;
         holding.isKinematic = true;///
