@@ -7,7 +7,7 @@ public class NewPickUp : MonoBehaviour
     SpriteRenderer reticle;
     RaycastHit hit;
     Rigidbody holding;
-    [SerializeField] private float grabDistance = 2f;
+    [SerializeField] private float grabDistance = 5f;
     [SerializeField] private Transform HoldDestination;
     bool isHolding = false;
     private Vector3 nextPosition;
@@ -65,17 +65,17 @@ public class NewPickUp : MonoBehaviour
         nextPosition = holding.transform.position;///
         nextPosition.y += 0.5f;
 
-        isHolding = true;
-        // Set new position for holding
-        holding.transform.position = HoldDestination.transform.position;
-
-        holding.transform.parent = transform;
         holding.useGravity = false;
         holding.isKinematic = true;///
         // So the held item doesn't bump into things or block the raycast
         holding.GetComponent<Collider>().isTrigger = true;
         holding.GetComponent<Collider>().enabled = false;////
         holding.freezeRotation = true;
+
+        // Set new position for holding
+        holding.transform.parent = transform;
+        holding.transform.position = HoldDestination.transform.position;
+        isHolding = true;
     }
 
     void Drop() {
@@ -85,15 +85,17 @@ public class NewPickUp : MonoBehaviour
             nextPosition = hit.collider.transform.position;
             nextPosition.y += 0.5f;
         }
+        // new position
+        holding.transform.position = nextPosition;
+
         // Restore everything to how it was before picking up
         isHolding = false;            
+        holding.transform.parent = null;
         holding.isKinematic = false;///
         holding.GetComponent<Collider>().isTrigger = false;
         holding.GetComponent<Collider>().enabled = true;
         holding.freezeRotation = false;
         holding.useGravity = true;
-        holding.transform.parent = null;
-        holding.transform.position = nextPosition;
         holding = null;
     }
 }
