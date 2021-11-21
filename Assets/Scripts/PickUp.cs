@@ -4,49 +4,97 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public Transform destination;
-    public float grabDistance = 1f;
-    public float moveForce = 250;
-    private GameObject heldObject;
+    SpriteRenderer reticle;
+    RaycastHit hit;
+    Rigidbody holding;
+    [SerializeField] private float grabDistance = 5f;
+    [SerializeField] private Transform HoldDestination;
+    bool isHolding = false;
+    private Vector3 nextPosition;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        reticle = GameObject.Find("Reticle").GetComponent<SpriteRenderer>();
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) {
-            if (heldObject == null) {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance)) {
-                    PickUpObject(hit.transform.gameObject);
+        // searches for nearby colliders
+        bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
+        bool canPickUp = false;
+        if (didHit)
+            canPickUp = hit.collider.GetComponent<CanPickUp>();
+            
+        // if we're holding and looking at a Placement, change to green.
+        if (didHit && isHolding && hit.collider.GetComponent<CanPlaceOn>())
+            reticle.color = Color.green;
+        // if we're holding but not looking at a Placement, stay red.
+        else if (isHolding) 
+                reticle.color = Color.red;
+        
+        
+        // checks if we're looking at a closeby item
+        if (didHit && canPickUp) {
+            reticle.color = Color.red;
+            // picks up item
+            if (Input.GetButtonDown("Fire1")) {
+                holding = hit.collider.gameObject.GetComponent<Rigidbody>();
+                if (holding != null && !isHolding) {
+                    PickUpItem();
                 }
-            } else DropObject();
-        }
+            }  
+        } 
 
-        if (heldObject != null) {
-            // MoveObject();
-        }
-    }
+        // Set reticle to default if not looking at anything 
+        if (!isHolding && (!didHit || !canPickUp))
+            reticle.color = Color.white;
 
-    void MoveObject() {
-        if (Vector3.Distance(heldObject.transform.position, destination.transform.position) > 0.1f) {
-            Vector3 moveDirection = (destination.position - heldObject.transform.position);
-            heldObject.GetComponent<Rigidbody>().AddForce(moveDirection * moveForce);
+        // if we let go
+        if (isHolding && Input.GetButtonUp("Fire1")) {
+            Drop();
         }
     }
 
-    void PickUpObject(GameObject pickUpObject) {
-        Rigidbody objectRigid = pickUpObject.GetComponent<Rigidbody>();
-        if (objectRigid != null) {
-            objectRigid.useGravity = false;
-            objectRigid.transform.parent = destination;
-            heldObject = pickUpObject;
-            objectRigid.position = destination.position;////////////////
-        }
+    void PickUpItem() {
+
+        // Save reference for if we let go
+        nextPosition = holding.transform.position;
+        nextPosition.y += 0.5f;
+
+        holding.useGravity = false;
+        holding.isKinematic = true;
+        // So the held item doesn't bump into things or block the raycast
+        holding.GetComponent<Collider>().isTrigger = true;
+        holding.GetComponent<Collider>().enabled = false;
+        holding.freezeRotation = true;
+
+        // Set new position for holding
+        holding.transform.parent = transform;
+        holding.transform.position = HoldDestination.transform.position;
+        isHolding = true;
     }
 
-    void DropObject() {
-        Rigidbody body = heldObject.GetComponent<Rigidbody>();
-        body.useGravity = true;
-        heldObject.transform.parent = null;
-        heldObject = null;
+    void Drop() {
+        // Detect placeable surface
+        bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
+        if (didHit && hit.collider.GetComponent<CanPlaceOn>()) {
+            nextPosition = hit.collider.transform.position;
+            nextPosition.y += 0.5f;
+        }
+        // new position
+        holding.transform.position = nextPosition;
+
+        // Restore everything to how it was before picking up
+        isHolding = false;            
+        holding.transform.parent = null;
+        holding.isKinematic = false;
+        holding.GetComponent<Collider>().isTrigger = false;
+        holding.GetComponent<Collider>().enabled = true;
+        holding.freezeRotation = false;
+        holding.useGravity = true;
+        holding = null;
     }
 }
