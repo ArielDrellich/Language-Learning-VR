@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class TeleportPad : MonoBehaviour
 {
-    Renderer renderer;
+    Renderer teleportRenderer;
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        teleportRenderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButton("Fire2"))
-            renderer.enabled = true;
+            teleportRenderer.enabled = true;
         else 
-            renderer.enabled = false;
+            teleportRenderer.enabled = false;
     }
 }

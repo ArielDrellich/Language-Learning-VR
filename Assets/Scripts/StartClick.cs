@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class StartClick : MonoBehaviour
+using StartMenu;
+public class StartClick : MonoBehaviour, IStartMenu
 {
-    // [SerializeField] Scene scene;
-    public void LoadScene() {
+    public void DoClick() {
         SceneManager.LoadScene("SampleScene");
     }
 }

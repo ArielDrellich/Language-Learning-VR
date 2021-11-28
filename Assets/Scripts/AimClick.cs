@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using StartMenu;
 public class AimClick : MonoBehaviour
 {
     SpriteRenderer reticle;
@@ -17,14 +17,11 @@ public class AimClick : MonoBehaviour
     void Update()
     {
         bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit);
-        bool canClick = false;
-        if (didHit)
-            canClick = hit.collider.GetComponent<StartClick>();
-            
-        if (canClick) {
+
+        if (didHit) {
             reticle.color = Color.red;
             if (Input.GetButtonDown("Fire1")) {
-                hit.collider.GetComponent<StartClick>().LoadScene();
+                hit.collider.GetComponent<IStartMenu>().DoClick();
             }
         } else {
             reticle.color = Color.white;
