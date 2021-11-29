@@ -1,0 +1,46 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 11.11.2011 12:57:32
+
+newmtl Ear_Of_Corn_Ear_C1
+	Ns 50.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 0.8627 0.0000
+	Kd 1.0000 0.8627 0.0000
+	Ks 0.5400 0.5400 0.5400
+	Ke 0.0000 0.0000 0.0000
+
+newmtl Ear_Of_Corn_Leaf_C1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0450 0.0450 0.0450
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Ear_Of_Corn_Leaf_Diffuse.jpg
+	map_Kd Ear_Of_Corn_Leaf_Diffuse.jpg
+	map_bump Ear_Of_Corn_Leaf_Bump.jpg
+	bump Ear_Of_Corn_Leaf_Bump.jpg
+
+newmtl Ear_Of_Corn_Part_C1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Ear_Of_Corn_stem_Diffuse.jpg
+	map_Kd Ear_Of_Corn_stem_Diffuse.jpg
+	map_bump Ear_Of_Corn_Stem_Bump.jpg
+	bump Ear_Of_Corn_Stem_Bump.jpg
