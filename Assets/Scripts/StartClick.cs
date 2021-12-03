@@ -6,6 +6,7 @@ using StartMenu;
 public class StartClick : MonoBehaviour, IStartMenu
 {
     public void DoClick() {
-        SceneManager.LoadScene("SampleScene");
+        // Calls the next scene in build
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
