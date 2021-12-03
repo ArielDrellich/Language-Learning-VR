@@ -19,6 +19,7 @@ namespace KeySystem
 	    {
 	    	if (redDoor) 
 	    	{
+	    	Debug.Log(redDoor);
 	    	doorObject = GetComponent<KeyDoorController>();
 	    	}
 	    }
@@ -29,7 +30,9 @@ namespace KeySystem
 	    		doorObject.PlayAnimation();
 	    	}
 	    	else if (redKey) {
+	    		Debug.Log("HERE");
 	    		_keyInventory.hasRedKey = true;
+	    		Debug.Log(_keyInventory.hasRedKey);
 	    		//gameObject.setActive(false);
 	    		gameObject.SetActive(false);
 	    	}

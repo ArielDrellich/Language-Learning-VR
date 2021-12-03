@@ -36,17 +36,12 @@ public class GameTimer : MonoBehaviour
 
         //Debug.Log(seconds);
 
-        if (Mathf.FloorToInt(seconds_i) == 10) {
-            // StaticClass.CrossSceneInfo.Set(time_to_show);
-            SceneManager.LoadScene("SampleScene");
-        }
-    	// if (timeValue > 0) {
-     //    	timeValue -= Time.deltaTime;
-    	// } else
-    	// {
-    	// 	timeValue = 0;
-    	// }
-    	// DisplayTime(timeValue);
+        // if (Mathf.FloorToInt(seconds_i) == 10) {
+        //     // StaticClass.CrossSceneInfo.Set(time_to_show);
+        //     SceneManager.LoadScene("SampleScene");
+        // }
+
+
     }
 
     void OnDisable()
@@ -54,19 +49,5 @@ public class GameTimer : MonoBehaviour
         PlayerPrefs.SetFloat("timerStartTime", startTime);
     }
 
-    // void DisplayTime(float TimeToDisplay)
-    // {
-    // 	if (TimeToDisplay < 0)
-    // 	{
-    // 		TimeToDisplay = 0;
-    // 	}
 
-    // 	// calculate the minutes
-    // 	float minutes = Mathf.FloorToInt(TimeToDisplay / 60);
-
-    // 	// calculate the seconds
-    // 	float seconds = Mathf.FloorToInt(TimeToDisplay % 60);
-
-    // 	timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-    // }
 }
