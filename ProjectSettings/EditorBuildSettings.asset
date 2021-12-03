@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 8c7c1e04e98c98e4abb791af8d644922
   - enabled: 1
+    path: Assets/Scenes/TeleportTest.unity
+    guid: e0d9db8d2be2fce4fbe70d0b271b76f3
+  - enabled: 1
+    path: Assets/Objects test.unity
+    guid: 3fcffcc7110d5024aa98f149782f5802
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
