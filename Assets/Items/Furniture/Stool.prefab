@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1875853282273585987}
   - component: {fileID: 3111394422446215127}
   - component: {fileID: 5506036185855082807}
-  - component: {fileID: 5506036185855082801}
+  - component: {fileID: 9121191601043772984}
   m_Layer: 0
   m_Name: Stool
   m_TagString: Untagged
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5506036185855082802}
-  m_Mesh: {fileID: -2432090755550338912, guid: ad3b2599e22ec4e4faabe3ff63662c7e, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: ecc765984aaec9e468b9588f46016f82, type: 3}
 --- !u!23 &3111394422446215127
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &5506036185855082801
+--- !u!64 &9121191601043772984
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,4 +110,4 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: ad3b2599e22ec4e4faabe3ff63662c7e, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: ecc765984aaec9e468b9588f46016f82, type: 3}

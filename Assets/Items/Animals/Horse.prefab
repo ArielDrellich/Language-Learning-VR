@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 144346158203470048}
   - component: {fileID: 6331330335516264420}
   - component: {fileID: 3498948526682188756}
-  - component: {fileID: 2926794908110882726}
   - component: {fileID: 760671709495124589}
   - component: {fileID: 7160944269093929250}
+  - component: {fileID: 9090869513254988631}
   m_Layer: 0
   m_Name: Horse
   m_TagString: Untagged
@@ -82,20 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2926794908110882726
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4278452619687853604}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5949848096990123322, guid: 34f76166475041d438a9f1635e1b01c7, type: 3}
 --- !u!114 &760671709495124589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,3 +110,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &9090869513254988631
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278452619687853604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5949848096990123322, guid: 638a0092aa015bb47a5197b2a87308b5, type: 3}
