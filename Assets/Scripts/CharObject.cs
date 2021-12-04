@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CharObject : MonoBehaviour
 {
 	public char character; //A,B,C..
-	public Text text;
+	public TMPro.TMP_Text text;
 	public RectTransform rectTransform;
 	public int index;
 	public Image image;

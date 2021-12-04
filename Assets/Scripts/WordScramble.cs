@@ -129,6 +129,7 @@ public class WordScramble : MonoBehaviour
     // Select letter
     public void Select (CharObject charObject)
     {
+        Debug.Log("Selecting");
         if (firstSelected)
         {
 
