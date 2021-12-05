@@ -50,6 +50,7 @@ public class WordScramble : MonoBehaviour
     public int currentWord;
     public static WordScramble main;
 
+
     void Awake()
     {
         main = this;
@@ -59,12 +60,14 @@ public class WordScramble : MonoBehaviour
     void Start()
     {
         ShowScramble(currentWord);
+
     }
 
 
     void Update()
     {
         RepositionObject();
+
     }
 
     // Relocate the letter
@@ -78,7 +81,7 @@ public class WordScramble : MonoBehaviour
         for (int i = 0; i < charObjects.Count; i++)
         {
             charObjects[i].rectTransform.anchoredPosition =
-                new Vector2((i - center) * space, 0);
+                new Vector3((i - center) * space, 0,0);
             charObjects[i].index = i;
         }
     }
@@ -104,11 +107,14 @@ public class WordScramble : MonoBehaviour
             return;
         }
         char[] chars = words[index].GetString().ToCharArray();
+
         foreach (char c in chars)
         {
             CharObject clone = Instantiate(prefab.gameObject).GetComponent<CharObject>();
             clone.transform.SetParent(container);
+            //clone.currentChar = c.ToString();
 
+            // Debug.Log(clone.currentChar);
             charObjects.Add(clone.Init(c));
         }
     }

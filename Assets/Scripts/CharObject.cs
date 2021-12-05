@@ -16,6 +16,7 @@ public class CharObject : MonoBehaviour
 	public Color normalColor;
 	public Color selectedColor;
 
+
 	public CharObject Init (char c) {
 		character = c;
 		text.text = c.ToString();
@@ -23,9 +24,13 @@ public class CharObject : MonoBehaviour
 		return this;
 	}
 
+	public void Start()
+	{
+	}
 
 	public void Select ()
 	{
+		Debug.Log("Selected: " + this.character);
 		isSelected = !isSelected;
 
 		image.color = isSelected ? selectedColor : normalColor;
@@ -38,4 +43,9 @@ public class CharObject : MonoBehaviour
 			WordScramble.main.UnSelect();
 		}
 	}
+
+
+	
+
+
 }

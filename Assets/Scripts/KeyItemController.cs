@@ -30,7 +30,6 @@ namespace KeySystem
 	    		doorObject.PlayAnimation();
 	    	}
 	    	else if (redKey) {
-	    		Debug.Log("HERE");
 	    		_keyInventory.hasRedKey = true;
 	    		Debug.Log(_keyInventory.hasRedKey);
 	    		//gameObject.setActive(false);
