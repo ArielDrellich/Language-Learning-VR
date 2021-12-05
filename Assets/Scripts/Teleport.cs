@@ -5,12 +5,16 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
     RaycastHit hit;
-    GameObject player;
+    // GameObject player;
+    CharacterController controller;
     float teleportDistance = 15f;
+    ReticleManager reticle;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        // player = GameObject.Find("Player");
+        controller = GameObject.Find("Player").GetComponent<CharacterController>();
+        reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
     }
 
     // Update is called once per frame
@@ -22,10 +26,12 @@ public class Teleport : MonoBehaviour
         if (didHit)
             canTeleport = hit.collider.GetComponent<TeleportPad>();
 
+        if (canTeleport && Input.GetButton("Fire2"))
+            reticle.SetColor(Color.blue);
+
         if (canTeleport && Input.GetButtonUp("Fire2")) {
             Vector3 hitPosition =  hit.collider.transform.position;
             // player.transform.position = new Vector3(hitPosition.x, hitPosition.y + 1.5f, hitPosition.z);////
-            CharacterController controller = player.GetComponent<CharacterController>();
             controller.enabled = false;
             controller.transform.position = new Vector3(hitPosition.x, hitPosition.y + 1.5f, hitPosition.z);
             controller.enabled = true;
