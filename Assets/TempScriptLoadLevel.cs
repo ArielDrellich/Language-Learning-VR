@@ -11,7 +11,7 @@ public class TempScriptLoadLevel : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Square Table") {
-            GameObject.Find("loading").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>().enabled = true;
             loadingOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
             GameObject player = GameObject.Find("Player");
             GameObject aimSet = GameObject.Find("Aim Set");

@@ -5,10 +5,10 @@ using UnityEngine;
 public class ReticleManager : MonoBehaviour
 {
     Color currentColor;
-    SpriteRenderer rend;
+    SpriteRenderer reticle;
 
     void Start() {
-        rend =  this.GetComponent<SpriteRenderer>();
+        reticle =  this.GetComponent<SpriteRenderer>();
     }
 
     public void SetColor(Color color) {
@@ -17,7 +17,7 @@ public class ReticleManager : MonoBehaviour
 
 
     void Update() {
-        rend.color = currentColor;
+        reticle.color = currentColor;
         currentColor = Color.white;
     }
 }
