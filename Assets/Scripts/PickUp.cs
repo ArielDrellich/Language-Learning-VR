@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    SpriteRenderer reticle;
+    ReticleManager reticle;
     RaycastHit hit;
     Rigidbody holding;
     [SerializeField] private float grabDistance = 5f;
@@ -15,7 +15,7 @@ public class PickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        reticle = GameObject.Find("Reticle").GetComponent<SpriteRenderer>();
+        reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
     }
 
 
@@ -30,15 +30,16 @@ public class PickUp : MonoBehaviour
             
         // if we're holding and looking at a Placement, change to green.
         if (didHit && isHolding && hit.collider.GetComponent<CanPlaceOn>())
-            reticle.color = Color.green;
+            // reticle.color = Color.green;
+            reticle.SetColor(Color.green);
         // if we're holding but not looking at a Placement, stay red.
         else if (isHolding) 
-                reticle.color = Color.red;
+                reticle.SetColor(Color.red);
         
         
         // checks if we're looking at a closeby item
         if (didHit && canPickUp) {
-            reticle.color = Color.red;
+            reticle.SetColor(Color.red);
             // picks up item
             if (Input.GetButtonDown("Fire1")) {
                 holding = hit.collider.gameObject.GetComponent<Rigidbody>();
@@ -47,10 +48,6 @@ public class PickUp : MonoBehaviour
                 }
             }  
         } 
-
-        // Set reticle to default if not looking at anything 
-        if (!isHolding && (!didHit || !canPickUp))
-            reticle.color = Color.white;
 
         // if we let go
         if (isHolding && Input.GetButtonUp("Fire1")) {

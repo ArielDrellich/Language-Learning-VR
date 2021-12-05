@@ -28,9 +28,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6869979584675618318}
+  - {fileID: 8578602183239664847}
   - {fileID: 3854633127606439656}
   - {fileID: 8355206494660735847}
-  - {fileID: 8578602183239664847}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44,7 +44,7 @@ PrefabInstance:
     - target: {fileID: 7981658558445361267, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7981658558445361267, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 7981658558445361278, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
       propertyPath: m_Name
-      value: Teleportation Pad (3)
+      value: Top Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac7446d40487b8a4aae2ca22d178fc44, type: 3}
@@ -119,7 +119,7 @@ PrefabInstance:
     - target: {fileID: 7981658558445361267, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7981658558445361267, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
@@ -174,7 +174,7 @@ PrefabInstance:
     - target: {fileID: 7981658558445361278, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
       propertyPath: m_Name
-      value: Teleportation Pad (2)
+      value: Bottom Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac7446d40487b8a4aae2ca22d178fc44, type: 3}
@@ -249,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 7981658558445361278, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
       propertyPath: m_Name
-      value: Teleportation Pad
+      value: Top Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac7446d40487b8a4aae2ca22d178fc44, type: 3}
@@ -269,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 7981658558445361267, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7981658558445361267, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
@@ -324,7 +324,7 @@ PrefabInstance:
     - target: {fileID: 7981658558445361278, guid: ac7446d40487b8a4aae2ca22d178fc44,
         type: 3}
       propertyPath: m_Name
-      value: Teleportation Pad (1)
+      value: Bottom Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac7446d40487b8a4aae2ca22d178fc44, type: 3}

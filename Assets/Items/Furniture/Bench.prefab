@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2686339119690749563}
   - component: {fileID: 231557406621181508}
   - component: {fileID: 3657117650957440117}
-  - component: {fileID: 3689038768065292882}
   - component: {fileID: 3689038768065292884}
+  - component: {fileID: -3302743506344358281}
   m_Layer: 0
   m_Name: Bench
   m_TagString: Untagged
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3689038768065292885}
-  m_Mesh: {fileID: -4548362824172180, guid: 709ebc7af10b43842ab336d0e4e6db5b, type: 3}
+  m_Mesh: {fileID: -4240638457164496627, guid: 2da96f1166e529c41b15ffab84f372c8, type: 3}
 --- !u!23 &3657117650957440117
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1751453697652531607, guid: 709ebc7af10b43842ab336d0e4e6db5b, type: 3}
+  - {fileID: -1751453697652531607, guid: 2da96f1166e529c41b15ffab84f372c8, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,20 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3689038768065292882
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3689038768065292885}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4548362824172180, guid: 709ebc7af10b43842ab336d0e4e6db5b, type: 3}
 --- !u!54 &3689038768065292884
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -111,3 +97,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &-3302743506344358281
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3689038768065292885}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4240638457164496627, guid: 2da96f1166e529c41b15ffab84f372c8, type: 3}
