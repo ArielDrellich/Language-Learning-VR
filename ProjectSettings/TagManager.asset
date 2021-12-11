@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - InteractiveObject
+  - Banana
+  - Ball
   layers:
   - Default
   - TransparentFX
