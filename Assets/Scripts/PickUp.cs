@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    GameObject player;
     ReticleManager reticle;
     RaycastHit hit;
     Rigidbody holding;
@@ -15,6 +16,7 @@ public class PickUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
     }
 
@@ -81,7 +83,10 @@ public class PickUp : MonoBehaviour
             nextPosition = hit.collider.transform.position;
             nextPosition.y += 0.5f;
         }
-        // new position
+        // turn off player temporarily to fix weird jumping bug when releasing
+        player.SetActive(false);
+
+        // move to new position
         holding.transform.position = nextPosition;
 
         // Restore everything to how it was before picking up
@@ -93,5 +98,6 @@ public class PickUp : MonoBehaviour
         holding.freezeRotation = false;
         holding.useGravity = true;
         holding = null;
+        player.SetActive(true);
     }
 }
