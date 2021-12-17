@@ -6,7 +6,12 @@ public class RecWord : MonoBehaviour
 {
 	RaycastHit hit;
 	[SerializeField] private float charDistance = 10f;
+    ReticleManager reticle;
 
+    void Start()
+    {
+        reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -18,7 +23,8 @@ public class RecWord : MonoBehaviour
             isChar = hit.collider.GetComponent<CharObject>();
             GameObject selected = hit.collider.gameObject;
             CharObject co = (CharObject)selected.GetComponent(typeof(CharObject));
-
+            if (co != null) 
+                reticle.SetColor(Color.red);
             if (co != null && Input.GetButtonDown("Fire1")) {
             	co.Select();
             }
