@@ -26,6 +26,7 @@ public class PickUp : MonoBehaviour
     {
         // searches for nearby colliders
         bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward)*10, Color.green);
         bool canPickUp = false;
         if (didHit)
             canPickUp = hit.collider.GetComponent<CanPickUp>();
@@ -83,7 +84,7 @@ public class PickUp : MonoBehaviour
             nextPosition = hit.collider.transform.position;
             nextPosition.y += 0.5f;
         }
-        // turn off player temporarily to fix weird jumping bug when releasing
+        // // turn off player temporarily to fix weird jumping bug when releasing
         player.SetActive(false);
 
         // move to new position
@@ -93,8 +94,8 @@ public class PickUp : MonoBehaviour
         isHolding = false;            
         holding.transform.parent = null;
         holding.isKinematic = false;
-        holding.GetComponent<Collider>().isTrigger = false;
         holding.GetComponent<Collider>().enabled = true;
+        holding.GetComponent<Collider>().isTrigger = false;
         holding.freezeRotation = false;
         holding.useGravity = true;
         holding = null;

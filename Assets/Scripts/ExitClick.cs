@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using StartMenu;
+using Menu;
 
-public class ExitClick : MonoBehaviour, IStartMenu
+public class ExitClick : MonoBehaviour, IMenu
 {
     public void DoClick() {
         Application.Quit();
