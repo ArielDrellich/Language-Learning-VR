@@ -30,11 +30,17 @@ public class HealthCounter
 
 public class HealthBar : MonoBehaviour
 {
+    TMPro.TMP_Text tmp;
+    void Start() 
+    {
+       tmp = GetComponent<TMPro.TMP_Text>(); 
+    }
+    
     // Update is called once per frame
     void Update()
     {
         int remainingHealth = HealthCounter.GetHealth();
-        GetComponent<TMPro.TMP_Text>().text = "Health: " + remainingHealth.ToString();
+        tmp.text = "Health: " + remainingHealth.ToString();
         if (remainingHealth <= 0) {
             SceneManager.LoadScene("Game Over Screen");
         }

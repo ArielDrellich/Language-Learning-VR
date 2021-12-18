@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    GameObject player;
-    CharacterController controller;
-    ReticleManager reticle;
-    RaycastHit hit;
-    Rigidbody holding;
-    [SerializeField] private float grabDistance = 5f;
-    [SerializeField] private Transform HoldDestination;
-    private Vector3 nextPosition;
-    private bool isHolding = false;
-    private bool playerOff = false;
+    [SerializeField] 
+    private Transform           HoldDestination;
+    private CharacterController controller;
+    private ReticleManager      reticle;
+    private GameObject          player;
+    private RaycastHit          hit;
+    private Rigidbody           holding;
+    private Vector3             nextPosition;
+    private Collider[]          colliders;
+    private bool                isHolding = false;
+    private float               grabDistance = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +27,7 @@ public class PickUp : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        // turns back on one frame after tunring off for Drop(). Checking local variable for performance reasons only.
-        if (playerOff) {
-            controller.enabled = true;
-            playerOff = false;
-        }
-        
+    {        
         // searches for nearby colliders
         bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
 
@@ -65,9 +60,6 @@ public class PickUp : MonoBehaviour
 
         // if we let go
         if (isHolding && Input.GetButtonUp("Fire1")) {
-            // turn off temporarily to fix weird jumping bug when releasing
-            controller.enabled = false;
-            playerOff = true;
             Drop();
         }
     }
@@ -81,8 +73,11 @@ public class PickUp : MonoBehaviour
         holding.useGravity = false;
         holding.isKinematic = true;
         // So the held item doesn't bump into things or block the raycast
-        holding.GetComponent<Collider>().isTrigger = true;
-        holding.GetComponent<Collider>().enabled = false;
+        colliders = holding.GetComponents<Collider>();
+        foreach (Collider collider in colliders) {
+            collider.isTrigger = true;
+            collider.enabled = false;
+        }
         holding.freezeRotation = true;
 
         // Set new position for holding
@@ -103,13 +98,15 @@ public class PickUp : MonoBehaviour
         holding.transform.position = nextPosition;
 
         // Restore everything to how it was before picking up
-        isHolding = false;            
         holding.transform.parent = null;
         holding.isKinematic = false;
-        holding.GetComponent<Collider>().enabled = true;
-        holding.GetComponent<Collider>().isTrigger = false;
+        foreach (Collider collider in colliders) {
+            collider.enabled = true;
+            collider.isTrigger = false;
+        }
         holding.freezeRotation = false;
         holding.useGravity = true;
         holding = null;
+        isHolding = false;          
     }
 }

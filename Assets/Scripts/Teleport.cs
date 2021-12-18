@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    RaycastHit hit;
-    // GameObject player;
+    RaycastHit          hit;
     CharacterController controller;
-    float teleportDistance = 15f;
-    ReticleManager reticle;
+    ReticleManager      reticle;
+    float               teleportDistance = 15f;
+
     // Start is called before the first frame update
     void Start()
     {
-        // player = GameObject.Find("Player");
         controller = GameObject.Find("Player").GetComponent<CharacterController>();
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
     }
@@ -31,7 +30,6 @@ public class Teleport : MonoBehaviour
 
         if (canTeleport && Input.GetButtonUp("Fire2")) {
             Vector3 hitPosition =  hit.collider.transform.position;
-            // player.transform.position = new Vector3(hitPosition.x, hitPosition.y + 1.5f, hitPosition.z);////
             controller.enabled = false;
             controller.transform.position = new Vector3(hitPosition.x, hitPosition.y + 1.5f, hitPosition.z);
             controller.enabled = true;

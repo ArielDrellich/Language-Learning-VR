@@ -6,6 +6,6 @@ public class DefaultAction : MonoBehaviour, IAction
 {
     public void DoAction()
     {
-        Debug.Log("Doing action");
+        Debug.Log("Doing default action");
     }
 }

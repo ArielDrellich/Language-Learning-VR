@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 20f;
-    private float gravity = 9.8f;
-    CharacterController controller;
+    [SerializeField]
+    private float               speed = 20f;
+    private float               gravity = 9.8f;
+    private CharacterController controller;
 
     void Start()
     {

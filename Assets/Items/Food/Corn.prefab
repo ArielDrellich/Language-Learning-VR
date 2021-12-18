@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3725534270072060258}
   - component: {fileID: 3725534270072060261}
   - component: {fileID: 3725534270072060260}
+  - component: {fileID: 876979384283074735}
   m_Layer: 0
   m_Name: Corn
   m_TagString: Untagged
@@ -73,11 +74,25 @@ CapsuleCollider:
   m_GameObject: {fileID: 3725534270072060263}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 2.2594395
   m_Height: 18.149986
   m_Direction: 0
   m_Center: {x: -0.015659332, y: -0.21001606, z: 2.4403799}
+--- !u!64 &876979384283074735
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725534270072060263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4217001971302784536, guid: c277841354259df4bb154e3aa631d80e, type: 3}
 --- !u!1 &3725534271744954354
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +262,6 @@ GameObject:
   - component: {fileID: 3725534271864868343}
   - component: {fileID: 3725534271864868341}
   - component: {fileID: 3725534271864868340}
-  - component: {fileID: 3725534271864868338}
   m_Layer: 0
   m_Name: Ear_Of_Corn_Leaf_C1
   m_TagString: Untagged
@@ -316,17 +330,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3725534271864868338
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725534271864868342}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4217001971302784536, guid: c277841354259df4bb154e3aa631d80e, type: 3}
