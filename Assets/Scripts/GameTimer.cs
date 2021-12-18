@@ -16,10 +16,13 @@ public class GameTimer : MonoBehaviour
 
     void OnEnable()
     {
-        if (SceneManager.GetActiveScene().name.Equals("Living-Room-Scene")) {
-            startTime = Time.time;
-        } else {
-            startTime = PlayerPrefs.GetFloat("timerStartTime") - 1;
+        SpriteRenderer lrs = GameObject.Find("loading").GetComponent<SpriteRenderer>();
+        while (lrs != null && lrs.enabled) {
+            if (SceneManager.GetActiveScene().name.Equals("Living-Room-Scene")) {
+                startTime = Time.time;
+            } else {
+                startTime = PlayerPrefs.GetFloat("timerStartTime") - 1;
+            }
         }
     }
 
@@ -36,10 +39,10 @@ public class GameTimer : MonoBehaviour
 
         //Debug.Log(seconds);
 
-        // if (Mathf.FloorToInt(seconds_i) == 10) {
-        //     // StaticClass.CrossSceneInfo.Set(time_to_show);
-        //     SceneManager.LoadScene("SampleScene");
-        // }
+        //if (Mathf.FloorToInt(seconds_i) == 59) {
+            //StaticClass.CrossSceneInfo.Set(time_to_show);
+            //SceneManager.LoadScene("Forest");
+        //}
 
 
     }

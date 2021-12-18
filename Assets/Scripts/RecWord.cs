@@ -8,9 +8,14 @@ public class RecWord : MonoBehaviour
 	[SerializeField] private float charDistance = 10f;
     ReticleManager reticle;
 
+    public GameObject submit;
+    [SerializeField] private float submitDistance = 10f;
+    private WordScramble ws;
+
     void Start()
     {
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
+        ws = GameObject.Find("Core").GetComponent<WordScramble>();
     }
     // Update is called once per frame
     void Update()
@@ -29,5 +34,27 @@ public class RecWord : MonoBehaviour
             	co.Select();
             }
     	}
+
+        Submit();
+    }
+
+    public void Submit()
+    {
+        bool didHitButton = Physics.Raycast(transform.position,
+            transform.TransformDirection(Vector3.forward), out hit, submitDistance);
+
+        if (didHitButton) {
+            if (hit.collider.gameObject.name == submit.name) {
+                reticle.SetColor(Color.red);
+                if (Input.GetButtonDown("Fire1")) {
+                    Debug.Log("Checking answer...");
+                    if (ws.CheckWord()) {
+                        Debug.Log("Success");
+                    } else {
+                        Debug.Log("You suck");
+                    }
+                }
+            }
+        }
     }
 }
