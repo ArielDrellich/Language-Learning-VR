@@ -14,18 +14,18 @@ public class MatchObject : MonoBehaviour
     //this and action, and use only _action.
     void Start()
     {
-        Component[] list = action.GetComponents(typeof(Component));
-        foreach (Component component in list) {
-            if (component is IAction) {
-                action = component;
-                break;
+        if (action) {
+            Component[] list = action.GetComponents(typeof(Component));
+            foreach (Component component in list) {
+                if (component is IAction) {
+                    _action = (IAction) component;
+                    return;
+                }
             }
         }
-
-        if (action is IAction)
-            _action = (IAction) action;
-        else 
-            _action = new DefaultAction();
+        
+        // if action is either null or not IAction
+        _action = new DefaultAction();
     }
 
 
