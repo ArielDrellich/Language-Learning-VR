@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Menu;
+
 public class MenuClick : MonoBehaviour
 {
     SpriteRenderer reticle;

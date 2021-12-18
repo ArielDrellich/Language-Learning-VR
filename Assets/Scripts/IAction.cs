@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Menu 
+
+public interface IAction
 {
-    public interface IMenu
-    {
-        void DoClick();
-    }
+    void DoAction();
 }
+

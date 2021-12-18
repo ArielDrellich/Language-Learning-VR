@@ -5,35 +5,46 @@ using UnityEngine;
 public class PickUp : MonoBehaviour
 {
     GameObject player;
+    CharacterController controller;
     ReticleManager reticle;
     RaycastHit hit;
     Rigidbody holding;
     [SerializeField] private float grabDistance = 5f;
     [SerializeField] private Transform HoldDestination;
-    bool isHolding = false;
     private Vector3 nextPosition;
+    private bool isHolding = false;
+    private bool playerOff = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
+        controller = player.GetComponent<CharacterController>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        // turns back on one frame after tunring off for Drop(). Checking local variable for performance reasons only.
+        if (playerOff) {
+            controller.enabled = true;
+            playerOff = false;
+        }
+        
         // searches for nearby colliders
         bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward)*10, Color.green);
+
+        // useful for debugging only.
+        // Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward)*10, Color.green);
+
         bool canPickUp = false;
         if (didHit)
             canPickUp = hit.collider.GetComponent<CanPickUp>();
             
         // if we're holding and looking at a Placement, change to green.
         if (didHit && isHolding && hit.collider.GetComponent<CanPlaceOn>())
-            // reticle.color = Color.green;
             reticle.SetColor(Color.green);
         // if we're holding but not looking at a Placement, stay red.
         else if (isHolding) 
@@ -54,6 +65,9 @@ public class PickUp : MonoBehaviour
 
         // if we let go
         if (isHolding && Input.GetButtonUp("Fire1")) {
+            // turn off temporarily to fix weird jumping bug when releasing
+            controller.enabled = false;
+            playerOff = true;
             Drop();
         }
     }
@@ -84,8 +98,6 @@ public class PickUp : MonoBehaviour
             nextPosition = hit.collider.transform.position;
             nextPosition.y += 0.5f;
         }
-        // // turn off player temporarily to fix weird jumping bug when releasing
-        player.SetActive(false);
 
         // move to new position
         holding.transform.position = nextPosition;
@@ -99,6 +111,5 @@ public class PickUp : MonoBehaviour
         holding.freezeRotation = false;
         holding.useGravity = true;
         holding = null;
-        player.SetActive(true);
     }
 }
