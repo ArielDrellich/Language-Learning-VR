@@ -820,20 +820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8116aab4675a449ab13b7b4a9cc5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expectedObject: {fileID: 1557310311}
   expectedName: Tomato
   action: {fileID: 1175516055}
---- !u!114 &1175516059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175516054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb56248f7f054f48abe62288bd2368a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1464162104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1093,30 @@ RectTransform:
   m_AnchoredPosition: {x: -31.05, y: 0.61}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1557310311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8611656975639157322, guid: ab9fc5e9e51d56a4e8793a7dfc232728,
+    type: 3}
+  m_PrefabInstance: {fileID: 93405777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1919959930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3852104730456868302, guid: e9a74616d1b99c3449d0ca779e56356b,
+    type: 3}
+  m_PrefabInstance: {fileID: 755813501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1919959937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919959930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d42816f35658144bba52a06c5e7697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2136977682
 PrefabInstance:
   m_ObjectHideFlags: 0
