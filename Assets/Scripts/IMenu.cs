@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace StartMenu{
-public interface IStartMenu
+namespace Menu 
 {
-    void DoClick();
-}
+    public interface IMenu
+    {
+        void DoClick();
+    }
 }

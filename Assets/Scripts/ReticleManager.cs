@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ReticleManager : MonoBehaviour
 {
-    Color currentColor;
     SpriteRenderer reticle;
+    Color          currentColor;
 
     void Start() {
         reticle =  this.GetComponent<SpriteRenderer>();

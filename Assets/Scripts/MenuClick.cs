@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using StartMenu;
-public class AimClick : MonoBehaviour
+using Menu;
+
+public class MenuClick : MonoBehaviour
 {
     SpriteRenderer reticle;
     RaycastHit hit;
@@ -21,7 +22,7 @@ public class AimClick : MonoBehaviour
         if (didHit) {
             reticle.color = Color.red;
             if (Input.GetButtonDown("Fire1")) {
-                hit.collider.GetComponent<IStartMenu>().DoClick();
+                hit.collider.GetComponent<IMenu>().DoClick();
             }
         } else {
             reticle.color = Color.white;

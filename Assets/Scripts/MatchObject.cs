@@ -4,32 +4,51 @@ using UnityEngine;
 
 public class MatchObject : MonoBehaviour
 {
-	public string expectedTag;
+    public  string     expectedName;
+    public  Component  action;
+    private IAction    _action;
+    private GameObject lastCollision;
+    private bool       solved = false;
 
-    // Start is called before the first frame update
+    // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
+    //this and action, and use only _action.
     void Start()
     {
-        
+        Component[] list = action.GetComponents(typeof(Component));
+        foreach (Component component in list) {
+            if (component is IAction) {
+                action = component;
+                break;
+            }
+        }
+
+        if (action is IAction)
+            _action = (IAction) action;
+        else 
+            _action = new DefaultAction();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnCollisionEnter(Collision collision)
     {
-    	if (collision.gameObject.tag == expectedTag) {
-    		Vector3 pos = collision.gameObject.transform.position + new Vector3(0, 5, 5);
-    		Debug.Log(pos);
-    		GameObject clone = Instantiate(collision.gameObject, pos, collision.gameObject.transform.rotation);
-
-    		// Destroy(clone);
-
-    		Debug.Log("Collision successfull");
-    	} else {
-    		Debug.Log("Collided with unexpected object " + collision.gameObject.tag);
-    	}
+        if (!solved) {
+    	    if (collision.gameObject.name != expectedName) {
+                if (collision.gameObject != lastCollision && collision.gameObject.name != "Floor") {
+                    HealthCounter.Decrement();
+                    lastCollision = collision.gameObject;
+                }
+            } else {
+                // what to do if it's correct
+                _action.DoAction();
+                solved = true;
+            }
+        }
     }
+
+    // Can be called from outside in order to set action at runtime
+    public void SetAction(IAction newAction)
+    {
+        _action = newAction;
+    }
+
 }
