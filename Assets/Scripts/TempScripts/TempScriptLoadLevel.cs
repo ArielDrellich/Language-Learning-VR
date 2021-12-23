@@ -7,25 +7,37 @@ using UnityEngine.UI;
 public class TempScriptLoadLevel : MonoBehaviour
 {
     public TMPro.TMP_Text timerTextPro;
+    public GameObject collisionTriggerObj;
+    GameObject player;
+    GameObject aimSet;
+    GameObject loadingSprite;
     AsyncOperation loadingOperation;
 
     float loadingTime;
+    bool loading;
+
+    void Start()
+    {
+        loading = true;
+        player = GameObject.Find("Player");
+        aimSet = GameObject.Find("Aim Set");
+        loadingSprite = GameObject.Find("Loading_Sprite");
+    }
 
     // [SerializeField] Slider progressBar;
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.name == "Ball") {
-            GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>().enabled = true;
+        if (collision.gameObject.name == collisionTriggerObj.name && loading) {
+            loadingSprite.GetComponent<SpriteRenderer>().enabled = true;
             //stop the timer
 
             loadingTime = Time.time;
             loadingOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
-            GameObject player = GameObject.Find("Player");
-            GameObject aimSet = GameObject.Find("Aim Set");
             player.GetComponent<PlayerMovement>().enabled = false;
             aimSet.GetComponent<PickUp>().enabled = false;
             aimSet.GetComponent<Teleport>().enabled = false;
+            loading = false;
         }
     }
 
@@ -33,7 +45,6 @@ public class TempScriptLoadLevel : MonoBehaviour
     void OnEnable()
     {
         Debug.Log("OnEnable called");
-        // start from when you stopped
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -42,7 +53,6 @@ public class TempScriptLoadLevel : MonoBehaviour
         Debug.Log("OnSceneLoaded: " + scene.name);
         loadingTime = Time.time - loadingTime;
         GameObject.Find("Timer").GetComponent<GameTimer>().accumulatedLoadingTime += loadingTime;
-        //Debug.Log(mode);
     }
 
     // called when the game is terminated
