@@ -12,7 +12,6 @@ public class LoadLanguages : MonoBehaviour, IMenu
 	TMPro.TMP_Text language3Text;
 
 	List <KeyValuePair<string, string>> languages;
-	List <KeyValuePair<string, string>> languages_rev;
 
 	int index;
 
@@ -42,22 +41,41 @@ public class LoadLanguages : MonoBehaviour, IMenu
     // Update is called once per frame
     void Update()
     {
+    	language1Text = GameObject.Find("Language1Text").GetComponent<TMPro.TMP_Text>();
+    	language2Text = GameObject.Find("Language2Text").GetComponent<TMPro.TMP_Text>();
+    	language3Text = GameObject.Find("Language3Text").GetComponent<TMPro.TMP_Text>();
         
     }
 
     public void DoClick(GameObject clicker) {
     	if (clicker == null || clicker.name == "up") {
     		index = (PlayerPrefs.GetInt("languageIndex") + 1) % languages.Count;
+    		language1Text.text = languages[index].Key;
+	   		language2Text.text = languages[(index + 1) % languages.Count].Key;
+	  		language3Text.text = languages[(index + 2) % languages.Count].Key;
+	  		PlayerPrefs.SetInt("languageIndex", index);
     	} else if (clicker.name == "down") {
 	    	index = PlayerPrefs.GetInt("languageIndex") - 1;
 	    	if (index < 0) {
 	    		index = languages.Count - 1;
 	    	}
+	    	language1Text.text = languages[index].Key;
+		    language2Text.text = languages[(index + 1) % languages.Count].Key;
+		    language3Text.text = languages[(index + 2) % languages.Count].Key;
+		    PlayerPrefs.SetInt("languageIndex", index);
+	    } else if (clicker.tag == "LanguageButton") {
+	    	foreach (KeyValuePair<string, string> oneLanguage in languages)
+			{
+
+				string language = clicker.gameObject.transform.GetChild(0).name;
+				TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
+	 		   if (oneLanguage.Key == languageTxt.text)
+	 		   {
+	 		   		string choice = oneLanguage.Value;
+	 		   		PlayerPrefs.SetString("languageChoice", choice);
+	 		   		Debug.Log(choice);
+	 		   }
+			}
 	    }
-	    
-	    language1Text.text = languages[index].Key;
-	    language2Text.text = languages[(index + 1) % languages.Count].Key;
-	    language3Text.text = languages[(index + 2) % languages.Count].Key;
-	    PlayerPrefs.SetInt("languageIndex", index);
     }
 }
