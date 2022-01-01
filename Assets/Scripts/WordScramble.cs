@@ -123,18 +123,22 @@ public class WordScramble : MonoBehaviour
             // Translate the word to the desire language
             Debug.Log(words[index].word);
             //chars = words[index].GetString().ToCharArray();
-            Translator tr = new Translator();
-            // todo: change it to the desire langutage from global variables
-            string userChoice = PlayerPrefs.GetString("languageChoice");
-            translatedWord = tr.Translate(words[index].word, "en", userChoice);
-            Word word = new Word(translatedWord);
+            try {
+	            Translator tr = new Translator();
+	            // todo: change it to the desire langutage from global variables
+	            string userChoice = PlayerPrefs.GetString("languageChoice");
+	            translatedWord = tr.Translate(words[index].word, "en", userChoice);
+	            Word word = new Word(translatedWord);
 
-            Debug.Log(translatedWord);
-            if (translatedWord == null)
-            {
-                Debug.Log("Its null!");
+	            Debug.Log(translatedWord);
+	            if (translatedWord == null)
+	            {
+	                Debug.Log("Its null!");
+	            }
+	            chars = word.GetString().ToCharArray(); // ADD GetString()
+            } catch (System.Exception exc) {
+            	chars = exc.ToString().ToCharArray();
             }
-            chars = word.GetString().ToCharArray(); // ADD GetString()
         } else {
             string done = "DONE!";
             chars = done.ToCharArray();
