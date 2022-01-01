@@ -125,7 +125,8 @@ public class WordScramble : MonoBehaviour
             //chars = words[index].GetString().ToCharArray();
             Translator tr = new Translator();
             // todo: change it to the desire langutage from global variables
-            translatedWord = tr.Translate(words[index].word, "en", "ru");
+            string userChoice = PlayerPrefs.GetString("languageChoice");
+            translatedWord = tr.Translate(words[index].word, "en", userChoice);
             Word word = new Word(translatedWord);
 
             Debug.Log(translatedWord);
