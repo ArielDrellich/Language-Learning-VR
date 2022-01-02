@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 [System.Serializable]
 
 public class Word
@@ -50,6 +51,8 @@ public class WordScramble : MonoBehaviour
     public int currentWord;
     public static WordScramble main;
 
+    private int originalId;
+    private bool finished;
 
     void Awake()
     {
@@ -59,15 +62,15 @@ public class WordScramble : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        originalId = 0;
+        finished = false;
         ShowScramble(currentWord);
-
     }
 
 
     void Update()
     {
         RepositionObject();
-
     }
 
     // Relocate the letter
@@ -99,14 +102,20 @@ public class WordScramble : MonoBehaviour
 
         foreach (Transform child in container)
         {
-            Destroy(child.gameObject);
+            if (originalId == 0) {
+                originalId = child.gameObject.GetInstanceID();
+            } else if (originalId != child.gameObject.GetInstanceID()) {
+                Destroy(child.gameObject);
+            }
         }
 
-        if (index > words.Length - 1)
-        {
-            return;
+        char[] chars;
+        if (!finished) {
+            chars = words[index].GetString().ToCharArray();
+        } else {
+            string done = "DONE!";
+            chars = done.ToCharArray();
         }
-        char[] chars = words[index].GetString().ToCharArray();
 
         foreach (char c in chars)
         {
@@ -129,16 +138,15 @@ public class WordScramble : MonoBehaviour
         charObjects[indexA].transform.SetAsLastSibling();
         charObjects[indexB].transform.SetAsLastSibling();
 
-        CheckWord();
     }
 
     // Select letter
     public void Select (CharObject charObject)
     {
-        Debug.Log("Selecting");
+        if (finished) return;
+
         if (firstSelected)
         {
-
             Swap(firstSelected.index, charObject.index);
             // Unselect
             firstSelected.Select();
@@ -152,11 +160,12 @@ public class WordScramble : MonoBehaviour
     public void UnSelect()
     {
         firstSelected = null;
-
     }
 
     public bool CheckWord()
     {
+        if (finished) return true;
+
         string word = "";
         foreach (CharObject charObject in charObjects)
         {
@@ -167,7 +176,10 @@ public class WordScramble : MonoBehaviour
         {
             // Word is correct, go to next word
             // If we want something else happen when there is success, here the change should be
-            currentWord = (currentWord + 1) % words.Length;
+            currentWord += 1;
+            if (currentWord == words.Length) {
+                finished = true;
+            }
             ShowScramble(currentWord);
             //Debug.Log("Success!");
             return true;
