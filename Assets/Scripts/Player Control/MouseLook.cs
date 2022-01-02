@@ -11,6 +11,10 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        // sometimes interferes with vr, we turn off the script when on android.
+        if (Application.platform == RuntimePlatform.Android) {
+           this.enabled = false;
+        }
     }
 
     // Update is called once per frame
