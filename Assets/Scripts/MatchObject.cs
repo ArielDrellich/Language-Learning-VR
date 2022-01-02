@@ -23,18 +23,14 @@ public class MatchObject : MonoBehaviour
     //this and action, and use only _action.
     void Start()
     {
-        if (action) {
-            Component[] list = action.GetComponents(typeof(Component));
-            foreach (Component component in list) {
-                if (component is IAction) {
-                    _action = (IAction) component;
-                    return;
-                }
-            }
-        }
-        
+        // Add this puzzles to the puzzle counter
+        PuzzlesSolvedCounter.AddPuzzle();
+
+        if (action is IAction)
+            _action = (IAction) action;
+        else
         // if action is either null or not IAction
-        _action = new DefaultAction();
+            _action = new DefaultAction();
     }
 
 
@@ -43,13 +39,15 @@ public class MatchObject : MonoBehaviour
         if (!solved) {
     	    if (collision.gameObject.name != expectedName) {
                 if (collision.gameObject != lastCollision && collision.gameObject.name != "Floor") {
+                    Debug.Log("Match object collided with: " +collision.gameObject);
                     HealthCounter.Decrement();
                     lastCollision = collision.gameObject;
                 }
             } else {
                 // what to do if it's correct
-                _action.DoAction();
+                PuzzlesSolvedCounter.Increment();
                 solved = true;
+                _action.DoAction();
             }
         }
     }

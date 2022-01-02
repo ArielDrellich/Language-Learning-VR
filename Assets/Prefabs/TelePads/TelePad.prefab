@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7981658558445361276}
   - component: {fileID: 7981658558445361279}
   m_Layer: 0
-  m_Name: Teleportation Pad
+  m_Name: TelePad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7981658558445361278}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
