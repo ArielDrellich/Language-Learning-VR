@@ -997,7 +997,9 @@ GameObject:
   m_Component:
   - component: {fileID: 906454125}
   - component: {fileID: 906454124}
+  - component: {fileID: 906454127}
   - component: {fileID: 906454123}
+  - component: {fileID: 906454126}
   m_Layer: 0
   m_Name: PuzzleSolver
   m_TagString: Untagged
@@ -1029,7 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf82b99e785cdc478b405b3862f3328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 906454123}
+  action: {fileID: 906454127}
 --- !u!4 &906454125
 Transform:
   m_ObjectHideFlags: 0
@@ -1044,6 +1046,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &906454126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906454122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d736d2a2d3408934da33d8f89720be3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &906454127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906454122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4dbdc58a2f90d498afc0205b42460d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action_1: {fileID: 906454123}
+  action_2: {fileID: 906454126}
 --- !u!1001 &916384756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1133,19 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expectedObject: {fileID: 1214400380}
   expectedName: Bread
-  action: {fileID: 916384761}
---- !u!114 &916384761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916384757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4dc92966a3a6284185c140168a985af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  action: {fileID: 0}
 --- !u!1001 &1011396333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1162,6 +1178,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -11.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 90755310898987971, guid: 9ad361c816a283a419d8814f605f0bc3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6373191972023510945, guid: 9ad361c816a283a419d8814f605f0bc3,
         type: 3}
