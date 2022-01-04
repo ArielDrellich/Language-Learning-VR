@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Menu;
+using UnityEngine.SceneManagement;
 
 
 public class LoadLanguages : MonoBehaviour, IMenu
@@ -76,6 +77,8 @@ public class LoadLanguages : MonoBehaviour, IMenu
 	 		   		Debug.Log(choice);
 	 		   }
 			}
+			SceneManager.LoadScene("Forest");
 	    }
+
     }
 }
