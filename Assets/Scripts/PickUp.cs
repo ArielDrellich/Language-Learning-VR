@@ -94,6 +94,9 @@ public class PickUp : MonoBehaviour
             nextPosition.y += 0.5f;
         }
 
+        // turn off player temporarily to fix weird jumping bug when releasing
+        player.SetActive(false);
+
         // move to new position
         holding.transform.position = nextPosition;
 
@@ -107,6 +110,7 @@ public class PickUp : MonoBehaviour
         holding.freezeRotation = false;
         holding.useGravity = true;
         holding = null;
-        isHolding = false;          
+        isHolding = false;  
+        player.SetActive(true);        
     }
 }
