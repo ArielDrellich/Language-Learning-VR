@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-//using Translator;
+// using Translator;
 [System.Serializable]
 
 public class Word
@@ -61,6 +61,7 @@ public class WordScramble : MonoBehaviour
     private bool finished;
 
     private string translatedWord;
+    private Translator tr;
 
     void Awake()
     {
@@ -72,6 +73,7 @@ public class WordScramble : MonoBehaviour
     {
         originalId = 0;
         finished = false;
+        tr = gameObject.AddComponent<Translator>();
         ShowScramble(currentWord);
     }
 
@@ -124,12 +126,10 @@ public class WordScramble : MonoBehaviour
             Debug.Log(words[index].word);
             //chars = words[index].GetString().ToCharArray();
             try {
-	            Translator tr = new Translator();
-	            // todo: change it to the desire langutage from global variables
 	            string userChoice = PlayerPrefs.GetString("languageChoice");
 	            translatedWord = tr.Translate(words[index].word, "en", userChoice);
 	            Word word = new Word(translatedWord);
-
+                tr.TextToSpeech(translatedWord, userChoice, "UTF-8");
 	            Debug.Log(translatedWord);
 	            if (translatedWord == null)
 	            {
@@ -137,6 +137,7 @@ public class WordScramble : MonoBehaviour
 	            }
 	            chars = word.GetString().ToCharArray(); // ADD GetString()
             } catch (System.Exception exc) {
+                Debug.Log(exc);
             	chars = exc.ToString().ToCharArray();
             }
         } else {
