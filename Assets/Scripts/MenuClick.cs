@@ -7,7 +7,7 @@ public class MenuClick : MonoBehaviour
 {
     SpriteRenderer reticle;
     RaycastHit hit;
-    
+    Collision currentCollision;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,10 +22,15 @@ public class MenuClick : MonoBehaviour
         if (didHit) {
             reticle.color = Color.red;
             if (Input.GetButtonDown("Fire1")) {
-                hit.collider.GetComponent<IMenu>().DoClick();
+                hit.collider.GetComponent<IMenu>().DoClick(hit.collider.gameObject);
             }
         } else {
             reticle.color = Color.white;
         }
     }
+
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     currentCollision = collision;
+    // }
 }

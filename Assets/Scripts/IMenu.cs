@@ -5,6 +5,6 @@ namespace Menu
 {
     public interface IMenu
     {
-        void DoClick();
+        void DoClick(GameObject clicker);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour, IMenu
 {
-public void DoClick() {
+public void DoClick(GameObject clicker) {
         // Resets health bar for next game
         HealthCounter.ResetHealth();
         // Calls the first scene in build

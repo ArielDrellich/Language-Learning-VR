@@ -5,7 +5,7 @@ using Menu;
 
 public class ExitClick : MonoBehaviour, IMenu
 {
-    public void DoClick() {
+    public void DoClick(GameObject clicker) {
         Application.Quit();
     }
 }

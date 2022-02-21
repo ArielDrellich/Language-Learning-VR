@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+//using Translator;
 [System.Serializable]
 
 public class Word
@@ -9,6 +10,11 @@ public class Word
     public string word;
     [Header("Leave empty if you want to randomized")]
     public string desireRandom;
+
+    public Word(string w) {
+    	word = w;
+    	Debug.Log(word);
+    }
 
     public string GetString()
     {
@@ -54,6 +60,8 @@ public class WordScramble : MonoBehaviour
     private int originalId;
     private bool finished;
 
+    private string translatedWord;
+
     void Awake()
     {
         main = this;
@@ -72,6 +80,7 @@ public class WordScramble : MonoBehaviour
     {
         RepositionObject();
     }
+
 
     // Relocate the letter
     void RepositionObject()
@@ -111,7 +120,25 @@ public class WordScramble : MonoBehaviour
 
         char[] chars;
         if (!finished) {
-            chars = words[index].GetString().ToCharArray();
+            // Translate the word to the desire language
+            Debug.Log(words[index].word);
+            //chars = words[index].GetString().ToCharArray();
+            try {
+	            Translator tr = new Translator();
+	            // todo: change it to the desire langutage from global variables
+	            string userChoice = PlayerPrefs.GetString("languageChoice");
+	            translatedWord = tr.Translate(words[index].word, "en", userChoice);
+	            Word word = new Word(translatedWord);
+
+	            Debug.Log(translatedWord);
+	            if (translatedWord == null)
+	            {
+	                Debug.Log("Its null!");
+	            }
+	            chars = word.GetString().ToCharArray(); // ADD GetString()
+            } catch (System.Exception exc) {
+            	chars = exc.ToString().ToCharArray();
+            }
         } else {
             string done = "DONE!";
             chars = done.ToCharArray();
@@ -172,7 +199,7 @@ public class WordScramble : MonoBehaviour
             word += charObject.character;
         }
 
-        if (word == words[currentWord].word)
+        if (word == translatedWord)
         {
             // Word is correct, go to next word
             // If we want something else happen when there is success, here the change should be

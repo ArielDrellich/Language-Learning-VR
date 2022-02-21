@@ -45,7 +45,7 @@ public class GameTimer : MonoBehaviour
     	string seconds = seconds_i.ToString("f2");
         // string time_to_show;
     	timerTextPro.text = minutes + ":" + seconds;
-        Debug.Log(timerTextPro.text);
+        //Debug.Log(timerTextPro.text);
 
         //Debug.Log(seconds);
 
