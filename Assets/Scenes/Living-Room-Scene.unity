@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45123672, g: 0.49998975, b: 0.5683904, a: 1}
+  m_IndirectSpecularColor: {r: 0.45123625, g: 0.49998897, b: 0.56838924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -722,6 +722,18 @@ MonoBehaviour:
   charDistance: 10
   submit: {fileID: 1533240024}
   submitDistance: 10
+--- !u!114 &117989732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117989729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d804fdc302283b742843d01bd717e7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &147419831
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +960,7 @@ PrefabInstance:
     - target: {fileID: 90755310620584447, guid: 9ad361c816a283a419d8814f605f0bc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.191315
+      value: -24.81
       objectReference: {fileID: 0}
     - target: {fileID: 90755310620584447, guid: 9ad361c816a283a419d8814f605f0bc3,
         type: 3}
@@ -958,7 +970,7 @@ PrefabInstance:
     - target: {fileID: 90755310620584447, guid: 9ad361c816a283a419d8814f605f0bc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.12969
+      value: -8.66
       objectReference: {fileID: 0}
     - target: {fileID: 90755310620584447, guid: 9ad361c816a283a419d8814f605f0bc3,
         type: 3}
@@ -995,7 +1007,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 90755310401275999, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
 --- !u!1 &185494147
 GameObject:
@@ -2413,6 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8116aab4675a449ab13b7b4a9cc5a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expectedObject: {fileID: 0}
   expectedName: 
   action: {fileID: 0}
 --- !u!65 &1041070714
