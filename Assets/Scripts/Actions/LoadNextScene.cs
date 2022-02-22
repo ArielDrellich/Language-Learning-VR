@@ -14,6 +14,7 @@ public class LoadNextScene : MonoBehaviour, IAction
         GameObject aimSet = GameObject.Find("Aim Set");
         player.GetComponent<PlayerMovement>().enabled = false;
         aimSet.GetComponent<PickUp>().enabled = false;
-        aimSet.GetComponent<Teleport>().enabled = false;
+        // aimSet.GetComponent<Teleport>().enabled = false;
+        TeleportPad.CanTeleport(false);
     }
 }
