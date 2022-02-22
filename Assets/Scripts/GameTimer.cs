@@ -1,67 +1,74 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-
 
 public class GameTimer : MonoBehaviour
 {
-	private float startTime;
-	public TMPro.TMP_Text timerTextPro;
+    private static float startTime = -1;
+    private static float pauseStartTime = -1;
+    private static bool paused = true;
+    private TMPro.TMP_Text timerText;
 
-    public float accumulatedLoadingTime = 0;
+    public static void StartTimer()
+    {
+        if (startTime == -1)
+            startTime = Time.time;
+        else if (pauseStartTime != -1)
+            startTime += (Time.time - pauseStartTime);
 
+        paused = false;
+        pauseStartTime = -1;
+    }
 
+    public static void PauseTimer()
+    {
+        paused = true;
+        pauseStartTime = Time.time;
+    }
+
+    public static void RestartTimer()
+    {
+        paused = false;
+        startTime = Time.time;
+        pauseStartTime = -1;
+    }
+
+    public static float GetPlaytime() 
+    {
+        if (!paused)
+            return Time.time - startTime;
+        else
+            return pauseStartTime - startTime;
+    }
+
+    // Maybe as a penalty, or for debugging purposes
+    public static void AddPlaytime(float toAdd)
+    {
+        startTime -= toAdd;
+    }
+
+    // To remove loading time, and possibly as a reward
+    public static void SubtractPlaytime(float toSubtract)
+    {
+        startTime += toSubtract;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("accumulatedLoadingTime: " + accumulatedLoadingTime);
-    }
-
-    void OnEnable()
-    {
-        if (SceneManager.GetActiveScene().name.Equals("Living-Room-Scene")) {
-            // Living room scene is the first scene so it sets the start time
-            startTime = Time.time;
-            Debug.Log(startTime);
-        } else {
-            // Get the start time that was set by the living room scene so the timer will remain
-            // updated to the correct start time.
-            // Loading time will be taken into consideration later.
-            startTime = PlayerPrefs.GetFloat("timerStartTime");
-            Debug.Log(startTime);
-        }
-
-        Debug.Log("startTime: " + startTime);
+        timerText = this.GetComponent<TMPro.TMP_Text>();
+        timerText.text = "Not started timer";
     }
 
     // Update is called once per frame
     void Update()
     {
-    	float t = Time.time - startTime - accumulatedLoadingTime;
-    	string minutes = ((int) t / 60).ToString();
-        float seconds_i = t % 60;
-    	string seconds = seconds_i.ToString("f2");
-        // string time_to_show;
-    	timerTextPro.text = minutes + ":" + seconds;
-        //Debug.Log(timerTextPro.text);
-
-        //Debug.Log(seconds);
-
-        /*if (Mathf.FloorToInt(seconds_i) == 5) {
-            //StaticClass.CrossSceneInfo.Set(time_to_show);
-            SceneManager.LoadScene("StarShip-room");
-        }*/
-
-
+        if (!paused) {
+            float time = Time.time - startTime;
+            string minutes = ((int) time / 60).ToString("00");
+            float fseconds = time % 60;
+            string seconds = ((int) fseconds).ToString("00");
+            timerText.text = minutes + ":" + seconds;
+        }
     }
-
-    void OnDisable()
-    {
-        PlayerPrefs.SetFloat("timerStartTime", startTime);
-        Debug.Log("Timer disabled");
-    }
-
-
 }
