@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultAction : MonoBehaviour, IAction
+public class DefaultAction : IAction
 {
     public void DoAction()
     {
-        Debug.Log("Doing default action");
+        // Debug.Log("Doing default action");
     }
 }

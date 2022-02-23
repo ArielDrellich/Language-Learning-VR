@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartClick : MonoBehaviour, IClickable
+public class MainMenuButton : MonoBehaviour, IClickable
 {
     ReticleManager reticle;
 
@@ -16,11 +16,7 @@ public class StartClick : MonoBehaviour, IClickable
     public void LookedAt(RaycastHit hit) {
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1")) {
-            // Calls the next scene in build
-            // if (PlayerPrefs.GetString("languageChoice") == null) {
-                // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                LevelManager.NextLevel();
-            // }
+            LevelManager.MainMenu();
         }
     }
 }

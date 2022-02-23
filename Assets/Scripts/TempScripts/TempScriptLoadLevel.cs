@@ -36,7 +36,7 @@ public class TempScriptLoadLevel : MonoBehaviour
             loadingOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
             player.GetComponent<PlayerMovement>().enabled = false;
             aimSet.GetComponent<PickUp>().enabled = false;
-            aimSet.GetComponent<Teleport>().enabled = false;
+            // aimSet.GetComponent<Teleport>().enabled = false;
             loading = false;
         }
     }
