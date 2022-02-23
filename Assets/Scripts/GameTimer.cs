@@ -7,12 +7,15 @@ public class GameTimer : MonoBehaviour
     private static float startTime = -1;
     private static float pauseStartTime = -1;
     private static bool paused = true;
+    private static string timeString;
     private TMPro.TMP_Text timerText;
 
     public static void StartTimer()
     {
+        // if first time clicking start
         if (startTime == -1)
             startTime = Time.time;
+        // if resuming, not clicking start a second time without pausing
         else if (pauseStartTime != -1)
             startTime += (Time.time - pauseStartTime);
 
@@ -26,19 +29,21 @@ public class GameTimer : MonoBehaviour
         pauseStartTime = Time.time;
     }
 
-    public static void RestartTimer()
+    public static void StopTimer()
     {
         paused = false;
-        startTime = Time.time;
+        startTime = -1;
         pauseStartTime = -1;
     }
 
-    public static float GetPlaytime() 
+    public static string GetPlaytimeString() 
     {
-        if (!paused)
-            return Time.time - startTime;
-        else
-            return pauseStartTime - startTime;
+        // if (!paused)
+        //     return Time.time - startTime;
+        // else
+        //     return pauseStartTime - startTime;
+        return timeString;
+
     }
 
     // Maybe as a penalty, or for debugging purposes
@@ -57,7 +62,7 @@ public class GameTimer : MonoBehaviour
     void Start()
     {
         timerText = this.GetComponent<TMPro.TMP_Text>();
-        timerText.text = "Not started timer";
+        timerText.text = "Not started";
     }
 
     // Update is called once per frame
@@ -68,7 +73,7 @@ public class GameTimer : MonoBehaviour
             string minutes = ((int) time / 60).ToString("00");
             float fseconds = time % 60;
             string seconds = ((int) fseconds).ToString("00");
-            timerText.text = minutes + ":" + seconds;
+            timerText.text = timeString = minutes + ":" + seconds;
         }
     }
 }

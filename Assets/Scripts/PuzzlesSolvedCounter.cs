@@ -29,9 +29,8 @@ public class PuzzlesSolvedCounter : MonoBehaviour
 
     public static void Increment() {
         puzzlesSolved++;
-
-        Debug.Log("Puzzle solved. You've solved " + puzzlesSolved + " so far.");
-
+        
+        // Debug.Log("Puzzle solved. You've solved " + puzzlesSolved + " so far.");
         if (puzzlesSolved == totalPuzzles) {
             PuzzlesSolvedCounter.ResetCounters();
             _action.DoAction();

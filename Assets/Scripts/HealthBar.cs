@@ -42,7 +42,7 @@ public class HealthBar : MonoBehaviour
         int remainingHealth = HealthCounter.GetHealth();
         tmp.text = "Health: " + remainingHealth.ToString();
         if (remainingHealth <= 0) {
-            SceneManager.LoadScene("Game Over Screen");
+            LevelManager.GameOver();
         }
     }
 }

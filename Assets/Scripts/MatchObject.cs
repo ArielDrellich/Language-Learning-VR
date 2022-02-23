@@ -39,7 +39,7 @@ public class MatchObject : MonoBehaviour
         if (!solved) {
     	    if (collision.gameObject.name != expectedName) {
                 if (collision.gameObject != lastCollision && collision.gameObject.name != "Floor") {
-                    Debug.Log("Match object collided with: " +collision.gameObject);
+                    // Debug.Log("Match object collided with: " +collision.gameObject);
                     HealthCounter.Decrement();
                     lastCollision = collision.gameObject;
                 }
