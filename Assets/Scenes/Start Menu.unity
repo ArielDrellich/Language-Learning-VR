@@ -321,10 +321,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 90755310401275992, guid: 9ad361c816a283a419d8814f605f0bc3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 90755310620584419, guid: 9ad361c816a283a419d8814f605f0bc3,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 90755310620584445, guid: 9ad361c816a283a419d8814f605f0bc3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 90755310620584447, guid: 9ad361c816a283a419d8814f605f0bc3,
         type: 3}
@@ -412,13 +422,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6373191972023510946, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
-    - {fileID: 6373191972023510947, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
-    - {fileID: 6373191971896801515, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
-    - {fileID: 3775179995877739077, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
-    - {fileID: 90755310620584445, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
-    - {fileID: 90755310401275999, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
-    - {fileID: 90755310401275992, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9ad361c816a283a419d8814f605f0bc3, type: 3}
 --- !u!1 &673748959
 GameObject:

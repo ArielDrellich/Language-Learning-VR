@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultAction : IAction
+public class PauseTimer : MonoBehaviour, IAction
 {
     public void DoAction()
     {
-        // Debug.Log("Doing default action");
+        GameTimer.PauseTimer();
     }
 }

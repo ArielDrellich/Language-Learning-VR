@@ -9,18 +9,36 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 8c7c1e04e98c98e4abb791af8d644922
   - enabled: 1
-    path: Assets/Scenes/Health Bar Test.unity
-    guid: a18f00914ec072a4e957a4a834cb6128
-  - enabled: 1
-    path: Assets/Scenes/TeleportTest.unity
-    guid: e0d9db8d2be2fce4fbe70d0b271b76f3
-  - enabled: 1
-    path: Assets/Scenes/Living-Room-Scene.unity
-    guid: ae8ac8c972e3c0241930578851b1cced
-  - enabled: 1
     path: Assets/Scenes/Game Over Screen.unity
     guid: 5a8e805fb719b0d48a7d00a058949840
   - enabled: 1
+    path: Assets/Scenes/Scene Sequence Test/Scene 1.unity
+    guid: cdf0a0121f5e51540a4d2123cecf3c64
+  - enabled: 1
+    path: Assets/Scenes/Scene Sequence Test/Scene 2.unity
+    guid: 9071bdec67f3ef740b0e6b341010d2fc
+  - enabled: 1
+    path: Assets/Scenes/Scene Sequence Test/Scene 3.unity
+    guid: 1ac07b7ecf8340e4295e1b6dbb0a64df
+  - enabled: 1
+    path: Assets/Scenes/Scene Sequence Test/Scene 4.unity
+    guid: 5c5fc8e461f83c240be93eb7437a7da1
+  - enabled: 1
+    path: Assets/Scenes/Scene Sequence Test/Scene 5.unity
+    guid: ccfc707092e1dd64aaf03b309f3ecec2
+  - enabled: 1
+    path: Assets/Scenes/Test Scenes/Objects test.unity
+    guid: 21fe10410c20bad48b426eb99d132977
+  - enabled: 0
+    path: Assets/Scenes/Test Scenes/Health Bar Test.unity
+    guid: a18f00914ec072a4e957a4a834cb6128
+  - enabled: 0
+    path: Assets/Scenes/Test Scenes/TeleportTest.unity
+    guid: e0d9db8d2be2fce4fbe70d0b271b76f3
+  - enabled: 0
+    path: Assets/Scenes/Living-Room-Scene.unity
+    guid: ae8ac8c972e3c0241930578851b1cced
+  - enabled: 0
     path: Assets/Scenes/Forest.unity
     guid: 369650e6d02cfe5409cc2775f4019e33
   m_configObjects:
