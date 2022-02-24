@@ -9,7 +9,7 @@ public class MatchObject : MonoBehaviour
     public  string     expectedName;
     public  Component  action;
     private IAction    _action;
-    private GameObject lastCollision;
+    private List<GameObject> previousCollisions = new List<GameObject>();
     private bool       solved = false;
 
     void OnValidate()
@@ -31,6 +31,10 @@ public class MatchObject : MonoBehaviour
         else
         // if action is either null or not IAction
             _action = new DefaultAction();
+
+        previousCollisions.Add(GameObject.Find("Player")); 
+        /// delete if/when we make MatchObject be on an invisible plane instead of the object itself///
+        previousCollisions.Add(GameObject.Find("Floor")); 
     }
 
 
@@ -38,10 +42,10 @@ public class MatchObject : MonoBehaviour
     {
         if (!solved) {
     	    if (collision.gameObject.name != expectedName) {
-                if (collision.gameObject != lastCollision && collision.gameObject.name != "Floor") {
-                    // Debug.Log("Match object collided with: " +collision.gameObject);
+                // if it hasn't been collided with that object in the past
+                if (!previousCollisions.Contains(collision.gameObject)) {
                     HealthCounter.Decrement();
-                    lastCollision = collision.gameObject;
+                    previousCollisions.Add(collision.gameObject);
                 }
             } else {
                 // what to do if it's correct
