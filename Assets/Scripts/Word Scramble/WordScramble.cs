@@ -61,7 +61,7 @@ public class WordScramble : MonoBehaviour
     private bool finished;
 
     private string translatedWord;
-    private Translator tr;
+    public Translator tr;
 
     void Awake()
     {
@@ -129,6 +129,7 @@ public class WordScramble : MonoBehaviour
 	            string userChoice = PlayerPrefs.GetString("languageChoice");
 	            translatedWord = tr.Translate(words[index].word, "en", userChoice);
 	            Word word = new Word(translatedWord);
+
                 tr.TextToSpeech(translatedWord, userChoice, "UTF-8");
 	            Debug.Log(translatedWord);
 	            if (translatedWord == null)

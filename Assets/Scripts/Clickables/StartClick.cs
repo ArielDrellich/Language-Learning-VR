@@ -17,15 +17,20 @@ public class StartClick : MonoBehaviour, IClickable
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1")) {
             // Calls the next scene in build
-            // if (PlayerPrefs.GetString("languageChoice") == null) {
-                // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                LevelManager.NextLevel();
-            // }
+            if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //LevelManager.NextLevel();
+                SceneManager.LoadScene("Forest");
+            }
+
+        }
+    }
     public void DoClick(GameObject clicker) {
         // Calls the next scene in build
         if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
-        	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        	//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene("Forest");
+
         }
-        //SceneManager.LoadScene("Forest");
     }
 }

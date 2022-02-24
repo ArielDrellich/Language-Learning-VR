@@ -9,9 +9,10 @@ using UnityEngine.Networking;
 // namespace Translator {
 	public class Translator : MonoBehaviour
 	{
-		public TMPro.TMP_Text wordToTranslate;
+		public static TMPro.TMP_Text wordToTranslate;
 		AudioSource audioSource;
         AudioClip myClip;
+        private string txtToSpeechURL;
 
 	    // Start is called before the first frame update
 	    void Start()
@@ -32,6 +33,7 @@ using UnityEngine.Networking;
             //var toLanguage = "ru";//Deutsch
             //var fromLanguage = "en";//English
             var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={HttpUtility.UrlEncode(word)}";
+            Debug.Log(url);
             var webClient = new System.Net.WebClient
             {
                 Encoding = System.Text.Encoding.UTF8
@@ -54,15 +56,19 @@ using UnityEngine.Networking;
 	    {
 	    	// src = https://gist.github.com/alotaiba/1728771
 	    	string encodedWord = HttpUtility.UrlEncode(query);
-	    	string txtToSpeechURL = "http://translate.google.com/translate_tts"
+	    	txtToSpeechURL = "http://translate.google.com/translate_tts"
 	    		+ "?ie=" + encodingFormat
 	    		+ "&q=" + encodedWord
 	    		+ "&tl=" + translatedLang
 	    		+ "&client=tw-ob";
-            StartCoroutine("GetAudioClip", txtToSpeechURL);
+            GetAudio();
+        }
+
+        public void GetAudio() {
+            StartCoroutine("GetAudioClip");
         }
    
-        IEnumerator GetAudioClip(string txtToSpeechURL)
+        IEnumerator GetAudioClip()
         {
             using (UnityWebRequest www  = UnityWebRequestMultimedia.GetAudioClip(txtToSpeechURL, AudioType.MPEG))
             {
