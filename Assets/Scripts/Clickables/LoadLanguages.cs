@@ -83,8 +83,22 @@ public class LoadLanguages : MonoBehaviour, IClickable
 	 		   		Debug.Log(choice);
 	 		   }
 			}
-			SceneManager.LoadScene("Forest");
+			//SceneManager.LoadScene("Forest");
 	    }
 
+    }
+
+    static void resetPref()
+    {
+    	Debug.Log("END");
+    	PlayerPrefs.DeleteKey("languageChoice");
+    	PlayerPrefs.DeleteKey("languageIndex");
+
+    }
+
+    [RuntimeInitializeOnLoadMethod]
+    static void RunOnStart()
+    {
+        Application.quitting += resetPref;
     }
 }

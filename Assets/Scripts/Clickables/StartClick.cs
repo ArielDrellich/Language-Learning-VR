@@ -21,6 +21,11 @@ public class StartClick : MonoBehaviour, IClickable
                 // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 LevelManager.NextLevel();
             // }
+    public void DoClick(GameObject clicker) {
+        // Calls the next scene in build
+        if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
+        	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        //SceneManager.LoadScene("Forest");
     }
 }
