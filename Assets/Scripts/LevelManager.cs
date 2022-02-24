@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
         GameTimer.PauseTimer(); 
         loadingSprite.enabled = true;
 
+        // temporarily set checkpoint every 2 levels. Will change later
         if (sceneIndex % 2 == 0)
             checkpoint = sceneIndex;
 
@@ -68,7 +69,6 @@ public class LevelManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name != "Game Over Screen")
             GameTimer.StartTimer();
-            // GameTimer.PauseTimer();
     }
 
     // Start is called before the first frame update
