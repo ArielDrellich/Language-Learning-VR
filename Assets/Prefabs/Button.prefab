@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23692046187822424}
   - component: {fileID: 23692046187822427}
   m_Layer: 0
-  m_Name: Button 1
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1968185049454011867}
   - component: {fileID: 6124668766272441104}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Botton Pane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9369fbfbffa901e4c9cdf6b11a1b0321, type: 2}
+  - {fileID: 2100000, guid: 5c7c969abcaca9d40a8c6ba4161e25b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 5680755480020858363}
   - component: {fileID: 8849187980281078771}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Right Pane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -406,6 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1161328839774437419}
+  - component: {fileID: 4050473329985966817}
   m_Layer: 0
   m_Name: Base Rim
   m_TagString: Untagged
@@ -431,6 +432,45 @@ Transform:
   m_Father: {fileID: 5396260043604122979}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &4050473329985966817
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727186615448194208}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &3873818188341089169
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +515,7 @@ GameObject:
   - component: {fileID: 3004014907386484485}
   - component: {fileID: 1321813617580363807}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Left Pane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -633,7 +673,7 @@ GameObject:
   - component: {fileID: 1713870059750342054}
   - component: {fileID: 2485622473446572033}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Top Pane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
