@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
+
 public class LevelManager : MonoBehaviour
 {
     const int Num_of_menu_screens_in_build = 2;
@@ -14,6 +16,7 @@ public class LevelManager : MonoBehaviour
     private static int amountOfLevels;
     private static bool launchApp = true;
     private static bool startGame = true;
+    private static bool shuffleLevels = false;
     public static int checkpoint;
 
     public static void NextLevel()
@@ -26,6 +29,13 @@ public class LevelManager : MonoBehaviour
         if (startGame) {
             startGame = false;
             GameTimer.StartTimer();
+            /***********/
+            //super temporary, will figure out randomization after
+            if (shuffleLevels) {
+                System.Random rand = new System.Random();
+                sceneOrder = sceneOrder.OrderBy(x => rand.Next()).ToArray();
+            }
+            /***********/
         }
 
         GameTimer.PauseTimer(); 
@@ -74,6 +84,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shuffleLevels = false;
         player = GameObject.Find("Player");
         aimSet = GameObject.Find("Aim Set");
         loadingSprite = GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>();
@@ -86,14 +97,16 @@ public class LevelManager : MonoBehaviour
             amountOfLevels = SceneManager.sceneCountInBuildSettings - Num_of_menu_screens_in_build;
             sceneOrder = new int[amountOfLevels];
 
-            //set order of scenes
-            /***********/
-            //super temporary, will figure out randomization after, this is just for a default order
             for (int i = 0; i < amountOfLevels; i++)
                 sceneOrder[i] = i + Num_of_menu_screens_in_build;
-            /***********/
+
             sceneIndex = 0;
             checkpoint = sceneOrder[0];
         }
+    }
+
+    public static void ShuffleLevels(bool shuffle) 
+    {
+        shuffleLevels = shuffle;
     }
 }
