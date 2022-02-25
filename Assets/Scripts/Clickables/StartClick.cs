@@ -20,7 +20,7 @@ public class StartClick : MonoBehaviour, IClickable
             if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             //LevelManager.NextLevel();
-                SceneManager.LoadScene("Forest");
+                SceneManager.LoadScene("Playground");
             }
 
         }
@@ -29,7 +29,7 @@ public class StartClick : MonoBehaviour, IClickable
         // Calls the next scene in build
         if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
         	//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            SceneManager.LoadScene("Forest");
+            SceneManager.LoadScene("Playground");
 
         }
     }
