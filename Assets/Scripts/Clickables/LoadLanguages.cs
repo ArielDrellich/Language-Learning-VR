@@ -26,16 +26,31 @@ public class LoadLanguages : MonoBehaviour, IClickable
     	language3Text = GameObject.Find("Language3Text").GetComponent<TMPro.TMP_Text>();
 
 		languages = new List<KeyValuePair<string, string>>();
-        languages.Add(new KeyValuePair<string, string>("Slovak", "sk"));
-        languages.Add(new KeyValuePair<string, string>("French", "fr"));
-        languages.Add(new KeyValuePair<string, string>("Georgian", "ka"));
-        languages.Add(new KeyValuePair<string, string>("German", "de"));
+        languages.Add(new KeyValuePair<string, string>("Catalan", "ca")); 
+        languages.Add(new KeyValuePair<string, string>("Czech", "cs"));  
+        languages.Add(new KeyValuePair<string, string>("Danish", "da")); 
+        // languages.Add(new KeyValuePair<string, string>("Dutch", "nl"));  the sound is not good
+
+        languages.Add(new KeyValuePair<string, string>("French", "fr")); 
+        languages.Add(new KeyValuePair<string, string>("English", "en")); 
+        languages.Add(new KeyValuePair<string, string>("German", "de")); 
         languages.Add(new KeyValuePair<string, string>("Greek", "el"));
-        languages.Add(new KeyValuePair<string, string>("Kannada", "kn"));
+        languages.Add(new KeyValuePair<string, string>("Italian", "it")); 
+        languages.Add(new KeyValuePair<string, string>("Latvian", "lv")); 
+        languages.Add(new KeyValuePair<string, string>("Norwegian", "no")); 
         languages.Add(new KeyValuePair<string, string>("Polish", "pl"));
+        languages.Add(new KeyValuePair<string, string>("Portuguese", "pt"));
+        languages.Add(new KeyValuePair<string, string>("Russian", "ru")); 
+        languages.Add(new KeyValuePair<string, string>("Slovak", "sk")); 
+        languages.Add(new KeyValuePair<string, string>("Spanish", "es")); 
+        languages.Add(new KeyValuePair<string, string>("Swedish", "sv"));
+        languages.Add(new KeyValuePair<string, string>("Turkish", "tr")); 
+        languages.Add(new KeyValuePair<string, string>("Vietnamese", "vi")); 
+        
 
         // langages_rev = languages.Reverse();
-        DoClick(null);
+        PlayerPrefs.SetInt("languageIndex", 0);
+        //DoClick(null);
 
     }
 
@@ -55,13 +70,15 @@ public class LoadLanguages : MonoBehaviour, IClickable
 	}
 
     public void DoClick(GameObject clicker) {
-    	if (clicker == null || clicker.name == "up") {
-    		index = (PlayerPrefs.GetInt("languageIndex") + 1) % languages.Count;
+    	if (clicker.name == "down") {
+            Debug.Log(PlayerPrefs.GetInt("languageIndex"));
+
+    		index = (PlayerPrefs.GetInt("languageIndex")) % languages.Count;
     		language1Text.text = languages[index].Key;
 	   		language2Text.text = languages[(index + 1) % languages.Count].Key;
 	  		language3Text.text = languages[(index + 2) % languages.Count].Key;
-	  		PlayerPrefs.SetInt("languageIndex", index);
-    	} else if (clicker.name == "down") {
+	  		PlayerPrefs.SetInt("languageIndex", index + 1);
+    	} else if (clicker == null || clicker.name == "up") {
 	    	index = PlayerPrefs.GetInt("languageIndex") - 1;
 	    	if (index < 0) {
 	    		index = languages.Count - 1;

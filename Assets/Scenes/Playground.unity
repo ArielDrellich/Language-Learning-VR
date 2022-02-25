@@ -1696,5 +1696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Word-Scramble-3D_updated
       objectReference: {fileID: 0}
+    - target: {fileID: 6836341661126069543, guid: 8d46212d3166e45438ed91415de9b661,
+        type: 3}
+      propertyPath: words.Array.data[1].word
+      value: backpack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d46212d3166e45438ed91415de9b661, type: 3}
