@@ -100,7 +100,6 @@ public class LoadLanguages : MonoBehaviour, IClickable
 	 		   		Debug.Log(choice);
 	 		   }
 			}
-			//SceneManager.LoadScene("Forest");
 	    }
 
     }

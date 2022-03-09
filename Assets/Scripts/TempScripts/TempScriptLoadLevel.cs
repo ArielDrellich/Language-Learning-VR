@@ -52,7 +52,7 @@ public class TempScriptLoadLevel : MonoBehaviour
     {
         Debug.Log("OnSceneLoaded: " + scene.name);
         loadingTime = Time.time - loadingTime;
-        // GameObject.Find("Timer").GetComponent<GameTimer>().accumulatedLoadingTime += loadingTime;
+        // GameObject.Find("Timer").GetComponent<TimerManager>().accumulatedLoadingTime += loadingTime;
     }
 
     // called when the game is terminated

@@ -16,21 +16,10 @@ public class StartClick : MonoBehaviour, IClickable
     public void LookedAt(RaycastHit hit) {
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1")) {
-            // Calls the next scene in build
             if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            //LevelManager.NextLevel();
-                SceneManager.LoadScene("Playground");
+                LevelManager.NextLevel();
             }
-
         }
     }
-    public void DoClick(GameObject clicker) {
-        // Calls the next scene in build
-        if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
-        	//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            SceneManager.LoadScene("Playground");
-
-        }
-    }
+    
 }

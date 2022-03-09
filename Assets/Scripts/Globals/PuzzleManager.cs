@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzlesSolvedCounter : MonoBehaviour
+public class PuzzleManager : MonoBehaviour
 {
     public  Component      action;
     private static int     totalPuzzles  = 0;
@@ -32,7 +32,7 @@ public class PuzzlesSolvedCounter : MonoBehaviour
         
         // Debug.Log("Puzzle solved. You've solved " + puzzlesSolved + " so far.");
         if (puzzlesSolved == totalPuzzles) {
-            PuzzlesSolvedCounter.ResetCounters();
+           PuzzleManager.ResetCounters();
             _action.DoAction();
         }
     }

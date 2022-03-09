@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class PressScrambleButton : MonoBehaviour, IClickable
 {
-    // drag & drop
-
 	private WordScramble ws;
 	public GameObject submit;
 	public GameObject speaker;
 	ReticleManager reticle;
 	Animator animator;
-	float maxTeleportDistance = 15f;
+	float maxClickDistance = 15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +18,10 @@ public class PressScrambleButton : MonoBehaviour, IClickable
         animator = this.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LookedAt(RaycastHit hit)
     {
-
     	reticle.SetColor(Color.red);
-    	if (hit.distance <= maxTeleportDistance) {
+    	if (hit.distance <= maxClickDistance) {
 	        if (Input.GetButtonDown("Fire1")) {
 	            if (hit.collider.gameObject.name == submit.name) {
 	      			 //Call SetColor using the shader property name "_Color" and setting the color to red
@@ -38,9 +29,9 @@ public class PressScrambleButton : MonoBehaviour, IClickable
 	        		animator.Play("button press");
 
 	                if (ws.CheckWord()) {
-	                    Debug.Log("Success");
+	                    Debug.Log("Success"); // -> Receive IAction and DoAction();
 	                } else {
-	                    Debug.Log("You suck");
+	                    Debug.Log("You suck"); // -> HealthManager.Decrement(); 
 	                }
 	            }
 	            else if (hit.collider.name == speaker.name)

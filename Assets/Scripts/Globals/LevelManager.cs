@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
 
         if (startGame) {
             startGame = false;
-            GameTimer.StartTimer();
+            TimerManager.StartTimer();
             /***********/
             //super temporary, will figure out randomization after
             if (shuffleLevels) {
@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
             /***********/
         }
 
-        GameTimer.PauseTimer(); 
+        TimerManager.PauseTimer(); 
         loadingSprite.enabled = true;
 
         // temporarily set checkpoint every 2 levels. Will change later
@@ -55,30 +55,31 @@ public class LevelManager : MonoBehaviour
     {
         sceneIndex = checkpoint;
         loadingSprite.enabled = true;
+        HealthManager.ResetHealth();
         loadingOperation = SceneManager.LoadSceneAsync(sceneOrder[sceneIndex++]);
     }
 
     public static void GameOver()
     {
         loadingSprite.enabled = true;
-        GameTimer.PauseTimer();
-        HealthCounter.ResetHealth();
-        PuzzlesSolvedCounter.ResetCounters();
+        TimerManager.PauseTimer();
+        // HealthManager.ResetHealth();
+        PuzzleManager.ResetCounters();
         loadingOperation = SceneManager.LoadSceneAsync("Game Over Screen");
     }
 
     public static void MainMenu()
     {
         startGame = true;
-        HealthCounter.ResetHealth();
-        GameTimer.StopTimer();
+        HealthManager.ResetHealth();
+        TimerManager.StopTimer();
         SceneManager.LoadScene("Start Menu");
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (SceneManager.GetActiveScene().name != "Game Over Screen")
-            GameTimer.StartTimer();
+            TimerManager.StartTimer();
     }
 
     // Start is called before the first frame update

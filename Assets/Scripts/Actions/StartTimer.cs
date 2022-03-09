@@ -6,6 +6,6 @@ public class StartTimer : MonoBehaviour, IAction
 {
     public void DoAction()
     {
-        GameTimer.StartTimer();
+        TimerManager.StartTimer();
     }
 }

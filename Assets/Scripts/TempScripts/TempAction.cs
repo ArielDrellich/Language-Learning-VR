@@ -10,7 +10,7 @@ public class TempAction : MonoBehaviour, IAction
         Debug.Log("Doing tempaction");
         if (!alreadyDone) {
             alreadyDone = true;
-            HealthCounter.Increment(10 - HealthCounter.GetHealth());
+            HealthManager.Increment(10 - HealthManager.GetHealth());
         }
     }
 }

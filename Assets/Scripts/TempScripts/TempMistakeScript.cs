@@ -9,7 +9,7 @@ public class TempMistakeScript : MonoBehaviour
     {
         if (collision.gameObject.name == "Bad Table" && recentMistake == false) {
             recentMistake = true;
-            HealthCounter.Decrement();
+            HealthManager.Decrement();
         }
             StartCoroutine(MistakeDelay());
     }

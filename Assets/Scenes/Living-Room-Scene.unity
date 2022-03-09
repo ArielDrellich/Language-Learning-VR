@@ -720,7 +720,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charDistance: 10
-  submit: {fileID: 1533240024}
   submitDistance: 10
 --- !u!114 &117989732
 MonoBehaviour:
@@ -2320,7 +2319,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charDistance: 10
-  submit: {fileID: 1533240024}
   submitDistance: 10
 --- !u!1 &1018155207 stripped
 GameObject:
@@ -2842,12 +2840,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &1533240024 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8103824931661746764, guid: 740479db77979b64da5db4bc6a243d85,
-    type: 3}
-  m_PrefabInstance: {fileID: 8986924290417254373}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1574535917
 PrefabInstance:
   m_ObjectHideFlags: 0

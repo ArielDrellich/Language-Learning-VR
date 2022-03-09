@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameTimer : MonoBehaviour
+public class TimerManager : MonoBehaviour
 {
     private static float startTime = -1;
     private static float pauseStartTime = -1;

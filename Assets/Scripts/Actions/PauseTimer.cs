@@ -6,6 +6,6 @@ public class PauseTimer : MonoBehaviour, IAction
 {
     public void DoAction()
     {
-        GameTimer.PauseTimer();
+        TimerManager.PauseTimer();
     }
 }

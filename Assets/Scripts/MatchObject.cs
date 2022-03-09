@@ -24,7 +24,7 @@ public class MatchObject : MonoBehaviour
     void Start()
     {
         // Add this puzzles to the puzzle counter
-        PuzzlesSolvedCounter.AddPuzzle();
+        PuzzleManager.AddPuzzle();
 
         if (action is IAction)
             _action = (IAction) action;
@@ -44,12 +44,12 @@ public class MatchObject : MonoBehaviour
     	    if (collision.gameObject.name != expectedName) {
                 // if it hasn't been collided with that object in the past
                 if (!previousCollisions.Contains(collision.gameObject)) {
-                    HealthCounter.Decrement();
+                    HealthManager.Decrement();
                     previousCollisions.Add(collision.gameObject);
                 }
             } else {
                 // what to do if it's correct
-                PuzzlesSolvedCounter.Increment();
+                PuzzleManager.Increment();
                 solved = true;
                 _action.DoAction();
             }

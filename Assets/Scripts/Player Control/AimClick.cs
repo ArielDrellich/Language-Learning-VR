@@ -11,10 +11,10 @@ public class AimClick : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit)) {
             IClickable clickable = hit.collider.GetComponent<IClickable>();
-            Debug.Log("Hit " + hit.collider.name);
             if (clickable != null) {
                 clickable.LookedAt(hit);
             }
         }
     }
+    
 }

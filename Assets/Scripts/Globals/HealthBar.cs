@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HealthCounter
+public class HealthManager
 {
     private static int defaultHealth = 3;
     private static int remainingHealth = defaultHealth;
@@ -39,7 +39,7 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int remainingHealth = HealthCounter.GetHealth();
+        int remainingHealth = HealthManager.GetHealth();
         tmp.text = "Health: " + remainingHealth.ToString();
         if (remainingHealth <= 0) {
             LevelManager.GameOver();
