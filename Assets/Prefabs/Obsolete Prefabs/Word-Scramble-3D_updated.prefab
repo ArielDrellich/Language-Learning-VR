@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &8929303738754446572
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272470649091421734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4134199, y: 0.5036005, z: 0.35426876}
+  m_Center: {x: -0.005783353, y: -0.00034731012, z: -0.03089001}
 --- !u!64 &8929303738754446574
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14,19 +27,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!65 &8929303738754446572
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2272470649091421734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4134199, y: 0.5036005, z: 0.35426876}
-  m_Center: {x: -0.005783353, y: -0.00034731012, z: -0.03089001}
 --- !u!114 &8929303738754446573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   submit: {fileID: 1377030665473690304}
   speaker: {fileID: 2272470649091421734}
+  action: {fileID: 0}
 --- !u!114 &8929303738101651109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   submit: {fileID: 1377030665473690304}
   speaker: {fileID: 2272470649091421734}
+  action: {fileID: 0}
 --- !u!114 &2408483495169723699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,17 +282,17 @@ PrefabInstance:
     - target: {fileID: 1661949061001190028, guid: b5ff8800bf8a1364d93c5ea5373b45a8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -548.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1661949061001190028, guid: b5ff8800bf8a1364d93c5ea5373b45a8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -528.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1661949061001190028, guid: b5ff8800bf8a1364d93c5ea5373b45a8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1661949061001190028, guid: b5ff8800bf8a1364d93c5ea5373b45a8,
         type: 3}

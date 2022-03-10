@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MatchObject : MonoBehaviour
 {
-    [Header("Either drag an object or just write it's name")]
+    [Header("Drag an object or write it's name")]
     public  GameObject expectedObject;
-    public  string     expectedName;
-    public  Component  action;
-    private IAction    _action;
+    public string     expectedName;
+    [SerializeField]
+    private Component action;
+    private IAction   _action;
     private List<GameObject> previousCollisions = new List<GameObject>();
     private bool       solved = false;
 
@@ -26,6 +27,7 @@ public class MatchObject : MonoBehaviour
         // Add this puzzles to the puzzle counter
         PuzzleManager.AddPuzzle();
 
+        // gets IAction from inspector
         if (action is IAction)
             _action = (IAction) action;
         else
@@ -37,15 +39,16 @@ public class MatchObject : MonoBehaviour
         previousCollisions.Add(GameObject.Find("Floor")); 
     }
 
-
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
         if (!solved) {
-    	    if (collision.gameObject.name != expectedName) {
+    	    if (collider.gameObject.name != expectedName) {
                 // if it hasn't been collided with that object in the past
-                if (!previousCollisions.Contains(collision.gameObject)) {
+                if (!previousCollisions.Contains(collider.gameObject)) {
                     HealthManager.Decrement();
-                    previousCollisions.Add(collision.gameObject);
+                    previousCollisions.Add(collider.gameObject);
+                    // for debugging
+                    // print("collided with: "+collider.gameObject.name);
                 }
             } else {
                 // what to do if it's correct

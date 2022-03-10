@@ -77,13 +77,6 @@ public class WordScramble : MonoBehaviour
         ShowScramble(currentWord);
     }
 
-
-    void Update()
-    {
-        RepositionObject();
-    }
-
-
     // Relocate the letter
     void RepositionObject()
     {
@@ -94,7 +87,7 @@ public class WordScramble : MonoBehaviour
         float center = (charObjects.Count - 1) / 2;
         for (int i = 0; i < charObjects.Count; i++)
         {
-            charObjects[i].rectTransform.anchoredPosition =
+            charObjects[i].rectTransform.anchoredPosition3D =
                 new Vector3((i - center) * space, 0,0);
             charObjects[i].index = i;
         }
@@ -127,6 +120,15 @@ public class WordScramble : MonoBehaviour
             //chars = words[index].GetString().ToCharArray();
             try {
 	            string userChoice = PlayerPrefs.GetString("languageChoice");
+                
+                // For debugging
+                /****************************\
+                if (userChoice == "") {
+                    print("no user choice");
+                    userChoice = "en";
+                }
+                \****************************/
+
 	            translatedWord = tr.Translate(words[index].word, "en", userChoice);
 	            Word word = new Word(translatedWord);
 
@@ -155,6 +157,8 @@ public class WordScramble : MonoBehaviour
             // Debug.Log(clone.currentChar);
             charObjects.Add(clone.Init(c));
         }
+
+        RepositionObject();
     }
 
     // Swap between letters
@@ -166,7 +170,7 @@ public class WordScramble : MonoBehaviour
 
         charObjects[indexA].transform.SetAsLastSibling();
         charObjects[indexB].transform.SetAsLastSibling();
-
+        RepositionObject();
     }
 
     // Select letter

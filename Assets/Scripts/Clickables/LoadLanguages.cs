@@ -97,7 +97,6 @@ public class LoadLanguages : MonoBehaviour, IClickable
 	 		   {
 	 		   		string choice = oneLanguage.Value;
 	 		   		PlayerPrefs.SetString("languageChoice", choice);
-	 		   		Debug.Log(choice);
 	 		   }
 			}
 	    }
@@ -106,7 +105,6 @@ public class LoadLanguages : MonoBehaviour, IClickable
 
     static void resetPref()
     {
-    	Debug.Log("END");
     	PlayerPrefs.DeleteKey("languageChoice");
     	PlayerPrefs.DeleteKey("languageIndex");
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecWord : MonoBehaviour
+public class RecWord : MonoBehaviour, IClickable
 {
 	RaycastHit hit;
 	[SerializeField] private float charDistance = 10f;
@@ -15,20 +15,13 @@ public class RecWord : MonoBehaviour
     {
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
     }
-    // Update is called once per frame
-    void Update()
-    {
-        bool didHitChar = Physics.Raycast(transform.position,
-            transform.TransformDirection(Vector3.forward), out hit, charDistance);
 
-        bool isChar = false;
-        if (didHitChar) {
-            isChar = hit.collider.GetComponent<CharObject>();
-            GameObject selected = hit.collider.gameObject;
-            CharObject co = (CharObject)selected.GetComponent(typeof(CharObject));
-            if (co != null) 
-                reticle.SetColor(Color.red);
-            if (co != null && Input.GetButtonDown("Fire1")) {
+    public void LookedAt(RaycastHit hit) 
+    {    
+        if (hit.distance <= charDistance ) {
+            reticle.SetColor(Color.red);
+            if (Input.GetButtonDown("Fire1")) {
+                CharObject co = (CharObject)hit.collider.gameObject.GetComponent(typeof(CharObject));
             	co.Select();
             }
     	}
