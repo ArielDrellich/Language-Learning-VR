@@ -37,10 +37,15 @@ public class HealthBar : MonoBehaviour
     }
     
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
         int remainingHealth = HealthManager.GetHealth();
-        tmp.text = "Health: " + remainingHealth.ToString();
+        
+        string hearts = "";
+        for (int i = 0; i < remainingHealth; i++)
+            hearts += '♥';
+        tmp.text = hearts;
+
         if (remainingHealth <= 0) {
             LevelManager.GameOver();
         }

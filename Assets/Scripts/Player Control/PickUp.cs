@@ -30,8 +30,6 @@ public class PickUp : MonoBehaviour
     {        
         // searches for nearby colliders
         bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, grabDistance);
-        // useful for debugging only.
-        // Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward)*10, Color.green);
 
         bool canPickUp = false;
         if (didHit)

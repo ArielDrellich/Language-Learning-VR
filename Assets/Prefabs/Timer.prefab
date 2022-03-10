@@ -186,7 +186,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8473874079772290469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b3ab56ae07fede49984698037a1dc80, type: 3}
+  m_Script: {fileID: 11500000, guid: 65f15ce340c7c454d9eedae68c3a4174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerTextPro: {fileID: 8473874079772290467}
