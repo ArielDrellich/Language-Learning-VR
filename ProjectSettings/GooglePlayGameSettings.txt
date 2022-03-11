@@ -1,0 +1,9 @@
+lastUpgrade=01014
+proj.pluginVersion=0.10.14
+proj.AppId=1004013653281
+and.BundleId=com.DefaultCompany.LanguageLearningGame
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0a%3cresources%3e%0a%09%3cstring+name%3d%22app_id%22%3e1004013653281%3c%2fstring%3e%0a%09%3cstring+name%3d%22package_name%22%3ecom.DefaultCompany.LanguageLearningGame%3c%2fstring%3e%0a%3c%2fresources%3e
+and.ClientId=1004013653281-kkgf0623jdeetanrc1gfskefvialh90p.apps.googleusercontent.com
+android.SetupDone=true

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1004013653281",
+    "project_id": "vrlanguagegame-14029853",
+    "storage_bucket": "vrlanguagegame-14029853.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004013653281:android:de236111d8fb9619bec260",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.LanguageLearningGame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004013653281-kkgf0623jdeetanrc1gfskefvialh90p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw3xPtv_Tcn6Yb14lIG8450aA2Zo7iXbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004013653281-kkgf0623jdeetanrc1gfskefvialh90p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,143 @@
+{
+    "m_SelectedDeviceId": "R58M51J0WXB",
+    "m_SelectedPackage": {
+        "deviceId": "R58M51J0WXB",
+        "name": "com.DefaultCompany.LanguageLearningGame",
+        "processId": 13515,
+        "exited": false
+    },
+    "m_SelectedPriority": 0,
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 15517,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.sec.android.app.launcher",
+            "processId": 2244,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 18208,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 20934,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 23617,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 28002,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 32631,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 12110,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 13515,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710EMcc046520",
+            "name": "com.lge.launcher3",
+            "processId": 17670,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710EMcc046520",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 26746,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710EMcc046520",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 28514,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG710EMcc046520",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 30415,
+            "exited": false
+        }
+    ],
+    "m_Tags": {
+        "m_Entries": [
+            {
+                "m_Name": "Filter by all listed tags",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "No Filter",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Tag Control...",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "",
+                "m_Selected": false
+            },
+            {
+                "m_Name": "Unity",
+                "m_Selected": true
+            },
+            {
+                "m_Name": "CRASH",
+                "m_Selected": false
+            }
+        ]
+    },
+    "m_MemoryViewerState": {
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
+        "MemoryGroup": 2,
+        "Behavior": 0
+    },
+    "m_Filter": "",
+    "m_FilterIsRegularExpression": false,
+    "m_SymbolPaths": []
+}
