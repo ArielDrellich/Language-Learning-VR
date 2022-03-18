@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
-
+using UnityEngine.SocialPlatforms;
 
 public class OAuth : MonoBehaviour
 {
     //[SerializeField]
     public TMPro.TMP_Text welcomeText;
-
+    [SerializeField]
+    public TMPro.TMP_Text Leaderboard;
     // HowTo:
     // 1. Install Java JDK - needed for keytool
     // https://www.oracle.com/java/technologies/downloads/#jdk17-windows
@@ -46,6 +47,10 @@ public class OAuth : MonoBehaviour
 
     //private static string kTag = "OAuth";
 
+    void UpdateLb()
+    {
+
+    }
     void Start()
     {
     	welcomeText = GameObject.Find("Welcome").GetComponent<TMPro.TMP_Text>();
