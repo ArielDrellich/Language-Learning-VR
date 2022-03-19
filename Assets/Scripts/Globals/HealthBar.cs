@@ -37,7 +37,7 @@ public class HealthBar : MonoBehaviour
     }
     
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
         int remainingHealth = HealthManager.GetHealth();
         

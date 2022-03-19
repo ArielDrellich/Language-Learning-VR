@@ -6,13 +6,18 @@ public class MatchObject : MonoBehaviour
 {
     [Header("Drag an object or write it's name")]
     public  GameObject expectedObject;
-    public string     expectedName;
+    public  string     expectedName;
+    private string     translatedName;
+    private string     chosenLanguage;
     [SerializeField]
-    private Component action;
-    private IAction   _action;
-    private List<GameObject> previousCollisions = new List<GameObject>();
+    private Component  action;
+    private IAction    _action;
+    private Translator translator;
     private bool       solved = false;
+    private List<GameObject> previousCollisions = new List<GameObject>();
 
+    // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
+    //this and action, and use only _action.
     void OnValidate()
     {
         if (expectedObject != null) {
@@ -20,23 +25,31 @@ public class MatchObject : MonoBehaviour
         }
     }
 
-    // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
-    //this and action, and use only _action.
     void Start()
     {
         // Add this puzzles to the puzzle counter
         PuzzleManager.AddPuzzle();
 
-        // gets IAction from inspector
+        // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
+        //this and action, and use only _action.
         if (action is IAction)
             _action = (IAction) action;
         else
         // if action is either null or not IAction
             _action = new DefaultAction();
+        translator = gameObject.AddComponent<Translator>();
+
+        chosenLanguage = PlayerPrefs.GetString("languageChoice");
+
+        translatedName = translator.Translate(expectedName, "en", chosenLanguage);
+
+        translator.TextToSpeech(translatedName, chosenLanguage, "UTF-8");
+
+        this.GetComponentInChildren<PlayAudioButton>().SetTranslator(translator);
+
+        this.GetComponentInChildren<TMPro.TMP_Text>().text = translatedName;
 
         previousCollisions.Add(GameObject.Find("Player")); 
-        /// delete if/when we make MatchObject be on an invisible plane instead of the object itself///
-        previousCollisions.Add(GameObject.Find("Floor")); 
     }
 
     void OnTriggerEnter(Collider collider)

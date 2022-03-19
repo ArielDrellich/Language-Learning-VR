@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class StartClick : MonoBehaviour, IClickable
 {
@@ -17,8 +16,7 @@ public class StartClick : MonoBehaviour, IClickable
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1")) {
             if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
-                //LevelManager.NextLevel();
-                SceneManager.LoadScene("Game Over Screen");
+                LevelManager.NextLevel();
             }
         }
     }

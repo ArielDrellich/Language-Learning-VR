@@ -27,7 +27,7 @@ using UnityEngine.Networking;
 	        
 	    }
 
-	    public string Translate(string word,string fromLanguage, string toLanguage)
+	    public string Translate(string word, string fromLanguage, string toLanguage)
 	    {
             //Font font = Resources.GetBuiltinResource<Font>("Arial.ttf");
             //var toLanguage = "ru";//Deutsch
@@ -61,7 +61,6 @@ using UnityEngine.Networking;
 	    		+ "&q=" + encodedWord
 	    		+ "&tl=" + translatedLang
 	    		+ "&client=tw-ob";
-            GetAudio();
         }
 
         public void GetAudio() {
