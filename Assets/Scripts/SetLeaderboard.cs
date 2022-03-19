@@ -7,16 +7,15 @@ using UnityEngine.SocialPlatforms;
 public class SetLeaderboard : MonoBehaviour, IClickable
 {
     // Start is called before the first frame update
-    [SerializeField]
-    public TMPro.TMP_Text LbText;
+
     ReticleManager reticle;
 
     void Start()
     {
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
-        //int score = 100 * (PuzzleManager.GetSolvedPuzzles());
-        int score = 100;
-        Social.ReportScore(score, "CgkIoZqCn5wdEAIQAg", (successLb) => { // publish to the table the score
+        int score = 100 * (PuzzleManager.GetSolvedPuzzles());
+        //int score = 100;
+        Social.ReportScore(score, "CgkIoZqCn5wdEAIQAw", (successLb) => { // publish to the table the score
                                                                          // handle success or failure
             if (successLb)
             {

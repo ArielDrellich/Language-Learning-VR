@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "R58M51J0WXB",
         "name": "com.DefaultCompany.LanguageLearningGame",
-        "processId": 13515,
+        "processId": 23576,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,55 +11,49 @@
         {
             "deviceId": "R58M51J0WXB",
             "name": "com.DefaultCompany.LanguageLearningGame",
-            "processId": 15517,
+            "processId": 24227,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 25572,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 27022,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 20611,
+            "exited": true
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 25254,
             "exited": true
         },
         {
             "deviceId": "R58M51J0WXB",
             "name": "com.sec.android.app.launcher",
-            "processId": 2244,
+            "processId": 2237,
             "exited": false
         },
         {
             "deviceId": "R58M51J0WXB",
             "name": "com.DefaultCompany.LanguageLearningGame",
-            "processId": 18208,
-            "exited": true
-        },
-        {
-            "deviceId": "R58M51J0WXB",
-            "name": "com.DefaultCompany.LanguageLearningGame",
-            "processId": 20934,
-            "exited": true
-        },
-        {
-            "deviceId": "R58M51J0WXB",
-            "name": "com.DefaultCompany.LanguageLearningGame",
-            "processId": 23617,
-            "exited": true
-        },
-        {
-            "deviceId": "R58M51J0WXB",
-            "name": "com.DefaultCompany.LanguageLearningGame",
-            "processId": 28002,
-            "exited": true
-        },
-        {
-            "deviceId": "R58M51J0WXB",
-            "name": "com.DefaultCompany.LanguageLearningGame",
-            "processId": 32631,
+            "processId": 27329,
             "exited": false
         },
         {
             "deviceId": "R58M51J0WXB",
             "name": "com.DefaultCompany.LanguageLearningGame",
-            "processId": 12110,
-            "exited": false
-        },
-        {
-            "deviceId": "R58M51J0WXB",
-            "name": "com.DefaultCompany.LanguageLearningGame",
-            "processId": 13515,
+            "processId": 23576,
             "exited": false
         },
         {
@@ -84,6 +78,12 @@
             "deviceId": "LMG710EMcc046520",
             "name": "com.DefaultCompany.LanguageLearningGame",
             "processId": 30415,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG710EMcc046520",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 6654,
             "exited": false
         }
     ],
@@ -137,7 +137,7 @@
         "MemoryGroup": 2,
         "Behavior": 0
     },
-    "m_Filter": "",
+    "m_Filter": "Play Games",
     "m_FilterIsRegularExpression": false,
     "m_SymbolPaths": []
 }

@@ -9,8 +9,12 @@ public class LoadLanguages : MonoBehaviour, IClickable
 	TMPro.TMP_Text language1Text;
 	TMPro.TMP_Text language2Text;
 	TMPro.TMP_Text language3Text;
+    private GameObject language1Button;
+    private GameObject language2Button;
+    private GameObject language3Button;
+    bool clicked = false;
 
-	List <KeyValuePair<string, string>> languages;
+    List <KeyValuePair<string, string>> languages;
 
 	int index;
 	ReticleManager reticle;
@@ -25,7 +29,13 @@ public class LoadLanguages : MonoBehaviour, IClickable
     	language2Text = GameObject.Find("Language2Text").GetComponent<TMPro.TMP_Text>();
     	language3Text = GameObject.Find("Language3Text").GetComponent<TMPro.TMP_Text>();
 
-		languages = new List<KeyValuePair<string, string>>();
+        language1Button = GameObject.Find("Language1Button");
+        language2Button = GameObject.Find("Language2Button");
+        language3Button = GameObject.Find("Language3Button");
+
+        resetColors();
+
+        languages = new List<KeyValuePair<string, string>>();
         languages.Add(new KeyValuePair<string, string>("Catalan", "ca")); 
         languages.Add(new KeyValuePair<string, string>("Czech", "cs"));  
         languages.Add(new KeyValuePair<string, string>("Danish", "da")); 
@@ -47,7 +57,6 @@ public class LoadLanguages : MonoBehaviour, IClickable
         languages.Add(new KeyValuePair<string, string>("Turkish", "tr")); 
         languages.Add(new KeyValuePair<string, string>("Vietnamese", "vi")); 
         
-
         // langages_rev = languages.Reverse();
         PlayerPrefs.SetInt("languageIndex", 0);
         //DoClick(null);
@@ -60,17 +69,44 @@ public class LoadLanguages : MonoBehaviour, IClickable
     	language1Text = GameObject.Find("Language1Text").GetComponent<TMPro.TMP_Text>();
     	language2Text = GameObject.Find("Language2Text").GetComponent<TMPro.TMP_Text>();
     	language3Text = GameObject.Find("Language3Text").GetComponent<TMPro.TMP_Text>();
-        
     }
 
     public void LookedAt(RaycastHit hit) {
 		reticle.SetColor(Color.red);
+        /*if (Input.GetButtonDown("Fire1"))
+			DoClick(hit.collider.gameObject);*/
+        ToggleClick(hit);
+
+    }
+
+    public void ToggleClick(RaycastHit hit)
+    {
         if (Input.GetButtonDown("Fire1"))
-			DoClick(hit.collider.gameObject);
-	}
+        {
+            resetColors();
+            if (!clicked)
+            {
+                clicked = true;
+                DoClick(hit.collider.gameObject);
+            }
+
+            else
+            {
+                DoClick(hit.collider.gameObject);
+                clicked = false;
+            }
+        }
+    }
+
+    void resetColors()
+    {
+        language1Button.GetComponent<Renderer>().material.color = Color.green;
+        language2Button.GetComponent<Renderer>().material.color = Color.green;
+        language3Button.GetComponent<Renderer>().material.color = Color.green;
+    }
 
     public void DoClick(GameObject clicker) {
-    	if (clicker.name == "down") {
+    	if (clicker.name == "up") {
             Debug.Log(PlayerPrefs.GetInt("languageIndex"));
 
     		index = (PlayerPrefs.GetInt("languageIndex")) % languages.Count;
@@ -78,8 +114,9 @@ public class LoadLanguages : MonoBehaviour, IClickable
 	   		language2Text.text = languages[(index + 1) % languages.Count].Key;
 	  		language3Text.text = languages[(index + 2) % languages.Count].Key;
 	  		PlayerPrefs.SetInt("languageIndex", index + 1);
-    	} else if (clicker == null || clicker.name == "up") {
-	    	index = PlayerPrefs.GetInt("languageIndex") - 1;
+
+    	} else if (clicker == null || clicker.name == "down") {
+            index = PlayerPrefs.GetInt("languageIndex") - 1;
 	    	if (index < 0) {
 	    		index = languages.Count - 1;
 	    	}
@@ -90,18 +127,20 @@ public class LoadLanguages : MonoBehaviour, IClickable
 	    } else if (clicker.tag == "LanguageButton") {
 	    	foreach (KeyValuePair<string, string> oneLanguage in languages)
 			{
+			    string language = clicker.gameObject.transform.GetChild(0).name; // LanguageXtext
+                TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
+	 		    if (oneLanguage.Key == languageTxt.text)
+	 		    {
+                    clicker.GetComponent<Renderer>().material.color = Color.yellow;
 
-				string language = clicker.gameObject.transform.GetChild(0).name;
-				TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
-	 		   if (oneLanguage.Key == languageTxt.text)
-	 		   {
-	 		   		string choice = oneLanguage.Value;
+                    string choice = oneLanguage.Value;
 	 		   		PlayerPrefs.SetString("languageChoice", choice);
-	 		   }
+                }
 			}
 	    }
 
     }
+
 
     static void resetPref()
     {

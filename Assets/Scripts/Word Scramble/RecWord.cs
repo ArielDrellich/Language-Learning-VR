@@ -8,7 +8,6 @@ public class RecWord : MonoBehaviour, IClickable
 	[SerializeField] private float charDistance = 10f;
     ReticleManager reticle;
 
-    [SerializeField] private float submitDistance = 10f;
 
 
     void Start()
