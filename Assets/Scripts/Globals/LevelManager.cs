@@ -4,13 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
+public class ItemsAndPositions
+{
+    public ItemsAndPositions(List<string> items, List<Vector3> positions)
+    {
+        this.items = items;
+        this.positions = positions;
+    }
+    public List<string> items;
+    public List<Vector3> positions;
+}
 public class LevelManager : MonoBehaviour
 {
     const int Num_of_menu_screens_in_build = 2;
     private AsyncOperation loadingOperation;
+    private ItemSpawner itemSpawner;
     private GameObject player;
     private GameObject aimSet;
     private SpriteRenderer loadingSprite;
+    private Dictionary<string, ItemsAndPositions> levelsSinceLastCheckpoint;
     private int[] sceneOrder;
     private int sceneIndex;
     private int amountOfLevels;
@@ -18,6 +30,7 @@ public class LevelManager : MonoBehaviour
     private bool startGame = true;
     private bool shuffleLevels = false;
     public int checkpoint;
+
 
     public void NextLevel()
     {
@@ -42,26 +55,67 @@ public class LevelManager : MonoBehaviour
         loadingSprite.enabled = true;
 
         // temporarily set checkpoint every 2 levels. Will change later
-        if (sceneIndex % 2 == 0)
+        if (sceneIndex % 2 == 0) {
             checkpoint = sceneIndex;
+            levelsSinceLastCheckpoint.Clear();
+        }
 
         player.GetComponent<PlayerMovement>().enabled = false;
         aimSet.GetComponent<PickUp>().enabled = false;
         TeleportPad.CanTeleport(false);
 
-        // loadingOperation = SceneManager.LoadSceneAsync(sceneOrder[sceneIndex++]);
         StartCoroutine(LoadNextSceneAsync());
-        
     }
 
     private IEnumerator LoadNextSceneAsync()
     {
-        loadingOperation = SceneManager.LoadSceneAsync(sceneOrder[sceneIndex++]);
+        loadingOperation = SceneManager.LoadSceneAsync(sceneOrder[sceneIndex]);
+        // wait for scene to be fully loaded before continuing
         while (!loadingOperation.isDone)
         {
             yield return null;
         }
-        //call item spawner
+
+        string levelName = GetLevelNameByIndex(sceneIndex);
+
+        if (itemSpawner.LevelItems.ContainsKey(levelName))
+            this.SpawnItems(levelName);
+        /********* set puzzles too *********/
+
+        sceneIndex++;
+    }
+
+    private void SpawnItems(string levelName)
+    {
+        List<Vector3> positions;
+        List<string> itemList;
+
+        // if we haven't already been to this level since last checkpoint
+        if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) {
+            positions = itemSpawner.GetPossiblePositions();
+
+            // so we don't try to spawn more items than available positions
+            int numOfItems = Mathf.Min(positions.Count,itemSpawner.LevelItems[levelName].Count);   
+
+            // if didn't spawn any items, get the items already in the scene //////////come back and rememeber why i did this
+            if (numOfItems != 0)
+                itemList = itemSpawner.ChooseSpawnItems(levelName, numOfItems);
+            else
+                itemList = itemSpawner.ChooseSpawnItems(levelName, itemSpawner.LevelItems[levelName].Count);
+
+            itemSpawner.RandomizeItemAndPositionOrder(itemList, positions);
+            
+            // save items and positions for if we return to checkpoint
+            levelsSinceLastCheckpoint[levelName] = new ItemsAndPositions(itemList, positions);
+        } else {
+            // if we have been to this level since last checkpoint, use the same items and positions
+            itemList = levelsSinceLastCheckpoint[levelName].items;
+            positions = levelsSinceLastCheckpoint[levelName].positions;
+            //just to delete ItemSpawners
+            itemSpawner.GetPossiblePositions();
+        }
+
+        itemSpawner.SpawnItems(itemList, positions);
     }
 
     public void LoadCheckpoint()
@@ -69,7 +123,7 @@ public class LevelManager : MonoBehaviour
         sceneIndex = checkpoint;
         loadingSprite.enabled = true;
         HealthManager.ResetHealth();
-        loadingOperation = SceneManager.LoadSceneAsync(sceneOrder[sceneIndex++]);
+        StartCoroutine(LoadNextSceneAsync());
     }
 
     public void GameOver()
@@ -85,15 +139,13 @@ public class LevelManager : MonoBehaviour
         startGame = true;
         HealthManager.ResetHealth();
         TimerManager.StopTimer();
-        this.Start();
+        levelsSinceLastCheckpoint.Clear();
         SceneManager.LoadScene("Start Menu");
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        player = GameObject.Find("Player");
-        aimSet = GameObject.Find("Aim Set");
-        loadingSprite = GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>();
+        this.Start();
 
         if (SceneManager.GetActiveScene().name != "Game Over Screen")
             TimerManager.StartTimer();
@@ -112,6 +164,8 @@ public class LevelManager : MonoBehaviour
                 launchApp = false;
             }
 
+            levelsSinceLastCheckpoint = new Dictionary<string, ItemsAndPositions>();
+
             amountOfLevels = SceneManager.sceneCountInBuildSettings - Num_of_menu_screens_in_build;
             sceneOrder = new int[amountOfLevels];
 
@@ -121,6 +175,7 @@ public class LevelManager : MonoBehaviour
 
             sceneIndex = 0;
             checkpoint = sceneOrder[0];
+            itemSpawner = new ItemSpawner();
         }
 
         DontDestroyOnLoad(this);

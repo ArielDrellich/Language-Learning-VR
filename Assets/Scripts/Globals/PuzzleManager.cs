@@ -46,10 +46,10 @@ public class PuzzleManager : MonoBehaviour
         puzzlesSolved = 0;
     }
 
-    // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
-    //this and action, and use only _action.
     void Start()
     {
+        // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
+        //this and action, and use only _action.
         if (action is IAction)
             _action = (IAction) action;
         else
