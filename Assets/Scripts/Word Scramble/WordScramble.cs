@@ -13,7 +13,7 @@ public class Word
 
     public Word(string w) {
     	word = w;
-    	Debug.Log(word);
+    	// Debug.Log(word);
     }
 
     public string GetString()
@@ -116,7 +116,7 @@ public class WordScramble : MonoBehaviour
         char[] chars;
         if (!finished) {
             // Translate the word to the desire language
-            Debug.Log(words[index].word);
+            // Debug.Log(words[index].word);
             //chars = words[index].GetString().ToCharArray();
             try {
 	            string userChoice = PlayerPrefs.GetString("languageChoice");
@@ -133,14 +133,14 @@ public class WordScramble : MonoBehaviour
 	            Word word = new Word(translatedWord);
 
                 tr.TextToSpeech(translatedWord, userChoice, "UTF-8");
-	            Debug.Log(translatedWord);
+	            // Debug.Log(translatedWord);
 	            if (translatedWord == null)
 	            {
-	                Debug.Log("Its null!");
+	                // Debug.Log("Its null!");
 	            }
 	            chars = word.GetString().ToCharArray(); // ADD GetString()
             } catch (System.Exception exc) {
-                Debug.Log(exc);
+                // Debug.Log(exc);
             	chars = exc.ToString().ToCharArray();
             }
         } else {

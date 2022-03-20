@@ -380,7 +380,7 @@ namespace GooglePlayGames.Editor
             }
             else
             {
-                Debug.Log("GameInfo.cs does not exist.  Run Window > Google Play Games > Setup > Android Setup...");
+                //Debug.Log("GameInfo.cs does not exist.  Run Window > Google Play Games > Setup > Android Setup...");
                 return false;
             }
 #endif

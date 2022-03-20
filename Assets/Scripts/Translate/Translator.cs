@@ -33,7 +33,7 @@ using UnityEngine.Networking;
             //var toLanguage = "ru";//Deutsch
             //var fromLanguage = "en";//English
             var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={HttpUtility.UrlEncode(word)}";
-            Debug.Log(url);
+            // Debug.Log(url);
             var webClient = new System.Net.WebClient
             {
                 Encoding = System.Text.Encoding.UTF8
@@ -46,7 +46,7 @@ using UnityEngine.Networking;
             }
             catch (Exception exc)
             {
-                Debug.Log("Error: " + exc);
+                // Debug.Log("Error: " + exc);
                 return null;
             }
 
@@ -74,7 +74,7 @@ using UnityEngine.Networking;
             	yield return www.SendWebRequest();
 
             	if (www.isNetworkError || www.responseCode != 200) {
-            		Debug.Log(www.error);
+            		// Debug.Log(www.error);
             	} else {
             		myClip = DownloadHandlerAudioClip.GetContent(www);
             		audioSource.clip = myClip;

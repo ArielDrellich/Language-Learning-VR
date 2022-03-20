@@ -54,7 +54,7 @@ public class PuzzleManager : MonoBehaviour
             _action = (IAction) action;
         else
         // if action is either null or not IAction
-            _action = new DefaultAction();
+            _action = new LoadNextScene();
 
         DontDestroyOnLoad(this);
     }

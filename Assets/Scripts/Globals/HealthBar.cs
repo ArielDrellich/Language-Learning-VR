@@ -47,7 +47,8 @@ public class HealthBar : MonoBehaviour
         tmp.text = hearts;
 
         if (remainingHealth <= 0) {
-            LevelManager.GameOver();
+            // LevelManager.GameOver();
+            FindObjectOfType<LevelManager>().GameOver();
         }
     }
 }

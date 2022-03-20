@@ -287,7 +287,7 @@ namespace GooglePlayGames.Android
                     /* disposeResult= */ false,
                     snapshotMetadata =>
                     {
-                        Debug.Log("commitAndClose.succeed");
+                        //Debug.Log("commitAndClose.succeed");
                         callback(SavedGameRequestStatus.Success,
                             new AndroidSnapshotMetadata(snapshotMetadata, /* contents= */null));
                     });
@@ -296,7 +296,7 @@ namespace GooglePlayGames.Android
                     task,
                     exception =>
                     {
-                        Debug.Log("commitAndClose.failed: " + exception.Call<string>("toString"));
+                        //Debug.Log("commitAndClose.failed: " + exception.Call<string>("toString"));
                         var status = mAndroidClient.IsAuthenticated() ?
                             SavedGameRequestStatus.InternalError :
                             SavedGameRequestStatus.AuthenticationError;

@@ -64,7 +64,7 @@ public class OAuth : MonoBehaviour
 
         PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (success) =>
         {
-            Debug.Log(success);
+            //Debug.Log(success);
             if (success == SignInStatus.Success)
             {
                 PlayGamesLocalUser localUser = (PlayGamesLocalUser)Social.localUser;
