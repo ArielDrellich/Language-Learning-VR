@@ -40,6 +40,10 @@ public class PuzzleManager : MonoBehaviour
     public static void SetAction(IAction act) {
         _action = act;
     }
+    
+    public static IAction GetAction() {
+        return _action;
+    }
 
     public static void ResetCounters() {
         totalPuzzles = 0;

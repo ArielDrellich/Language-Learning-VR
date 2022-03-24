@@ -4,46 +4,56 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 
-public class ItemsAndPositions
+public class LevelPuzzleVars
 {
-    public ItemsAndPositions(List<string> items, List<Vector3> positions)
+    public List<string>  items;
+    public List<Vector3> positions;
+    public List<string>  words;
+
+    public LevelPuzzleVars(List<string> items = null,
+                List<Vector3> positions = null, List<string> words = null)
     {
         this.items = items;
         this.positions = positions;
+        this.words = words;
     }
-    public List<string> items;
-    public List<Vector3> positions;
 }
 public class LevelManager : MonoBehaviour
 {
+    /*-------------------------------------------------*/
+                    /** KEEP UPDATED **/
     const int Num_of_menu_screens_in_build = 2;
+    /*-------------------------------------------------*/
+
+    private Dictionary<string, LevelPuzzleVars> levelsSinceLastCheckpoint;
     private AsyncOperation loadingOperation;
-    private ItemSpawner itemSpawner;
-    private GameObject player;
-    private GameObject aimSet;
+    private ItemSpawner    itemSpawner;
+    private PuzzleSetter   puzzleSetter;
+    private GameObject     player;
+    private GameObject     aimSet;
     private SpriteRenderer loadingSprite;
-    private Dictionary<string, ItemsAndPositions> levelsSinceLastCheckpoint;
+
     private int[] sceneOrder;
-    private int sceneIndex;
-    private int amountOfLevels;
-    private bool launchApp = true;
-    private bool startGame = true;
-    private bool shuffleLevels = false;
-    public int checkpoint;
+    private int   sceneIndex;
+    private int   amountOfLevels;
+    private bool  launchApp = true;
+    private bool  startGame = true;
+    private bool  shuffleLevels = false;
+    public  int   checkpoint;
 
 
     public void NextLevel()
     {
-        /**********************************************/
-        // if (sceneIndex + 1 == amountOfLevels)
-            // SceneManager.LoadSceneAsync("Win Screen"); // once we have a win screen
-        /**********************************************/
+        /**********************************************\
+        if (sceneIndex + 1 == amountOfLevels)
+            SceneManager.LoadSceneAsync("Win Screen"); // once we have a win screen
+        \**********************************************/
 
         if (startGame) {
             startGame = false;
             TimerManager.StartTimer();
             /***********/
-            //temporary, will figure out better randomization after
+            //temporary, might figure out better level order randomization after
             if (shuffleLevels) {
                 System.Random rand = new System.Random();
                 sceneOrder = sceneOrder.OrderBy(x => rand.Next()).ToArray();
@@ -76,39 +86,81 @@ public class LevelManager : MonoBehaviour
             yield return null;
         }
 
-        string levelName = GetLevelNameByIndex(sceneIndex);
-
-        if (itemSpawner.LevelItems.ContainsKey(levelName))
-            this.SpawnItems(levelName);
-        /********* set puzzles too *********/
+        SetLevelPuzzleVars();
 
         sceneIndex++;
     }
 
-    private void SpawnItems(string levelName)
+    private void SetLevelPuzzleVars()
     {
-        List<Vector3> positions;
-        List<string> itemList;
+        string levelName = GetLevelNameByIndex(sceneIndex);
+        // temporary "difficulty scaling". Might come up with a better system later
+        int numOfItems = 5 + sceneIndex; 
+        int numOfWords = 1 + sceneIndex;
+
+        // Spawn level items and MatchObject puzzles
+        if (itemSpawner.LevelItems.ContainsKey(levelName)) {
+            this.SpawnItems(levelName, numOfItems);
+            puzzleSetter.SetMatchObject(levelsSinceLastCheckpoint[levelName].items);
+        }
+
+        // Set WordScramble words
+        this.SetWordScramble(levelName, numOfWords);
+    }
+
+    private void SetWordScramble(string levelName, int numOfWords)
+    {
+        List<string> wordsInScramble;
 
         // if we haven't already been to this level since last checkpoint
-        if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) {
+        if (!levelsSinceLastCheckpoint.ContainsKey(levelName)
+                        || levelsSinceLastCheckpoint[levelName].words == null) {
+
+            wordsInScramble = puzzleSetter.RandomizeWordScramble(levelName, numOfWords);
+
+            // save words for if we return to checkpoint
+            if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) {
+                levelsSinceLastCheckpoint[levelName] = new LevelPuzzleVars(words: wordsInScramble);
+            }
+            // if levelsSinceLastCheckpoint contains the levelname but not yet words
+            else {
+                levelsSinceLastCheckpoint[levelName].words = wordsInScramble;
+            }
+
+        // if we have been to this level since last checkpoint, use the same words
+        } else {
+            puzzleSetter.SetWordScramble(levelsSinceLastCheckpoint[levelName].words);
+        }
+
+    }
+
+    private void SpawnItems(string levelName, int numOfItems)
+    {
+        List<Vector3> positions;
+        List<string>  itemList;
+
+        // if we haven't already been to this level since last checkpoint
+        if (!levelsSinceLastCheckpoint.ContainsKey(levelName)
+                        || levelsSinceLastCheckpoint[levelName].items == null) {
+
             positions = itemSpawner.GetPossiblePositions();
 
-            // so we don't try to spawn more items than available positions
-            int numOfItems = Mathf.Min(positions.Count,itemSpawner.LevelItems[levelName].Count);   
-
-            // if didn't spawn any items, get the items already in the scene //////////come back and rememeber why i did this
-            if (numOfItems != 0)
-                itemList = itemSpawner.ChooseSpawnItems(levelName, numOfItems);
-            else
-                itemList = itemSpawner.ChooseSpawnItems(levelName, itemSpawner.LevelItems[levelName].Count);
+            itemList = itemSpawner.ChooseSpawnItems(levelName, numOfItems);
 
             itemSpawner.RandomizeItemAndPositionOrder(itemList, positions);
             
             // save items and positions for if we return to checkpoint
-            levelsSinceLastCheckpoint[levelName] = new ItemsAndPositions(itemList, positions);
+            if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) {
+                levelsSinceLastCheckpoint[levelName] = new LevelPuzzleVars(items: itemList, positions: positions);
+            }
+            // if levelsSinceLastCheckpoint contains the levelname but not yet items
+            else {
+                levelsSinceLastCheckpoint[levelName].items = itemList;
+                levelsSinceLastCheckpoint[levelName].positions = positions;
+            }
+
+        // if we have been to this level since last checkpoint, use the same items and positions
         } else {
-            // if we have been to this level since last checkpoint, use the same items and positions
             itemList = levelsSinceLastCheckpoint[levelName].items;
             positions = levelsSinceLastCheckpoint[levelName].positions;
             //just to delete ItemSpawners
@@ -159,12 +211,15 @@ public class LevelManager : MonoBehaviour
         aimSet = GameObject.Find("Aim Set");
         loadingSprite = GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>();
         if (startGame) {
+            // only add once on app launch
             if(launchApp) {
                 SceneManager.sceneLoaded += OnSceneLoaded;
                 launchApp = false;
             }
-
-            levelsSinceLastCheckpoint = new Dictionary<string, ItemsAndPositions>();
+            
+            itemSpawner = new ItemSpawner();
+            puzzleSetter = new PuzzleSetter();
+            levelsSinceLastCheckpoint = new Dictionary<string, LevelPuzzleVars>();
 
             amountOfLevels = SceneManager.sceneCountInBuildSettings - Num_of_menu_screens_in_build;
             sceneOrder = new int[amountOfLevels];
@@ -175,7 +230,6 @@ public class LevelManager : MonoBehaviour
 
             sceneIndex = 0;
             checkpoint = sceneOrder[0];
-            itemSpawner = new ItemSpawner();
         }
 
         DontDestroyOnLoad(this);
