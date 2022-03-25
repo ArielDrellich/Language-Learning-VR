@@ -1,0 +1,123 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 11.11.2011 13:57:11
+
+newmtl Pilgrim_male_head
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Pilgrim_male_head_diff.jpg
+	map_Kd Pilgrim_male_head_diff.jpg
+	map_bump -bm 0.5000 Map__2_Normal Bump.jpg
+
+newmtl Pilgrim_male_hand
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Pilgrim_male_hand_diff.jpg
+	map_Kd Pilgrim_male_hand_diff.jpg
+
+newmtl Pilgrim_male_jacket
+	Ns 28.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5400 0.5400 0.5400
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Pilgrim_male_jacket_diff.jpg
+	map_Kd Pilgrim_male_jacket_diff.jpg
+	map_Ks Pilgrim_male_jacket_spec.jpg
+	map_bump Map__8_Normal Bump.jpg
+
+newmtl Pilgrim_male_pants
+	Ns 17.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.2250 0.2250 0.2250
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Pilgrim_male_pants_diff.jpg
+	map_Kd Pilgrim_male_pants_diff.jpg
+	map_Ks Pilgrim_male_pants_spec.jpg
+	map_bump Map__11_Normal Bump.jpg
+
+newmtl Pilgrim_male_shoe
+	Ns 32.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5400 0.5400 0.5400
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Pilgrim_male_shoe_diff.jpg
+	map_Kd Pilgrim_male_shoe_diff.jpg
+	map_Ks Pilgrim_male_shoe_spec.jpg
+
+newmtl Pilgrim_male_hair
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.3961 0.2588 0.1333
+	Kd 0.3961 0.2588 0.1333
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Pilgrim_male_hair_diff.jpg
+	map_Kd Pilgrim_male_hair_diff.jpg
+
+newmtl Pilgrim_male_hat
+	Ns 45.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.5400 0.5400 0.5400
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Pilgrim_male_hat_diff.jpg
+	map_Kd Pilgrim_male_hat_diff.jpg
+	map_Ks Pilgrim_male_hat_spec.jpg
+	map_bump Map__13_Normal Bump.jpg
+
+newmtl Pilgrim_male_cuff
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 1.0000 1.0000 1.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Pilgrim_male_cuff_diff.jpg
+	map_Kd Pilgrim_male_cuff_diff.jpg
+	map_bump Map__15_Normal Bump.jpg
