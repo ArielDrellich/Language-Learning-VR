@@ -15,6 +15,7 @@ public class LoadCheckpoint : MonoBehaviour, IClickable
     public void LookedAt(RaycastHit hit) {
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1"))
-                LevelManager.LoadCheckpoint();
+            // LevelManager.LoadCheckpoint();
+            FindObjectOfType<LevelManager>().LoadCheckpoint();
     }
 }

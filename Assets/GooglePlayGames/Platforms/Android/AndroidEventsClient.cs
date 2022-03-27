@@ -58,7 +58,7 @@ namespace GooglePlayGames.Android
                     task,
                     exception =>
                     {
-                        Debug.Log("FetchAllEvents failed");
+                        //Debug.Log("FetchAllEvents failed");
                         callback.Invoke(ResponseStatus.InternalError, null);
                     });
             }
@@ -109,7 +109,7 @@ namespace GooglePlayGames.Android
                     task,
                     exception =>
                     {
-                        Debug.Log("FetchEvent failed");
+                        //Debug.Log("FetchEvent failed");
                         callback.Invoke(ResponseStatus.InternalError, null);
                     });
             }

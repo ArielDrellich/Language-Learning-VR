@@ -16,7 +16,7 @@ public class Old_GameTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("accumulatedLoadingTime: " + accumulatedLoadingTime);
+        //Debug.Log("accumulatedLoadingTime: " + accumulatedLoadingTime);
     }
 
     void OnEnable()
@@ -24,16 +24,16 @@ public class Old_GameTimer : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Equals("Living-Room-Scene")) {
             // Living room scene is the first scene so it sets the start time
             startTime = Time.time;
-            Debug.Log(startTime);
+            //Debug.Log(startTime);
         } else {
             // Get the start time that was set by the living room scene so the timer will remain
             // updated to the correct start time.
             // Loading time will be taken into consideration later.
             startTime = PlayerPrefs.GetFloat("timerStartTime");
-            Debug.Log(startTime);
+            //Debug.Log(startTime);
         }
 
-        Debug.Log("startTime: " + startTime);
+        //Debug.Log("startTime: " + startTime);
     }
 
     // Update is called once per frame
@@ -60,7 +60,7 @@ public class Old_GameTimer : MonoBehaviour
     void OnDisable()
     {
         PlayerPrefs.SetFloat("timerStartTime", startTime);
-        Debug.Log("Timer disabled");
+        //Debug.Log("Timer disabled");
     }
 
 

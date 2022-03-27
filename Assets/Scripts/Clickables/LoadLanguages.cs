@@ -41,8 +41,8 @@ public class LoadLanguages : MonoBehaviour, IClickable
         languages.Add(new KeyValuePair<string, string>("Danish", "da")); 
         // languages.Add(new KeyValuePair<string, string>("Dutch", "nl"));  the sound is not good
 
-        languages.Add(new KeyValuePair<string, string>("French", "fr")); 
         languages.Add(new KeyValuePair<string, string>("English", "en")); 
+        languages.Add(new KeyValuePair<string, string>("French", "fr")); 
         languages.Add(new KeyValuePair<string, string>("German", "de")); 
         languages.Add(new KeyValuePair<string, string>("Greek", "el"));
         languages.Add(new KeyValuePair<string, string>("Italian", "it")); 
@@ -107,7 +107,7 @@ public class LoadLanguages : MonoBehaviour, IClickable
 
     public void DoClick(GameObject clicker) {
     	if (clicker.name == "up") {
-            Debug.Log(PlayerPrefs.GetInt("languageIndex"));
+            // Debug.Log(PlayerPrefs.GetInt("languageIndex"));
 
     		index = (PlayerPrefs.GetInt("languageIndex")) % languages.Count;
     		language1Text.text = languages[index].Key;

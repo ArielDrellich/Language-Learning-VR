@@ -96,7 +96,7 @@ namespace GooglePlayGames.Android
             idToken = null;
             PlayGamesHelperObject.RunOnGameThread(() =>
             {
-                Debug.Log("Calling Signout in token client");
+                //Debug.Log("Calling Signout in token client");
                 AndroidJavaClass cls = new AndroidJavaClass(HelperFragmentClass);
                 cls.CallStatic("signOut", AndroidHelperFragment.GetActivity());
             });

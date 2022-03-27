@@ -7,6 +7,7 @@ public class LoadNextScene : MonoBehaviour, IAction
 {
     public void DoAction()
     {
-        LevelManager.NextLevel();
+        // LevelManager.NextLevel();
+        FindObjectOfType<LevelManager>().NextLevel();
     }
 }

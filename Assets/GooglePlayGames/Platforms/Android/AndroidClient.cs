@@ -75,7 +75,7 @@ namespace GooglePlayGames.Android
                 // any additional work.
                 if (mAuthState == AuthState.Authenticated)
                 {
-                    Debug.Log("Already authenticated.");
+                    //Debug.Log("Already authenticated.");
                     InvokeCallbackOnGameThread(callback, SignInStatus.Success);
                     return;
                 }
@@ -83,7 +83,7 @@ namespace GooglePlayGames.Android
 
             InitializeTokenClient();
 
-            Debug.Log("Starting Auth with token client.");
+            //Debug.Log("Starting Auth with token client.");
             mTokenClient.FetchTokens(silent, (int result) =>
             {
                 bool succeed = result == 0 /* CommonStatusCodes.SUCCEED */;
@@ -174,7 +174,7 @@ namespace GooglePlayGames.Android
                 {
                     lock (AuthStateLock)
                     {
-                        Debug.Log("Returning an error code.");
+                        //Debug.Log("Returning an error code.");
                         InvokeCallbackOnGameThread(callback, SignInHelper.ToSignInStatus(result));
                     }
                 }
@@ -292,7 +292,7 @@ namespace GooglePlayGames.Android
         {
             if (!this.IsAuthenticated())
             {
-                Debug.Log("Cannot get API client - not authenticated");
+                //Debug.Log("Cannot get API client - not authenticated");
                 return null;
             }
 
@@ -309,7 +309,7 @@ namespace GooglePlayGames.Android
         {
             if (!this.IsAuthenticated())
             {
-                Debug.Log("Cannot get API client - not authenticated");
+                //Debug.Log("Cannot get API client - not authenticated");
                 return null;
             }
 
@@ -326,7 +326,7 @@ namespace GooglePlayGames.Android
         {
             if (!this.IsAuthenticated())
             {
-                Debug.Log("Cannot get API client - not authenticated");
+                //Debug.Log("Cannot get API client - not authenticated");
                 return null;
             }
 
@@ -499,7 +499,7 @@ namespace GooglePlayGames.Android
                                     return;
                                 }
 
-                                Debug.Log("LoadFriends failed with status code: " + statusCode);
+                                //Debug.Log("LoadFriends failed with status code: " + statusCode);
                                 InvokeCallbackOnGameThread(callback, UIStatus.InternalError);
                             }
                         });
@@ -673,7 +673,7 @@ namespace GooglePlayGames.Android
                     task,
                     e =>
                     {
-                        Debug.Log("GetPlayerStats failed: " + e.Call<string>("toString"));
+                        //Debug.Log("GetPlayerStats failed: " + e.Call<string>("toString"));
                         var statusCode = IsAuthenticated()
                             ? CommonStatusCodes.InternalError
                             : CommonStatusCodes.SignInRequired;
@@ -802,7 +802,7 @@ namespace GooglePlayGames.Android
                     task,
                     exception =>
                     {
-                        Debug.Log("LoadAchievements failed: " + exception.Call<string>("toString"));
+                        //Debug.Log("LoadAchievements failed: " + exception.Call<string>("toString"));
                         InvokeCallbackOnGameThread(callback, new Achievement[0]);
                     });
             }
@@ -1014,7 +1014,7 @@ namespace GooglePlayGames.Android
                                     mFriendsResolutionException = null;
                                 }
                             });
-                        Debug.Log("LoadScores failed: " + exception.Call<string>("toString"));
+                        //Debug.Log("LoadScores failed: " + exception.Call<string>("toString"));
                         InvokeCallbackOnGameThread(
                             callback, new LeaderboardScoreData(leaderboardId,
                                 ResponseStatus.InternalError));
@@ -1067,7 +1067,7 @@ namespace GooglePlayGames.Android
                             mFriendsResolutionException = null;
                         }
                     });
-                    Debug.Log("LoadMoreScores failed: " + exception.Call<string>("toString"));
+                    //Debug.Log("LoadMoreScores failed: " + exception.Call<string>("toString"));
                     InvokeCallbackOnGameThread(
                         callback, new LeaderboardScoreData(token.LeaderboardId,
                             ResponseStatus.InternalError));

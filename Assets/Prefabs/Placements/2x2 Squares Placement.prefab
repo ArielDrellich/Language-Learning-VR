@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4715861342131782467}
   - component: {fileID: 4715861342131782492}
   m_Layer: 0
-  m_Name: Placement 1
+  m_Name: Top Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4715861342548366468}
   - component: {fileID: 4715861342548366469}
   m_Layer: 0
-  m_Name: Placement 2
+  m_Name: Top Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 4715861342827185396}
   - component: {fileID: 4715861342827185397}
   m_Layer: 0
-  m_Name: Placement 4
+  m_Name: Bottom Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4715861343333321822}
   m_Layer: 0
-  m_Name: 4x4 Squares Placement 1
+  m_Name: 2x2 Squares Placement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 4715861343357179365}
   - component: {fileID: 4715861343357179366}
   m_Layer: 0
-  m_Name: Placement 3
+  m_Name: Bottom Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

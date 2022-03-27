@@ -40,7 +40,7 @@ namespace KeySystem
 		{
 			if (_keyInventory.hasRedKey)
 			{
-				Debug.Log("opening the door");
+				//Debug.Log("opening the door");
 				OpenDoor();
 			}
 			else

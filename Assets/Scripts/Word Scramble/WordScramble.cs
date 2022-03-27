@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEditor;
 // using Translator;
@@ -13,7 +14,7 @@ public class Word
 
     public Word(string w) {
     	word = w;
-    	Debug.Log(word);
+    	// Debug.Log(word);
     }
 
     public string GetString()
@@ -49,19 +50,22 @@ public class WordScramble : MonoBehaviour
 
     [Header("UI REFERENCE")]
     public CharObject prefab;
-    public Transform container;
-    public float space;
+    public Transform  container;
+    CharObject        firstSelected;
+    List<CharObject>  charObjects = new List<CharObject>();
 
-    List<CharObject> charObjects = new List<CharObject>();
-    CharObject firstSelected;
-    public int currentWord;
     public static WordScramble main;
-
-    private int originalId;
-    private bool finished;
-
+    public int     currentWord;
+    public float   space;
+    private int    originalId;
+    private bool   finished;
+    private bool   incremented = false; 
     private string translatedWord;
     public Translator tr;
+
+    [SerializeField]
+    private Component win_action;
+    private IAction   _action;
 
     void Awake()
     {
@@ -75,6 +79,16 @@ public class WordScramble : MonoBehaviour
         finished = false;
         tr = gameObject.AddComponent<Translator>();
         ShowScramble(currentWord);
+
+        // gets IAction from inspector
+        if (win_action is IAction)
+            _action = (IAction) win_action;
+        else
+        // if action is either null or not IAction
+            _action = new DefaultAction();
+
+        // Add this puzzles to the puzzle counter
+        PuzzleManager.AddPuzzle();
     }
 
     // Relocate the letter
@@ -88,7 +102,7 @@ public class WordScramble : MonoBehaviour
         for (int i = 0; i < charObjects.Count; i++)
         {
             charObjects[i].rectTransform.anchoredPosition3D =
-                new Vector3((i - center) * space, 0,0);
+                new Vector3((i - center) * space, 0,0); // problem, can only face one way. Can't rotate word scramble
             charObjects[i].index = i;
         }
     }
@@ -116,7 +130,7 @@ public class WordScramble : MonoBehaviour
         char[] chars;
         if (!finished) {
             // Translate the word to the desire language
-            Debug.Log(words[index].word);
+            // Debug.Log(words[index].word);
             //chars = words[index].GetString().ToCharArray();
             try {
 	            string userChoice = PlayerPrefs.GetString("languageChoice");
@@ -133,12 +147,13 @@ public class WordScramble : MonoBehaviour
 	            Word word = new Word(translatedWord);
 
                 tr.TextToSpeech(translatedWord, userChoice, "UTF-8");
-	            Debug.Log(translatedWord);
+	            // Debug.Log(translatedWord);
 	            if (translatedWord == null)
 	            {
 	                Debug.Log("Its null!");
 	            }
 	            chars = word.GetString().ToCharArray(); // ADD GetString()
+                
             } catch (System.Exception exc) {
                 Debug.Log(exc);
             	chars = exc.ToString().ToCharArray();
@@ -146,6 +161,9 @@ public class WordScramble : MonoBehaviour
         } else {
             string done = "DONE!";
             chars = done.ToCharArray();
+
+            PuzzleManager.Increment();
+            _action.DoAction();
         }
 
         foreach (char c in chars)
@@ -222,4 +240,11 @@ public class WordScramble : MonoBehaviour
         //Debug.Log("Failure :(");
         return false;
     }
+
+    public void SetWords(Word[] words)
+    {
+        this.words = words;
+        ShowScramble(currentWord);
+    }
+
 }

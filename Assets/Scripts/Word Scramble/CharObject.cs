@@ -30,7 +30,7 @@ public class CharObject : MonoBehaviour
 
 	public void Select ()
 	{
-		Debug.Log("Selected: " + this.character);
+		// Debug.Log("Selected: " + this.character);
 		isSelected = !isSelected;
 
 		image.color = isSelected ? selectedColor : normalColor;

@@ -40,20 +40,26 @@ public class PuzzleManager : MonoBehaviour
     public static void SetAction(IAction act) {
         _action = act;
     }
+    
+    public static IAction GetAction() {
+        return _action;
+    }
 
     public static void ResetCounters() {
         totalPuzzles = 0;
         puzzlesSolved = 0;
     }
 
-    // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
-    //this and action, and use only _action.
     void Start()
     {
+        // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
+        //this and action, and use only _action.
         if (action is IAction)
             _action = (IAction) action;
         else
         // if action is either null or not IAction
-            _action = new DefaultAction();
+            _action = new LoadNextScene();
+
+        DontDestroyOnLoad(this);
     }
 }

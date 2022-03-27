@@ -1,5 +1,5 @@
 {
-    "m_SelectedDeviceId": "R58M51J0WXB",
+    "m_SelectedDeviceId": "ad936e6",
     "m_SelectedPackage": {
         "deviceId": "R58M51J0WXB",
         "name": "com.DefaultCompany.LanguageLearningGame",
@@ -156,6 +156,18 @@
             "deviceId": "LMG710EMcc046520",
             "name": "com.DefaultCompany.LanguageLearningGame",
             "processId": 6654,
+            "exited": false
+        },
+        {
+            "deviceId": "ad936e6",
+            "name": "com.teslacoilsw.launcher",
+            "processId": 26053,
+            "exited": false
+        },
+        {
+            "deviceId": "ad936e6",
+            "name": "com.android.settings",
+            "processId": 5466,
             "exited": false
         }
     ],
