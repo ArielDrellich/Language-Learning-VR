@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "ad936e6",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "R58M51J0WXB",
+        "name": "com.DefaultCompany.LanguageLearningGame",
+        "processId": 26023,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,78 @@
             "deviceId": "R58M51J0WXB",
             "name": "com.DefaultCompany.LanguageLearningGame",
             "processId": 23576,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 27139,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 32384,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 7098,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 30371,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 29924,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 11234,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 19198,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 21949,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 31124,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 8224,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 16905,
+            "exited": false
+        },
+        {
+            "deviceId": "R58M51J0WXB",
+            "name": "com.DefaultCompany.LanguageLearningGame",
+            "processId": 26023,
             "exited": false
         },
         {

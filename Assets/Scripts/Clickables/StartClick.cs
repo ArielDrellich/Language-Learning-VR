@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,6 @@ public class StartClick : MonoBehaviour, IClickable
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1")) {
             if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
-                // LevelManager.NextLevel();
                 FindObjectOfType<LevelManager>().NextLevel();
             }
         }
