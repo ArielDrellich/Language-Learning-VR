@@ -32,15 +32,22 @@ public class PuzzleSetter
         LevelWords["Asi Demo 3"] = new List<string>() {
             "rocks", "sand", "mountain", "snake", "lizard"};
 
+        LevelWords["Random"] = new List<string>() {
+            "rocks", "sand", "mountain", "snake", "lizard"};
+
         /*==================================================================*/
     }
 
-    public void SetMatchObject(List<string> names) {
+    public void SetMatchObject(List<string> names, int numToSet = int.MaxValue, bool randomize = true) {
         MatchObject[] matchObjects = Object.FindObjectsOfType<MatchObject>();
         int numOfNames = names.Count;
         int numOfMatchObjects = matchObjects.Count();
-        int toSet = Mathf.Min(numOfNames, numOfMatchObjects);
+        int toSet = Mathf.Min(numOfNames, numOfMatchObjects, numToSet);
         int i;
+
+        if (randomize) {
+            matchObjects = matchObjects.OrderBy(x => random.Next()).ToArray();
+        }
 
         for (i = 0; i < toSet; i++) {
             matchObjects[i].SetObject(names[i]);

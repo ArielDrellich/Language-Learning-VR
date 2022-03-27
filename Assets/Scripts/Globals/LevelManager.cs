@@ -96,12 +96,13 @@ public class LevelManager : MonoBehaviour
         string levelName = GetLevelNameByIndex(sceneIndex);
         // temporary "difficulty scaling". Might come up with a better system later
         int numOfItems = 5 + sceneIndex; 
+        int numOfMatchObjects = 2 + sceneIndex; 
         int numOfWords = 1 + sceneIndex;
 
         // Spawn level items and MatchObject puzzles
         if (itemSpawner.LevelItems.ContainsKey(levelName)) {
             this.SpawnItems(levelName, numOfItems);
-            puzzleSetter.SetMatchObject(levelsSinceLastCheckpoint[levelName].items);
+            puzzleSetter.SetMatchObject(levelsSinceLastCheckpoint[levelName].items, numOfMatchObjects);
         }
 
         // Set WordScramble words

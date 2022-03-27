@@ -14,6 +14,7 @@ public class ItemSpawner
 
         LevelItems = new Dictionary<string, List<string>>();
                     /* Set which items each level can spawn */
+    /* If the level doesn't spawn items, write the items you'd want matchobject to take*/
         /*==================================================================*/
         LevelItems["SampleScene"] = new List<string>() {
             "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"};
@@ -31,7 +32,10 @@ public class ItemSpawner
             "Banana", "Orange", "Tomato"};
 
         LevelItems["Scene 5"] = new List<string>() {
-            "Corn", "Orange", "Banana"};
+            "Watermelon", "Banana"};
+
+        LevelItems["Random"] = new List<string>() {
+            "Watermelon", "Banana", "Corn", "Pineapple", "Tomato"};
 
 
         /*==================================================================*/
