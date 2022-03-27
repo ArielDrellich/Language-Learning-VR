@@ -1,0 +1,7 @@
+If for any reason the textures aren't linked, everything has been UV mapped.
+all you will need to do is re-link them in whichever software you are using.
+
+Thanks 
+
+Amazingtextures 
+Team
