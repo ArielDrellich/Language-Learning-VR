@@ -37,6 +37,11 @@ public class ItemSpawner
         LevelItems["Random"] = new List<string>() {
             "Watermelon", "Banana", "Corn", "Pineapple", "Tomato"};
 
+        LevelItems["Market"] = new List<string>() {
+            "Duck","Chicken", "Cucumber", "Carrot", "Lemon", "Tomato", "Orange", "Bread",
+            "Corn", "Watermelon","Pumpkin", "Broccoli", "Weight","Pizza","Wine","Junk food",
+            "Banana"};
+
 
         /*==================================================================*/
 
