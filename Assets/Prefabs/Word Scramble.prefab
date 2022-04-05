@@ -405,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2614564685189744820}
   m_Layer: 0
-  m_Name: Word Scramble Ariel fix
+  m_Name: Word Scramble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -479,9 +479,11 @@ MonoBehaviour:
     desireRandom: 
   prefab: {fileID: 3014786329730524476}
   container: {fileID: 2614564686813062649}
-  space: 0.25
+  main: {fileID: 0}
   currentWord: 0
+  space: 0.25
   tr: {fileID: 0}
+  win_action: {fileID: 0}
 --- !u!1 &2614564686813062653
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +718,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charDistance: 10
-  submitDistance: 10
 --- !u!1 &3014786330745708656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,9 +1729,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535f5cf85de442841b165372b1b3b4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ws: {fileID: 0}
   submit: {fileID: 7605293512644913578}
   speaker: {fileID: 7286309885425292620}
-  action: {fileID: 0}
 --- !u!1 &7605293512644913578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,9 +1813,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535f5cf85de442841b165372b1b3b4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ws: {fileID: 2614564685729951309}
   submit: {fileID: 7605293512644913578}
   speaker: {fileID: 7286309885425292620}
-  action: {fileID: 0}
 --- !u!1 &8006026437753282301
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PressScrambleButton : MonoBehaviour, IClickable
 {
+	[SerializeField]
 	private WordScramble   ws;
 	public  GameObject     submit;
 	public  GameObject     speaker;
@@ -15,7 +16,6 @@ public class PressScrambleButton : MonoBehaviour, IClickable
     void Start()
     {
     	reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
-        ws = GameObject.Find("Core").GetComponent<WordScramble>();
         animator = this.GetComponent<Animator>();
     }
 

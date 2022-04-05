@@ -33,7 +33,7 @@ public class PuzzleSetter
             "rocks", "sand", "mountain", "snake", "lizard"};
 
         LevelWords["Random"] = new List<string>() {
-            "rocks", "sand", "mountain", "snake", "lizard"};
+            "dog", "cat", "hello"};
 
         /*==================================================================*/
     }

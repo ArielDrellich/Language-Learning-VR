@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535f5cf85de442841b165372b1b3b4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ws: {fileID: 0}
   submit: {fileID: 856067475613284992}
   speaker: {fileID: 537088128331581030}
 --- !u!114 &1414878158669760248
@@ -260,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535f5cf85de442841b165372b1b3b4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ws: {fileID: 5053881318217055591}
   submit: {fileID: 856067475613284992}
   speaker: {fileID: 537088128331581030}
 --- !u!1 &968604127688003031
@@ -1475,6 +1477,7 @@ MonoBehaviour:
   words: []
   prefab: {fileID: 5457411409949439510}
   container: {fileID: 5053881317150455507}
+  main: {fileID: 0}
   currentWord: 0
   space: 0.25
   tr: {fileID: 0}
