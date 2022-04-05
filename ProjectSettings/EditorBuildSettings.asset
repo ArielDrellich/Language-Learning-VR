@@ -11,10 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game Over Screen.unity
     guid: 5a8e805fb719b0d48a7d00a058949840
-  - enabled: 0
-    path: Assets/Scenes/Test Scenes/Randomization.unity
-    guid: a26f1ce4f7b73764298c3c1f576dc295
   - enabled: 1
+    path: Assets/Scenes/Market-Ariel.unity
+    guid: 1c28820dce44db14db84dd3abed1d75f
+  - enabled: 1
+    path: Assets/Scenes/Market.unity
+    guid: 2029b23332ab24c4abbc6e3419f21d99
+  - enabled: 0
     path: Assets/Scenes/Test Scenes/Random.unity
     guid: e6d53e4dd2166a44982648b5fbfb03cc
   - enabled: 0
@@ -32,9 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene Sequence Test/Scene 5.unity
     guid: ccfc707092e1dd64aaf03b309f3ecec2
-  - enabled: 1
-    path: Assets/Scenes/Market.unity
-    guid: 2029b23332ab24c4abbc6e3419f21d99
   - enabled: 0
     path: Assets/Scenes/Park.unity
     guid: b88abed51b2d2454abab3ce71c0b5875

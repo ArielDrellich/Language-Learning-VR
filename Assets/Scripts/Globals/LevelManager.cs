@@ -95,9 +95,9 @@ public class LevelManager : MonoBehaviour
     {
         string levelName = GetLevelNameByIndex(sceneIndex);
         // temporary "difficulty scaling". Might come up with a better system later
-        int numOfItems = 5 + sceneIndex; 
-        int numOfMatchObjects = 2 + sceneIndex; 
-        int numOfWords = 1 + sceneIndex;
+        int numOfItems = 10 + (2 * sceneIndex); 
+        int numOfMatchObjects = 4 + sceneIndex; 
+        int numOfWords = 2 + sceneIndex;
 
         // Spawn level items and MatchObject puzzles
         if (itemSpawner.LevelItems.ContainsKey(levelName)) {

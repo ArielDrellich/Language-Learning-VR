@@ -42,6 +42,9 @@ public class ItemSpawner
             "Corn", "Watermelon","Pumpkin", "Broccoli", "Weight","Pizza","Wine","Junk food",
             "Banana"};
 
+        LevelItems["Market-Ariel"] = new List<string>() {
+            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"};
+
 
         /*==================================================================*/
 
