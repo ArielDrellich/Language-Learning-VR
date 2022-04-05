@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.38262147, y: 0.3826215, z: 0.3826215}
   m_Children: []
   m_Father: {fileID: 488050}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3396472
 MeshFilter:
@@ -109,7 +109,7 @@ Transform:
   m_LocalScale: {x: 0.42613482, y: 0.42613485, z: 0.42613477}
   m_Children: []
   m_Father: {fileID: 488050}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3329006
 MeshFilter:
@@ -188,7 +188,7 @@ Transform:
   m_LocalScale: {x: 0.42613477, y: 0.4261348, z: 0.4261348}
   m_Children: []
   m_Father: {fileID: 488050}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3367642
 MeshFilter:
@@ -267,7 +267,7 @@ Transform:
   m_LocalScale: {x: 0.17078307, y: 0.17078309, z: 0.1707831}
   m_Children: []
   m_Father: {fileID: 488050}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3397572
 MeshFilter:
@@ -346,7 +346,7 @@ Transform:
   m_LocalScale: {x: 0.42613482, y: 0.42613482, z: 0.42613485}
   m_Children: []
   m_Father: {fileID: 488050}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3304740
 MeshFilter:
@@ -425,7 +425,7 @@ Transform:
   m_LocalScale: {x: 0.4453416, y: 0.44534156, z: 0.44534156}
   m_Children: []
   m_Father: {fileID: 488050}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3343796
 MeshFilter:
@@ -504,7 +504,7 @@ Transform:
   m_LocalScale: {x: 0.4453416, y: 0.44534156, z: 0.44534156}
   m_Children: []
   m_Father: {fileID: 488050}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3379238
 MeshFilter:
@@ -583,7 +583,6 @@ Transform:
   - {fileID: 433510}
   - {fileID: 430742}
   - {fileID: 415574}
-  - {fileID: 467668}
   - {fileID: 472206}
   - {fileID: 490210}
   - {fileID: 404476}
@@ -595,85 +594,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &159764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 467668}
-  - component: {fileID: 3378966}
-  - component: {fileID: 2398166}
-  m_Layer: 0
-  m_Name: BeachChair_Cyan_Desktop
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &467668
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159764}
-  m_LocalRotation: {x: -0.2081932, y: -0.7535122, z: -0.6042419, w: 0.1541647}
-  m_LocalPosition: {x: -1.22, y: 0.25, z: -2.061}
-  m_LocalScale: {x: 0.15715408, y: 0.15715408, z: 0.15715408}
-  m_Children: []
-  m_Father: {fileID: 488050}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3378966
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159764}
-  m_Mesh: {fileID: 4300000, guid: 40215ac49be321145ba8da7ecf02b457, type: 3}
---- !u!23 &2398166
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159764}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 65a215573a56be74aa4502fa76a31895, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!1 &159986
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,7 +782,7 @@ Transform:
   m_LocalScale: {x: 0.4261348, y: 0.42613482, z: 0.42613482}
   m_Children: []
   m_Father: {fileID: 488050}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3394882
 MeshFilter:

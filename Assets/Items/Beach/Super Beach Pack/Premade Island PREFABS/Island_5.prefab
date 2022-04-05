@@ -109,7 +109,7 @@ Transform:
   m_LocalScale: {x: 0.42060387, y: 0.4206039, z: 0.4206039}
   m_Children: []
   m_Father: {fileID: 499522}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3326316
 MeshFilter:
@@ -138,85 +138,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4c1b9fc55ee34ef4a93eab095c7670c0, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!1 &114290
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 481052}
-  - component: {fileID: 3399786}
-  - component: {fileID: 2395002}
-  m_Layer: 0
-  m_Name: BeachChair_Cyan_Desktop
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &481052
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114290}
-  m_LocalRotation: {x: -0.17004912, y: -0.6863551, z: -0.6863552, w: 0.17004903}
-  m_LocalPosition: {x: 0.859, y: 0.152, z: 1.011}
-  m_LocalScale: {x: 0.20772111, y: 0.20772102, z: 0.20772102}
-  m_Children: []
-  m_Father: {fileID: 499522}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3399786
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114290}
-  m_Mesh: {fileID: 4300000, guid: 40215ac49be321145ba8da7ecf02b457, type: 3}
---- !u!23 &2395002
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114290}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 65a215573a56be74aa4502fa76a31895, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -267,7 +188,7 @@ Transform:
   m_LocalScale: {x: 0.20772102, y: 0.20772098, z: 0.207721}
   m_Children: []
   m_Father: {fileID: 499522}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3380086
 MeshFilter:
@@ -346,7 +267,7 @@ Transform:
   m_LocalScale: {x: 0.42060387, y: 0.4206039, z: 0.4206039}
   m_Children: []
   m_Father: {fileID: 499522}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3350484
 MeshFilter:
@@ -504,7 +425,7 @@ Transform:
   m_LocalScale: {x: 0.42060387, y: 0.4206039, z: 0.4206039}
   m_Children: []
   m_Father: {fileID: 499522}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3391146
 MeshFilter:
@@ -662,7 +583,7 @@ Transform:
   m_LocalScale: {x: 0.42060387, y: 0.4206039, z: 0.4206039}
   m_Children: []
   m_Father: {fileID: 499522}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3319806
 MeshFilter:
@@ -742,7 +663,6 @@ Transform:
   - {fileID: 481836}
   - {fileID: 412694}
   - {fileID: 434150}
-  - {fileID: 481052}
   - {fileID: 447998}
   - {fileID: 410696}
   - {fileID: 418864}
@@ -782,7 +702,7 @@ Transform:
   m_LocalScale: {x: 0.207721, y: 0.207721, z: 0.207721}
   m_Children: []
   m_Father: {fileID: 499522}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3367536
 MeshFilter:
