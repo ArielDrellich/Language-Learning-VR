@@ -14,7 +14,7 @@ public class Word
 
     public Word(string w) {
     	word = w;
-    	// Debug.Log(word);
+    	Debug.Log(word);
     }
 
     public string GetString()
@@ -54,7 +54,7 @@ public class WordScramble : MonoBehaviour
     CharObject        firstSelected;
     List<CharObject>  charObjects = new List<CharObject>();
 
-    public static WordScramble main;
+    public WordScramble main;
     public int     currentWord;
     public float   space;
     private int    originalId;
@@ -130,7 +130,7 @@ public class WordScramble : MonoBehaviour
         char[] chars;
         if (!finished) {
             // Translate the word to the desire language
-            // Debug.Log(words[index].word);
+             //Debug.Log(words[index].word);
             //chars = words[index].GetString().ToCharArray();
             try {
 	            string userChoice = PlayerPrefs.GetString("languageChoice");
@@ -173,7 +173,7 @@ public class WordScramble : MonoBehaviour
             //clone.currentChar = c.ToString();
 
             // Debug.Log(clone.currentChar);
-            charObjects.Add(clone.Init(c));
+            charObjects.Add(clone.Init(c, this));
         }
 
         RepositionObject();

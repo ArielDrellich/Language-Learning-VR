@@ -16,11 +16,13 @@ public class CharObject : MonoBehaviour
 	public Color normalColor;
 	public Color selectedColor;
 
+	private WordScramble parent;
 
-	public CharObject Init (char c) {
+	public CharObject Init (char c, WordScramble p) {
 		character = c;
 		text.text = c.ToString();
 		gameObject.SetActive(true);
+		parent = p;
 		return this;
 	}
 
@@ -37,10 +39,12 @@ public class CharObject : MonoBehaviour
 
 		if (isSelected)
 		{
-			WordScramble.main.Select(this);
+			parent.Select(this);
+			//WordScramble.main.Select(this);
 		} else
 		{
-			WordScramble.main.UnSelect();
+			parent.UnSelect();
+			//WordScramble.main.UnSelect();
 		}
 	}
 
