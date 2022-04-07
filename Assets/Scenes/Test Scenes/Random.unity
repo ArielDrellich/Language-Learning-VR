@@ -2470,7 +2470,7 @@ MonoBehaviour:
   _SortingOrder: 0
 --- !u!222 &979867892
 CanvasRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4477,7 +4477,7 @@ MonoBehaviour:
   _SortingOrder: 0
 --- !u!222 &1419740937
 CanvasRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5179,6 +5179,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Word Scramble with fireworks
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457411409949439510, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: normalColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457411409949439510, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: normalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457411409949439510, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: normalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457411409949439510, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: normalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457411409949439510, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: selectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457411409949439510, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: selectedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457411409949439510, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: selectedColor.g
+      value: 0.9577489
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457411409949439510, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: selectedColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6436f555f7e90c449a0a5ba5d14dd20, type: 3}
@@ -6261,7 +6301,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &126346740297493535
 CanvasRenderer:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

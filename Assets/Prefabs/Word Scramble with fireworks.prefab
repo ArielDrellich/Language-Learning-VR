@@ -1673,8 +1673,8 @@ MonoBehaviour:
   rectTransform: {fileID: 5457411409949439509}
   index: 0
   image: {fileID: 4376955521037818763, guid: ac56668490350f3468b57f00bb70718d, type: 3}
-  normalColor: {r: 1, g: 1, b: 1, a: 0.05490196}
-  selectedColor: {r: 0.49411768, g: 0.6117647, b: 0.7725491, a: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 1, g: 0.96657693, b: 0, a: 1}
 --- !u!65 &5457411409949439496
 BoxCollider:
   m_ObjectHideFlags: 0
