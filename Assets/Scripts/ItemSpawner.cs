@@ -45,6 +45,12 @@ public class ItemSpawner
         LevelItems["Market-Ariel"] = new List<string>() {
             "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"};
 
+        LevelItems["Park"] = new List<string>() {
+        "Mushroom","Cow","Fish","Bird",
+        "Squirrel","Spiders", "Bee", "Sheep", "Turtle",
+        "Pig","Chicken", "Duck"};
+        
+
 
         /*==================================================================*/
 
@@ -56,6 +62,18 @@ public class ItemSpawner
         itemPaths["Corn"] = "Items/Food/Corn";
         itemPaths["Tomato"] = "Items/Food/Tomato";
         itemPaths["Watermelon"] = "Items/Food/Watermelon";
+        itemPaths["Mushroom"] = "Items/Animals/Mushroom";
+        itemPaths["Cow"] = "Items/Animals/Cow";
+        itemPaths["Fish"] = "Items/Animals/Fish";
+        itemPaths["Bird"] = "Items/Animals/Bird";
+        itemPaths["Squirrel"] = "Items/Animals/Squirrel";
+        itemPaths["Bee"] = "Items/Animals/Bee";
+        itemPaths["Sheep"] = "Items/Animals/Sheep";
+        itemPaths["Turtle"] = "Items/Animals/Turtle";
+        itemPaths["Pig"] = "Items/Animals/Pig";
+        itemPaths["Chicken"] = "Items/Animals/Chicken";
+        itemPaths["Duck"] = "Items/Animals/Duck";
+
     }
 
     // returns which items it chose should be spawned
