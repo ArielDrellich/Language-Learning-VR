@@ -38,6 +38,12 @@ public class PuzzleSetter
         LevelWords["Door Test"] = new List<string>() {
             "dog", "cat", "hello"};
 
+
+        LevelWords["Park"] = new List<string>() {
+            "mushroom","cow","fish","bird",
+            "squirrel","spiders", "bee", "sheep", "turtle", "bench",
+            "pig","chicken", "duck", "grass", "tree", "water", "bridge", "butterfly"};
+
         /*==================================================================*/
     }
 

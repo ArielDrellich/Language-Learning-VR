@@ -46,7 +46,7 @@ public class ItemSpawner
             "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"};
 
         LevelItems["Park"] = new List<string>() {
-        "Mushroom","Cow","Fish","Bird",
+        "Mushroom","Cow","Bird",
         "Squirrel","Spiders", "Bee", "Sheep", "Turtle",
         "Pig","Chicken", "Duck"};
         
@@ -64,7 +64,6 @@ public class ItemSpawner
         itemPaths["Watermelon"] = "Items/Food/Watermelon";
         itemPaths["Mushroom"] = "Items/Animals/Mushroom";
         itemPaths["Cow"] = "Items/Animals/Cow";
-        itemPaths["Fish"] = "Items/Animals/Fish";
         itemPaths["Bird"] = "Items/Animals/Bird";
         itemPaths["Squirrel"] = "Items/Animals/Squirrel";
         itemPaths["Bee"] = "Items/Animals/Bee";
