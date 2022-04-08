@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour
         }
 
         player.GetComponent<PlayerMovement>().enabled = false;
-        aimSet.GetComponent<PickUp>().enabled = false;
+        aimSet.GetComponent<AimClick>().enabled = false;
         TeleportPad.CanTeleport(false);
 
         StartCoroutine(LoadNextSceneAsync());

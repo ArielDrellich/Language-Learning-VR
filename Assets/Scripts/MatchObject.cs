@@ -45,10 +45,13 @@ public class MatchObject : MonoBehaviour
         translator = gameObject.AddComponent<Translator>();
 
         chosenLanguage = PlayerPrefs.GetString("languageChoice");
-
-        SetObject(expectedName);
+        // for debugging
+        if (chosenLanguage == "")
+            chosenLanguage = "en";
 
         previousCollisions.Add(GameObject.Find("Player")); 
+
+        SetObject(expectedName);
     }
 
     void OnTriggerEnter(Collider collider)
@@ -60,7 +63,7 @@ public class MatchObject : MonoBehaviour
                     HealthManager.Decrement();
                     previousCollisions.Add(collider.gameObject);
                     // for debugging
-                    // print("collided with: "+collider.gameObject.name);
+                    print("collided with: "+collider.gameObject.name);
                 }
             } else {
                 // what to do if it's correct

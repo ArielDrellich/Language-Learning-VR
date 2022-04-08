@@ -18,35 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Market.unity
     guid: 2029b23332ab24c4abbc6e3419f21d99
   - enabled: 1
+    path: Assets/Scenes/Test Scenes/Door Test.unity
+    guid: e038c725ef4822041ba0aed05553395b
+  - enabled: 1
     path: Assets/Scenes/Test Scenes/Random.unity
     guid: e6d53e4dd2166a44982648b5fbfb03cc
   - enabled: 0
-    path: Assets/Scenes/Test Scenes/Asi Demo/Demo 1.unity
-    guid: a5ca98651b23af4468e5f6edac424724
-  - enabled: 0
-    path: Assets/Scenes/Test Scenes/Asi Demo/Demo 2.unity
-    guid: 8cceb58180e20c0449930deb1e9a0ee6
-  - enabled: 0
-    path: Assets/Scenes/Test Scenes/Asi Demo/Demo 3.unity
-    guid: f8ab60859531ae34b93d7f3930b8785b
-  - enabled: 1
-    path: Assets/Scenes/Scene Sequence Test/Scene 1.unity
-    guid: cdf0a0121f5e51540a4d2123cecf3c64
-  - enabled: 1
-    path: Assets/Scenes/Scene Sequence Test/Scene 5.unity
-    guid: ccfc707092e1dd64aaf03b309f3ecec2
-  - enabled: 0
     path: Assets/Scenes/Park.unity
     guid: b88abed51b2d2454abab3ce71c0b5875
-  - enabled: 0
-    path: Assets/Scenes/Scene Sequence Test/Scene 2.unity
-    guid: 9071bdec67f3ef740b0e6b341010d2fc
-  - enabled: 0
-    path: Assets/Scenes/Scene Sequence Test/Scene 3.unity
-    guid: 1ac07b7ecf8340e4295e1b6dbb0a64df
-  - enabled: 0
-    path: Assets/Scenes/Scene Sequence Test/Scene 4.unity
-    guid: 5c5fc8e461f83c240be93eb7437a7da1
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 774877e7cc929ed4bbf382c9491af67b,
       type: 2}

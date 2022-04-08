@@ -63,6 +63,7 @@ public class TimerManager : MonoBehaviour
     {
         timerText = this.GetComponent<TMPro.TMP_Text>();
         timerText.text = "Not started";
+        timerText.outlineWidth = 0.2f;
     }
 
     // Update is called once per frame
