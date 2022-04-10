@@ -47,9 +47,25 @@ public class ItemSpawner
 
         LevelItems["Park"] = new List<string>() {
         "Mushroom","Cow","Bird",
-        "Squirrel","Spiders", "Bee", "Sheep", "Turtle",
+        "Squirrel","Spider", "Bee", "Sheep", "Turtle",
         "Pig","Chicken", "Duck"};
+
+        LevelItems["Beach"] = new List<string>() {
+        // Chairs
+        "Orange Chair", "Red Chair", "Green Chair", "Pink Chair", "White Blue Chair", "White Orange Chair",
+        "White Green Chair",
         
+        // Surfboard
+        "Blue Yellow Surfboard", "Green Pink Surfboard", "Orange Pink Surfboard", "Red Surfboard", "Yellow White Surfboard",
+
+        // Buckets
+        "Yellow Bucket", "Red Bucket", "Blue Bucket",
+
+        // Wheels
+        "White Green Sea Wheel", "White Red Sea Wheel"
+        };
+
+
 
 
         /*==================================================================*/
@@ -62,6 +78,8 @@ public class ItemSpawner
         itemPaths["Corn"] = "Items/Food/Corn";
         itemPaths["Tomato"] = "Items/Food/Tomato";
         itemPaths["Watermelon"] = "Items/Food/Watermelon";
+
+        // ------------------ Park Scene ---------------//
         itemPaths["Mushroom"] = "Items/Animals/Mushroom";
         itemPaths["Cow"] = "Items/Animals/Cow";
         itemPaths["Bird"] = "Items/Animals/Bird";
@@ -72,7 +90,34 @@ public class ItemSpawner
         itemPaths["Pig"] = "Items/Animals/Pig";
         itemPaths["Chicken"] = "Items/Animals/Chicken";
         itemPaths["Duck"] = "Items/Animals/Duck";
+        itemPaths["Spider"] = "Items/Animals/Spider";
 
+        // ------------------ Beach Scene ---------------//
+
+        // Chairs
+        itemPaths["Orange Chair"] = "Items/Beach/Colored_chairs/Orange Chair";
+        itemPaths["Red Chair"] = "Items/Beach/Colored_chairs/Red Chair";
+        itemPaths["Green Chair"] = "Items/Beach/Colored_chairs/Green Chair";
+        itemPaths["Pink Chair"] = "Items/Beach/Colored_chairs/Pink Chair";
+        itemPaths["White Blue Chair"] = "Items/Beach/Colored_chairs/White Blue Chair";
+        itemPaths["White Orange Chair"] = "Items/Beach/Colored_chairs/White Orange Chair";
+        itemPaths["White Green Chair"] = "Items/Beach/Colored_chairs/White Green Chair";
+
+        // Surfboard
+        itemPaths["Blue Yellow Surfboard"] = "Items/Beach/Colored_surfboards/Blue Yellow Surfboard";
+        itemPaths["Red Surfboard"] = "Items/Beach/Colored_surfboards/Red Surfboard";
+        itemPaths["Blue Yellow Surfboard"] = "Items/Beach/Colored_surfboards/Blue Yellow Surfboard";
+        itemPaths["Orange Pink Surfboard"] = "Items/Beach/Colored_surfboards/Orange Pink Surfboard";
+        itemPaths["Yellow White Surfboard"] = "Items/Beach/Colored_surfboards/Yellow White Surfboard";
+
+        // Buckets
+        itemPaths["Yellow Bucket"] = "Items/Beach/Colored_buckets/Yellow Bucket";
+        itemPaths["Red Bucket"] = "Items/Beach/Colored_buckets/Red Bucket";
+        itemPaths["Blue Bucket"] = "Items/Beach/Colored_buckets/Blue Bucket";
+
+        // Wheels
+        itemPaths["White Green Sea Wheel"] = "Items/Beach/Colored_wheels/White Green Sea Wheel";
+        itemPaths["White Red Sea Wheel"] = "Items/Beach/Colored_wheels/White Red Sea Wheel";
     }
 
     // returns which items it chose should be spawned
