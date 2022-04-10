@@ -154,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4192fe25dd706fc419fcafda81e8a54e,
         type: 3}
       propertyPath: m_Name
-      value: Bee-model
+      value: Bee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4192fe25dd706fc419fcafda81e8a54e, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1703653620210983285}
   - component: {fileID: 1703653620209868019}
   m_Layer: 0
-  m_Name: White Yellow Surface
+  m_Name: White Yellow Sufboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1703653620207639395}
   m_LocalRotation: {x: 0.2496843, y: -0.6605176, z: -0.6859983, w: -0.17544402}
   m_LocalPosition: {x: -0.13, y: -0.02, z: 2.38}
-  m_LocalScale: {x: 0.6739537, y: 0.67395365, z: 0.6739537}
+  m_LocalScale: {x: 0.36206818, y: 0.36206812, z: 0.36206818}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

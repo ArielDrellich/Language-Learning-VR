@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4022092114914122804}
   - component: {fileID: 4408430406314823111}
   m_Layer: 0
-  m_Name: Chicken-model
+  m_Name: Chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

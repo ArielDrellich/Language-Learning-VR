@@ -93,20 +93,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!136 &8893464269297235315
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8894007972985954981}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.12668991
-  m_Height: 0.9784317
-  m_Direction: 2
-  m_Center: {x: 0.01266861, y: 0.27121735, z: -0.86961746}
 --- !u!1 &8893464269528765106
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +154,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6715159ba0f7f984491a34eb4ea75e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &8893464269297235315
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894007972985954981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.12668991
+  m_Height: 0.9784317
+  m_Direction: 2
+  m_Center: {x: 0.01266861, y: 0.27121735, z: -0.86961746}
 --- !u!1001 &8893464269297235321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,7 +177,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1745488152287196, guid: 4a7d6cee9f1328e468c9f485779e2c20, type: 3}
       propertyPath: m_Name
-      value: Squirrel-model
+      value: Squirrel
       objectReference: {fileID: 0}
     - target: {fileID: 1745488152287196, guid: 4a7d6cee9f1328e468c9f485779e2c20, type: 3}
       propertyPath: m_IsActive

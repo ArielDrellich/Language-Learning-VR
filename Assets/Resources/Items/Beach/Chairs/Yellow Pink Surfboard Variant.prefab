@@ -9,11 +9,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 176152, guid: 1df55a4738a4116489ef95c40125ca0d, type: 3}
       propertyPath: m_Name
-      value: Yellow Pink Surfboard
+      value: Yellow Pink Surfboard Variant
       objectReference: {fileID: 0}
     - target: {fileID: 429980, guid: 1df55a4738a4116489ef95c40125ca0d, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429980, guid: 1df55a4738a4116489ef95c40125ca0d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4037934
+      objectReference: {fileID: 0}
+    - target: {fileID: 429980, guid: 1df55a4738a4116489ef95c40125ca0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4037934
+      objectReference: {fileID: 0}
+    - target: {fileID: 429980, guid: 1df55a4738a4116489ef95c40125ca0d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4037934
       objectReference: {fileID: 0}
     - target: {fileID: 429980, guid: 1df55a4738a4116489ef95c40125ca0d, type: 3}
       propertyPath: m_LocalPosition.x
