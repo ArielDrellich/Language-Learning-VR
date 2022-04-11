@@ -38,6 +38,16 @@ public class PressScrambleButton : MonoBehaviour, IClickable
 	            }
 	            else if (hit.collider.name == speaker.name)
 	            {
+					if (ws == null) {
+						Debug.Log("ws is null : PressScrambleButton");
+						return;
+					}
+
+					if (ws.tr == null) {
+						Debug.Log("ws.tr is null : PressScrambleButton");
+						return;
+					}
+
 	                ws.tr.GetAudio();
 	            }
 	        }

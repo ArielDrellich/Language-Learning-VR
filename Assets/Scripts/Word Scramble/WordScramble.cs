@@ -14,7 +14,7 @@ public class Word
 
     public Word(string w) {
     	word = w;
-    	Debug.Log(word);
+    	// Debug.Log(word);
     }
 
     public string GetString()
@@ -63,9 +63,11 @@ public class WordScramble : MonoBehaviour
     private string translatedWord;
     public Translator tr;
 
-    [SerializeField]
-    private Component win_action;
-    private IAction   _action;
+    // [SerializeField]
+    // private Component win_action;
+    // private IAction   _action;
+    public  List<Component>  successActions;
+    public  List<Component>  failActions;
 
     void Awake()
     {
@@ -80,12 +82,12 @@ public class WordScramble : MonoBehaviour
         tr = gameObject.AddComponent<Translator>();
         ShowScramble(currentWord);
 
-        // gets IAction from inspector
-        if (win_action is IAction)
-            _action = (IAction) win_action;
-        else
-        // if action is either null or not IAction
-            _action = new DefaultAction();
+        // // gets IAction from inspector
+        // if (win_action is IAction)
+        //     _action = (IAction) win_action;
+        // else
+        // // if action is either null or not IAction
+        //     _action = new DefaultAction();
 
         // Add this puzzles to the puzzle counter
         PuzzleManager.AddPuzzle();
@@ -163,7 +165,13 @@ public class WordScramble : MonoBehaviour
             chars = done.ToCharArray();
 
             PuzzleManager.Increment();
-            _action.DoAction();
+            // _action.DoAction();
+
+            // Do all SuccessActions
+            foreach (Component action in successActions)
+                if (action is IAction) {
+                    ((IAction)action).DoAction();
+                }
         }
 
         foreach (char c in chars)
@@ -238,6 +246,13 @@ public class WordScramble : MonoBehaviour
 
         // Word isn't correct yet
         //Debug.Log("Failure :(");
+
+        // Do all FailActions
+        foreach (Component action in failActions)
+            if (action is IAction) {
+                ((IAction)action).DoAction();
+            }
+
         return false;
     }
 

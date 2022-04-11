@@ -63,7 +63,14 @@ public class ItemSpawner
     {
         int          itemCount;
         List<string> spawnItems;
-        List<string> possibleItems = LevelItems[levelName];
+        List<string> possibleItems;
+
+        if (!LevelItems.ContainsKey(levelName)) {
+            Debug.Log("Level name not in LevelItem dictionary.");
+            return null;
+        }
+
+        possibleItems = LevelItems[levelName];
 
         // take random items from list of possible items
         spawnItems = possibleItems.OrderBy(x => random.Next()).Take(amountOfItems).ToList();
@@ -106,6 +113,13 @@ public class ItemSpawner
         
         for (int i = 0; i < numOfItems; i++) {
             GameObject item = Resources.Load(itemPaths[items[i]]) as GameObject;
+
+            if (item == null) {
+                Debug.Log("Unable to load item \"" + itemPaths[items[i]] + 
+                "\" from Resources. Check LevelItems disctionary.");
+                continue;
+            }
+
             GameObject clone = Object.Instantiate(item, positions[i], Quaternion.identity);
             clone.name = item.name;
         }

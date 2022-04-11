@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class MatchObject : MonoBehaviour
 {
+
     [Header("Drag an object or write it's name")]
     [SerializeField]
     private GameObject expectedObject;
 
     [SerializeField]
-    private string     expectedName;
+    private string expectedName;
+    
+    [SerializeField]
+    PlayAudioButton audioButton;
 
     [SerializeField]
-    private Component  action;
-    private IAction    _action;
+    TMPro.TMP_Text shownText;
+    // [SerializeField]
+
+    // [SerializeField]
+
+    // private Component  action;
+    // private IAction    _action;
     private Translator translator;
     private string     translatedName;
     private string     chosenLanguage;
     private bool       solved = false;
-    private List<GameObject> previousCollisions = new List<GameObject>();
+    public  List<GameObject> ignoreCollisions = new List<GameObject>();
+    public  List<Component>  successActions;
+    public  List<Component>  failActions;
 
     // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
     //this and action, and use only _action.
@@ -34,13 +45,13 @@ public class MatchObject : MonoBehaviour
         // Add this puzzles to the puzzle counter
         PuzzleManager.AddPuzzle();
 
-        // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
-        //this and action, and use only _action.
-        if (action is IAction)
-            _action = (IAction) action;
-        else
-        // if action is either null or not IAction
-            _action = new DefaultAction();
+        // // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
+        // //this and action, and use only _action.
+        // if (action is IAction)
+        //     _action = (IAction) action;
+        // else
+        // // if action is either null or not IAction
+        //     _action = new DefaultAction();
 
         translator = gameObject.AddComponent<Translator>();
 
@@ -49,7 +60,7 @@ public class MatchObject : MonoBehaviour
         if (chosenLanguage == "")
             chosenLanguage = "en";
 
-        previousCollisions.Add(GameObject.Find("Player")); 
+        ignoreCollisions.Add(GameObject.Find("Player")); 
 
         SetObject(expectedName);
     }
@@ -58,18 +69,34 @@ public class MatchObject : MonoBehaviour
     {
         if (!solved) {
     	    if (collider.gameObject.name != expectedName) {
+
                 // if it hasn't been collided with that object in the past
-                if (!previousCollisions.Contains(collider.gameObject)) {
+                if (!ignoreCollisions.Contains(collider.gameObject)) {
                     HealthManager.Decrement();
-                    previousCollisions.Add(collider.gameObject);
+                    ignoreCollisions.Add(collider.gameObject);
+
                     // for debugging
-                    print("collided with: "+collider.gameObject.name);
+                    // print("collided with: " + collider.gameObject.name);
+
+                    // Do all FailActions
+                    foreach (Component action in failActions)
+                        if (action is IAction) {
+                            ((IAction)action).DoAction();
+                        }
                 }
             } else {
+
                 // what to do if it's correct
                 PuzzleManager.Increment();
                 solved = true;
-                _action.DoAction();
+
+                // Do all SuccessActions
+                foreach (Component action in successActions)
+                    if (action is IAction) {
+                        ((IAction)action).DoAction();
+                    }
+
+                transform.parent.Find("Billboard/Finger Point").gameObject.SetActive(false);
             }
         }
     }
@@ -82,13 +109,15 @@ public class MatchObject : MonoBehaviour
         translator.TextToSpeech(translatedName, chosenLanguage, "UTF-8");
 
         // don't try to save components in a local variable. It doesn't work
-        this.GetComponentInChildren<PlayAudioButton>().SetTranslator(translator);      
-        this.GetComponentInChildren<TMPro.TMP_Text>().text = translatedName; 
+        this.audioButton.SetTranslator(translator);      
+        // this.GetComponentInChildren<PlayAudioButton>().SetTranslator(translator);      
+        this.shownText.text = translatedName; 
+        // this.GetComponentInChildren<TMPro.TMP_Text>().text = translatedName; 
     }
 
-    public void SetAction(IAction newAction)
-    {
-        _action = newAction;
-    }
+    // public void SetAction(IAction newAction)
+    // {
+    //     _action = newAction;
+    // }
 
 }

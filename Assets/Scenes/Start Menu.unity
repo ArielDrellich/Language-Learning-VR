@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 980017917}
   - component: {fileID: 980017919}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,7 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a62a874fc6c19d94a9c7d046493d3a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 980017919}
+  solvedAllPuzzlesActions: []
 --- !u!114 &980017919
 MonoBehaviour:
   m_ObjectHideFlags: 0

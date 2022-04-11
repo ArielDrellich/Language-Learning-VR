@@ -34,6 +34,9 @@ public class PuzzleSetter
 
         LevelWords["Random"] = new List<string>() {
             "dog", "cat", "hello"};
+            
+        LevelWords["Door Test"] = new List<string>() {
+            "dog", "cat", "hello"};
 
         /*==================================================================*/
     }
@@ -79,7 +82,6 @@ public class PuzzleSetter
                 for (int j = 0; j < numWordsPerWordScramble; j++) {
                     wordArr[j] = new Word(words[wordIndex++]);
                 }
-                // wordScrambles[i].words = wordArr;
                 wordScrambles[i].SetWords(wordArr);
             }
 
@@ -90,12 +92,12 @@ public class PuzzleSetter
                 lastArr[k] = new Word(words[wordIndex++]);
             }
             wordScrambles[i].SetWords(lastArr);
-            // wordScrambles[i].words = lastArr;
         }
     }
 
     public List<string> RandomizeWordScramble(string levelName, int numOfWords) {
         if (!LevelWords.ContainsKey(levelName)) {
+            Debug.Log("Level name not in LevelWords dictionary.");
             return null;
         }
 

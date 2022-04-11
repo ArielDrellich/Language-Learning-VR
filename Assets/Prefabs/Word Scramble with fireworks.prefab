@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535f5cf85de442841b165372b1b3b4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ws: {fileID: 0}
+  ws: {fileID: 5053881318217055591}
   submit: {fileID: 856067475613284992}
   speaker: {fileID: 537088128331581030}
 --- !u!114 &1414878158669760248
@@ -1481,7 +1481,9 @@ MonoBehaviour:
   currentWord: 0
   space: 0.25
   tr: {fileID: 0}
-  win_action: {fileID: 7463445385170151164}
+  successActions:
+  - {fileID: 7463445385170151164}
+  failActions: []
 --- !u!114 &7463445385170151164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,7 +1674,6 @@ MonoBehaviour:
   text: {fileID: 2051540778637171782}
   rectTransform: {fileID: 5457411409949439509}
   index: 0
-  image: {fileID: 4376955521037818763, guid: ac56668490350f3468b57f00bb70718d, type: 3}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 1, g: 0.96657693, b: 0, a: 1}
 --- !u!65 &5457411409949439496

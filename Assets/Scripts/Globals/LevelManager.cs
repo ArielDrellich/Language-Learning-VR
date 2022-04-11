@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
 {
     /*-------------------------------------------------*/
                     /** KEEP UPDATED **/
-    const int Num_of_menu_screens_in_build = 2;
+    const int Num_of_menu_screens_in_build = 3;
     /*-------------------------------------------------*/
 
     private Dictionary<string, LevelPuzzleVars> levelsSinceLastCheckpoint;
@@ -44,16 +44,11 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-        /**********************************************\
-        if (sceneIndex + 1 == amountOfLevels)
-            SceneManager.LoadSceneAsync("Win Screen"); // once we have a win screen
-        \**********************************************/
-
         if (startGame) {
             startGame = false;
             TimerManager.StartTimer();
             /***********/
-            //temporary, might figure out better level order randomization after
+            //Might figure out better level order randomization after
             if (shuffleLevels) {
                 System.Random rand = new System.Random();
                 sceneOrder = sceneOrder.OrderBy(x => rand.Next()).ToArray();
@@ -74,7 +69,10 @@ public class LevelManager : MonoBehaviour
         aimSet.GetComponent<AimClick>().enabled = false;
         TeleportPad.CanTeleport(false);
 
-        StartCoroutine(LoadNextSceneAsync());
+        if (sceneIndex != amountOfLevels)
+            StartCoroutine(LoadNextSceneAsync());
+        else
+            SceneManager.LoadSceneAsync("Win Screen");
     }
 
     private IEnumerator LoadNextSceneAsync()
@@ -199,8 +197,9 @@ public class LevelManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.Start();
-
-        if (SceneManager.GetActiveScene().name != "Game Over Screen")
+        
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "Game Over Screen" && sceneName != "Win Screen") 
             TimerManager.StartTimer();
     }
 
