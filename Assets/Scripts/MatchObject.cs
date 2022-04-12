@@ -17,12 +17,7 @@ public class MatchObject : MonoBehaviour
 
     [SerializeField]
     TMPro.TMP_Text shownText;
-    // [SerializeField]
 
-    // [SerializeField]
-
-    // private Component  action;
-    // private IAction    _action;
     private Translator translator;
     private string     translatedName;
     private string     chosenLanguage;
@@ -44,14 +39,6 @@ public class MatchObject : MonoBehaviour
     {
         // Add this puzzles to the puzzle counter
         PuzzleManager.AddPuzzle();
-
-        // // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
-        // //this and action, and use only _action.
-        // if (action is IAction)
-        //     _action = (IAction) action;
-        // else
-        // // if action is either null or not IAction
-        //     _action = new DefaultAction();
 
         translator = gameObject.AddComponent<Translator>();
 
@@ -108,16 +95,9 @@ public class MatchObject : MonoBehaviour
         translatedName = translator.Translate(expectedName, "en", chosenLanguage);
         translator.TextToSpeech(translatedName, chosenLanguage, "UTF-8");
 
-        // don't try to save components in a local variable. It doesn't work
         this.audioButton.SetTranslator(translator);      
-        // this.GetComponentInChildren<PlayAudioButton>().SetTranslator(translator);      
+     
         this.shownText.text = translatedName; 
-        // this.GetComponentInChildren<TMPro.TMP_Text>().text = translatedName; 
     }
-
-    // public void SetAction(IAction newAction)
-    // {
-    //     _action = newAction;
-    // }
 
 }

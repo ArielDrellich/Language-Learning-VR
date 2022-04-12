@@ -74,21 +74,26 @@ public class PuzzleSetter
         }
     }
 
-    public void SetWordScramble(List<string> words) {
+    public void SetWordScramble(List<string> words, bool randomize = true) {
         WordScramble[] wordScrambles = Object.FindObjectsOfType<WordScramble>();
-        int numOfWordScrambles = wordScrambles.Count();
+        int numOfWSs = wordScrambles.Count();
         int numOfWords = words.Count;
-        int numWordsPerWordScramble;
+        int numOfWSstofill = numOfWSs < numOfWords ? numOfWSs : numOfWords;
+        int numWordsPerWS;
         int wordIndex = 0;
         int i;
 
-        if (numOfWordScrambles != 0) {
-            numWordsPerWordScramble = numOfWords / numOfWordScrambles;
+        if (randomize) {
+            wordScrambles = wordScrambles.OrderBy(x => random.Next()).ToArray();
+        }
+
+        if (numOfWSs != 0) {
+            numWordsPerWS = numOfWords / numOfWSstofill;
 
             // set n-1 word scrambles
-            for (i = 0; i < numOfWordScrambles - 1; i++) {
-                Word[] wordArr = new Word[numWordsPerWordScramble];
-                for (int j = 0; j < numWordsPerWordScramble; j++) {
+            for (i = 0; i < numOfWSstofill - 1; i++) {
+                Word[] wordArr = new Word[numWordsPerWS];
+                for (int j = 0; j < numWordsPerWS; j++) {
                     wordArr[j] = new Word(words[wordIndex++]);
                 }
                 wordScrambles[i].SetWords(wordArr);
@@ -101,6 +106,17 @@ public class PuzzleSetter
                 lastArr[k] = new Word(words[wordIndex++]);
             }
             wordScrambles[i].SetWords(lastArr);
+
+            // if we have fewer words than word scrambles
+            if (numOfWSstofill != numOfWSs) {
+                i++;
+                for (; i < numOfWSs; i++) {
+                    // deactivate word scrambles that don't have words
+                    wordScrambles[i].gameObject.transform.parent.gameObject.SetActive(false);
+                    // puzzle would have already counted itself
+                    PuzzleManager.AddPuzzle(-1);
+                }
+            }
         }
     }
 

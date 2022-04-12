@@ -62,10 +62,6 @@ public class WordScramble : MonoBehaviour
     private bool   incremented = false; 
     private string translatedWord;
     public Translator tr;
-
-    // [SerializeField]
-    // private Component win_action;
-    // private IAction   _action;
     public  List<Component>  successActions;
     public  List<Component>  failActions;
 
@@ -80,14 +76,13 @@ public class WordScramble : MonoBehaviour
         originalId = 0;
         finished = false;
         tr = gameObject.AddComponent<Translator>();
-        ShowScramble(currentWord);
 
-        // // gets IAction from inspector
-        // if (win_action is IAction)
-        //     _action = (IAction) win_action;
-        // else
-        // // if action is either null or not IAction
-        //     _action = new DefaultAction();
+        if (words.Length == 0) {
+            Debug.Log("Words list is emtpy.");
+            return;
+        }
+
+        ShowScramble(currentWord);
 
         // Add this puzzles to the puzzle counter
         PuzzleManager.AddPuzzle();
@@ -146,14 +141,16 @@ public class WordScramble : MonoBehaviour
                 \****************************/
 
 	            translatedWord = tr.Translate(words[index].word, "en", userChoice);
+
 	            Word word = new Word(translatedWord);
 
                 tr.TextToSpeech(translatedWord, userChoice, "UTF-8");
 	            // Debug.Log(translatedWord);
 	            if (translatedWord == null)
 	            {
-	                Debug.Log("Its null!");
+	                Debug.Log("Translated word is null");
 	            }
+
 	            chars = word.GetString().ToCharArray(); // ADD GetString()
                 
             } catch (System.Exception exc) {
