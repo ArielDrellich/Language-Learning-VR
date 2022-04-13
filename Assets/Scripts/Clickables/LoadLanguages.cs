@@ -84,9 +84,9 @@ public class LoadLanguages : MonoBehaviour, IClickable
         if (Input.GetButtonDown("Fire1"))
         {
             resetColors();
-            if (!clicked)
+            if (!this.clicked)
             {
-                clicked = true;
+                this.clicked = true;
                 DoClick(hit.collider.gameObject);
             }
 
@@ -100,9 +100,9 @@ public class LoadLanguages : MonoBehaviour, IClickable
 
     void resetColors()
     {
-        language1Button.GetComponent<Renderer>().material.color = Color.green;
-        language2Button.GetComponent<Renderer>().material.color = Color.green;
-        language3Button.GetComponent<Renderer>().material.color = Color.green;
+        language1Button.GetComponent<Renderer>().material.color = Color.white;
+        language2Button.GetComponent<Renderer>().material.color = Color.white;
+        language3Button.GetComponent<Renderer>().material.color = Color.white;
     }
 
     public void DoClick(GameObject clicker) {
@@ -131,7 +131,7 @@ public class LoadLanguages : MonoBehaviour, IClickable
                 TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
 	 		    if (oneLanguage.Key == languageTxt.text)
 	 		    {
-                    clicker.GetComponent<Renderer>().material.color = Color.yellow;
+                    clicker.GetComponent<Renderer>().material.color = Color.grey;
 
                     string choice = oneLanguage.Value;
 	 		   		PlayerPrefs.SetString("languageChoice", choice);
