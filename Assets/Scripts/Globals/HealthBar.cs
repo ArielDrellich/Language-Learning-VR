@@ -31,9 +31,14 @@ public class HealthManager
 public class HealthBar : MonoBehaviour
 {
     TMPro.TMP_Text tmp;
+    LevelManager lm;
     void Start() 
     {
-       tmp = GetComponent<TMPro.TMP_Text>(); 
+        tmp = GetComponent<TMPro.TMP_Text>(); 
+        lm = FindObjectOfType<LevelManager>();
+
+        if (!lm)
+            Debug.Log("No LevelManager found");
     }
     
     // Update is called once per frame
@@ -47,8 +52,8 @@ public class HealthBar : MonoBehaviour
         tmp.text = hearts;
 
         if (remainingHealth <= 0) {
-            // LevelManager.GameOver();
-            FindObjectOfType<LevelManager>().GameOver();
+            if (lm)
+                lm.GameOver();                
         }
     }
 }

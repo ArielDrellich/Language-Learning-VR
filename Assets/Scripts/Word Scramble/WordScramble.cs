@@ -60,6 +60,7 @@ public class WordScramble : MonoBehaviour
     private int    originalId;
     private bool   finished;
     private bool   incremented = false; 
+    private string lastWrongWord = "";
     private string translatedWord;
     public Translator tr;
     public  List<Component>  successActions;
@@ -133,14 +134,12 @@ public class WordScramble : MonoBehaviour
 	            string userChoice = PlayerPrefs.GetString("languageChoice");
                 
                 // For debugging
-                /****************************\
                 if (userChoice == "") {
                     print("no user choice");
                     userChoice = "en";
                 }
-                \****************************/
 
-	            translatedWord = tr.Translate(words[index].word, "en", userChoice);
+	            translatedWord = tr.Translate(words[index].word, "en", userChoice).ToLower();
 
 	            Word word = new Word(translatedWord);
 
@@ -244,11 +243,18 @@ public class WordScramble : MonoBehaviour
         // Word isn't correct yet
         //Debug.Log("Failure :(");
 
-        // Do all FailActions
-        foreach (Component action in failActions)
-            if (action is IAction) {
-                ((IAction)action).DoAction();
-            }
+        // to not fail twice in a row on the same permutation
+        if (word != lastWrongWord) {
+            lastWrongWord = word;
+
+            HealthManager.Decrement();
+
+            // Do all FailActions
+            foreach (Component action in failActions)
+                if (action is IAction) {
+                    ((IAction)action).DoAction();
+                }
+        }
 
         return false;
     }

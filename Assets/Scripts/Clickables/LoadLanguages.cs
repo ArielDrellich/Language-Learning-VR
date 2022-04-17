@@ -61,6 +61,10 @@ public class LoadLanguages : MonoBehaviour, IClickable
         PlayerPrefs.SetInt("languageIndex", 0);
         //DoClick(null);
 
+        language1Text.text = languages[0].Key;
+        language2Text.text = languages[1].Key;
+        language3Text.text = languages[2].Key;
+
     }
 
     // Update is called once per frame
@@ -106,7 +110,7 @@ public class LoadLanguages : MonoBehaviour, IClickable
     }
 
     public void DoClick(GameObject clicker) {
-    	if (clicker.name == "up") {
+    	if (clicker.name == "down") {
             // Debug.Log(PlayerPrefs.GetInt("languageIndex"));
 
     		index = (PlayerPrefs.GetInt("languageIndex")) % languages.Count;
@@ -115,7 +119,7 @@ public class LoadLanguages : MonoBehaviour, IClickable
 	  		language3Text.text = languages[(index + 2) % languages.Count].Key;
 	  		PlayerPrefs.SetInt("languageIndex", index + 1);
 
-    	} else if (clicker == null || clicker.name == "down") {
+    	} else if (clicker == null || clicker.name == "up") {
             index = PlayerPrefs.GetInt("languageIndex") - 1;
 	    	if (index < 0) {
 	    		index = languages.Count - 1;

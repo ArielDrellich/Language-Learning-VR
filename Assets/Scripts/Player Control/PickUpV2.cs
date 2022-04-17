@@ -14,12 +14,16 @@ public class PickUpV2 : MonoBehaviour
     Collider       playerCollider;
     RaycastHit     hit;
     float          pickUpForce = 150f;
+    int            objectLayer;
+    int            ignoreRaycastLayer;
     public float   releaseDistance;
     const  float   epsilon     = 0.00001f;
 
     void Start()
     {
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
+     
+        ignoreRaycastLayer = LayerMask.NameToLayer("Ignore Raycast");
         
         releaseDistance = Mathf.Abs(grabDistance - 
                                     Vector3.Distance(transform.position, holdDestination.position));
@@ -76,6 +80,9 @@ public class PickUpV2 : MonoBehaviour
             Vector3 cameraForward = Camera.main.transform.forward;
             heldObject.transform.forward = new Vector3(cameraForward.x + epsilon,
                                              cameraForward.y, cameraForward.z + epsilon);
+
+            objectLayer = heldObject.layer;
+            heldObject.layer = ignoreRaycastLayer;
         }
     }
 
@@ -87,6 +94,8 @@ public class PickUpV2 : MonoBehaviour
 
         foreach (Collider collider in heldObject.GetComponentsInChildren<Collider>())
                 Physics.IgnoreCollision(collider, playerCollider, false);
+
+        heldObject.layer = objectLayer;
 
         heldObjectRigidbody.transform.parent = null;//
         heldObject = null;

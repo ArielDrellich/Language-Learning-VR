@@ -32,7 +32,6 @@ public class LevelManager : MonoBehaviour
     private GameObject     player;
     private GameObject     aimSet;
     private SpriteRenderer loadingSprite;
-
     private int[] sceneOrder;
     private int   sceneIndex;
     private int   amountOfLevels;
@@ -59,7 +58,7 @@ public class LevelManager : MonoBehaviour
         TimerManager.PauseTimer(); 
         loadingSprite.enabled = true;
 
-        // temporarily set checkpoint every 2 levels. Will change later
+        // temporarily set checkpoint every 2 levels. Will change later depending on how many levels we add
         if (sceneIndex % 2 == 0) {
             checkpoint = sceneIndex;
             levelsSinceLastCheckpoint.Clear();
@@ -78,6 +77,7 @@ public class LevelManager : MonoBehaviour
     private IEnumerator LoadNextSceneAsync()
     {
         loadingOperation = SceneManager.LoadSceneAsync(sceneOrder[sceneIndex]);
+
         // wait for scene to be fully loaded before continuing
         while (!loadingOperation.isDone)
         {
@@ -92,6 +92,7 @@ public class LevelManager : MonoBehaviour
     private void SetLevelPuzzleVars()
     {
         string levelName = GetLevelNameByIndex(sceneIndex);
+        
         // temporary "difficulty scaling". Might come up with a better system later
         int numOfItems = 10 + (2 * sceneIndex); 
         int numOfMatchObjects = 4 + sceneIndex; 
@@ -162,6 +163,7 @@ public class LevelManager : MonoBehaviour
         } else {
             itemList = levelsSinceLastCheckpoint[levelName].items;
             positions = levelsSinceLastCheckpoint[levelName].positions;
+            
             //just to delete ItemSpawners
             itemSpawner.GetPossiblePositions();
         }
@@ -210,6 +212,8 @@ public class LevelManager : MonoBehaviour
         player = GameObject.Find("Player");
         aimSet = GameObject.Find("Aim Set");
         loadingSprite = GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>();
+
+        // any time we start a new game from the main menu
         if (startGame) {
             // only add once on app launch
             if(launchApp) {

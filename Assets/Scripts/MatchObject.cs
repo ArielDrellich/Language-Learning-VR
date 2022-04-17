@@ -26,8 +26,7 @@ public class MatchObject : MonoBehaviour
     public  List<Component>  successActions;
     public  List<Component>  failActions;
 
-    // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
-    //this and action, and use only _action.
+    // Used for dragging script in the Inspector.
     void OnValidate()
     {
         if (expectedObject != null) {
@@ -43,6 +42,7 @@ public class MatchObject : MonoBehaviour
         translator = gameObject.AddComponent<Translator>();
 
         chosenLanguage = PlayerPrefs.GetString("languageChoice");
+        
         // for debugging
         if (chosenLanguage == "")
             chosenLanguage = "en";
@@ -55,7 +55,8 @@ public class MatchObject : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         if (!solved) {
-    	    if (collider.gameObject.name != expectedName) {
+    	    if (collider.gameObject.name != expectedName &&
+                collider.gameObject.name != expectedName + "Model") {
 
                 // if it hasn't been collided with that object in the past
                 if (!ignoreCollisions.Contains(collider.gameObject)) {
