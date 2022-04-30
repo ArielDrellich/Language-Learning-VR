@@ -7,14 +7,14 @@ using System.Linq;
 public class LevelPuzzleVars
 {
     public List<string>  items;
-    public List<Vector3> positions;
+    public List<Vector3> itemPositions;
     public List<string>  words;
 
     public LevelPuzzleVars(List<string> items = null,
                 List<Vector3> positions = null, List<string> words = null)
     {
         this.items = items;
-        this.positions = positions;
+        this.itemPositions = positions;
         this.words = words;
     }
 }
@@ -156,13 +156,13 @@ public class LevelManager : MonoBehaviour
             // if levelsSinceLastCheckpoint contains the levelname but not yet items
             else {
                 levelsSinceLastCheckpoint[levelName].items = itemList;
-                levelsSinceLastCheckpoint[levelName].positions = positions;
+                levelsSinceLastCheckpoint[levelName].itemPositions = positions;
             }
 
         // if we have been to this level since last checkpoint, use the same items and positions
         } else {
             itemList = levelsSinceLastCheckpoint[levelName].items;
-            positions = levelsSinceLastCheckpoint[levelName].positions;
+            positions = levelsSinceLastCheckpoint[levelName].itemPositions;
             
             //just to delete ItemSpawners
             itemSpawner.GetPossiblePositions();
