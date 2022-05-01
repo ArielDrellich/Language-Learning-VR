@@ -40,6 +40,8 @@ public class LevelManager : MonoBehaviour
     private bool  startGame = true;
     private bool  shuffleLevels = false;
     public  int   checkpoint;
+    string difficulty;
+
 
 
     public void NextLevel()
@@ -93,10 +95,33 @@ public class LevelManager : MonoBehaviour
     {
         string levelName = GetLevelNameByIndex(sceneIndex);
         // temporary "difficulty scaling". Might come up with a better system later
-        int numOfItems = 10 + (2 * sceneIndex); 
-        int numOfMatchObjects = 4 + sceneIndex; 
-        int numOfWords = 2 + sceneIndex;
+        int numOfItems;
+        int numOfMatchObjects;
+        int numOfWords;
+        switch (difficulty)
+        {
+            case "easy":
+                numOfItems = 8 + (2 * 1);
+                numOfMatchObjects = 4 + sceneIndex;
+                numOfWords = 2 + sceneIndex;
+                break;
+            case "medium":
+                numOfItems = 10 + (2 * 2);
+                numOfMatchObjects = 8 + sceneIndex;
+                numOfWords = 6 + sceneIndex;
+                break;
+            case "hard":
+                numOfItems = 12 + (2 * 3);
+                numOfMatchObjects = 14 + sceneIndex;
+                numOfWords = 10 + sceneIndex;
+                break;
+            default:
+                numOfItems = 0;
+                numOfMatchObjects = 0;
+                numOfWords = 0;
+                break;
 
+        }
         // Spawn level items and MatchObject puzzles
         if (itemSpawner.LevelItems.ContainsKey(levelName)) {
             this.SpawnItems(levelName, numOfItems);
@@ -209,6 +234,8 @@ public class LevelManager : MonoBehaviour
         shuffleLevels = false;
         player = GameObject.Find("Player");
         aimSet = GameObject.Find("Aim Set");
+        difficulty = PlayerPrefs.GetString("Difficulty");
+        Debug.Log(difficulty);
         loadingSprite = GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>();
         if (startGame) {
             // only add once on app launch
@@ -245,5 +272,18 @@ public class LevelManager : MonoBehaviour
     public void ShuffleLevels(bool shuffle) 
     {
         shuffleLevels = shuffle;
+    }
+    static void resetPref()
+    {
+        PlayerPrefs.DeleteKey("languageChoice");
+        PlayerPrefs.DeleteKey("languageIndex");
+        PlayerPrefs.DeleteKey("Difficulty");
+
+    }
+
+    [RuntimeInitializeOnLoadMethod]
+    static void RunOnStart()
+    {
+        Application.quitting += resetPref;
     }
 }
