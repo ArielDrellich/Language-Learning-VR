@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadLanguages : MonoBehaviour, IClickable
+public class LoadLanguages : ScrollSelector, IClickable
 {
 	// public string[] languages = { "Slovak", "French", "Georgian", "German", "Greek", "Kannada", "Polish"};
 	TMPro.TMP_Text language1Text;
 	TMPro.TMP_Text language2Text;
 	TMPro.TMP_Text language3Text;
-    private GameObject language1Button;
-    private GameObject language2Button;
-    private GameObject language3Button;
+    public GameObject language1Button;
+    public GameObject language2Button;
+    public GameObject language3Button;
     bool clicked = false;
 
     List <KeyValuePair<string, string>> languages;
@@ -73,8 +73,6 @@ public class LoadLanguages : MonoBehaviour, IClickable
 
     public void LookedAt(RaycastHit hit) {
 		reticle.SetColor(Color.red);
-        /*if (Input.GetButtonDown("Fire1"))
-			DoClick(hit.collider.gameObject);*/
         ToggleClick(hit);
 
     }
@@ -98,14 +96,14 @@ public class LoadLanguages : MonoBehaviour, IClickable
         }
     }
 
-    void resetColors()
+   public override void resetColors()
     {
         language1Button.GetComponent<Renderer>().material.color = Color.white;
         language2Button.GetComponent<Renderer>().material.color = Color.white;
         language3Button.GetComponent<Renderer>().material.color = Color.white;
     }
 
-    public void DoClick(GameObject clicker) {
+    public override void DoClick(GameObject clicker) {
     	if (clicker.name == "up") {
             // Debug.Log(PlayerPrefs.GetInt("languageIndex"));
 
@@ -142,16 +140,4 @@ public class LoadLanguages : MonoBehaviour, IClickable
     }
 
 
-    static void resetPref()
-    {
-    	PlayerPrefs.DeleteKey("languageChoice");
-    	PlayerPrefs.DeleteKey("languageIndex");
-
-    }
-
-    [RuntimeInitializeOnLoadMethod]
-    static void RunOnStart()
-    {
-        Application.quitting += resetPref;
-    }
 }
