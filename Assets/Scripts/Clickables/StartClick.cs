@@ -15,7 +15,8 @@ public class StartClick : MonoBehaviour, IClickable
     public void LookedAt(RaycastHit hit) {
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1")) {
-            if (!PlayerPrefs.GetString("languageChoice").Equals("")) {
+            if (!PlayerPrefs.GetString("languageChoice").Equals("")
+                && !PlayerPrefs.GetString("Difficulty").Equals("")) {
                 FindObjectOfType<LevelManager>().NextLevel();
             }
         }
