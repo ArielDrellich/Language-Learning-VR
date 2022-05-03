@@ -54,37 +54,40 @@ public class MatchObject : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!solved) {
-    	    if (collider.gameObject.name != expectedName &&
-                collider.gameObject.name != expectedName + "Model") {
+        if (collider.GetComponent<CanPickUp>()) 
+        {
+            if (!solved) {
+                if (collider.gameObject.name != expectedName &&
+                    collider.gameObject.name != expectedName + "Model") {
 
-                // if it hasn't been collided with that object in the past
-                if (!ignoreCollisions.Contains(collider.gameObject)) {
-                    HealthManager.Decrement();
-                    ignoreCollisions.Add(collider.gameObject);
+                    // if it hasn't been collided with that object in the past
+                    if (!ignoreCollisions.Contains(collider.gameObject)) {
+                        HealthManager.Decrement();
+                        ignoreCollisions.Add(collider.gameObject);
 
-                    // for debugging
-                    // print("collided with: " + collider.gameObject.name);
+                        // for debugging
+                        // print("collided with: " + collider.gameObject.name);
 
-                    // Do all FailActions
-                    foreach (Component action in failActions)
+                        // Do all FailActions
+                        foreach (Component action in failActions)
+                            if (action is IAction) {
+                                ((IAction)action).DoAction();
+                            }
+                    }
+                } else {
+
+                    // what to do if it's correct
+                    PuzzleManager.Increment();
+                    solved = true;
+
+                    // Do all SuccessActions
+                    foreach (Component action in successActions)
                         if (action is IAction) {
                             ((IAction)action).DoAction();
                         }
+
+                    transform.parent.Find("Billboard/Finger Point").gameObject.SetActive(false);
                 }
-            } else {
-
-                // what to do if it's correct
-                PuzzleManager.Increment();
-                solved = true;
-
-                // Do all SuccessActions
-                foreach (Component action in successActions)
-                    if (action is IAction) {
-                        ((IAction)action).DoAction();
-                    }
-
-                transform.parent.Find("Billboard/Finger Point").gameObject.SetActive(false);
             }
         }
     }
