@@ -154,8 +154,11 @@ public class ItemSpawner
         
         foreach(ItemSpawnLocation isl in itemSpawnLocations)
         {
-            positions.Add(isl.gameObject.transform.position);
-            isl.gameObject.SetActive(false);
+            if (isl.isActiveAndEnabled)
+            {
+                positions.Add(isl.gameObject.transform.position);
+                isl.gameObject.SetActive(false);
+            }
         }
         
         return positions;
@@ -170,7 +173,6 @@ public class ItemSpawner
     // Receives list of item names and where to spawn them, then spawns them there
     public void SpawnItems(List<string> items, List<Vector3> positions)
     {
-        // int numOfItems = items.Count;
         int numOfItems = Mathf.Min(items.Count, positions.Count);
         
         for (int i = 0; i < numOfItems; i++) {

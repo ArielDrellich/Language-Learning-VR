@@ -61,6 +61,10 @@ public class LoadLanguages : ScrollSelector, IClickable
         PlayerPrefs.SetInt("languageIndex", 0);
         //DoClick(null);
 
+        language1Text.text = languages[0].Key;
+        language2Text.text = languages[1].Key;
+        language3Text.text = languages[2].Key;
+
     }
 
     // Update is called once per frame
@@ -104,7 +108,7 @@ public class LoadLanguages : ScrollSelector, IClickable
     }
 
     public override void DoClick(GameObject clicker) {
-    	if (clicker.name == "up") {
+    	if (clicker.name == "down") {
             // Debug.Log(PlayerPrefs.GetInt("languageIndex"));
 
     		index = (PlayerPrefs.GetInt("languageIndex")) % languages.Count;
@@ -113,7 +117,7 @@ public class LoadLanguages : ScrollSelector, IClickable
 	  		language3Text.text = languages[(index + 2) % languages.Count].Key;
 	  		PlayerPrefs.SetInt("languageIndex", index + 1);
 
-    	} else if (clicker == null || clicker.name == "down") {
+    	} else if (clicker == null || clicker.name == "up") {
             index = PlayerPrefs.GetInt("languageIndex") - 1;
 	    	if (index < 0) {
 	    		index = languages.Count - 1;
@@ -125,8 +129,9 @@ public class LoadLanguages : ScrollSelector, IClickable
 	    } else if (clicker.tag == "LanguageButton") {
 	    	foreach (KeyValuePair<string, string> oneLanguage in languages)
 			{
-			    string language = clicker.gameObject.transform.GetChild(0).name; // LanguageXtext
-                TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
+			    // string language = clicker.gameObject.transform.GetChild(0).name; // LanguageXtext
+			    TMPro.TMP_Text languageTxt = clicker.gameObject.transform.parent.GetComponentInChildren<TMPro.TMP_Text>(); // LanguageXtext
+                // TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
 	 		    if (oneLanguage.Key == languageTxt.text)
 	 		    {
                     clicker.GetComponent<Renderer>().material.color = Color.grey;

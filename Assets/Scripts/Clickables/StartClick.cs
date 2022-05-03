@@ -12,13 +12,26 @@ public class StartClick : MonoBehaviour, IClickable
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
     }
 
-    public void LookedAt(RaycastHit hit) {
+    public void LookedAt(RaycastHit hit)
+    {
         reticle.SetColor(Color.red);
-        if (Input.GetButtonDown("Fire1")) {
-            if (!PlayerPrefs.GetString("languageChoice").Equals("")
-                && !PlayerPrefs.GetString("Difficulty").Equals("")) {
-                FindObjectOfType<LevelManager>().NextLevel();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (PlayerPrefs.GetString("languageChoice").Equals(""))
+            {
+                //flash red square
+                Debug.Log("No language selected"); //temporary
+                return;
             }
+
+            if (PlayerPrefs.GetString("Difficulty").Equals(""))
+            {
+                //flash red square
+                Debug.Log("No difficulty selected"); //temporary
+                return;
+            }
+
+            FindObjectOfType<LevelManager>().NextLevel();
         }
     }
     

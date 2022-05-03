@@ -26,8 +26,7 @@ public class MatchObject : MonoBehaviour
     public  List<Component>  successActions;
     public  List<Component>  failActions;
 
-    // Used for dragging script in the Inspector. If we don't need that in the end, we can remove
-    //this and action, and use only _action.
+    // Used for dragging script in the Inspector.
     void OnValidate()
     {
         if (expectedObject != null) {
@@ -43,6 +42,7 @@ public class MatchObject : MonoBehaviour
         translator = gameObject.AddComponent<Translator>();
 
         chosenLanguage = PlayerPrefs.GetString("languageChoice");
+        
         // for debugging
         if (chosenLanguage == "")
             chosenLanguage = "en";
@@ -54,36 +54,40 @@ public class MatchObject : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!solved) {
-    	    if (collider.gameObject.name != expectedName) {
+        if (collider.GetComponent<CanPickUp>()) 
+        {
+            if (!solved) {
+                if (collider.gameObject.name != expectedName &&
+                    collider.gameObject.name != expectedName + "Model") {
 
-                // if it hasn't been collided with that object in the past
-                if (!ignoreCollisions.Contains(collider.gameObject)) {
-                    HealthManager.Decrement();
-                    ignoreCollisions.Add(collider.gameObject);
+                    // if it hasn't been collided with that object in the past
+                    if (!ignoreCollisions.Contains(collider.gameObject)) {
+                        HealthManager.Decrement();
+                        ignoreCollisions.Add(collider.gameObject);
 
-                    // for debugging
-                    // print("collided with: " + collider.gameObject.name);
+                        // for debugging
+                        // print("collided with: " + collider.gameObject.name);
 
-                    // Do all FailActions
-                    foreach (Component action in failActions)
+                        // Do all FailActions
+                        foreach (Component action in failActions)
+                            if (action is IAction) {
+                                ((IAction)action).DoAction();
+                            }
+                    }
+                } else {
+
+                    // what to do if it's correct
+                    PuzzleManager.Increment();
+                    solved = true;
+
+                    // Do all SuccessActions
+                    foreach (Component action in successActions)
                         if (action is IAction) {
                             ((IAction)action).DoAction();
                         }
+
+                    transform.parent.Find("Billboard/Finger Point").gameObject.SetActive(false);
                 }
-            } else {
-
-                // what to do if it's correct
-                PuzzleManager.Increment();
-                solved = true;
-
-                // Do all SuccessActions
-                foreach (Component action in successActions)
-                    if (action is IAction) {
-                        ((IAction)action).DoAction();
-                    }
-
-                transform.parent.Find("Billboard/Finger Point").gameObject.SetActive(false);
             }
         }
     }

@@ -8,7 +8,7 @@ public class TeleportPad : MonoBehaviour, IClickable
     CharacterController controller;  
     Renderer            teleportRenderer;
     float               maxTeleportDistance = 15f;
-    private static bool canTeleport = true;
+    private static bool canTeleport;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,8 @@ public class TeleportPad : MonoBehaviour, IClickable
         controller = GameObject.Find("Player").GetComponent<CharacterController>();
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
         teleportRenderer = GetComponent<Renderer>();
+
+        canTeleport = true;
     }
     public void LookedAt(RaycastHit hit) {
         if (hit.distance <= maxTeleportDistance && canTeleport) {

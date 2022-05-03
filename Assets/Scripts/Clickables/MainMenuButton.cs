@@ -16,7 +16,6 @@ public class MainMenuButton : MonoBehaviour, IClickable
     public void LookedAt(RaycastHit hit) {
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1")) {
-            // LevelManager.MainMenu();
             FindObjectOfType<LevelManager>().MainMenu();
         }
     }
