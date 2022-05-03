@@ -38,7 +38,7 @@ public class HealthBar : MonoBehaviour
         lm = FindObjectOfType<LevelManager>();
 
         if (!lm)
-            Debug.Log("No LevelManager found");
+            Debug.Log("HealthBar: No LevelManager found");
     }
     
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class HealthBar : MonoBehaviour
 
         if (remainingHealth <= 0) {
             if (lm)
-                lm.GameOver();                
+                lm.ZeroHealth();                
         }
     }
 }

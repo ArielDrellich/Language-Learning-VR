@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
 {
     /*-------------------------------------------------*/
                     /** KEEP UPDATED **/
-    const int Num_of_menu_screens_in_build = 3;
+    const int Num_of_menu_screens_in_build = 4;
     /*-------------------------------------------------*/
 
     private Dictionary<string, LevelPuzzleVars> levelsSinceLastCheckpoint;
@@ -32,14 +32,15 @@ public class LevelManager : MonoBehaviour
     private GameObject     player;
     private GameObject     aimSet;
     private SpriteRenderer loadingSprite;
-    private int[] sceneOrder;
-    private int   sceneIndex;
-    private int   amountOfLevels;
-    private bool  launchApp = true;
-    private bool  startGame = true;
-    private bool  shuffleLevels = false;
-    public  int   checkpoint;
-    string difficulty;
+    private int[]  sceneOrder;
+    private int    sceneIndex;
+    private int    amountOfLevels;
+    private bool   launchApp     = true;
+    private bool   startGame     = true;
+    private bool   shuffleLevels = false;
+    private bool   isTutorial    = false;
+    private string difficulty;
+    public  int    checkpoint;
 
 
 
@@ -95,25 +96,25 @@ public class LevelManager : MonoBehaviour
     {
         string levelName = GetLevelNameByIndex(sceneIndex);
         
-        // temporary "difficulty scaling". Might come up with a better system later
+        /* "Difficulty scaling" */
         int numOfItems;
         int numOfMatchObjects;
         int numOfWords;
         switch (difficulty)
         {
             case "easy":
-                numOfItems = 8 + (2 * 1);
-                numOfMatchObjects = 4 + sceneIndex;
+                numOfItems = 8 + (sceneIndex * 1);
+                numOfMatchObjects = 3 + sceneIndex;
                 numOfWords = 2 + sceneIndex;
                 break;
             case "medium":
-                numOfItems = 10 + (2 * 2);
-                numOfMatchObjects = 8 + sceneIndex;
+                numOfItems = 10 + (sceneIndex * 2);
+                numOfMatchObjects = 5 + sceneIndex;
                 numOfWords = 6 + sceneIndex;
                 break;
             case "hard":
-                numOfItems = 12 + (2 * 3);
-                numOfMatchObjects = 14 + sceneIndex;
+                numOfItems = 12 + (sceneIndex * 3);
+                numOfMatchObjects = 7 + sceneIndex;
                 numOfWords = 10 + sceneIndex;
                 break;
             default:
@@ -207,6 +208,7 @@ public class LevelManager : MonoBehaviour
     public void GameOver()
     {
         loadingSprite.enabled = true;
+        aimSet.GetComponent<AimClick>().enabled = false;
         TimerManager.PauseTimer();
         PuzzleManager.ResetCounters();
         loadingOperation = SceneManager.LoadSceneAsync("Game Over Screen");
@@ -215,10 +217,22 @@ public class LevelManager : MonoBehaviour
     public void MainMenu()
     {
         startGame = true;
-        HealthManager.ResetHealth();
+        isTutorial = false;
+        loadingSprite.enabled = true;
+        aimSet.GetComponent<AimClick>().enabled = false;
+        ResetPref();
         TimerManager.StopTimer();
         levelsSinceLastCheckpoint.Clear();
-        SceneManager.LoadScene("Start Menu");
+        loadingOperation = SceneManager.LoadSceneAsync("Start Menu");
+        HealthManager.ResetHealth();
+    }
+
+    public void Tutorial()
+    {
+        isTutorial = true;
+        loadingSprite.enabled = true;
+        aimSet.GetComponent<AimClick>().enabled = false;
+        loadingOperation = SceneManager.LoadSceneAsync("Tutorial");
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -237,7 +251,6 @@ public class LevelManager : MonoBehaviour
         player = GameObject.Find("Player");
         aimSet = GameObject.Find("Aim Set");
         difficulty = PlayerPrefs.GetString("Difficulty");
-        Debug.Log(difficulty);
         loadingSprite = GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>();
 
         // any time we start a new game from the main menu
@@ -277,7 +290,15 @@ public class LevelManager : MonoBehaviour
     {
         shuffleLevels = shuffle;
     }
-    static void resetPref()
+
+    public void ZeroHealth()
+    {
+        if (!isTutorial)
+        {
+            this.GameOver();
+        }
+    }
+    static void ResetPref()
     {
         PlayerPrefs.DeleteKey("languageChoice");
         PlayerPrefs.DeleteKey("languageIndex");
@@ -288,6 +309,6 @@ public class LevelManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     static void RunOnStart()
     {
-        Application.quitting += resetPref;
+        Application.quitting += ResetPref;
     }
 }

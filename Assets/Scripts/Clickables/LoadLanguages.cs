@@ -129,8 +129,9 @@ public class LoadLanguages : ScrollSelector, IClickable
 	    } else if (clicker.tag == "LanguageButton") {
 	    	foreach (KeyValuePair<string, string> oneLanguage in languages)
 			{
-			    string language = clicker.gameObject.transform.GetChild(0).name; // LanguageXtext
-                TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
+			    // string language = clicker.gameObject.transform.GetChild(0).name; // LanguageXtext
+			    TMPro.TMP_Text languageTxt = clicker.gameObject.transform.parent.GetComponentInChildren<TMPro.TMP_Text>(); // LanguageXtext
+                // TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
 	 		    if (oneLanguage.Key == languageTxt.text)
 	 		    {
                     clicker.GetComponent<Renderer>().material.color = Color.grey;

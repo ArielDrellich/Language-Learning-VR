@@ -43,14 +43,14 @@ public class SetDifficulty : ScrollSelector, IClickable
     {
         switch (difficultyChoice)
         {
-            case "easy":
+            case "Easy":
                 PlayerPrefs.SetString("Difficulty", "easy");
                 break;
-            case "hard":
-                PlayerPrefs.SetString("Difficulty", "hard");
-                break;
-            case "medium":
+            case "Medium":
                 PlayerPrefs.SetString("Difficulty", "medium");
+                break;
+            case "Hard":
+                PlayerPrefs.SetString("Difficulty", "hard");
                 break;
             default:
                 break;

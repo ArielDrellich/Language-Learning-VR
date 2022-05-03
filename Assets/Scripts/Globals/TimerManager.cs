@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
-    private static float startTime = -1;
-    private static float pauseStartTime = -1;
-    private static bool paused = true;
-    private static string timeString;
+    private static float   startTime      = -1;
+    private static float   pauseStartTime = -1;
+    private static bool    paused         = true;
+    private static string  timeString;
     private TMPro.TMP_Text timerText;
 
     public static void StartTimer()
