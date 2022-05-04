@@ -5,37 +5,67 @@ using UnityEngine.SceneManagement;
 public class InternetCheck : MonoBehaviour
 {
     TMPro.TMP_Text NoConnectionTxt;
-    PickUpV2 PickUp;
+    PickUpV2 pickUp;
     AimClick click;
     PlayerMovement movement;
+
+    bool pickUpTurnOn = false;
+    bool clickTurnOn = false;
+    bool movementTurnOn = false;
+
     void Start()
     {
         NoConnectionTxt = GameObject.Find("NoConnectionTxt").GetComponent<TMPro.TMP_Text>();
-        NoConnectionTxt.enabled = false;
-        PickUp = GameObject.Find("Aim Set").GetComponent<PickUpV2>();
-        PickUp.enabled = true;
+
+        pickUp = GameObject.Find("Aim Set").GetComponent<PickUpV2>();
         click = GameObject.Find("Aim Set").GetComponent<AimClick>();
-        click.enabled = true;
-        // if we are in the start scene, the player movement already enabled
-        Scene scene = SceneManager.GetActiveScene();
         movement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        if (scene.name != "Start Menu" && scene.name != "Game Over Screen" && scene.name != "Win Screen")
-        {
-            movement.enabled = true;
-        }
-        Debug.Log(movement.enabled);
-
-
+        NoConnectionTxt.enabled = false;
     }
 
     void Update()
     {
+       //Debug.Log("pickUpTurnOn " + pickUpTurnOn);
+       //Debug.Log("clickTurnOn " + clickTurnOn);
+       //Debug.Log("movementTurnOn " + movementTurnOn);
+
+        // There is no inrernet
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
+           //Debug.Log("NO-INTERNT");
+           //Debug.Log("pickUpTurnOn " + pickUpTurnOn);
+           //Debug.Log("clickTurnOn " + clickTurnOn);
+           //Debug.Log("movementTurnOn " + movementTurnOn);
             NoConnectionTxt.enabled = true;
-            PickUp.enabled = false;
-            click.enabled = false;
-            movement.enabled = false;
+            // Didn't changed and was turn off
+            if (pickUpTurnOn == true)
+            {
+                pickUpTurnOn = false;
+            }
+            if (clickTurnOn == true)
+            {
+                clickTurnOn = false;
+            }
+            if (movementTurnOn == true)
+            {
+                movementTurnOn = false;
+            }
+        }
+        else
+        {
+            NoConnectionTxt.enabled = false;
+            if (pickUp.enabled == true)
+            {
+                pickUpTurnOn = true;
+            }
+            if (click.enabled == true)
+            {
+                clickTurnOn = true;
+            }
+            if (movement.enabled == true)
+            {
+                movementTurnOn = true;
+            }
         }
     }
 }
