@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3006563537316161135}
-  m_LocalRotation: {x: -0.032864794, y: 0.7163172, z: 0.69607425, w: -0.035919953}
-  m_LocalPosition: {x: -227.29, y: -5.41, z: -16.11}
-  m_LocalScale: {x: 0.47418606, y: 0.47418597, z: 0.47418585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3006563537941845865}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -84.188, y: 253.725, z: -73.477005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3006563537316161133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 3006563537941845869}
   - component: {fileID: 3006563537941845868}
   - component: {fileID: 3006563537941845871}
-  - component: {fileID: 3006563537941845870}
   m_Layer: 0
   m_Name: Green Chair
   m_TagString: Untagged
@@ -88,13 +87,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3006563537941845864}
-  m_LocalRotation: {x: 0.000000029802319, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2061768, z: -0.99045104}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.62, y: -0.85, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 3006563537316161122}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!33 &3006563537941845869
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -156,15 +155,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: abe1a3736d52647429d25f642bb21b98, type: 3}
---- !u!114 &3006563537941845870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3006563537941845864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6715159ba0f7f984491a34eb4ea75e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

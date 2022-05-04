@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508619091208373667}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0034580554, y: 0.0041340305, z: 0.039752226}
-  m_LocalScale: {x: 0.78, y: 0.78, z: 0.78}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1508619091429293640}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -97.72099, y: 98.434, z: -140.088}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &1508619091208373676
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1508619091429293642}
   - component: {fileID: 1508619091429293643}
   m_Layer: 0
-  m_Name: Green Pink Sufboard
+  m_Name: Green Pink Surfboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,14 +119,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508619091429293641}
-  m_LocalRotation: {x: -0.63613373, y: -0.29237074, z: -0.20930319, w: 0.68267524}
-  m_LocalPosition: {x: 116.606094, y: 2.67, z: 94.70987}
-  m_LocalScale: {x: 0.8076586, y: 0.80765814, z: 0.8076585}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1508619091208373666}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!54 &1508619091429293642
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -109,6 +109,7 @@ public class ItemSpawner
         itemPaths["Blue Yellow Surfboard"] = "Items/Beach/Colored_surfboards/Blue Yellow Surfboard";
         itemPaths["Orange Pink Surfboard"] = "Items/Beach/Colored_surfboards/Orange Pink Surfboard";
         itemPaths["Yellow White Surfboard"] = "Items/Beach/Colored_surfboards/Yellow White Surfboard";
+        itemPaths["Green Pink Surfboard"] = "Items/Beach/Colored_surfboards/Green Pink Surfboard";
 
         // Buckets
         itemPaths["Yellow Bucket"] = "Items/Beach/Colored_buckets/Yellow Bucket";
@@ -176,6 +177,13 @@ public class ItemSpawner
         int numOfItems = Mathf.Min(items.Count, positions.Count);
         
         for (int i = 0; i < numOfItems; i++) {
+
+            if (!itemPaths.ContainsKey(items[i]))
+            {
+                Debug.Log("No item path for: " + items[i]);
+                continue;
+            }
+
             GameObject item = Resources.Load(itemPaths[items[i]]) as GameObject;
 
             if (item == null) {

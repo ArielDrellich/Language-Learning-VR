@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7162742908662102307}
   - component: {fileID: 8955958540323538572}
   - component: {fileID: 2397234084532749080}
-  - component: {fileID: 6292720562102155330}
   m_Layer: 0
   m_Name: White Green Chair
   m_TagString: Untagged
@@ -27,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3122956388233070059}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: -2.85}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.62, y: -0.85, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 3641459336087919882}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
 --- !u!33 &7162742908662102307
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,20 +94,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 5406ff5e3dbabbc40bcf0d5631637c66, type: 3}
---- !u!64 &6292720562102155330
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3122956388233070059}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 5406ff5e3dbabbc40bcf0d5631637c66, type: 3}
 --- !u!1 &7099727132277537377
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,14 +119,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7099727132277537377}
-  m_LocalRotation: {x: -0.49469987, y: -0.50524455, z: -0.49469998, w: 0.5052445}
-  m_LocalPosition: {x: -193.736, y: -0.756, z: -23.905}
-  m_LocalScale: {x: 0.20166598, y: 0.20166598, z: 0.20166598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3472698199468087213}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -88.79201, y: -90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6283328704140898143
 Rigidbody:
   m_ObjectHideFlags: 0

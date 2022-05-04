@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6993727638598655233}
   - component: {fileID: 726079139407410118}
   - component: {fileID: 726079139407410117}
+  - component: {fileID: 2454519551881354481}
   m_Layer: 0
   m_Name: PingPongBat
   m_TagString: Untagged
@@ -115,3 +116,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3758573805739257388, guid: c724c2cfb7e6cb247b2e89d44ad42631, type: 3}
+--- !u!114 &2454519551881354481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733148417151412701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6715159ba0f7f984491a34eb4ea75e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
