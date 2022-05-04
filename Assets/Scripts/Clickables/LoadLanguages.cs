@@ -110,14 +110,15 @@ public class LoadLanguages : ScrollSelector, IClickable
     public override void DoClick(GameObject clicker) {
     	if (clicker.name == "down") {
             // Debug.Log(PlayerPrefs.GetInt("languageIndex"));
-
-    		index = (PlayerPrefs.GetInt("languageIndex")) % languages.Count;
+            PlayerPrefs.SetString("languageChoice","");
+            index = (PlayerPrefs.GetInt("languageIndex")) % languages.Count;
     		language1Text.text = languages[index].Key;
 	   		language2Text.text = languages[(index + 1) % languages.Count].Key;
 	  		language3Text.text = languages[(index + 2) % languages.Count].Key;
 	  		PlayerPrefs.SetInt("languageIndex", index + 1);
 
     	} else if (clicker == null || clicker.name == "up") {
+            PlayerPrefs.SetString("languageChoice", "");
             index = PlayerPrefs.GetInt("languageIndex") - 1;
 	    	if (index < 0) {
 	    		index = languages.Count - 1;

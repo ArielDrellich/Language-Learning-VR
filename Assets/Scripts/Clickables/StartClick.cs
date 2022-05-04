@@ -5,11 +5,17 @@ using UnityEngine;
 public class StartClick : MonoBehaviour, IClickable
 {
     ReticleManager reticle;
-
+    GameObject chooseLanguage;
+    GameObject chooseDifficulty;
     // Start is called before the first frame update
     void Start()
     {
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
+        chooseLanguage = GameObject.Find("LanguageAlarm");
+        chooseDifficulty = GameObject.Find("DifficultyAlarm");
+        //chooseLanguage.enabled = false;
+        chooseLanguage.SetActive(false);
+        chooseDifficulty.SetActive(false);
     }
 
     public void LookedAt(RaycastHit hit)
@@ -19,19 +25,28 @@ public class StartClick : MonoBehaviour, IClickable
         {
             if (PlayerPrefs.GetString("languageChoice").Equals(""))
             {
-                //flash red square
-                Debug.Log("No language selected"); //temporary
+                chooseLanguage.SetActive(true);
                 return;
             }
 
             if (PlayerPrefs.GetString("Difficulty").Equals(""))
             {
-                //flash red square
-                Debug.Log("No difficulty selected"); //temporary
+                chooseDifficulty.SetActive(true);
                 return;
             }
 
             FindObjectOfType<LevelManager>().NextLevel();
+        }
+    }
+    void Update()
+    {
+        if (!PlayerPrefs.GetString("languageChoice").Equals(""))
+        {
+            chooseLanguage.SetActive(false);
+        }
+        if (!PlayerPrefs.GetString("Difficulty").Equals(""))
+        {
+            chooseDifficulty.SetActive(false);
         }
     }
     
