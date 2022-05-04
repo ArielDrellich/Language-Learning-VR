@@ -8,10 +8,10 @@ public class InternetCheck : MonoBehaviour
     PickUpV2 pickUp;
     AimClick click;
     PlayerMovement movement;
+    bool pickUpStatus;
+    bool clickStatus;
+    bool movementStatus;
 
-    bool pickUpTurnOn = false;
-    bool clickTurnOn = false;
-    bool movementTurnOn = false;
 
     void Start()
     {
@@ -21,6 +21,10 @@ public class InternetCheck : MonoBehaviour
         click = GameObject.Find("Aim Set").GetComponent<AimClick>();
         movement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         NoConnectionTxt.enabled = false;
+
+        pickUpStatus = pickUp.enabled;
+        clickStatus = click.enabled;
+        movementStatus = movement.enabled;
     }
 
     void Update()
@@ -36,36 +40,18 @@ public class InternetCheck : MonoBehaviour
            //Debug.Log("pickUpTurnOn " + pickUpTurnOn);
            //Debug.Log("clickTurnOn " + clickTurnOn);
            //Debug.Log("movementTurnOn " + movementTurnOn);
-            NoConnectionTxt.enabled = true;
+           NoConnectionTxt.enabled = true;
             // Didn't changed and was turn off
-            if (pickUpTurnOn == true)
-            {
-                pickUpTurnOn = false;
-            }
-            if (clickTurnOn == true)
-            {
-                clickTurnOn = false;
-            }
-            if (movementTurnOn == true)
-            {
-                movementTurnOn = false;
-            }
+            pickUp.enabled = false;
+            click.enabled = false;
+            movement.enabled = false;
         }
         else
         {
             NoConnectionTxt.enabled = false;
-            if (pickUp.enabled == true)
-            {
-                pickUpTurnOn = true;
-            }
-            if (click.enabled == true)
-            {
-                clickTurnOn = true;
-            }
-            if (movement.enabled == true)
-            {
-                movementTurnOn = true;
-            }
+            pickUp.enabled = pickUpStatus;
+            click.enabled = clickStatus;
+            movement.enabled = movementStatus;
         }
     }
 }

@@ -2396,6 +2396,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038341108}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1043244230 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2706373209362783947, guid: 4dd1eb7a943701243a785ed8f7f644de,
+    type: 3}
+  m_PrefabInstance: {fileID: 254684895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1046532764
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,7 +3294,7 @@ Transform:
   m_Children:
   - {fileID: 1360676798}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!1 &1536307679
 GameObject:
@@ -3895,7 +3901,7 @@ Transform:
   m_Children:
   - {fileID: 279682328}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
 --- !u!1 &1676907246
 GameObject:
@@ -5000,7 +5006,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1043244230}
     m_Modifications:
     - target: {fileID: 8300029786520918436, guid: e1b8ea0c4bc6daa4a914a085c12fc224,
         type: 3}
@@ -5030,7 +5036,7 @@ PrefabInstance:
     - target: {fileID: 8300029788273946382, guid: e1b8ea0c4bc6daa4a914a085c12fc224,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8300029788273946382, guid: e1b8ea0c4bc6daa4a914a085c12fc224,
         type: 3}
