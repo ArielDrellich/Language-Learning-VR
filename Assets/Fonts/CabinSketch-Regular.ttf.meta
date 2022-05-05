@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: a5a94fbab11b1b0449078bfdfc606e48
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cabin Sketch
+  fontNames:
+  - Cabin Sketch
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 55a8c58e4bc50dc4ea4ab22022e8e148, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

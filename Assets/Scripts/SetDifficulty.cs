@@ -12,9 +12,9 @@ public class SetDifficulty : ScrollSelector, IClickable
     void Start()
     {
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
-        hardButton = GameObject.Find("HButton");
-        mediumButton = GameObject.Find("MButton");
-        easyButton = GameObject.Find("EButton");
+        hardButton = GameObject.Find("Hard");
+        mediumButton = GameObject.Find("Medium");
+        easyButton = GameObject.Find("Easy");
         resetColors();
     }
 
@@ -29,11 +29,9 @@ public class SetDifficulty : ScrollSelector, IClickable
         reticle.SetColor(Color.red);
         if (Input.GetButtonDown("Fire1"))
         {
-            string difficultyName = hit.transform.GetChild(0).name; // get text
-            TMPro.TMP_Text difficultyTxt = GameObject.Find(difficultyName).GetComponent<TMPro.TMP_Text>();
+            string difficultyName = hit.transform.name;
             hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.grey;
-            //PlayerPrefs.SetString("Difficulty", difficultyTxt.text);
-            setDif(difficultyTxt.text);
+            setDif(difficultyName);
             ToggleClick(hit);
         }
     }
