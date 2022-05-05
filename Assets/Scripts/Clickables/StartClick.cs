@@ -7,13 +7,13 @@ public class StartClick : MonoBehaviour, IClickable
     ReticleManager reticle;
     GameObject chooseLanguage;
     GameObject chooseDifficulty;
-    // Start is called before the first frame update
+    bool canStart = true;
+
     void Start()
     {
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
         chooseLanguage = GameObject.Find("LanguageAlarm");
         chooseDifficulty = GameObject.Find("DifficultyAlarm");
-        //chooseLanguage.enabled = false;
         chooseLanguage.SetActive(false);
         chooseDifficulty.SetActive(false);
     }
@@ -25,17 +25,19 @@ public class StartClick : MonoBehaviour, IClickable
         {
             if (PlayerPrefs.GetString("languageChoice").Equals(""))
             {
-                chooseLanguage.SetActive(true);
-                return;
+                StartCoroutine(ChooseLangAlarmCoroutine());
+                canStart = false;
             }
-
             if (PlayerPrefs.GetString("Difficulty").Equals(""))
             {
-                chooseDifficulty.SetActive(true);
-                return;
+                StartCoroutine(ChooseDifAlarmCoroutine());
+                canStart = false;
+            }
+            if (canStart)
+            {
+                FindObjectOfType<LevelManager>().NextLevel();
             }
 
-            FindObjectOfType<LevelManager>().NextLevel();
         }
     }
     void Update()
@@ -49,5 +51,19 @@ public class StartClick : MonoBehaviour, IClickable
             chooseDifficulty.SetActive(false);
         }
     }
-    
+
+    IEnumerator ChooseLangAlarmCoroutine()
+    {
+            chooseLanguage.SetActive(true);
+            yield return new WaitForSeconds(1);
+            chooseLanguage.SetActive(false);
+    }
+
+    IEnumerator ChooseDifAlarmCoroutine()
+    {
+        chooseDifficulty.SetActive(true);
+        yield return new WaitForSeconds(1);
+        chooseDifficulty.SetActive(false);
+    }
+
 }
