@@ -100,6 +100,7 @@ public class LevelManager : MonoBehaviour
         int numOfItems;
         int numOfMatchObjects;
         int numOfWords;
+
         switch (difficulty)
         {
             case "easy":

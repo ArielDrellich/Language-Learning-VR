@@ -54,7 +54,8 @@ public class MatchObject : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.GetComponent<CanPickUp>()) 
+        if (collider.GetComponent<CanPickUp>() || 
+            (collider.transform.parent != null && collider.transform.parent.GetComponent<CanPickUp>()))
         {
             if (!solved) {
                 if (collider.gameObject.name != expectedName &&

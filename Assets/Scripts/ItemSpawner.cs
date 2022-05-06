@@ -56,7 +56,7 @@ public class ItemSpawner
         "White Green Chair",
         
         // Surfboard
-        "Blue Yellow Surfboard", "Green Pink Surfboard", "Orange Pink Surfboard", "Red Surfboard", "Yellow White Surfboard",
+        "Blue Yellow Surfboard", "Green Pink Surfboard", /*"Orange Pink Surfboard", "Red Surfboard", "Yellow White Surfboard",*/
 
         // Buckets
         "Yellow Bucket", "Red Bucket", "Blue Bucket",
@@ -105,10 +105,10 @@ public class ItemSpawner
 
         // Surfboard
         itemPaths["Blue Yellow Surfboard"] = "Items/Beach/Colored_surfboards/Blue Yellow Surfboard";
-        itemPaths["Red Surfboard"] = "Items/Beach/Colored_surfboards/Red Surfboard";
+        // itemPaths["Red Surfboard"] = "Items/Beach/Colored_surfboards/Red Surfboard";
         itemPaths["Blue Yellow Surfboard"] = "Items/Beach/Colored_surfboards/Blue Yellow Surfboard";
-        itemPaths["Orange Pink Surfboard"] = "Items/Beach/Colored_surfboards/Orange Pink Surfboard";
-        itemPaths["Yellow White Surfboard"] = "Items/Beach/Colored_surfboards/Yellow White Surfboard";
+        // itemPaths["Orange Pink Surfboard"] = "Items/Beach/Colored_surfboards/Orange Pink Surfboard";
+        // itemPaths["Yellow White Surfboard"] = "Items/Beach/Colored_surfboards/Yellow White Surfboard";
         itemPaths["Green Pink Surfboard"] = "Items/Beach/Colored_surfboards/Green Pink Surfboard";
 
         // Buckets

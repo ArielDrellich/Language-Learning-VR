@@ -67,7 +67,7 @@ public class PuzzleSetter
 
         // turn off MatchObjects that don't have a word assigned to them
         for (; i < numOfMatchObjects; i++) {
-            matchObjects[i].gameObject.SetActive(false);
+            matchObjects[i].transform.parent.gameObject.SetActive(false);
 
             // puzzle would have already counted itself
             PuzzleManager.AddPuzzle(-1);
