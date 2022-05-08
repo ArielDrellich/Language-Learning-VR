@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class ColLet : MonoBehaviour
 {
-    [SerializeField]
-    TMPro.TMP_Text text;
     TMPro.TMP_Text gameNameText;
     TMPro.TMP_Text winText;
     float startTime;
 
     void Start()
     {
+        
         try
         { gameNameText = GameObject.Find("LanguageLearningVR").GetComponent<TMPro.TMP_Text>(); }
         catch { }
@@ -72,6 +71,7 @@ public class ColLet : MonoBehaviour
     {
         if (Time.fixedTime - startTime > 2)
         {
+            
             if (gameNameText != null)
             {
                 gameNameText.text = RandomMenuColor();
@@ -80,7 +80,6 @@ public class ColLet : MonoBehaviour
             {
                 winText.text = RandomMenuColor();
             }
-
             startTime = Time.fixedTime;
         }
     }
