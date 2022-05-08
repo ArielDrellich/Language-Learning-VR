@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 7237243857661479490, guid: 0619f7b84d0a1ab4da3eabf65fb7cf61,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.4275292
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7237243857661479490, guid: 0619f7b84d0a1ab4da3eabf65fb7cf61,
         type: 3}
@@ -77,5 +77,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2701d2ea462cf7a45979d6bd5493841a, type: 2}
+    - target: {fileID: 7237243859069652110, guid: 0619f7b84d0a1ab4da3eabf65fb7cf61,
+        type: 3}
+      propertyPath: m_Name
+      value: Yellow Bucket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0619f7b84d0a1ab4da3eabf65fb7cf61, type: 3}

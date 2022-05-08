@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 489182}
   - component: {fileID: 3318822}
   - component: {fileID: 2332230}
+  - component: {fileID: 8699614813185407346}
   m_Layer: 0
   m_Name: PalmTree_Straight_Mobile
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8699614813185407346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159032}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5124779, y: 0.573235, z: 4.3156295}
+  m_Center: {x: 0.06872749, y: -0.024835737, z: 3.158418}

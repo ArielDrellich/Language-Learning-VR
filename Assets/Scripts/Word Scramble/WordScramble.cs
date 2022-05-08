@@ -78,12 +78,7 @@ public class WordScramble : MonoBehaviour
         finished = false;
         tr = gameObject.AddComponent<Translator>();
 
-        if (words.Length == 0) {
-            Debug.Log("Words list is emtpy.");
-            return;
-        }
-
-        ShowScramble(currentWord);
+        // ShowScramble(currentWord); Since we're dynamically setting the word, the word is blank during Start
 
         // Add this puzzles to the puzzle counter
         PuzzleManager.AddPuzzle();

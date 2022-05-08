@@ -100,6 +100,7 @@ public class LevelManager : MonoBehaviour
         int numOfItems;
         int numOfMatchObjects;
         int numOfWords;
+
         switch (difficulty)
         {
             case "easy":
@@ -108,12 +109,12 @@ public class LevelManager : MonoBehaviour
                 numOfWords = 2 + sceneIndex;
                 break;
             case "medium":
-                numOfItems = 10 + (sceneIndex * 2);
+                numOfItems = 15 + (sceneIndex * 2);
                 numOfMatchObjects = 5 + sceneIndex;
                 numOfWords = 6 + sceneIndex;
                 break;
             case "hard":
-                numOfItems = 12 + (sceneIndex * 3);
+                numOfItems = 20 + (sceneIndex * 3);
                 numOfMatchObjects = 7 + sceneIndex;
                 numOfWords = 10 + sceneIndex;
                 break;
