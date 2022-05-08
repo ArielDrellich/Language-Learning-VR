@@ -4,14 +4,31 @@ using UnityEngine;
 
 public class ColLet : MonoBehaviour
 {
-    TMPro.TMP_Text gameName;
+    [SerializeField]
+    TMPro.TMP_Text text;
+    TMPro.TMP_Text gameNameText;
+    TMPro.TMP_Text winText;
     float startTime;
 
     void Start()
     {
-        gameName = GameObject.Find("LanguageLearningVR").GetComponent<TMPro.TMP_Text>();
-        gameName.text = RandomMenuColor();
+        try
+        { gameNameText = GameObject.Find("LanguageLearningVR").GetComponent<TMPro.TMP_Text>(); }
+        catch { }
+        if (gameNameText != null)
+        {
+            gameNameText.text = RandomMenuColor();
+        }
+        try
+        { winText = GameObject.Find("WinText").GetComponent<TMPro.TMP_Text>();}
+        catch { }
+        if (winText != null)
+        {
+            winText.text = RandomMenuColor();
+        }
         startTime = Time.fixedTime;
+
+
     }
     void Update()
     {
@@ -31,19 +48,39 @@ public class ColLet : MonoBehaviour
     string RandomMenuColor()
     {
         const string gameName = "Language Learning VR";
-        string coloredgameName = "";
-        foreach (char c in gameName)
+        const string win = "YOU WIN!";
+        string coloredstring = "";
+        if (gameNameText != null)
         {
-            coloredgameName += "<color=#" + ColorToHex(RandomColor()) + ">" + c + "</color>";
+            foreach (char c in gameName)
+            {
+                coloredstring += "<color=#" + ColorToHex(RandomColor()) + ">" + c + "</color>";
 
+            }
         }
-        return coloredgameName;
+        if (winText != null)
+        {
+            foreach (char c in win)
+            {
+                coloredstring += "<color=#" + ColorToHex(RandomColor()) + ">" + c + "</color>";
+
+            }
+        }
+        return coloredstring;
     }
     void ChangeText()
     {
         if (Time.fixedTime - startTime > 2)
         {
-            gameName.text = RandomMenuColor();
+            if (gameNameText != null)
+            {
+                gameNameText.text = RandomMenuColor();
+            }
+            if (winText != null)
+            {
+                winText.text = RandomMenuColor();
+            }
+
             startTime = Time.fixedTime;
         }
     }
