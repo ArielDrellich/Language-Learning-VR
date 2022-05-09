@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class InternetCheck : MonoBehaviour
 {
+    [SerializeField]
     TMPro.TMP_Text NoConnectionTxt;
     PickUpV2 pickUp;
     AimClick click;
@@ -15,11 +16,13 @@ public class InternetCheck : MonoBehaviour
 
     void Start()
     {
-        NoConnectionTxt = GameObject.Find("NoConnectionTxt").GetComponent<TMPro.TMP_Text>();
+        // NoConnectionTxt = GameObject.Find("NoConnectionTxt").GetComponent<TMPro.TMP_Text>();
 
         pickUp = GameObject.Find("Aim Set").GetComponent<PickUpV2>();
         click = GameObject.Find("Aim Set").GetComponent<AimClick>();
         movement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
+        NoConnectionTxt.outlineWidth = 0.3f;
         NoConnectionTxt.enabled = false;
 
         pickUpStatus = pickUp.enabled;

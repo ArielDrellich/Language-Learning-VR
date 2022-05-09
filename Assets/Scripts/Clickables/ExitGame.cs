@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitGame : MonoBehaviour
 {
@@ -12,7 +13,11 @@ public class ExitGame : MonoBehaviour
         StartCoroutine(ClickTime());
 
         if (click > 1)
-            Application.Quit();
+            if ( SceneManager.GetActiveScene().name != "Tutorial")
+                Application.Quit();
+            else
+                FindObjectOfType<LevelManager>().MainMenu();
+
         }
     }
      IEnumerator ClickTime()
