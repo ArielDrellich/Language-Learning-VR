@@ -45,7 +45,9 @@ public class PuzzleSetter
             "pig","chicken", "duck", "grass", "tree", "water", "bridge", "butterfly"};
 
         LevelWords["Beach"] = new List<string>() {
-            "umbrella", "sand", "sea", "chair", "tree", "surf", "bucket", "wheel", "clouds", "whale"};
+            "umbrella", "sand", "sea", "chair", "tree", "surf", "bucket", "wheel", "clouds", "whale",
+            "castle", "fish", "balloons", "water", "shells", "jellyfish", "beach", "waves", "shore",
+            "towel", "sunglasses", "ball", "kite"};
 
         /*==================================================================*/
     }
