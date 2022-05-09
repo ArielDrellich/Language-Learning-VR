@@ -29,8 +29,8 @@ public class PuzzleManager : MonoBehaviour
         return puzzlesSolved;
     }
 
-    public static void Increment() {
-        puzzlesSolved++;
+    public static void Increment(int x = 1) {
+        puzzlesSolved += x;
         
         if (puzzlesSolved == totalPuzzles) {
            PuzzleManager.ResetCounters();
