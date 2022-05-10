@@ -65,7 +65,9 @@ public class ItemSpawner
         "White Green Sea Wheel", "White Red Sea Wheel"
         };
 
-
+        LevelItems["PlaygroundLowPoly"] = new List<string>() {
+            "Ant","Bucket", "Bus Toy", "Car Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
+        "Tank Toy", "Truck Toy", "Trumpet"};
 
 
         /*==================================================================*/

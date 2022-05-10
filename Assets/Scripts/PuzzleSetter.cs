@@ -49,6 +49,10 @@ public class PuzzleSetter
             "castle", "fish", "balloons", "water", "shells", "jellyfish", "beach", "waves", "shore",
             "towel", "sunglasses", "ball", "kite"};
 
+        LevelWords["PlaygroundLowPoly"] = new List<string>() {
+            "Ant","Bucket", "Bus Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
+        "Tank Toy", "Truck Toy", "Trumpet"};
+
         /*==================================================================*/
     }
 
