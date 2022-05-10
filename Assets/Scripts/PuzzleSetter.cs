@@ -53,6 +53,8 @@ public class PuzzleSetter
             "Ant","Bucket", "Bus Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
         "Tank Toy", "Truck Toy", "Trumpet"};
 
+        LevelWords["Forest"] = new List<string>() {
+            "forest", "tree", "flower", "house", "table", "chair", "lake", "wood", "green", "nature" };
         /*==================================================================*/
     }
 

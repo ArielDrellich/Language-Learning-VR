@@ -69,6 +69,8 @@ public class ItemSpawner
             "Ant","Bucket", "Bus Toy", "Car Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
         "Tank Toy", "Truck Toy", "Trumpet"};
 
+        LevelItems["Forest"] = new List<string>() {
+            "Banana", "Orange", "Corn", "Pumpkin"};
 
         /*==================================================================*/
 
