@@ -47,6 +47,10 @@ public class PuzzleSetter
         LevelWords["Beach"] = new List<string>() {
             "umbrella", "sand", "sea", "chair", "tree", "surf", "bucket", "wheel", "clouds", "whale"};
 
+        LevelWords["PlaygroundLowPoly"] = new List<string>() {
+            "Ant","Bucket", "Bus Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
+        "Tank Toy", "Truck Toy", "Trumpet"};
+
         /*==================================================================*/
     }
 
