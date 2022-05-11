@@ -233,6 +233,12 @@ public class LevelManager : MonoBehaviour
         isTutorial = true;
         loadingSprite.enabled = true;
         aimSet.GetComponent<AimClick>().enabled = false;
+
+        if (PlayerPrefs.GetString("languageChoice") == "")
+        {
+            PlayerPrefs.SetString("languageChoice", "en");
+            PlayerPrefs.SetInt("isRTL", 0);
+        }
         loadingOperation = SceneManager.LoadSceneAsync("Tutorial");
     }
 
@@ -304,6 +310,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.DeleteKey("languageChoice");
         PlayerPrefs.DeleteKey("languageIndex");
         PlayerPrefs.DeleteKey("Difficulty");
+        PlayerPrefs.DeleteKey("isRTL");
 
     }
 
