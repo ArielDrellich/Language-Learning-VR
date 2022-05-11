@@ -719,7 +719,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1363,7 +1363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5053881317150455511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 7.0937552, y: 1.2411, z: 1.2411}
   m_Children:
   - {fileID: 5457411409890816859}
@@ -1507,7 +1507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5053881318756948894}
   m_Layer: 0
-  m_Name: Word Scramble with fireworks
+  m_Name: Word Scramble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

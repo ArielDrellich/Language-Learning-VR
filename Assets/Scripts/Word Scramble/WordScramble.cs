@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEditor;
-// using Translator;
-[System.Serializable]
+using System;
 
+[System.Serializable]
 public class Word
 {
     public string word;
@@ -14,7 +14,6 @@ public class Word
 
     public Word(string w) {
     	word = w;
-    	// Debug.Log(word);
     }
 
     public string GetString()
@@ -33,7 +32,7 @@ public class Word
             List<char> characters = new List<char>(word.ToCharArray());
             while (characters.Count > 0)
             {
-                int indexChar = Random.Range(0, characters.Count);
+                int indexChar = UnityEngine.Random.Range(0, characters.Count);
                 result += characters[indexChar];
 
                 characters.RemoveAt(indexChar);
@@ -65,6 +64,12 @@ public class WordScramble : MonoBehaviour
     public Translator tr;
     public  List<Component>  successActions;
     public  List<Component>  failActions;
+
+    //trimming Hebrew diacritics which are special because they're seperate unicode characters
+    char[] toTrim = { '\u05B0', '\u05B1', '\u05B2',
+         '\u05B3', '\u05B4', '\u05B5', '\u05B6', '\u05B7', '\u05B8',
+          '\u05B9', '\u05BA', '\u05BB', '\u05BC', '\u05BD', '\u05C1',
+          '\u05C2', '\u05C4', '\u05C5', '\u05C7',   };
 
     void Awake()
     {
@@ -104,7 +109,7 @@ public class WordScramble : MonoBehaviour
     // Show a random word to the screen
     public void ShowScramble()
     {
-        ShowScramble(Random.Range(0, words.Length - 1));
+        ShowScramble(UnityEngine.Random.Range(0, words.Length - 1));
     }
 
     // show word from collection with desired index
@@ -123,9 +128,8 @@ public class WordScramble : MonoBehaviour
 
         char[] chars;
         if (!finished) {
-            // Translate the word to the desire language
-             //Debug.Log(words[index].word);
-            //chars = words[index].GetString().ToCharArray();
+            // Translate the word to the desired language
+
             try {
 	            string userChoice = PlayerPrefs.GetString("languageChoice");
                 
@@ -136,6 +140,15 @@ public class WordScramble : MonoBehaviour
                 }
 
 	            translatedWord = tr.Translate(words[index].word, "en", userChoice).ToLower();
+
+                // trimming unwanted diacritics off of the word
+                char[] tempArr = translatedWord.ToCharArray();
+                translatedWord = "";
+                foreach (char c in tempArr) 
+                {
+                    if (!toTrim.Contains(c))
+                        translatedWord += c;
+                }
 
 	            Word word = new Word(translatedWord);
 
@@ -157,7 +170,6 @@ public class WordScramble : MonoBehaviour
             chars = done.ToCharArray();
 
             PuzzleManager.Increment();
-            // _action.DoAction();
 
             // Do all SuccessActions
             foreach (Component action in successActions)
@@ -170,9 +182,7 @@ public class WordScramble : MonoBehaviour
         {
             CharObject clone = Instantiate(prefab.gameObject).GetComponent<CharObject>();
             clone.transform.SetParent(container);
-            //clone.currentChar = c.ToString();
 
-            // Debug.Log(clone.currentChar);
             charObjects.Add(clone.Init(c, this));
         }
 
@@ -199,6 +209,7 @@ public class WordScramble : MonoBehaviour
         if (firstSelected)
         {
             Swap(firstSelected.index, charObject.index);
+
             // Unselect
             firstSelected.Select();
             charObject.Select();
@@ -223,6 +234,13 @@ public class WordScramble : MonoBehaviour
             word += charObject.character;
         }
 
+        if (PlayerPrefs.GetInt("isRTL") == 1)
+        {
+            char[] charArray = word.ToCharArray();
+            Array.Reverse( charArray );
+            word = new string( charArray );
+        }
+
         if (word == translatedWord)
         {
             // Word is correct, go to next word
@@ -231,13 +249,13 @@ public class WordScramble : MonoBehaviour
             if (currentWord == words.Length) {
                 finished = true;
             }
+
             ShowScramble(currentWord);
-            //Debug.Log("Success!");
+
             return true;
         }
 
         // Word isn't correct yet
-        //Debug.Log("Failure :(");
 
         // to not fail twice in a row on the same permutation
         if (word != lastWrongWord) {

@@ -101,7 +101,12 @@ public class MatchObject : MonoBehaviour
         translator.TextToSpeech(translatedName, chosenLanguage, "UTF-8");
 
         this.audioButton.SetTranslator(translator);      
-     
+
+        if (PlayerPrefs.GetInt("isRTL") == 1)
+        {
+            this.shownText.isRightToLeftText = true;
+        }
+
         this.shownText.text = translatedName; 
     }
 

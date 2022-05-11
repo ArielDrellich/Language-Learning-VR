@@ -24,6 +24,11 @@ public class TranslateText : MonoBehaviour
             chosenLanguage = "en";
         
         text = this.GetComponent<TMPro.TMP_Text>();
+        
+        if (PlayerPrefs.GetInt("isRTL") == 1)
+        {
+            text.isRightToLeftText = true;
+        }
 
         /* Translate Api seems to only translate one sentence at a time, and fails
             on new line characters. I split the string and translate each substring
@@ -48,7 +53,7 @@ public class TranslateText : MonoBehaviour
                 }
                 else 
                 {
-                    Debug.Log("Tranlated text is null.");
+                    Debug.Log("Translated text is null.");
                 }
             }
 

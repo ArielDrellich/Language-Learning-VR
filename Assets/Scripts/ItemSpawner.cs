@@ -20,7 +20,7 @@ public class ItemSpawner
             "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"};
 
         LevelItems["Scene 1"] = new List<string>() {
-            "Corn", "Orange", "Tomato"};
+            "Pineapple"};
 
         LevelItems["Scene 2"] = new List<string>() {
             "Watermelon", "Corn", "Banana"};

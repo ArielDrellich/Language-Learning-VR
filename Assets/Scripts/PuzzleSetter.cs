@@ -18,7 +18,7 @@ public class PuzzleSetter
             "banana", "orange", "pineapple", "corn", "tomato", "watermelon"};
 
         LevelWords["Scene 1"] = new List<string>() {
-            "cat", "dog", "wolf"};
+            "dog", "wolf"};
 
         LevelWords["Scene 2"] = new List<string>() {
             "corn", "tomato"};

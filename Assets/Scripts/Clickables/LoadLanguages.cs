@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LoadLanguages : ScrollSelector, IClickable
 {
-	// public string[] languages = { "Slovak", "French", "Georgian", "German", "Greek", "Kannada", "Polish"};
 	TMPro.TMP_Text language1Text;
 	TMPro.TMP_Text language2Text;
 	TMPro.TMP_Text language3Text;
@@ -14,7 +13,20 @@ public class LoadLanguages : ScrollSelector, IClickable
     public GameObject language3Button;
     bool clicked = false;
 
-    List <KeyValuePair<string, string>> languages;
+    public class LanguageInfo {
+        public string language;
+        public string code;
+        public int    isRTL;
+
+        public LanguageInfo(string language, string code, int isRTL = 0)
+        {
+            this.language = language;
+            this.code = code;
+            this.isRTL = isRTL;    
+        }
+    }
+
+    List <LanguageInfo> languages;
 
 	int index;
 	ReticleManager reticle;
@@ -35,35 +47,36 @@ public class LoadLanguages : ScrollSelector, IClickable
 
         resetColors();
 
-        languages = new List<KeyValuePair<string, string>>();
-        languages.Add(new KeyValuePair<string, string>("Catalan", "ca")); 
-        languages.Add(new KeyValuePair<string, string>("Czech", "cs"));  
-        languages.Add(new KeyValuePair<string, string>("Danish", "da")); 
+        languages = new List<LanguageInfo>();
+        languages.Add(new LanguageInfo("Arabic", "ar", 1)); 
+        languages.Add(new LanguageInfo("Catalan", "ca")); 
+        languages.Add(new LanguageInfo("Czech", "cs"));  
+        languages.Add(new LanguageInfo("Danish", "da")); 
         // languages.Add(new KeyValuePair<string, string>("Dutch", "nl"));  the sound is not good
 
-        languages.Add(new KeyValuePair<string, string>("English", "en")); 
-        languages.Add(new KeyValuePair<string, string>("French", "fr")); 
-        languages.Add(new KeyValuePair<string, string>("German", "de")); 
-        languages.Add(new KeyValuePair<string, string>("Greek", "el"));
-        languages.Add(new KeyValuePair<string, string>("Italian", "it")); 
-        languages.Add(new KeyValuePair<string, string>("Latvian", "lv")); 
-        languages.Add(new KeyValuePair<string, string>("Norwegian", "no")); 
-        languages.Add(new KeyValuePair<string, string>("Polish", "pl"));
-        languages.Add(new KeyValuePair<string, string>("Portuguese", "pt"));
-        languages.Add(new KeyValuePair<string, string>("Russian", "ru")); 
-        languages.Add(new KeyValuePair<string, string>("Slovak", "sk")); 
-        languages.Add(new KeyValuePair<string, string>("Spanish", "es")); 
-        languages.Add(new KeyValuePair<string, string>("Swedish", "sv"));
-        languages.Add(new KeyValuePair<string, string>("Turkish", "tr")); 
-        languages.Add(new KeyValuePair<string, string>("Vietnamese", "vi")); 
-        
+        languages.Add(new LanguageInfo("English", "en")); 
+        languages.Add(new LanguageInfo("French", "fr")); 
+        languages.Add(new LanguageInfo("German", "de")); 
+        languages.Add(new LanguageInfo("Greek", "el"));
+        languages.Add(new LanguageInfo("Hebrew", "he", 1));
+        languages.Add(new LanguageInfo("Italian", "it")); 
+        languages.Add(new LanguageInfo("Latvian", "lv")); 
+        languages.Add(new LanguageInfo("Norwegian", "no")); 
+        languages.Add(new LanguageInfo("Polish", "pl"));
+        languages.Add(new LanguageInfo("Portuguese", "pt"));
+        languages.Add(new LanguageInfo("Russian", "ru")); 
+        languages.Add(new LanguageInfo("Slovak", "sk")); 
+        languages.Add(new LanguageInfo("Spanish", "es")); 
+        languages.Add(new LanguageInfo("Swedish", "sv"));
+        languages.Add(new LanguageInfo("Turkish", "tr")); 
+        languages.Add(new LanguageInfo("Vietnamese", "vi")); 
+
         // langages_rev = languages.Reverse();
         PlayerPrefs.SetInt("languageIndex", 0);
-        //DoClick(null);
 
-        language1Text.text = languages[0].Key;
-        language2Text.text = languages[1].Key;
-        language3Text.text = languages[2].Key;
+        language1Text.text = languages[0].language;
+        language2Text.text = languages[1].language;
+        language3Text.text = languages[2].language;
 
     }
 
@@ -109,36 +122,38 @@ public class LoadLanguages : ScrollSelector, IClickable
 
     public override void DoClick(GameObject clicker) {
     	if (clicker.name == "down") {
-            // Debug.Log(PlayerPrefs.GetInt("languageIndex"));
             PlayerPrefs.SetString("languageChoice","");
             index = (PlayerPrefs.GetInt("languageIndex")) % languages.Count;
-    		language1Text.text = languages[index].Key;
-	   		language2Text.text = languages[(index + 1) % languages.Count].Key;
-	  		language3Text.text = languages[(index + 2) % languages.Count].Key;
+    		language1Text.text = languages[index].language;
+	   		language2Text.text = languages[(index + 1) % languages.Count].language;
+	  		language3Text.text = languages[(index + 2) % languages.Count].language;
 	  		PlayerPrefs.SetInt("languageIndex", index + 1);
-
-    	} else if (clicker == null || clicker.name == "up") {
+    	} 
+        else if (clicker == null || clicker.name == "up")
+        {
             PlayerPrefs.SetString("languageChoice", "");
             index = PlayerPrefs.GetInt("languageIndex") - 1;
 	    	if (index < 0) {
 	    		index = languages.Count - 1;
 	    	}
-	    	language1Text.text = languages[index].Key;
-		    language2Text.text = languages[(index + 1) % languages.Count].Key;
-		    language3Text.text = languages[(index + 2) % languages.Count].Key;
+	    	language1Text.text = languages[index].language;
+		    language2Text.text = languages[(index + 1) % languages.Count].language;
+		    language3Text.text = languages[(index + 2) % languages.Count].language;
 		    PlayerPrefs.SetInt("languageIndex", index);
-	    } else if (clicker.tag == "LanguageButton") {
-	    	foreach (KeyValuePair<string, string> oneLanguage in languages)
+	    } else if (clicker.tag == "LanguageButton")
+        {
+	    	foreach (LanguageInfo oneLanguage in languages)
 			{
-			    // string language = clicker.gameObject.transform.GetChild(0).name; // LanguageXtext
 			    TMPro.TMP_Text languageTxt = clicker.gameObject.transform.parent.GetComponentInChildren<TMPro.TMP_Text>(); // LanguageXtext
-                // TMPro.TMP_Text languageTxt = GameObject.Find(language).GetComponent<TMPro.TMP_Text>();
-	 		    if (oneLanguage.Key == languageTxt.text)
+
+	 		    if (oneLanguage.language == languageTxt.text)
 	 		    {
                     clicker.GetComponent<Renderer>().material.color = Color.grey;
 
-                    string choice = oneLanguage.Value;
+                    string choice = oneLanguage.code;
 	 		   		PlayerPrefs.SetString("languageChoice", choice);
+
+                    PlayerPrefs.SetInt("isRTL", oneLanguage.isRTL);
                 }
 			}
 	    }
