@@ -55,13 +55,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698843332262987835}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.1840134, y: -2.6803565, z: 0.1761322}
-  m_LocalScale: {x: 0.03947, y: 0.03947, z: 0.03947}
+  m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -2.2660644, y: -2.501495, z: 3.7386792}
+  m_LocalScale: {x: 0.039470002, y: 0.03947, z: 0.039470002}
   m_Children:
   - {fileID: 698843331356378986}
-  m_Father: {fileID: 698843332375851483}
-  m_RootOrder: 0
+  m_Father: {fileID: 3639680323313437314}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &698843332262987828
 MeshFilter:
@@ -121,8 +121,7 @@ GameObject:
   - component: {fileID: 698843332375851483}
   - component: {fileID: 698843332375851480}
   - component: {fileID: 698843332375851481}
-  - component: {fileID: 698843332375851486}
-  - component: {fileID: 698843332375851487}
+  - component: {fileID: 8194668311801484263}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: Untagged
@@ -137,15 +136,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698843332375851484}
-  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 27.97, y: 2.6803565, z: -0.878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 698843332262987834}
-  - {fileID: 698843332395349312}
+  - {fileID: 3639680323313437314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &698843332375851480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,21 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6715159ba0f7f984491a34eb4ea75e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!64 &698843332375851486
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698843332375851484}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!136 &698843332375851487
+--- !u!136 &8194668311801484263
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,10 +182,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.16290414
-  m_Height: 0.36785722
+  m_Radius: 0.15106466
+  m_Height: 0.35306737
   m_Direction: 1
-  m_Center: {x: 0.028116044, y: -0.17260945, z: -0.6327773}
+  m_Center: {x: 0, y: 0.009678856, z: -0.018826425}
 --- !u!1 &698843332395349313
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,13 +211,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698843332395349313}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.1840134, y: -2.6803565, z: 0.1761322}
-  m_LocalScale: {x: 0.03947, y: 0.03947, z: 0.03947}
+  m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -2.2660644, y: -2.501495, z: 3.7386792}
+  m_LocalScale: {x: 0.039470002, y: 0.03947, z: 0.039470002}
   m_Children:
   - {fileID: 698843332537122399}
-  m_Father: {fileID: 698843332375851483}
-  m_RootOrder: 1
+  m_Father: {fileID: 3639680323313437314}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &698843332395349314
 MeshFilter:
@@ -312,3 +296,35 @@ Transform:
   m_Father: {fileID: 698843332395349312}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8629855232161389445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3639680323313437314}
+  m_Layer: 0
+  m_Name: TomatoModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3639680323313437314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8629855232161389445}
+  m_LocalRotation: {x: 0, y: -0.98634315, z: 0, w: 0.16470349}
+  m_LocalPosition: {x: 0.136, y: 0.106, z: -0.009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 698843332395349312}
+  - {fileID: 698843332262987834}
+  m_Father: {fileID: 698843332375851483}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -161.04, z: 0}

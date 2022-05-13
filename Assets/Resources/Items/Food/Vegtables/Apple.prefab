@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 60521323524346224}
   - component: {fileID: 60521323524346231}
   m_Layer: 0
-  m_Name: Apple 1
+  m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,17 +126,27 @@ PrefabInstance:
     - target: {fileID: 5736651384197719798, guid: dbc0227b0498e3548b84085492377d28,
         type: 3}
       propertyPath: m_Height
-      value: 10.026587
+      value: 7.7464104
       objectReference: {fileID: 0}
     - target: {fileID: 5736651384197719798, guid: dbc0227b0498e3548b84085492377d28,
         type: 3}
       propertyPath: m_Radius
-      value: 3.2330995
+      value: 3.7325554
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736651384197719798, guid: dbc0227b0498e3548b84085492377d28,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 58.447887
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736651384197719798, guid: dbc0227b0498e3548b84085492377d28,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 19.535452
       objectReference: {fileID: 0}
     - target: {fileID: 5736651384197719798, guid: dbc0227b0498e3548b84085492377d28,
         type: 3}
       propertyPath: m_Center.z
-      value: 7.806378
+      value: 7.8063774
       objectReference: {fileID: 0}
     - target: {fileID: 6448031816697159755, guid: dbc0227b0498e3548b84085492377d28,
         type: 3}

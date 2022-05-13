@@ -30,36 +30,6 @@ Transform:
   m_Father: {fileID: 2411660708138701533}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4150543851830511140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 325304188974299835}
-  m_Layer: 0
-  m_Name: Material__5 8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &325304188974299835
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4150543851830511140}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4017498756474956237}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5125916571335719952
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +58,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4017498756474956237}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6448031816697159755
 GameObject:
@@ -103,7 +73,7 @@ GameObject:
   - component: {fileID: 7783819145895194188}
   - component: {fileID: 5736651384197719798}
   m_Layer: 0
-  m_Name: Apple
+  m_Name: AppleOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +149,7 @@ GameObject:
   - component: {fileID: 4736700603864617760}
   - component: {fileID: 6623350085707483774}
   m_Layer: 0
-  m_Name: Line082 (1)
+  m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +166,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 325304188974299835}
   - {fileID: 570005971168834701}
   m_Father: {fileID: 2251780588040225224}
   m_RootOrder: 0
@@ -260,7 +229,7 @@ GameObject:
   - component: {fileID: 1761265567066595434}
   - component: {fileID: 4489427112331661826}
   m_Layer: 0
-  m_Name: Object035 (1)
+  m_Name: Stem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

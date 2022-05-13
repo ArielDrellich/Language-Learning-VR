@@ -16,41 +16,57 @@ public class ItemSpawner
                     /* Set which items each level can spawn */
     /* If the level doesn't spawn items, write the items you'd want matchobject to take*/
         /*==================================================================*/
-        LevelItems["SampleScene"] = new List<string>() {
-            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"};
+        LevelItems["SampleScene"] = new List<string>() 
+        {
+            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"
+        };
 
-        LevelItems["Scene 1"] = new List<string>() {
-            "Pineapple"};
+        LevelItems["Scene 1"] = new List<string>() 
+        {
+            "Pineapple"
+        };
 
-        LevelItems["Scene 2"] = new List<string>() {
-            "Watermelon", "Corn", "Banana"};
+        LevelItems["Scene 2"] = new List<string>() 
+        {
+            "Watermelon", "Corn", "Banana"
+        };
 
-        LevelItems["Scene 3"] = new List<string>() {
-            "Pineapple", "Watermelon", "Orange"};
+        LevelItems["Scene 3"] = new List<string>() 
+        {
+            "Pineapple", "Watermelon", "Orange"
+        };
 
-        LevelItems["Scene 4"] = new List<string>() {
-            "Banana", "Orange", "Tomato"};
+        LevelItems["Scene 4"] = new List<string>() 
+        {
+            "Banana", "Orange", "Tomato"
+        };
 
-        LevelItems["Scene 5"] = new List<string>() {
-            "Watermelon", "Banana"};
+        LevelItems["Scene 5"] = new List<string>() 
+        {
+            "Watermelon", "Banana"
+        };
 
-        LevelItems["Random"] = new List<string>() {
-            "Watermelon", "Banana", "Corn", "Pineapple", "Tomato"};
+        LevelItems["Random"] = new List<string>() 
+        {
+            "Watermelon", "Banana", "Corn", "Pineapple", "Tomato"
+        };
 
-        LevelItems["Market"] = new List<string>() {
-            "Duck","Chicken", "Cucumber", "Carrot", "Lemon", "Tomato", "Orange", "Bread",
-            "Corn", "Watermelon","Pumpkin", "Broccoli", "Weight","Pizza","Wine","Junk food",
-            "Banana"};
+        LevelItems["Market"] = new List<string>() 
+        {
+            "Chicken", "Cucumber", "Carrot", "Lemon", "Tomato", "Orange", "Bread",
+            "Corn", "Watermelon","Pumpkin", "Broccoli", "Pizza","Wine","Hamburger",
+            "Ice Cream", "French Fries", "Banana"
+        };
 
-        LevelItems["Market-Ariel"] = new List<string>() {
-            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"};
+        LevelItems["Park"] = new List<string>() 
+        {
+            "Mushroom","Cow","Bird",
+            "Squirrel","Spider", "Bee", "Sheep", "Turtle",
+            "Pig","Chicken", "Duck"
+        };
 
-        LevelItems["Park"] = new List<string>() {
-        "Mushroom","Cow","Bird",
-        "Squirrel","Spider", "Bee", "Sheep", "Turtle",
-        "Pig","Chicken", "Duck"};
-
-        LevelItems["Beach"] = new List<string>() {
+        LevelItems["Beach"] = new List<string>() 
+        {
         // Chairs
         "Orange Chair", "Red Chair", "Green Chair", "Pink Chair", "White Blue Chair", "White Orange Chair",
         "White Green Chair",
@@ -65,16 +81,22 @@ public class ItemSpawner
         "White Green Sea Wheel", "White Red Sea Wheel"
         };
 
-        LevelItems["PlaygroundLowPoly"] = new List<string>() {
+        LevelItems["PlaygroundLowPoly"] = new List<string>() 
+        {
             "Ant","Bucket", "Bus Toy", "Car Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
-        "Tank Toy", "Truck Toy", "Trumpet"};
+            "Tank Toy", "Truck Toy", "Trumpet"
+        };
 
-        LevelItems["Forest"] = new List<string>() {
-            "Banana", "Orange", "Corn", "Pumpkin"};
+        LevelItems["Forest"] = new List<string>() 
+        {
+            "Banana", "Orange", "Corn", "Pumpkin"
+        };
 
         /*==================================================================*/
 
         // set the name of each item to it's Resource location
+
+        // ----------------- Market Scene --------------//
         itemPaths = new Dictionary<string, string>();
         itemPaths["Banana"] = "Items/Food/Banana";
         itemPaths["Orange"] = "Items/Food/Orange";
@@ -82,6 +104,10 @@ public class ItemSpawner
         itemPaths["Corn"] = "Items/Food/Corn";
         itemPaths["Tomato"] = "Items/Food/Tomato";
         itemPaths["Watermelon"] = "Items/Food/Watermelon";
+        itemPaths["French Fries"] = "Items/Food/French Fries";
+        itemPaths["Hamburger"] = "Items/Food/Hamburger";
+        itemPaths["Ice Cream"] = "Items/Food/Ice Cream";
+        itemPaths["Wine"] = "Items/Food/Wine";
 
         // ------------------ Park Scene ---------------//
         itemPaths["Mushroom"] = "Items/Animals/Mushroom";
@@ -132,7 +158,8 @@ public class ItemSpawner
         List<string> spawnItems;
         List<string> possibleItems;
 
-        if (!LevelItems.ContainsKey(levelName)) {
+        if (!LevelItems.ContainsKey(levelName)) 
+        {
             Debug.Log("Level name not in LevelItem dictionary.");
             return null;
         }
@@ -180,7 +207,8 @@ public class ItemSpawner
     {
         int numOfItems = Mathf.Min(items.Count, positions.Count);
         
-        for (int i = 0; i < numOfItems; i++) {
+        for (int i = 0; i < numOfItems; i++) 
+        {
 
             if (!itemPaths.ContainsKey(items[i]))
             {
@@ -190,7 +218,8 @@ public class ItemSpawner
 
             GameObject item = Resources.Load(itemPaths[items[i]]) as GameObject;
 
-            if (item == null) {
+            if (item == null) 
+            {
                 Debug.Log("Unable to load item \"" + itemPaths[items[i]] + 
                 "\" from Resources. Check LevelItems disctionary.");
                 continue;

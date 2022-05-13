@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 491431147678291434}
   - component: {fileID: 6639473955849298734}
   - component: {fileID: 6561773645845947352}
+  - component: {fileID: 5183860912656572491}
+  - component: {fileID: 4536932300522262748}
   m_Layer: 0
   m_Name: TomatoModel
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4860572144922445542}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.222, z: -0.007}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 6849452722825095762}
   m_RootOrder: 0
@@ -79,6 +81,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &5183860912656572491
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4860572144922445542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 6.222044
+  m_Height: 12.454871
+  m_Direction: 1
+  m_Center: {x: -0.051027775, y: 0.10838964, z: 5.7677126}
+--- !u!136 &4536932300522262748
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4860572144922445542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.260836
+  m_Height: 12.568983
+  m_Direction: 0
+  m_Center: {x: 0.19248328, y: 0.10838956, z: 2.6157973}
 --- !u!1 &8611656975639157322
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,11 +119,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6849452722825095762}
   - component: {fileID: 1630622098595743414}
-  - component: {fileID: 585681625685151234}
   - component: {fileID: 8611656975639157335}
   - component: {fileID: 8611656975639157332}
-  - component: {fileID: 5230176761562059507}
-  - component: {fileID: 3533711106462482028}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: Untagged
@@ -124,45 +151,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8611656975639157322}
   m_Mesh: {fileID: -3432852435821279323, guid: a391e016985daf54e91c59733484c8b0, type: 3}
---- !u!23 &585681625685151234
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8611656975639157322}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: de73d1b46f9e26b44ac809e7435a8d78, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!114 &8611656975639157335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,31 +179,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &5230176761562059507
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8611656975639157322}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.24199641
-  m_Height: 0.6438446
-  m_Direction: 0
-  m_Center: {x: -0.0025510788, y: -0.0003310442, z: -0.026855469}
---- !u!136 &3533711106462482028
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8611656975639157322}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.23191392
-  m_Height: 0.65374565
-  m_Direction: 2
-  m_Center: {x: 0.003636837, y: 0.0130826235, z: -0.020500183}

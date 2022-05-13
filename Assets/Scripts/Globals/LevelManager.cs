@@ -20,10 +20,15 @@ public class LevelPuzzleVars
 }
 public class LevelManager : MonoBehaviour
 {
-    /*-------------------------------------------------*/
-                    /** KEEP UPDATED **/
-    const int Num_of_menu_screens_in_build = 4;
-    /*-------------------------------------------------*/
+
+    /*=================================================*\
+                         KEEP UPDATED                   
+    =====================================================
+    /**/
+    /**/    const int Num_of_menu_screens_in_build = 4;
+    /**/
+    /*=================================================*/
+    
 
     private Dictionary<string, LevelPuzzleVars> levelsSinceLastCheckpoint;
     private AsyncOperation loadingOperation;
@@ -32,15 +37,15 @@ public class LevelManager : MonoBehaviour
     private GameObject     player;
     private GameObject     aimSet;
     private SpriteRenderer loadingSprite;
-    private int[]  sceneOrder;
-    private int    sceneIndex;
-    private int    amountOfLevels;
-    private bool   launchApp     = true;
-    private bool   startGame     = true;
-    private bool   shuffleLevels = false;
-    private bool   isTutorial    = false;
-    private string difficulty;
-    public  int    checkpoint;
+    private int[]          sceneOrder;
+    private int            sceneIndex;
+    private int            amountOfLevels;
+    private bool           launchApp     = true;
+    private bool           startGame     = true;
+    private bool           shuffleLevels = false;
+    private bool           isTutorial    = false;
+    private string         difficulty;
+    public  int            checkpoint;
 
 
 
@@ -49,19 +54,18 @@ public class LevelManager : MonoBehaviour
         if (startGame) {
             startGame = false;
             TimerManager.StartTimer();
-            /***********/
-            //Might figure out better level order randomization after
+
             if (shuffleLevels) {
                 System.Random rand = new System.Random();
                 sceneOrder = sceneOrder.OrderBy(x => rand.Next()).ToArray();
             }
-            /***********/
+
         }
 
         TimerManager.PauseTimer(); 
         loadingSprite.enabled = true;
 
-        // temporarily set checkpoint every 2 levels. Will change later depending on how many levels we add
+        // Set checkpoint every 2 levels. Can change to be more or less frequent.
         if (sceneIndex % 2 == 0) {
             checkpoint = sceneIndex;
             levelsSinceLastCheckpoint.Clear();
@@ -122,6 +126,7 @@ public class LevelManager : MonoBehaviour
                 numOfItems = 0;
                 numOfMatchObjects = 0;
                 numOfWords = 0;
+                Debug.Log("SetLevelPuzzleVars: Invalid difficulty choice \""+difficulty+"\".");
                 break;
 
         }
@@ -288,7 +293,7 @@ public class LevelManager : MonoBehaviour
 
     public string GetLevelNameByIndex(int index)
     {
-        string scenePath = SceneUtility.GetScenePathByBuildIndex(index + Num_of_menu_screens_in_build);
+        string scenePath = SceneUtility.GetScenePathByBuildIndex(sceneOrder[index]);
         string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
         return sceneName;
     }

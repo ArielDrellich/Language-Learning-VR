@@ -2,79 +2,114 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class PuzzleSetter 
 {
     public  Dictionary<string, List<string>> LevelWords;
     private System.Random random;
 
-    public PuzzleSetter() {
+    public PuzzleSetter()
+    {
         random = new System.Random();
 
         LevelWords = new Dictionary<string, List<string>>();
                 /* Set which words can be in each level's WordScramble */
         /*==================================================================*/
-        LevelWords["SampleScene"] = new List<string>() {
-            "banana", "orange", "pineapple", "corn", "tomato", "watermelon"};
+        LevelWords["SampleScene"] = new List<string>() 
+        {
+            "banana", "orange", "pineapple", "corn", "tomato", "watermelon"
+        };
 
-        LevelWords["Scene 1"] = new List<string>() {
-            "dog", "wolf"};
+        LevelWords["Scene 1"] = new List<string>() 
+        {
+            "dog", "wolf"
+        };
 
-        LevelWords["Scene 2"] = new List<string>() {
-            "corn", "tomato"};
+        LevelWords["Scene 2"] = new List<string>()
+        {
+            "corn", "tomato"
+        };
 
-        LevelWords["Asi Demo 1"] = new List<string>() {
-            "game", "puzzle", "brick", "wood"};
+        LevelWords["Asi Demo 1"] = new List<string>() 
+        {
+            "game", "puzzle", "brick", "wood"
+        };
 
-        LevelWords["Asi Demo 2"] = new List<string>() {
-            "cave", "grass", "sun"};
+        LevelWords["Asi Demo 2"] = new List<string>() 
+        {
+            "cave", "grass", "sun"
+        };
 
-        LevelWords["Asi Demo 3"] = new List<string>() {
-            "rocks", "sand", "mountain", "snake", "lizard"};
+        LevelWords["Asi Demo 3"] = new List<string>() 
+        {
+            "rocks", "sand", "mountain", "snake", "lizard"
+        };
 
-        LevelWords["Random"] = new List<string>() {
-            "dog", "cat", "hello"};
+        LevelWords["Random"] = new List<string>() 
+        {
+            "dog", "cat", "hello"
+        };
             
-        LevelWords["Door Test"] = new List<string>() {
-            "dog", "cat", "hello"};
+        LevelWords["Door Test"] = new List<string>() 
+        {
+            "dog", "cat", "hello"
+        };
 
+        LevelWords["Market"] = new List<string>() 
+        { 
+            "market", "fruits", "vegetables", "food", "vendors", "stands", "carts", "fires",
+            "snacks", "grocery", "shop", "shopkeeper"
+        };
 
-        LevelWords["Park"] = new List<string>() {
+        LevelWords["Park"] = new List<string>()
+        {
             "mushroom","cow","fish","bird",
             "squirrel","spiders", "bee", "sheep", "turtle", "bench",
-            "pig","chicken", "duck", "grass", "tree", "water", "bridge", "butterfly"};
+            "pig","chicken", "duck", "grass", "tree", "water", "bridge", "butterfly"
+        };
 
-        LevelWords["Beach"] = new List<string>() {
+        LevelWords["Beach"] = new List<string>()
+        {
             "umbrella", "sand", "sea", "chair", "tree", "surf", "bucket", "wheel", "clouds", "whale",
             "castle", "fish", "balloons", "water", "shells", "jellyfish", "beach", "waves", "shore",
-            "towel", "sunglasses", "ball", "kite"};
+            "towel", "sunglasses", "ball", "kite"
+        };
 
-        LevelWords["PlaygroundLowPoly"] = new List<string>() {
+        LevelWords["PlaygroundLowPoly"] = new List<string>() 
+        {
             "Ant","Bucket", "Bus Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
-        "Tank Toy", "Truck Toy", "Trumpet"};
+        "Tank Toy", "Truck Toy", "Trumpet"
+        };
 
-        LevelWords["Forest"] = new List<string>() {
-            "forest", "tree", "flower", "house", "table", "chair", "lake", "wood", "green", "nature" };
+        LevelWords["Forest"] = new List<string>() 
+        {
+            "forest", "tree", "flower", "house", "table", "chair", "lake", "wood", "green", "nature" 
+        };
         /*==================================================================*/
     }
 
-    public void SetMatchObject(List<string> names, int numToSet = int.MaxValue, bool randomize = true) {
-        MatchObject[] matchObjects = Object.FindObjectsOfType<MatchObject>();
+    public void SetMatchObject(List<string> names, int numToSet = int.MaxValue, bool randomize = true)
+    {
+        MatchObject[] matchObjects = UnityEngine.Object.FindObjectsOfType<MatchObject>();
         int numOfNames = names.Count;
         int numOfMatchObjects = matchObjects.Count();
         int toSet = Mathf.Min(numOfNames, numOfMatchObjects, numToSet);
         int i;
 
-        if (randomize) {
+        if (randomize) 
+        {
             matchObjects = matchObjects.OrderBy(x => random.Next()).ToArray();
         }
 
-        for (i = 0; i < toSet; i++) {
+        for (i = 0; i < toSet; i++) 
+        {
             matchObjects[i].SetObject(names[i]);
         }
 
         // turn off MatchObjects that don't have a word assigned to them
-        for (; i < numOfMatchObjects; i++) {
+        for (; i < numOfMatchObjects; i++) 
+        {
             matchObjects[i].transform.parent.gameObject.SetActive(false);
 
             // puzzle would have already counted itself
@@ -82,26 +117,31 @@ public class PuzzleSetter
         }
     }
 
-    public void SetWordScramble(List<string> words, bool randomize = true) {
-        WordScramble[] wordScrambles = Object.FindObjectsOfType<WordScramble>();
+    public void SetWordScramble(List<string> words, bool randomize = true)
+    {
+        WordScramble[] wordScrambles = UnityEngine.Object.FindObjectsOfType<WordScramble>();
         int numOfWSs = wordScrambles.Count();
         int numOfWords = words.Count;
         int numOfWSstofill = numOfWSs < numOfWords ? numOfWSs : numOfWords;
         int numWordsPerWS;
         int wordIndex = 0;
-        int i;
+        int i = 0;
 
-        if (randomize) {
+        if (randomize) 
+        {
             wordScrambles = wordScrambles.OrderBy(x => random.Next()).ToArray();
         }
 
-        if (numOfWSs != 0) {
+        if (numOfWSstofill != 0)
+        {
             numWordsPerWS = numOfWords / numOfWSstofill;
 
             // set n-1 word scrambles
-            for (i = 0; i < numOfWSstofill - 1; i++) {
+            for (i = 0; i < numOfWSstofill - 1; i++)
+            {
                 Word[] wordArr = new Word[numWordsPerWS];
-                for (int j = 0; j < numWordsPerWS; j++) {
+                for (int j = 0; j < numWordsPerWS; j++)
+                {
                     wordArr[j] = new Word(words[wordIndex++]);
                 }
                 wordScrambles[i].SetWords(wordArr);
@@ -110,27 +150,35 @@ public class PuzzleSetter
             // sets last word scramble
             int remainder = numOfWords - wordIndex;
             Word[] lastArr = new Word[remainder];
-            for (int k = 0; k < remainder; k++) {
+            for (int k = 0; k < remainder; k++)
+            {
                 lastArr[k] = new Word(words[wordIndex++]);
             }
             wordScrambles[i].SetWords(lastArr);
+            i++;
 
-            // if we have fewer words than word scrambles
-            if (numOfWSstofill != numOfWSs) {
-                i++;
-                for (; i < numOfWSs; i++) {
-                    // deactivate word scrambles that don't have words
-                    wordScrambles[i].gameObject.transform.parent.gameObject.SetActive(false);
-                    // puzzle would have already counted itself
-                    PuzzleManager.AddPuzzle(-1);
-                }
+        }
+
+        // if we have fewer words than word scrambles
+        if (numOfWSstofill != numOfWSs)
+        {
+            for (; i < numOfWSs; i++) 
+            {
+                // deactivate word scrambles that don't have words
+                wordScrambles[i].gameObject.transform.parent.gameObject.SetActive(false);
+                // puzzle would have already counted itself
+                PuzzleManager.AddPuzzle(-1);
             }
         }
+
     }
 
-    public List<string> RandomizeWordScramble(string levelName, int numOfWords) {
-        if (!LevelWords.ContainsKey(levelName)) {
-            Debug.Log("Level name not in LevelWords dictionary.");
+    public List<string> RandomizeWordScramble(string levelName, int numOfWords)
+    {
+        if (!LevelWords.ContainsKey(levelName))
+        {
+            Debug.Log("RandomizeWordScramble: Level name not in LevelWords dictionary.");
+            SetWordScramble(new List<string>()); // to remove ws's from the scene
             return null;
         }
 

@@ -141,6 +141,25 @@ public class WordScramble : MonoBehaviour
 
 	            translatedWord = tr.Translate(words[index].word, "en", userChoice).ToLower();
 
+                // Remove words with spaces in them
+                if (translatedWord.Any(x => Char.IsWhiteSpace(x)))
+                {
+                    currentWord += 1;
+                    if (currentWord >= words.Length)
+                    {
+                        finished = true;
+                    }
+
+                    // Special case if there was only one word and we erased it
+                    if (words.Length == 1)
+                    {
+                        gameObject.transform.parent.gameObject.SetActive(false);
+                    }
+
+                    ShowScramble(currentWord);
+                    return;
+                }
+
                 // trimming unwanted diacritics off of the word
                 char[] tempArr = translatedWord.ToCharArray();
                 translatedWord = "";
@@ -153,10 +172,10 @@ public class WordScramble : MonoBehaviour
 	            Word word = new Word(translatedWord);
 
                 tr.TextToSpeech(translatedWord, userChoice, "UTF-8");
-	            // Debug.Log(translatedWord);
+
 	            if (translatedWord == null)
 	            {
-	                Debug.Log("Translated word is null");
+	                Debug.Log("ShowScramble: Translated word is null");
 	            }
 
 	            chars = word.GetString().ToCharArray(); // ADD GetString()
@@ -258,7 +277,8 @@ public class WordScramble : MonoBehaviour
         // Word isn't correct yet
 
         // to not fail twice in a row on the same permutation
-        if (word != lastWrongWord) {
+        if (word != lastWrongWord)
+        {
             lastWrongWord = word;
 
             HealthManager.Decrement();
