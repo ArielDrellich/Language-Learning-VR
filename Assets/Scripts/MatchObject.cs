@@ -59,7 +59,8 @@ public class MatchObject : MonoBehaviour
         {
             if (!solved) {
                 if (collider.gameObject.name != expectedName &&
-                    collider.gameObject.name != expectedName + "Model") {
+                    collider.gameObject.name != expectedName + "Model" &&
+                    collider.transform.parent.name != expectedName) {
 
                     // if it hasn't been collided with that object in the past
                     if (!ignoreCollisions.Contains(collider.gameObject)) {
