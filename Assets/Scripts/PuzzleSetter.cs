@@ -58,7 +58,7 @@ public class PuzzleSetter
 
         LevelWords["Market"] = new List<string>() 
         { 
-            "market", "fruits", "vegetables", "food", "vendors", "stands", "carts", "fires",
+            "market", "fruit", "vegetable", "food", "vendor", "stands", "cart", "bonfire",
             "snacks", "grocery", "shop", "shopkeeper"
         };
 

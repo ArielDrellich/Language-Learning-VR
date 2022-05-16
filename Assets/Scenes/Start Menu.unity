@@ -789,6 +789,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8774780879115607611, guid: 4dd1eb7a943701243a785ed8f7f644de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8774780881103775881, guid: 4dd1eb7a943701243a785ed8f7f644de,
         type: 3}
       propertyPath: m_Enabled

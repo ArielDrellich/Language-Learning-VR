@@ -54,15 +54,15 @@ public class ItemSpawner
         LevelItems["Market"] = new List<string>() 
         {
             "Chicken", "Cucumber", "Carrot", "Lemon", "Tomato", "Orange", "Bread",
-            "Corn", "Watermelon","Pumpkin", "Broccoli", "Pizza","Wine","Hamburger",
-            "Ice Cream", "French Fries", "Banana"
+            "Corn", "Watermelon","Pumpkin", "Pizza","Wine","Hamburger",
+            "Ice Cream", "French Fries", "Banana", "Apple"
         };
 
         LevelItems["Park"] = new List<string>() 
         {
             "Mushroom","Cow","Bird",
             "Squirrel","Spider", "Bee", "Sheep", "Turtle",
-            "Pig","Chicken", "Duck"
+            "Pig","Hen", "Duck"
         };
 
         LevelItems["Beach"] = new List<string>() 
@@ -95,9 +95,9 @@ public class ItemSpawner
         /*==================================================================*/
 
         // set the name of each item to it's Resource location
+        itemPaths = new Dictionary<string, string>();
 
         // ----------------- Market Scene --------------//
-        itemPaths = new Dictionary<string, string>();
         itemPaths["Banana"] = "Items/Food/Banana";
         itemPaths["Orange"] = "Items/Food/Orange";
         itemPaths["Pineapple"] = "Items/Food/Pineapple";
@@ -108,6 +108,14 @@ public class ItemSpawner
         itemPaths["Hamburger"] = "Items/Food/Hamburger";
         itemPaths["Ice Cream"] = "Items/Food/Ice Cream";
         itemPaths["Wine"] = "Items/Food/Wine";
+        itemPaths["Chicken"] = "Items/Food/Chicken";
+        itemPaths["Cucumber"] = "Items/Food/Vegtables/Cucumber";
+        itemPaths["Apple"] = "Items/Food/Vegtables/Apple";
+        itemPaths["Lemon"] = "Items/Food/Vegtables/Lemon";
+        itemPaths["Carrot"] = "Items/Food/Vegtables/Carrot";
+        itemPaths["Pumpkin"] = "Items/Food/Vegtables/Pumpkin";
+        itemPaths["Pizza"] = "Items/Food/Pizza";
+        itemPaths["Bread"] = "Items/Food/Bread";
 
         // ------------------ Park Scene ---------------//
         itemPaths["Mushroom"] = "Items/Animals/Mushroom";
@@ -118,7 +126,7 @@ public class ItemSpawner
         itemPaths["Sheep"] = "Items/Animals/Sheep";
         itemPaths["Turtle"] = "Items/Animals/Turtle";
         itemPaths["Pig"] = "Items/Animals/Pig";
-        itemPaths["Chicken"] = "Items/Animals/Chicken";
+        itemPaths["Hen"] = "Items/Animals/Chicken";
         itemPaths["Duck"] = "Items/Animals/Duck";
         itemPaths["Spider"] = "Items/Animals/Spider";
 

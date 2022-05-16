@@ -144,6 +144,8 @@ public class WordScramble : MonoBehaviour
                 // Remove words with spaces in them
                 if (translatedWord.Any(x => Char.IsWhiteSpace(x)))
                 {
+                    print("WordScramble: Skipping \""+translatedWord+
+                        "\" because of spaces. Original word was \""+words[index].word+"\".");
                     currentWord += 1;
                     if (currentWord >= words.Length)
                     {
