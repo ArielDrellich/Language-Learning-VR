@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 2050082554317017968}
   - component: {fileID: 2050082554317017965}
   - component: {fileID: 2050082554317017970}
-  - component: {fileID: 2050082554317017964}
+  - component: {fileID: 2545049911065233635}
+  - component: {fileID: 1299160314172723107}
+  - component: {fileID: 2174314058470387588}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -80,7 +82,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2050082554317017964
+--- !u!136 &2545049911065233635
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050082554317017969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.24766366
+  m_Height: 0.7502235
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.30756325, z: 0.019321144}
+--- !u!136 &1299160314172723107
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050082554317017969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.21546166
+  m_Height: 0.7915847
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.4754848, z: 0}
+--- !u!65 &2174314058470387588
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,8 +121,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.47503662, y: 0.62663746, z: 0.76757085}
-  m_Center: {x: -0.03711955, y: 0.35123175, z: 0}
+  m_Size: {x: 0.22263199, y: 0.20277326, z: 0.2506953}
+  m_Center: {x: -0.0041834516, y: 0.027144492, z: 0.009571752}
 --- !u!1 &2050082555281616096
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050082553665307378}
   - component: {fileID: 2050082555281616098}
-  - component: {fileID: 2050082555281616099}
+  - component: {fileID: 7742112594453531763}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -119,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050082555281616096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.300003, y: -1.093, z: 7.8499985}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 2050082554317017968}
@@ -138,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6715159ba0f7f984491a34eb4ea75e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &2050082555281616099
+--- !u!54 &7742112594453531763
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

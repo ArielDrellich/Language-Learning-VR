@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 402742}
   - component: {fileID: 3371314}
   - component: {fileID: 2365644}
-  - component: {fileID: 6485990}
+  - component: {fileID: 4682925685856355576}
+  - component: {fileID: 699536213005587461}
+  - component: {fileID: 8837427010377651910}
   m_Layer: 0
   m_Name: Tile_Intersection
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 159382}
   m_LocalRotation: {x: -4.32978e-17, y: 0.7071067, z: 0.7071068, w: -4.3297806e-17}
   m_LocalPosition: {x: 43.9093, y: 88.92707, z: 10.592001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.5692, y: 4.5692, z: 4.5692}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,8 +82,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6485990
-MeshCollider:
+--- !u!65 &4682925685856355576
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,7 +92,32 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300008, guid: 72e643619fa32984785527a0c110a313, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.3376541, y: 7.0022917, z: 1.158955}
+  m_Center: {x: 3.8384933, y: -0.033851624, z: 0.11281062}
+--- !u!65 &699536213005587461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35632423, y: 7.0728455, z: 1.158955}
+  m_Center: {x: -3.8218384, y: 0.013762865, z: 0.11281062}
+--- !u!65 &8837427010377651910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.00732, y: 8.03128, z: 0.99823403}
+  m_Center: {x: 0.0036597252, y: 0.00045013428, z: 0.03245014}

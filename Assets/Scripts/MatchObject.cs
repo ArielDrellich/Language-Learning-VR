@@ -29,7 +29,8 @@ public class MatchObject : MonoBehaviour
     // Used for dragging script in the Inspector.
     void OnValidate()
     {
-        if (expectedObject != null) {
+        if (expectedObject != null)
+        {
             expectedName = expectedObject.name;
         }
     }
@@ -52,46 +53,76 @@ public class MatchObject : MonoBehaviour
         SetObject(expectedName);
     }
 
-    void OnTriggerEnter(Collider collider)
+    private void Fail(GameObject gameObject)
     {
-        if (collider.GetComponent<CanPickUp>() || 
-            (collider.transform.parent != null && collider.transform.parent.GetComponent<CanPickUp>()))
+        // if it hasn't collided with that object in the past
+        if (!ignoreCollisions.Contains(gameObject))
         {
-            if (!solved) {
-                if (collider.gameObject.name != expectedName &&
-                    collider.gameObject.name != expectedName + "Model" && 
-                    (collider.transform.parent != null && collider.transform.parent.name != expectedName)) {
+            ignoreCollisions.Add(gameObject);
 
-                    // if it hasn't been collided with that object in the past
-                    if (!ignoreCollisions.Contains(collider.gameObject)) {
-                        HealthManager.Decrement();
-                        ignoreCollisions.Add(collider.gameObject);
+            HealthManager.Decrement();
 
-                        // for debugging
-                        // print("collided with: " + collider.gameObject.name);
+            // for debugging
+            // print("collided with: " + collider.gameObject.name);
 
-                        // Do all FailActions
-                        foreach (Component action in failActions)
-                            if (action is IAction) {
-                                ((IAction)action).DoAction();
-                            }
-                    }
-                } else {
-
-                    // what to do if it's correct
-                    PuzzleManager.Increment();
-                    solved = true;
-
-                    // Do all SuccessActions
-                    foreach (Component action in successActions)
-                        if (action is IAction) {
-                            ((IAction)action).DoAction();
-                        }
-
-                    transform.parent.Find("Billboard/Finger Point").gameObject.SetActive(false);
+            // Do all FailActions
+            foreach (Component action in failActions)
+            {
+                if (action is IAction) {
+                    ((IAction)action).DoAction();
                 }
             }
         }
+    }
+
+    private void Succeed()
+    {
+        PuzzleManager.Increment();
+
+        // Do all SuccessActions
+        foreach (Component action in successActions)
+        {
+            if (action is IAction)
+            {
+                ((IAction)action).DoAction();
+            }
+        }
+
+        transform.parent.Find("Billboard/Finger Point").gameObject.SetActive(false);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (!solved)
+        {
+            bool canPickUpCollider = collider.GetComponent<CanPickUp>();
+            bool canPickUpParent = false;
+
+            // if there's no CanPickUp on the gameobject, check for one on it's parent
+            if (!canPickUpCollider)
+            {
+                if ((collider.transform.parent != null && 
+                    collider.transform.parent.GetComponent<CanPickUp>()))
+                    {
+                        canPickUpParent = true;
+                    }
+            }
+            
+            if (canPickUpCollider || canPickUpParent)
+            {
+                if ((!canPickUpCollider || collider.transform.name        != expectedName) &&
+                    (!canPickUpParent   || collider.transform.parent.name != expectedName))
+                {
+                    Fail(collider.gameObject);
+                } 
+                else
+                {
+                    solved = true;
+                    Succeed();
+                }
+            }
+        }
+
     }
 
     // Can be called from outside in order to set action at runtime
