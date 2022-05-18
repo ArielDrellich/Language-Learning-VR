@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 408914}
   - component: {fileID: 3337090}
   - component: {fileID: 2386902}
-  - component: {fileID: 6449412}
+  - component: {fileID: 7599268567646084644}
+  - component: {fileID: 1174665149068033078}
   m_Layer: 0
   m_Name: Fountain1
   m_TagString: Untagged
@@ -80,8 +81,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6449412
-MeshCollider:
+--- !u!65 &7599268567646084644
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,7 +91,19 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300056, guid: 72e643619fa32984785527a0c110a313, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 3.1616297, y: 3.1616297, z: 0.5143541}
+  m_Center: {x: 0.14139998, y: -0.00000011920928, z: -0.0571443}
+--- !u!65 &1174665149068033078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.490487, y: 1.4714769, z: 2.0678248}
+  m_Center: {x: 0.14318621, y: -0.000004172325, z: 0.7195914}

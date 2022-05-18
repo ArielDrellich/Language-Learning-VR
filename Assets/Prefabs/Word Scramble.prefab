@@ -711,8 +711,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1479,7 +1479,7 @@ MonoBehaviour:
   container: {fileID: 5053881317150455507}
   main: {fileID: 0}
   currentWord: 0
-  space: 0.25
+  space: 0.15
   tr: {fileID: 0}
   successActions:
   - {fileID: 7463445385170151164}

@@ -62,7 +62,7 @@ public class ItemSpawner
         {
             "Mushroom","Cow","Bird",
             "Squirrel","Spider", "Bee", "Sheep", "Turtle",
-            "Pig","Hen", "Duck"
+            "Pig","Hen", "Duck", "Butterfly"
         };
 
         LevelItems["Beach"] = new List<string>() 
@@ -118,16 +118,17 @@ public class ItemSpawner
         itemPaths["Bread"] = "Items/Food/Bread";
 
         // ------------------ Park Scene ---------------//
-        itemPaths["Mushroom"] = "Items/Animals/Mushroom";
+        itemPaths["Mushroom"] = "Items/Mushroom";
         itemPaths["Cow"] = "Items/Animals/Cow";
         itemPaths["Bird"] = "Items/Animals/Bird";
         itemPaths["Squirrel"] = "Items/Animals/Squirrel";
-        itemPaths["Bee"] = "Items/Animals/Bee";
-        itemPaths["Sheep"] = "Items/Animals/Sheep";
+        itemPaths["Bee"] = "Items/Animal Groups/Bee Swarm";
+        itemPaths["Sheep"] = "Items/Animal Groups/Sheep Herd";
         itemPaths["Turtle"] = "Items/Animals/Turtle";
-        itemPaths["Pig"] = "Items/Animals/Pig";
-        itemPaths["Hen"] = "Items/Animals/Chicken";
-        itemPaths["Duck"] = "Items/Animals/Duck";
+        itemPaths["Pig"] = "Items/Animal Groups/Pig Drove";
+        itemPaths["Hen"] = "Items/Animal Groups/Chicken Flock";
+        itemPaths["Duck"] = "Items/Animal Groups/Duck Flock";
+        itemPaths["Butterfly"] = "Items/Animal Groups/Butterflies";
         itemPaths["Spider"] = "Items/Animals/Spider";
 
         // ------------------ Beach Scene ---------------//
@@ -233,7 +234,8 @@ public class ItemSpawner
                 continue;
             }
 
-            GameObject clone = Object.Instantiate(item, positions[i], Quaternion.identity);
+            GameObject clone = Object.Instantiate(item, positions[i],
+                                                 Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
             clone.name = item.name;
         }
     }
