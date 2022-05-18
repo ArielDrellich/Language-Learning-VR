@@ -2948,6 +2948,11 @@ PrefabInstance:
       propertyPath: successActions.Array.data[0]
       value: 
       objectReference: {fileID: 598596343}
+    - target: {fileID: 5053881318217055591, guid: c6436f555f7e90c449a0a5ba5d14dd20,
+        type: 3}
+      propertyPath: successActions.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5053881318756948894, guid: c6436f555f7e90c449a0a5ba5d14dd20,
         type: 3}
       propertyPath: m_RootOrder

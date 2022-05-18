@@ -66,7 +66,8 @@ public class PuzzleSetter
         {
             "mushroom","cow","fish","bird",
             "squirrel","spiders", "bee", "sheep", "turtle", "bench",
-            "pig","chicken", "duck", "grass", "tree", "water", "bridge", "butterfly"
+            "pig","chicken", "duck", "grass", "tree", "lake", "bridge", "butterfly",
+            "hill", "mountain", "boat", "picnic", "flowers"
         };
 
         LevelWords["Beach"] = new List<string>()
@@ -123,42 +124,35 @@ public class PuzzleSetter
         int numOfWSs = wordScrambles.Count();
         int numOfWords = words.Count;
         int numOfWSstofill = numOfWSs < numOfWords ? numOfWSs : numOfWords;
-        int numWordsPerWS;
+        // int numWordsPerWS;
         int wordIndex = 0;
-        int i = 0;
+        int i;
 
         if (randomize) 
         {
             wordScrambles = wordScrambles.OrderBy(x => random.Next()).ToArray();
         }
 
-        if (numOfWSstofill != 0)
+        int[] divArr = new int[numOfWSstofill];
+
+        // divide words evenly over WSs
+        for (int j = 0; j < numOfWords; j++)
         {
-            numWordsPerWS = numOfWords / numOfWSstofill;
-
-            // set n-1 word scrambles
-            for (i = 0; i < numOfWSstofill - 1; i++)
-            {
-                Word[] wordArr = new Word[numWordsPerWS];
-                for (int j = 0; j < numWordsPerWS; j++)
-                {
-                    wordArr[j] = new Word(words[wordIndex++]);
-                }
-                wordScrambles[i].SetWords(wordArr);
-            }
-
-            // sets last word scramble
-            int remainder = numOfWords - wordIndex;
-            Word[] lastArr = new Word[remainder];
-            for (int k = 0; k < remainder; k++)
-            {
-                lastArr[k] = new Word(words[wordIndex++]);
-            }
-            wordScrambles[i].SetWords(lastArr);
-            i++;
-
+            divArr[j % numOfWSstofill] += 1;
         }
 
+        // fill WSs with the amount found above
+        for (i = 0; i < numOfWSstofill; i++)
+        {
+            Word[] wordArr = new Word[divArr[i]];
+            for (int j = 0; j < divArr[i]; j++)
+            {
+                wordArr[j] = new Word(words[wordIndex++]);
+            }
+            wordScrambles[i].SetWords(wordArr);
+        }
+        
+        
         // if we have fewer words than word scrambles
         if (numOfWSstofill != numOfWSs)
         {

@@ -270,10 +270,10 @@ public class LevelManager : MonoBehaviour
             // only add once on app launch
             if(launchApp) {
                 SceneManager.sceneLoaded += OnSceneLoaded;
+                itemSpawner = new ItemSpawner();
                 launchApp = false;
             }
             
-            itemSpawner = new ItemSpawner();
             puzzleSetter = new PuzzleSetter();
             levelsSinceLastCheckpoint = new Dictionary<string, LevelPuzzleVars>();
 

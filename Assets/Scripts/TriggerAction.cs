@@ -11,7 +11,14 @@ public class TriggerAction : MonoBehaviour
     
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.name == colliderName)
+        bool isTriggered = false;
+
+        if ((collider.gameObject.name == colliderName) || colliderName == "Any")
+        {
+            isTriggered = true;
+        }
+
+        if (isTriggered)
         {
             if (doOnce == true)
             {

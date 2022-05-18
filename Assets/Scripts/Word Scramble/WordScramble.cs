@@ -57,6 +57,7 @@ public class WordScramble : MonoBehaviour
     public int     currentWord;
     public float   space;
     private int    originalId;
+    private int    wordsSkipped = 0;
     private bool   finished;
     private bool   incremented = false; 
     private string lastWrongWord = "";
@@ -147,13 +148,14 @@ public class WordScramble : MonoBehaviour
                     print("WordScramble: Skipping \""+translatedWord+
                         "\" because of spaces. Original word was \""+words[index].word+"\".");
                     currentWord += 1;
+                    wordsSkipped += 1;
                     if (currentWord >= words.Length)
                     {
                         finished = true;
                     }
 
-                    // Special case if there was only one word and we erased it
-                    if (words.Length == 1)
+                    // Special case if we skipped all words
+                    if (words.Length == wordsSkipped)
                     {
                         gameObject.transform.parent.gameObject.SetActive(false);
                     }

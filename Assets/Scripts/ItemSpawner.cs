@@ -207,8 +207,14 @@ public class ItemSpawner
 
     public void RandomizeItemAndPositionOrder(List<string> items, List<Vector3> positions)
     {
-        items = items.OrderBy(x => random.Next()).ToList();
-        positions = positions.OrderBy(x => random.Next()).ToList();
+        List<string> tempItems = items.OrderBy(x => random.Next()).ToList();
+        List<Vector3> tempPositions = positions.OrderBy(x => random.Next()).ToList();
+
+        items.Clear();
+        items.AddRange(tempItems);
+
+        positions.Clear();
+        positions.AddRange(tempPositions);
     }
 
     // Receives list of item names and where to spawn them, then spawns them there
