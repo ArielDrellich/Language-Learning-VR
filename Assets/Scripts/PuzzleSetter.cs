@@ -59,7 +59,8 @@ public class PuzzleSetter
         LevelWords["Market"] = new List<string>() 
         { 
             "market", "fruit", "vegetable", "food", "vendor", "stands", "cart", "bonfire",
-            "snacks", "grocery", "shop", "shopkeeper"
+            "snacks", "grocery", "shop", "shopkeeper", "shopping", "money", "fence", "barrel", "fountain", "fire",
+            "hay", "neighborhood"
         };
 
         LevelWords["Park"] = new List<string>()
@@ -79,13 +80,15 @@ public class PuzzleSetter
 
         LevelWords["PlaygroundLowPoly"] = new List<string>() 
         {
-            "Ant","Bucket", "Bus Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
-        "Tank Toy", "Truck Toy", "Trumpet"
+            "swing", "adventure", "slid", "bench", "building", "cottage", "motorcycle", "vehicle", "police",
+            "carrousel", "ladder", "sandbox", "climb", "traffic lights", "road", "sidewalk", "grass", "lamp", "bus station",
+            "flowers", "plane", "helicopter", "flight", "fun", "hot", "sun"
         };
 
         LevelWords["Forest"] = new List<string>() 
         {
-            "forest", "tree", "flower", "house", "table", "chair", "lake", "wood", "green", "nature" 
+            "forest", "tree", "flower", "house", "table", "chair", "lake", "wood", "green", "nature" ,
+            "leaves", "plants", "stairs", "wood", "sand", "ground", "mountains", "lake", "water", "sky"
         };
         /*==================================================================*/
     }
