@@ -38,12 +38,23 @@ public class TimerManager : MonoBehaviour
 
     public static string GetPlaytimeString() 
     {
-        // if (!paused)
-        //     return Time.time - startTime;
-        // else
-        //     return pauseStartTime - startTime;
         return timeString;
+    }
 
+    public static float GetPlaytime() 
+    {
+        float playtime = 0;
+
+        if (paused)
+        {
+            playtime = pauseStartTime - startTime;
+        }
+        else
+        {
+            Debug.Log("TimerManager: Don't call GetPlaytime() when timer not paused.");
+        }
+
+        return playtime;
     }
 
     // Maybe as a penalty, or for debugging purposes

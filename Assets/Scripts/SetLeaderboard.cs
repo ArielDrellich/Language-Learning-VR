@@ -13,8 +13,9 @@ public class SetLeaderboard : MonoBehaviour, IClickable
     void Start()
     {
         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
-        int score = 100 * (PuzzleManager.GetSolvedPuzzles());
-        //int score = 100;
+        
+        int score = FindObjectOfType<LevelManager>().score;
+
         Social.ReportScore(score, "CgkIoZqCn5wdEAIQAw", (successLb) => { // publish to the table the score
                                                                          // handle success or failure
             if (successLb)

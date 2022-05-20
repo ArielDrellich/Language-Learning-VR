@@ -40,6 +40,15 @@ public class LevelManager : MonoBehaviour
     private int[]          sceneOrder;
     private int            sceneIndex;
     private int            amountOfLevels;
+
+    /*-------------------------------*/
+    public int             score = 0;
+    private int            firstLevelScore;
+    private int            levelScoreIncreaseBy;
+    private float          timeMultiplier;
+    private int            lastLevelTime = 0;
+    /*-------------------------------*/
+
     private bool           launchApp     = true;
     private bool           startGame     = true;
     private bool           shuffleLevels = false;
@@ -51,22 +60,30 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if (startGame) {
+        if (startGame) 
+        {
             startGame = false;
             TimerManager.StartTimer();
 
-            if (shuffleLevels) {
+            if (shuffleLevels) 
+            {
                 System.Random rand = new System.Random();
                 sceneOrder = sceneOrder.OrderBy(x => rand.Next()).ToArray();
             }
-
         }
 
         TimerManager.PauseTimer(); 
         loadingSprite.enabled = true;
 
+        if (sceneIndex != 0)
+        {
+            updateScore();
+            print("Score is: "+score);
+        }
+
         // Set checkpoint every 2 levels. Can change to be more or less frequent.
-        if (sceneIndex % 2 == 0) {
+        if (sceneIndex % 2 == 0) 
+        {
             checkpoint = sceneIndex;
             levelsSinceLastCheckpoint.Clear();
         }
@@ -108,30 +125,49 @@ public class LevelManager : MonoBehaviour
         switch (difficulty)
         {
             case "easy":
-                numOfItems = 8 + (sceneIndex * 1);
+                numOfItems = 9 + (sceneIndex * 1);
                 numOfMatchObjects = 3 + sceneIndex;
                 numOfWords = 2 + sceneIndex;
+
+                firstLevelScore = 200;
+                levelScoreIncreaseBy = 50;
+                timeMultiplier = 1/3f;
                 break;
+
             case "medium":
                 numOfItems = 15 + (sceneIndex * 2);
                 numOfMatchObjects = 5 + sceneIndex;
                 numOfWords = 6 + sceneIndex;
+
+                firstLevelScore = 400;
+                levelScoreIncreaseBy = 100;
+                timeMultiplier = 1/2f;
                 break;
+
             case "hard":
-                numOfItems = 20 + (sceneIndex * 3);
+                numOfItems = 21 + (sceneIndex * 3);
                 numOfMatchObjects = 7 + sceneIndex;
                 numOfWords = 10 + sceneIndex;
+
+                firstLevelScore = 1000;
+                levelScoreIncreaseBy = 200;
+                timeMultiplier = 1;
                 break;
+
             default:
                 numOfItems = 0;
                 numOfMatchObjects = 0;
                 numOfWords = 0;
+                firstLevelScore = 0;
+                levelScoreIncreaseBy = 0;
+                timeMultiplier = 0;
                 Debug.Log("SetLevelPuzzleVars: Invalid difficulty choice \""+difficulty+"\".");
                 break;
 
         }
         // Spawn level items and MatchObject puzzles
-        if (itemSpawner.LevelItems.ContainsKey(levelName)) {
+        if (itemSpawner.LevelItems.ContainsKey(levelName)) 
+        {
             this.SpawnItems(levelName, numOfItems);
             puzzleSetter.SetMatchObject(levelsSinceLastCheckpoint[levelName].items, numOfMatchObjects);
         }
@@ -146,21 +182,26 @@ public class LevelManager : MonoBehaviour
 
         // if we haven't already been to this level since last checkpoint
         if (!levelsSinceLastCheckpoint.ContainsKey(levelName)
-                        || levelsSinceLastCheckpoint[levelName].words == null) {
+                        || levelsSinceLastCheckpoint[levelName].words == null) 
+        {
 
             wordsInScramble = puzzleSetter.RandomizeWordScramble(levelName, numOfWords);
 
             // save words for if we return to checkpoint
-            if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) {
+            if (!levelsSinceLastCheckpoint.ContainsKey(levelName))
+            {
                 levelsSinceLastCheckpoint[levelName] = new LevelPuzzleVars(words: wordsInScramble);
             }
             // if levelsSinceLastCheckpoint contains the levelname but not yet words
-            else {
+            else 
+            {
                 levelsSinceLastCheckpoint[levelName].words = wordsInScramble;
             }
 
         // if we have been to this level since last checkpoint, use the same words
-        } else {
+        } 
+        else
+        {
             puzzleSetter.SetWordScramble(levelsSinceLastCheckpoint[levelName].words);
         }
 
@@ -173,7 +214,8 @@ public class LevelManager : MonoBehaviour
 
         // if we haven't already been to this level since last checkpoint
         if (!levelsSinceLastCheckpoint.ContainsKey(levelName)
-                        || levelsSinceLastCheckpoint[levelName].items == null) {
+                        || levelsSinceLastCheckpoint[levelName].items == null)
+        {
 
             positions = itemSpawner.GetPossiblePositions();
 
@@ -182,17 +224,21 @@ public class LevelManager : MonoBehaviour
             itemSpawner.RandomizeItemAndPositionOrder(itemList, positions);
             
             // save items and positions for if we return to checkpoint
-            if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) {
+            if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) 
+            {
                 levelsSinceLastCheckpoint[levelName] = new LevelPuzzleVars(items: itemList, positions: positions);
             }
             // if levelsSinceLastCheckpoint contains the levelname but not yet items
-            else {
+            else 
+            {
                 levelsSinceLastCheckpoint[levelName].items = itemList;
                 levelsSinceLastCheckpoint[levelName].itemPositions = positions;
             }
 
         // if we have been to this level since last checkpoint, use the same items and positions
-        } else {
+        } 
+        else
+        {
             itemList = levelsSinceLastCheckpoint[levelName].items;
             positions = levelsSinceLastCheckpoint[levelName].itemPositions;
             
@@ -253,7 +299,9 @@ public class LevelManager : MonoBehaviour
         
         string sceneName = SceneManager.GetActiveScene().name;
         if (sceneName != "Game Over Screen" && sceneName != "Win Screen") 
+        {
             TimerManager.StartTimer();
+        }
     }
 
     // Start is called before the first frame update
@@ -266,9 +314,11 @@ public class LevelManager : MonoBehaviour
         loadingSprite = GameObject.Find("Loading_Sprite").GetComponent<SpriteRenderer>();
 
         // any time we start a new game from the main menu
-        if (startGame) {
+        if (startGame) 
+        {
             // only add once on app launch
-            if(launchApp) {
+            if(launchApp) 
+            {
                 SceneManager.sceneLoaded += OnSceneLoaded;
                 itemSpawner = new ItemSpawner();
                 launchApp = false;
@@ -280,7 +330,8 @@ public class LevelManager : MonoBehaviour
             amountOfLevels = SceneManager.sceneCountInBuildSettings - Num_of_menu_screens_in_build;
             sceneOrder = new int[amountOfLevels];
 
-            for (int i = 0; i < amountOfLevels; i++) {
+            for (int i = 0; i < amountOfLevels; i++) 
+            {
                 sceneOrder[i] = i + Num_of_menu_screens_in_build;
             }
 
@@ -289,6 +340,17 @@ public class LevelManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+    }
+
+    private void updateScore()
+    {
+        int maxLevelScore = firstLevelScore + ((sceneIndex-1) * levelScoreIncreaseBy);
+        int playTime = (int)TimerManager.GetPlaytime();
+        int thisLevelTime = playTime - lastLevelTime;
+        int thisLevelScore = Mathf.Max(0, (int)(maxLevelScore - (thisLevelTime * timeMultiplier)));
+
+        lastLevelTime = playTime;
+        score += thisLevelScore;
     }
 
     public string GetLevelNameByIndex(int index)
