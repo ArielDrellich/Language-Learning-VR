@@ -88,7 +88,8 @@ public class PuzzleSetter
         LevelWords["Forest"] = new List<string>() 
         {
             "forest", "tree", "flower", "house", "table", "chair", "lake", "wood", "green", "nature" ,
-            "leaves", "plants", "stairs", "wood", "sand", "ground", "mountains", "lake", "water", "sky"
+            "leaves", "plants", "stairs", "wood", "sand", "ground", "mountains", "lake", "water", "sky", "fork",
+            "spoon", "plate"
         };
         /*==================================================================*/
     }
