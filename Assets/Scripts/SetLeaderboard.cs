@@ -16,15 +16,15 @@ public class SetLeaderboard : MonoBehaviour, IClickable
         
         int score = FindObjectOfType<LevelManager>().score;
 
-        Social.ReportScore(score, "CgkIoZqCn5wdEAIQAw", (successLb) => { // publish to the table the score
+        Social.ReportScore(score, "CgkIoZqCn5wdEAIQBQ", (successLb) => { // publish to the table the score
                                                                          // handle success or failure
             if (successLb)
             {
-                //Debug.Log("success:)");
+                Debug.Log("success:)");
             }
             else
             {
-                //Debug.Log("fail:(");
+                Debug.Log("fail:(");
             }
         });
     }
