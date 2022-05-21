@@ -18,14 +18,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 87a74c4a2196b6b41b7a631f63106dae
   - enabled: 1
+    path: Assets/Scenes/Market.unity
+    guid: 2029b23332ab24c4abbc6e3419f21d99
+  - enabled: 1
     path: Assets/Scenes/Park.unity
     guid: b88abed51b2d2454abab3ce71c0b5875
   - enabled: 1
     path: Assets/Scenes/Beach.unity
     guid: c2b2883d0afdefe46b24167477559fad
   - enabled: 1
-    path: Assets/Scenes/Market.unity
-    guid: 1c28820dce44db14db84dd3abed1d75f
+    path: Assets/Scenes/PlaygroundLowPoly.unity
+    guid: b0de0711692b843459ecac0863bcc297
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: cd9ad7224576fc2499313d646b01f372
   - enabled: 1
     path: Assets/Scenes/PlaygroundLowPoly.unity
     guid: b0de0711692b843459ecac0863bcc297

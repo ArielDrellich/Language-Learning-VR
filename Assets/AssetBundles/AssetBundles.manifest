@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 1573661681
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: beachscene
+      Dependencies: {}
+    Info_1:
+      Name: forestscene
+      Dependencies: {}
+    Info_2:
+      Name: menuscene
+      Dependencies: {}
+    Info_3:
+      Name: marketscene
+      Dependencies: {}
+    Info_4:
+      Name: parkscene
+      Dependencies: {}
+    Info_5:
+      Name: playgroundscene
+      Dependencies: {}

@@ -54,15 +54,17 @@ public class OAuth : MonoBehaviour
     void Start()
     {
     	welcomeText = GameObject.Find("Welcome").GetComponent<TMPro.TMP_Text>();
+        /* See UPGRADING.txt
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
             .RequestIdToken()
             .Build();
         PlayGamesPlatform.InitializeInstance(config);
+        */
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
         //Debug.unityLogger.Log(kTag, "Authenticating...");
 
-        PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (success) =>
+        PlayGamesPlatform.Instance.Authenticate((success) =>
         {
             //Debug.Log(success);
             if (success == SignInStatus.Success)
@@ -76,7 +78,7 @@ public class OAuth : MonoBehaviour
             }
         });
 
-        Application.quitting += PlayGamesPlatform.Instance.SignOut;
+        // Application.quitting += PlayGamesPlatform.Instance.SignOut;
     }
 
     void Update()
