@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 4119444781465204797}
   - component: {fileID: 7528357095204579699}
   m_Layer: 0
-  m_Name: Next Level Room Glass
+  m_Name: Next Level Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1576,7 +1576,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dbe99c38e08d65244a28abfb529a5f60, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9d7817728ee69ab42ab1307e65465778, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1584,7 +1584,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 120
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

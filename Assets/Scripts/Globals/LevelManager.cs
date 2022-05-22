@@ -78,7 +78,6 @@ public class LevelManager : MonoBehaviour
         if (sceneIndex != 0)
         {
             updateScore();
-            print("Score is: "+score);
         }
 
         // Set checkpoint every 2 levels. Can change to be more or less frequent.
@@ -126,8 +125,8 @@ public class LevelManager : MonoBehaviour
         {
             case "easy":
                 numOfItems = 9 + (sceneIndex * 1);
-                numOfMatchObjects = 3 + sceneIndex;
-                numOfWords = 2 + sceneIndex;
+                numOfMatchObjects = 1;// + sceneIndex;
+                numOfWords = 0;//2 + sceneIndex;
 
                 firstLevelScore = 200;
                 levelScoreIncreaseBy = 50;

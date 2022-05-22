@@ -3684,6 +3684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d354a2384ca6044b5a0c7a3a67dcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   checkpoint: 0
 --- !u!114 &1591724839
 MonoBehaviour:
@@ -4118,7 +4119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1676907247
 AudioSource:
   m_ObjectHideFlags: 0
