@@ -125,8 +125,8 @@ public class LevelManager : MonoBehaviour
         {
             case "easy":
                 numOfItems = 9 + (sceneIndex * 1);
-                numOfMatchObjects = 1;// + sceneIndex;
-                numOfWords = 0;//2 + sceneIndex;
+                numOfMatchObjects = 3 + sceneIndex;
+                numOfWords = 2 + sceneIndex;
 
                 firstLevelScore = 200;
                 levelScoreIncreaseBy = 50;
@@ -244,6 +244,9 @@ public class LevelManager : MonoBehaviour
             //just to delete ItemSpawners
             itemSpawner.GetPossiblePositions();
         }
+
+        /* Duplicate items in list to make it easier to find */
+        itemList.AddRange(itemList);
 
         itemSpawner.SpawnItems(itemList, positions);
     }
