@@ -20,11 +20,11 @@ public class SetLeaderboard : MonoBehaviour, IClickable
                                                                          // handle success or failure
             if (successLb)
             {
-                Debug.Log("success:)");
+                //Debug.Log("success:)");
             }
             else
             {
-                Debug.Log("fail:(");
+                //Debug.Log("fail:(");
             }
         });
     }

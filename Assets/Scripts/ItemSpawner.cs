@@ -83,13 +83,13 @@ public class ItemSpawner
 
         LevelItems["PlaygroundLowPoly"] = new List<string>() 
         {
-            "Ant","Bucket", "Bus Toy", "Car Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
-            "Tank Toy", "Truck Toy", "Trumpet"
+            "Ant","Bucket", "Bus Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
+            "Tank Toy", "Truck Toy", "Trumpet", "Hat", "Police Car Toy", "Rubber Duck"
         };
 
         LevelItems["Forest"] = new List<string>() 
         {
-            "Banana", "Orange", "Corn", "Pumpkin"
+            "Banana", "Orange", "Corn", "Pumpkin", "Cucumber", "Apple", "Tomato", "Carrot", "Lemon"
         };
 
         /*==================================================================*/
@@ -158,6 +158,25 @@ public class ItemSpawner
         // Wheels
         itemPaths["White Green Sea Wheel"] = "Items/Beach/Colored_wheels/White Green Sea Wheel";
         itemPaths["White Red Sea Wheel"] = "Items/Beach/Colored_wheels/White Red Sea Wheel";
+
+        // ----------------- Playground Scene --------------//
+        itemPaths["Ant"] = "Items/Playground/Ant";
+		itemPaths["Bucket"] = "Items/Playground/Bucket";
+		itemPaths["Bus Toy"] = "Items/Playground/Bus Toy";
+		itemPaths["Car Toy"] = "Items/Playground/Car Toy";
+		itemPaths["Ball"] = "Items/Playground/Ball";
+		itemPaths["Garbage Bin"] = "Items/Playground/Garbage Bin";
+		itemPaths["Motorcycle Toy"] = "Items/Playground/Motorcycle Toy";
+		itemPaths["Rubber Duck"] = "Items/Playground/Rubber Duck";
+		itemPaths["Stones"] = "Items/Playground/Stones";
+		itemPaths["Tank Toy"] = "Items/Playground/Tank Toy";
+		itemPaths["Truck Toy"] = "Items/Playground/Truck Toy";
+		itemPaths["Trumpet"] = "Items/Playground/Trumpet";
+		itemPaths["Hat"] = "Items/Playground/Hat";
+		itemPaths["Police Car Toy"] = "Items/Playground/Police Car Toy";
+		itemPaths["Rubber Duck"] = "Items/Playground/Rubber Duck";
+		
+		
     }
 
     // returns which items it chose should be spawned
