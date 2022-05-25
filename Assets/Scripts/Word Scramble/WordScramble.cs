@@ -45,7 +45,8 @@ public class Word
 
 public class WordScramble : MonoBehaviour
 {
-    public Word[] words;
+    public Word[]       words;
+    public WordScramble main;
 
     [Header("UI REFERENCE")]
     public CharObject prefab;
@@ -53,28 +54,31 @@ public class WordScramble : MonoBehaviour
     CharObject        firstSelected;
     List<CharObject>  charObjects = new List<CharObject>();
 
-    public WordScramble main;
-    public int     currentWord;
-    public float   space;
+    public  int    currentWord;
+    public  float  space;
     private int    originalId;
     private int    wordsSkipped = 0;
     private bool   finished;
     private bool   incremented = false; 
     private string lastWrongWord = "";
     private string translatedWord;
-    public Translator tr;
+    public  Translator       tr;
     public  List<Component>  successActions;
     public  List<Component>  failActions;
 
-    //trimming Hebrew diacritics which are special because they're seperate unicode characters
-    // Hebrew
-    char[] toTrim = { /* Hebrew */ '\u05B0', '\u05B1', '\u05B2',
-         '\u05B3', '\u05B4', '\u05B5', '\u05B6', '\u05B7', '\u05B8',
-          '\u05B9', '\u05BA', '\u05BB', '\u05BC', '\u05BD', '\u05C1',
-          '\u05C2', '\u05C4', '\u05C5', '\u05C7', /* Arabic */ '\u064B',
-            '\u064C', '\u064D', '\u064E', '\u064F', '\u0650', '\u0651', '\u0652'};
+    // Trimming diacritics which are seperate chars 
+    char[] toTrim =
+    { 
+        /* Hebrew */ 
+        '\u05B0', '\u05B1', '\u05B2', '\u05B3', '\u05B4', '\u05B5',
+        '\u05B6', '\u05B7', '\u05B8', '\u05B9', '\u05BA', '\u05BB',
+        '\u05BC', '\u05BD', '\u05C1', '\u05C2', '\u05C4', '\u05C5',
+        '\u05C7',
 
-
+        /* Arabic */ 
+        '\u064B', '\u064C', '\u064D', '\u064E', '\u064F', '\u0650',
+        '\u0651', '\u0652'
+    };
 
 
     void Awake()

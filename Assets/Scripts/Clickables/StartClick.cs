@@ -5,9 +5,9 @@ using UnityEngine;
 public class StartClick : MonoBehaviour, IClickable
 {
     ReticleManager reticle;
-    GameObject chooseLanguage;
-    GameObject chooseDifficulty;
-    bool canStart = true;
+    GameObject     chooseLanguage;
+    GameObject     chooseDifficulty;
+    bool           canStart = true;
 
     void Start()
     {
@@ -28,27 +28,19 @@ public class StartClick : MonoBehaviour, IClickable
                 StartCoroutine(ChooseLangAlarmCoroutine());
                 canStart = false;
             }
+
             if (PlayerPrefs.GetString("Difficulty").Equals(""))
             {
                 StartCoroutine(ChooseDifAlarmCoroutine());
                 canStart = false;
             }
+
             if (canStart)
             {
                 FindObjectOfType<LevelManager>().NextLevel();
             }
 
-        }
-    }
-    void Update()
-    {
-        if (!PlayerPrefs.GetString("languageChoice").Equals(""))
-        {
-            chooseLanguage.SetActive(false);
-        }
-        if (!PlayerPrefs.GetString("Difficulty").Equals(""))
-        {
-            chooseDifficulty.SetActive(false);
+            canStart = true;
         }
     }
 
