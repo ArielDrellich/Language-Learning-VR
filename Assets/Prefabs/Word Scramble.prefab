@@ -1483,7 +1483,7 @@ MonoBehaviour:
   container: {fileID: 5053881317150455507}
   main: {fileID: 0}
   currentWord: 0
-  space: 0.15
+  space: 0.2
   tr: {fileID: 0}
   successActions:
   - {fileID: 7463445385170151164}

@@ -67,10 +67,15 @@ public class WordScramble : MonoBehaviour
     public  List<Component>  failActions;
 
     //trimming Hebrew diacritics which are special because they're seperate unicode characters
-    char[] toTrim = { '\u05B0', '\u05B1', '\u05B2',
+    // Hebrew
+    char[] toTrim = { /* Hebrew */ '\u05B0', '\u05B1', '\u05B2',
          '\u05B3', '\u05B4', '\u05B5', '\u05B6', '\u05B7', '\u05B8',
           '\u05B9', '\u05BA', '\u05BB', '\u05BC', '\u05BD', '\u05C1',
-          '\u05C2', '\u05C4', '\u05C5', '\u05C7',   };
+          '\u05C2', '\u05C4', '\u05C5', '\u05C7', /* Arabic */ '\u064B',
+            '\u064C', '\u064D', '\u064E', '\u064F', '\u0650', '\u0651', '\u0652'};
+
+
+
 
     void Awake()
     {
@@ -112,6 +117,8 @@ public class WordScramble : MonoBehaviour
     {
         ShowScramble(UnityEngine.Random.Range(0, words.Length - 1));
     }
+
+
 
     // show word from collection with desired index
     public void ShowScramble(int index)
@@ -189,7 +196,7 @@ public class WordScramble : MonoBehaviour
             	chars = exc.ToString().ToCharArray();
             }
         } else {
-            string done = "DONE!";
+            string done = "";
             chars = done.ToCharArray();
 
             PuzzleManager.Increment();
