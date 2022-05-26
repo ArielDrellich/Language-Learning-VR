@@ -10,6 +10,6 @@ public class Billboard : MonoBehaviour
         
         // keeps object looking at camera
         this.transform.forward = new Vector3(cameraForward.x + epsilon,
-                                             transform.forward.y, cameraForward.z + epsilon);
+                                             0, cameraForward.z + epsilon);
     }
 }

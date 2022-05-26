@@ -83,7 +83,7 @@ public class ItemSpawner
 
         LevelItems["PlaygroundLowPoly"] = new List<string>() 
         {
-            "Ant","Bucket", "Bus Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", "Stones",
+            "Ant","Bucket", "Bus Toy", "Car Toy", "Ball", "Garbage Bin",  "Motorcycle Toy", "Rubber Duck", /*"Stones",*/
             "Tank Toy", "Truck Toy", "Trumpet", "Hat", "Police Car Toy", "Rubber Duck"
         };
 
@@ -97,7 +97,7 @@ public class ItemSpawner
         // set the name of each item to it's Resource location
         itemPaths = new Dictionary<string, string>();
 
-        // ----------------- Market Scene --------------//
+        // ----------------- Market Scene -------------- //
         itemPaths["Banana"] = "Items/Food/Banana";
         itemPaths["Orange"] = "Items/Food/Orange";
         itemPaths["Pineapple"] = "Items/Food/Pineapple";
@@ -117,7 +117,7 @@ public class ItemSpawner
         itemPaths["Pizza"] = "Items/Food/Pizza";
         itemPaths["Bread"] = "Items/Food/Bread";
 
-        // ------------------ Park Scene ---------------//
+        // ------------------ Park Scene --------------- //
         itemPaths["Mushroom"] = "Items/Mushroom";
         itemPaths["Cow"] = "Items/Animals/Cow";
         itemPaths["Bird"] = "Items/Animals/Bird";
@@ -131,7 +131,7 @@ public class ItemSpawner
         itemPaths["Butterfly"] = "Items/Animal Groups/Butterflies";
         itemPaths["Spider"] = "Items/Animals/Spider";
 
-        // ------------------ Beach Scene ---------------//
+        // ------------------ Beach Scene --------------- //
 
         // Chairs
         itemPaths["Orange Chair"] = "Items/Beach/Colored_chairs/Orange Chair";
@@ -142,7 +142,7 @@ public class ItemSpawner
         itemPaths["White Orange Chair"] = "Items/Beach/Colored_chairs/White Orange Chair";
         itemPaths["White Green Chair"] = "Items/Beach/Colored_chairs/White Green Chair";
 
-        // Surfboard
+        // Surfboards
         itemPaths["Blue Yellow Surfboard"] = "Items/Beach/Colored_surfboards/Blue Yellow Surfboard";
         // itemPaths["Red Surfboard"] = "Items/Beach/Colored_surfboards/Red Surfboard";
         itemPaths["Blue Yellow Surfboard"] = "Items/Beach/Colored_surfboards/Blue Yellow Surfboard";
@@ -159,7 +159,7 @@ public class ItemSpawner
         itemPaths["White Green Sea Wheel"] = "Items/Beach/Colored_wheels/White Green Sea Wheel";
         itemPaths["White Red Sea Wheel"] = "Items/Beach/Colored_wheels/White Red Sea Wheel";
 
-        // ----------------- Playground Scene --------------//
+        // ----------------- Playground Scene -------------- //
         itemPaths["Ant"] = "Items/Playground/Ant";
 		itemPaths["Bucket"] = "Items/Playground/Bucket";
 		itemPaths["Bus Toy"] = "Items/Playground/Bus Toy";
@@ -168,7 +168,7 @@ public class ItemSpawner
 		itemPaths["Garbage Bin"] = "Items/Playground/Garbage Bin";
 		itemPaths["Motorcycle Toy"] = "Items/Playground/Motorcycle Toy";
 		itemPaths["Rubber Duck"] = "Items/Playground/Rubber Duck";
-		itemPaths["Stones"] = "Items/Playground/Stones";
+		// itemPaths["Stones"] = "Items/Playground/Stones";
 		itemPaths["Tank Toy"] = "Items/Playground/Tank Toy";
 		itemPaths["Truck Toy"] = "Items/Playground/Truck Toy";
 		itemPaths["Trumpet"] = "Items/Playground/Trumpet";
@@ -182,7 +182,7 @@ public class ItemSpawner
     // returns which items it chose should be spawned
     public List<string> ChooseSpawnItems(string levelName, int amountOfItems)
     {
-        int          itemCount;
+        // int          itemCount;
         List<string> spawnItems;
         List<string> possibleItems;
 
@@ -197,12 +197,12 @@ public class ItemSpawner
         // take random items from list of possible items
         spawnItems = possibleItems.OrderBy(x => random.Next()).Take(amountOfItems).ToList();
         
-        // if fewer items than in scene we requested, pull duplicates to reach the number requested
-        itemCount = spawnItems.Count;
-        while (itemCount < amountOfItems) {
-            spawnItems.AddRange(possibleItems.OrderBy(x => random.Next()).Take(amountOfItems-itemCount).ToList());
-            itemCount = spawnItems.Count;
-        }
+        // // if fewer items than in scene we requested, pull duplicates to reach the number requested
+        // itemCount = spawnItems.Count;
+        // while (itemCount < amountOfItems) {
+        //     spawnItems.AddRange(possibleItems.OrderBy(x => random.Next()).Take(amountOfItems-itemCount).ToList());
+        //     itemCount = spawnItems.Count;
+        // }
 
         return spawnItems;
     }
@@ -226,7 +226,7 @@ public class ItemSpawner
 
     public void RandomizeItemAndPositionOrder(List<string> items, List<Vector3> positions)
     {
-        List<string> tempItems = items.OrderBy(x => random.Next()).ToList();
+        List<string>  tempItems     = items.OrderBy(x => random.Next()).ToList();
         List<Vector3> tempPositions = positions.OrderBy(x => random.Next()).ToList();
 
         items.Clear();
@@ -261,6 +261,7 @@ public class ItemSpawner
 
             GameObject clone = Object.Instantiate(item, positions[i],
                                                  Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+
             clone.name = item.name;
         }
     }

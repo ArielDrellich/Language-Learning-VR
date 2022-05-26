@@ -59,36 +59,36 @@ public class PuzzleSetter
         LevelWords["Market"] = new List<string>() 
         { 
             "market", "fruit", "vegetable", "food", "vendor", "stands", "cart", "bonfire",
-            "snacks", "grocery", "shop", "shopkeeper", "shopping", "money", "fence", "barrel", "fountain", "fire",
+            "snack", "grocery", "shop", "shopkeeper", "shopping", "money", "fence", "barrel", "fountain", "fire",
             "hay", "neighborhood"
         };
 
         LevelWords["Park"] = new List<string>()
         {
             "mushroom","cow","fish","bird",
-            "squirrel","spiders", "bee", "sheep", "turtle", "bench",
+            "squirrel","spider", "bee", "sheep", "turtle", "bench",
             "pig","chicken", "duck", "grass", "tree", "lake", "bridge", "butterfly",
-            "hill", "mountain", "boat", "picnic", "flowers"
+            "hill", "mountain", "boat", "picnic", "flower"
         };
 
         LevelWords["Beach"] = new List<string>()
         {
-            "umbrella", "sand", "sea", "chair", "tree", "surf", "bucket", "wheel", "clouds", "whale",
-            "castle", "fish", "balloons", "water", "shells", "jellyfish", "beach", "waves", "shore",
+            "umbrella", "sand", "sea", "chair", "tree", "surf", "bucket", /*"wheel",*/ "cloud", "whale",
+            "castle", "fish", "balloon", "water", "seashell", "jellyfish", "beach", "waves", "shore",
             "towel", "sunglasses", "ball", "kite"
         };
 
         LevelWords["PlaygroundLowPoly"] = new List<string>() 
         {
-            "swing", "adventure", "slid", "bench", "building", "cottage", "motorcycle", "vehicle", "police",
-            "carrousel", "ladder", "sandbox", "climb", "traffic lights", "road", "sidewalk", "grass", "lamp", "bus station",
-            "flowers", "plane", "helicopter", "flight", "fun", "hot", "sun"
+            "swing", "adventure", "slide", "bench", "building", "cottage", "motorcycle", "vehicle", "police",
+            "carrousel", "ladder", "sandbox", "climb", "traffic light", "road", "sidewalk", "grass", "lamp", "bus station",
+            "flower", "plane", "helicopter", "flight", "fun", "hot", "sun"
         };
 
         LevelWords["Forest"] = new List<string>() 
         {
             "forest", "tree", "flower", "house", "table", "chair", "lake", "wood", "green", "nature" ,
-            "leaves", "plants", "stairs", "wood", "sand", "ground", "mountains", "lake", "water", "sky", "fork",
+            "leaves", "plants", "stairs", "wood", "sand", "ground", "mountain", "lake", "water", "sky", "fork",
             "spoon", "plate"
         };
         /*==================================================================*/
@@ -97,7 +97,7 @@ public class PuzzleSetter
     public void SetMatchObject(List<string> names, int numToSet = int.MaxValue, bool randomize = true)
     {
         MatchObject[] matchObjects = UnityEngine.Object.FindObjectsOfType<MatchObject>();
-        int numOfNames = names.Count;
+        int numOfNames = names.Distinct().Count();
         int numOfMatchObjects = matchObjects.Count();
         int toSet = Mathf.Min(numOfNames, numOfMatchObjects, numToSet);
         int i;

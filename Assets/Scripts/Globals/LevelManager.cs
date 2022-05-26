@@ -168,6 +168,7 @@ public class LevelManager : MonoBehaviour
         if (itemSpawner.LevelItems.ContainsKey(levelName)) 
         {
             this.SpawnItems(levelName, numOfItems);
+
             puzzleSetter.SetMatchObject(levelsSinceLastCheckpoint[levelName].items, numOfMatchObjects);
         }
 
@@ -225,7 +226,9 @@ public class LevelManager : MonoBehaviour
             // save items and positions for if we return to checkpoint
             if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) 
             {
-                levelsSinceLastCheckpoint[levelName] = new LevelPuzzleVars(items: itemList, positions: positions);
+                levelsSinceLastCheckpoint[levelName] = 
+                    new LevelPuzzleVars(items: new List<string>(itemList),
+                                        positions: new List<Vector3>(positions));
             }
             // if levelsSinceLastCheckpoint contains the levelname but not yet items
             else 
@@ -292,6 +295,7 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetString("languageChoice", "en");
             PlayerPrefs.SetInt("isRTL", 0);
         }
+
         loadingOperation = SceneManager.LoadSceneAsync("Tutorial");
     }
 
@@ -321,12 +325,13 @@ public class LevelManager : MonoBehaviour
             // only add once on app launch
             if(launchApp) 
             {
+                ResetPref();
                 SceneManager.sceneLoaded += OnSceneLoaded;
                 itemSpawner = new ItemSpawner();
+                puzzleSetter = new PuzzleSetter();
                 launchApp = false;
             }
             
-            puzzleSetter = new PuzzleSetter();
             levelsSinceLastCheckpoint = new Dictionary<string, LevelPuzzleVars>();
 
             amountOfLevels = SceneManager.sceneCountInBuildSettings - Num_of_menu_screens_in_build;

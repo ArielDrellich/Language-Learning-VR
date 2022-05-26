@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3620230135143947459}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7778273348770801813}
@@ -131,7 +131,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 109580, guid: af47bba10a5f3de469b8593882c5daee, type: 3}
       propertyPath: m_Name
-      value: Red Blue Sufboard
+      value: Red Blue Surfboard
       objectReference: {fileID: 0}
     - target: {fileID: 411254, guid: af47bba10a5f3de469b8593882c5daee, type: 3}
       propertyPath: m_RootOrder

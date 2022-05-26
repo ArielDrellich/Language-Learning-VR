@@ -50,6 +50,8 @@ public class MatchObject : MonoBehaviour
 
         ignoreCollisions.Add(GameObject.Find("Player")); 
 
+        shownText.outlineWidth = 0.2f;
+
         SetObject(expectedName);
     }
 

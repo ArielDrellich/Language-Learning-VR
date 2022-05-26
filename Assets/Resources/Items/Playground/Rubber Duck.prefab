@@ -90,6 +90,8 @@ GameObject:
   - component: {fileID: 3811068500814683060}
   - component: {fileID: 8486897171925589638}
   - component: {fileID: 16587665801311532}
+  - component: {fileID: 2444577938180619155}
+  - component: {fileID: 7984190815858647822}
   m_Layer: 0
   m_Name: Rubber Duck
   m_TagString: Untagged
@@ -158,6 +160,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &2444577938180619155
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6477369080807627670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.009484378
+  m_Height: 0.03569495
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.00045365182, z: -0.001278269}
+--- !u!136 &7984190815858647822
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6477369080807627670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.011501559
+  m_Height: 0.03569495
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.005892268, z: 0.0098082535}
 --- !u!1 &7318672278291922058
 GameObject:
   m_ObjectHideFlags: 0

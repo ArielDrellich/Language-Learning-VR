@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class HealthManager
 {
-    private static int defaultHealth = 3;
+    private const  int defaultHealth = 5;
     private static int remainingHealth = defaultHealth;
 
     public static void Increment(int amount = 1) 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 189135224197670579}
   - component: {fileID: 4060766015187988109}
   - component: {fileID: 4847349697526347209}
+  - component: {fileID: 4334295985572897692}
   m_Layer: 0
   m_Name: SM_Alcove_01
   m_TagString: Untagged
@@ -90,7 +91,7 @@ BoxCollider:
   m_GameObject: {fileID: 1846208716538333030}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.0992393, y: 2.0360844, z: 2.445681}
   m_Center: {x: -0.03512764, y: 1.0089937, z: 0.0000011920929}
@@ -107,3 +108,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.766106, y: 0.8899009, z: 2.445681}
   m_Center: {x: 0.0000011920929, y: 2.4763026, z: 0.0000011920929}
+--- !u!136 &4334295985572897692
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846208716538333030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2127743
+  m_Height: 3.8267365
+  m_Direction: 1
+  m_Center: {x: -0.05182457, y: 0.69694066, z: 0.0000011920929}

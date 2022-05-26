@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 8448705521428386661}
   - component: {fileID: 5970404907328350127}
   - component: {fileID: 8583525108443339611}
+  - component: {fileID: 7300741135869010998}
+  - component: {fileID: 1942728985240116121}
+  - component: {fileID: 8618921231619306968}
   m_Layer: 0
   m_Name: SM_Swings_04
   m_TagString: Untagged
@@ -91,5 +94,44 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0670362, y: 2.5263572, z: 1.2077563}
-  m_Center: {x: 0, y: 1.2631795, z: 0.0000012218952}
+  m_Size: {x: 0.16827226, y: 2.5263572, z: 1.2077563}
+  m_Center: {x: 1.449382, y: 1.2631795, z: 0.0000011920929}
+--- !u!65 &7300741135869010998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322093474552579706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13551545, y: 2.5263572, z: 1.2077563}
+  m_Center: {x: -1.4657604, y: 1.2631795, z: 0.0000011920929}
+--- !u!65 &1942728985240116121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322093474552579706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0440178, y: 0.092105865, z: 0.57772064}
+  m_Center: {x: -0.0028362274, y: 0.56720847, z: 0.07749516}
+--- !u!65 &8618921231619306968
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322093474552579706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0391998, y: 0.7465001, z: 0.11424255}
+  m_Center: {x: -0.017040253, y: 0.82506776, z: -0.15424389}
