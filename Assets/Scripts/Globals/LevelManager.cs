@@ -20,6 +20,11 @@ public class LevelPuzzleVars
 }
 public class LevelManager : MonoBehaviour
 {
+    /*---------------------------------------------------------------------------*\
+    |  Build settings:                                                            |
+    |                 1) Keep all menu scenes in the build before other levels.   |
+    |                 2) Keep Forest scene as the last in the build.              |
+    \*---------------------------------------------------------------------------*/
 
     /*=================================================*\
                          KEEP UPDATED                   
@@ -30,7 +35,7 @@ public class LevelManager : MonoBehaviour
     /*=================================================*/
     
 
-    private Dictionary<string, LevelPuzzleVars> levelsSinceLastCheckpoint;
+    private Dictionary<string, LevelPuzzleVars> visitedLevels;
     private AsyncOperation loadingOperation;
     private ItemSpawner    itemSpawner;
     private PuzzleSetter   puzzleSetter;
@@ -68,7 +73,13 @@ public class LevelManager : MonoBehaviour
             if (shuffleLevels) 
             {
                 System.Random rand = new System.Random();
-                sceneOrder = sceneOrder.OrderBy(x => rand.Next()).ToArray();
+
+                // we want to keep the forest scene as the last since it is a special case.
+                // NOTE: this requires leaving the Forest scene as the last in the build.
+                sceneOrder =
+                        sceneOrder.Take(0).Concat(sceneOrder.Take(sceneOrder.Count() - 1)
+                        .OrderBy(x => rand.Next()))
+                        .Concat(sceneOrder.Skip(sceneOrder.Count() - 1)).ToArray();
             }
         }
 
@@ -84,7 +95,7 @@ public class LevelManager : MonoBehaviour
         if (sceneIndex % 2 == 0) 
         {
             checkpoint = sceneIndex;
-            levelsSinceLastCheckpoint.Clear();
+            // visitedLevels.Clear()
         }
 
         player.GetComponent<PlayerMovement>().enabled = false;
@@ -112,21 +123,15 @@ public class LevelManager : MonoBehaviour
         sceneIndex++;
     }
 
-    private void SetLevelPuzzleVars()
+    private void GetLevelPuzzleNums(int scene_index, out int numOfItems,
+                                    out int numOfMatchObjects, out int numOfWords)
     {
-        string levelName = GetLevelNameByIndex(sceneIndex);
-        
-        /* "Difficulty scaling" */
-        int numOfItems;
-        int numOfMatchObjects;
-        int numOfWords;
-
         switch (difficulty)
         {
             case "easy":
-                numOfItems = 9 + (sceneIndex * 1);
-                numOfMatchObjects = 3 + sceneIndex;
-                numOfWords = 2 + sceneIndex;
+                numOfItems = 6 + (scene_index * 1);
+                numOfMatchObjects = 3 + scene_index;
+                numOfWords = 2 + scene_index;
 
                 firstLevelScore = 200;
                 levelScoreIncreaseBy = 50;
@@ -134,9 +139,9 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case "medium":
-                numOfItems = 15 + (sceneIndex * 2);
-                numOfMatchObjects = 5 + sceneIndex;
-                numOfWords = 6 + sceneIndex;
+                numOfItems = 12 + (scene_index * 2);
+                numOfMatchObjects = 5 + scene_index;
+                numOfWords = 6 + scene_index;
 
                 firstLevelScore = 400;
                 levelScoreIncreaseBy = 100;
@@ -144,9 +149,9 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case "hard":
-                numOfItems = 21 + (sceneIndex * 3);
-                numOfMatchObjects = 7 + sceneIndex;
-                numOfWords = 10 + sceneIndex;
+                numOfItems = 18 + (scene_index * 3);
+                numOfMatchObjects = 7 + scene_index;
+                numOfWords = 10 + scene_index;
 
                 firstLevelScore = 1000;
                 levelScoreIncreaseBy = 200;
@@ -164,12 +169,61 @@ public class LevelManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    private void SetLastLevelPuzzleVars()
+    {
+        List<string>  forestItems = new List<string>();
+        List<string>  forestWords = new List<string>();
+        List<Vector3> positions   = itemSpawner.GetPossiblePositions();
+        
+        int totalNumOfMatchObjects = 0;
+
+        for(int i = 0; i < amountOfLevels - 1; i++)
+        {
+            int    numOfItems        = 0;
+            int    numOfWords        = 0;
+            int    numOfMatchObjects = 0;
+            string levelName         = GetLevelNameByIndex(i);
+
+            GetLevelPuzzleNums(i, out numOfItems, out numOfMatchObjects, out numOfWords);
+
+            forestItems.AddRange(visitedLevels[levelName].items.Take(numOfMatchObjects));
+
+            forestWords.AddRange(visitedLevels[levelName].words.Take(numOfWords));
+
+            totalNumOfMatchObjects += numOfMatchObjects;
+        }
+
+        itemSpawner.SpawnItems(forestItems, positions);
+        puzzleSetter.SetMatchObject(forestItems, totalNumOfMatchObjects);
+
+        puzzleSetter.SetWordScramble(forestWords);
+    }
+
+    private void SetLevelPuzzleVars()
+    {
+        if (sceneIndex == amountOfLevels - 1)
+        {
+            SetLastLevelPuzzleVars();
+            return;
+        }
+
+        string levelName = GetLevelNameByIndex(sceneIndex);
+        
+        /* "Difficulty scaling" */
+        int numOfItems;
+        int numOfMatchObjects;
+        int numOfWords;
+
+        GetLevelPuzzleNums(sceneIndex, out numOfItems, out numOfMatchObjects, out numOfWords);
+        
         // Spawn level items and MatchObject puzzles
         if (itemSpawner.LevelItems.ContainsKey(levelName)) 
         {
             this.SpawnItems(levelName, numOfItems);
 
-            puzzleSetter.SetMatchObject(levelsSinceLastCheckpoint[levelName].items, numOfMatchObjects);
+            puzzleSetter.SetMatchObject(visitedLevels[levelName].items, numOfMatchObjects);
         }
 
         // Set WordScramble words
@@ -181,28 +235,28 @@ public class LevelManager : MonoBehaviour
         List<string> wordsInScramble;
 
         // if we haven't already been to this level since last checkpoint
-        if (!levelsSinceLastCheckpoint.ContainsKey(levelName)
-                        || levelsSinceLastCheckpoint[levelName].words == null) 
+        if (!visitedLevels.ContainsKey(levelName)
+                        || visitedLevels[levelName].words == null) 
         {
 
             wordsInScramble = puzzleSetter.RandomizeWordScramble(levelName, numOfWords);
 
             // save words for if we return to checkpoint
-            if (!levelsSinceLastCheckpoint.ContainsKey(levelName))
+            if (!visitedLevels.ContainsKey(levelName))
             {
-                levelsSinceLastCheckpoint[levelName] = new LevelPuzzleVars(words: wordsInScramble);
+                visitedLevels[levelName] = new LevelPuzzleVars(words: wordsInScramble);
             }
-            // if levelsSinceLastCheckpoint contains the levelname but not yet words
+            // if visitedLevels contains the levelname but not yet words
             else 
             {
-                levelsSinceLastCheckpoint[levelName].words = wordsInScramble;
+                visitedLevels[levelName].words = wordsInScramble;
             }
 
         // if we have been to this level since last checkpoint, use the same words
         } 
         else
         {
-            puzzleSetter.SetWordScramble(levelsSinceLastCheckpoint[levelName].words);
+            puzzleSetter.SetWordScramble(visitedLevels[levelName].words);
         }
 
     }
@@ -213,8 +267,8 @@ public class LevelManager : MonoBehaviour
         List<string>  itemList;
 
         // if we haven't already been to this level since last checkpoint
-        if (!levelsSinceLastCheckpoint.ContainsKey(levelName)
-                        || levelsSinceLastCheckpoint[levelName].items == null)
+        if (!visitedLevels.ContainsKey(levelName)
+                        || visitedLevels[levelName].items == null)
         {
 
             positions = itemSpawner.GetPossiblePositions();
@@ -224,25 +278,25 @@ public class LevelManager : MonoBehaviour
             itemSpawner.RandomizeItemAndPositionOrder(itemList, positions);
             
             // save items and positions for if we return to checkpoint
-            if (!levelsSinceLastCheckpoint.ContainsKey(levelName)) 
+            if (!visitedLevels.ContainsKey(levelName)) 
             {
-                levelsSinceLastCheckpoint[levelName] = 
+                visitedLevels[levelName] = 
                     new LevelPuzzleVars(items: new List<string>(itemList),
                                         positions: new List<Vector3>(positions));
             }
-            // if levelsSinceLastCheckpoint contains the levelname but not yet items
+            // if visitedLevels contains the levelname but not yet items
             else 
             {
-                levelsSinceLastCheckpoint[levelName].items = itemList;
-                levelsSinceLastCheckpoint[levelName].itemPositions = positions;
+                visitedLevels[levelName].items = itemList;
+                visitedLevels[levelName].itemPositions = positions;
             }
 
         // if we have been to this level since last checkpoint, use the same items and positions
         } 
         else
         {
-            itemList = levelsSinceLastCheckpoint[levelName].items;
-            positions = levelsSinceLastCheckpoint[levelName].itemPositions;
+            itemList = visitedLevels[levelName].items;
+            positions = visitedLevels[levelName].itemPositions;
             
             //just to delete ItemSpawners
             itemSpawner.GetPossiblePositions();
@@ -279,7 +333,7 @@ public class LevelManager : MonoBehaviour
         aimSet.GetComponent<AimClick>().enabled = false;
         ResetPref();
         TimerManager.StopTimer();
-        levelsSinceLastCheckpoint.Clear();
+        visitedLevels.Clear();
         loadingOperation = SceneManager.LoadSceneAsync("Start Menu");
         HealthManager.ResetHealth();
     }
@@ -332,7 +386,7 @@ public class LevelManager : MonoBehaviour
                 launchApp = false;
             }
             
-            levelsSinceLastCheckpoint = new Dictionary<string, LevelPuzzleVars>();
+            visitedLevels = new Dictionary<string, LevelPuzzleVars>();
 
             amountOfLevels = SceneManager.sceneCountInBuildSettings - Num_of_menu_screens_in_build;
             sceneOrder = new int[amountOfLevels];
@@ -352,6 +406,14 @@ public class LevelManager : MonoBehaviour
     private void updateScore()
     {
         int maxLevelScore = firstLevelScore + ((sceneIndex-1) * levelScoreIncreaseBy);
+
+        // special case for long last level
+        if (sceneIndex == amountOfLevels)
+        {
+            print("last level");
+            maxLevelScore *= 3;
+        }
+
         int playTime = (int)TimerManager.GetPlaytime();
         int thisLevelTime = playTime - lastLevelTime;
         int thisLevelScore = Mathf.Max(0, (int)(maxLevelScore - (thisLevelTime * timeMultiplier)));

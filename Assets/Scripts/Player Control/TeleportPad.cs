@@ -13,21 +13,25 @@ public class TeleportPad : MonoBehaviour, IClickable
     // Start is called before the first frame update
     void Start()
     {
-        controller = GameObject.Find("Player").GetComponent<CharacterController>();
-        reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
+        controller       = GameObject.Find("Player").GetComponent<CharacterController>();
+        reticle          = GameObject.Find("Reticle").GetComponent<ReticleManager>();
         teleportRenderer = GetComponent<Renderer>();
 
         canTeleport = true;
     }
-    public void LookedAt(RaycastHit hit) {
-        if (hit.distance <= maxTeleportDistance && canTeleport) {
+
+    public void LookedAt(RaycastHit hit)
+    {
+        if (hit.distance <= maxTeleportDistance && canTeleport) 
+        {
             if (Input.GetButton("Fire2"))
                 reticle.SetColor(Color.blue);
             
-            if (Input.GetButtonUp("Fire2")) {
-                Vector3 hitPosition =  hit.collider.transform.position;
+            if (Input.GetButtonUp("Fire2")) 
+            {
+                Vector3 hitPosition = hit.collider.transform.position;
                 controller.enabled = false;
-                controller.transform.position = new Vector3(hitPosition.x, hitPosition.y + 1.5f, hitPosition.z);
+                controller.transform.position = new Vector3(hitPosition.x, hitPosition.y + 1f, hitPosition.z);
                 controller.enabled = true;
             }
         }
@@ -48,37 +52,3 @@ public class TeleportPad : MonoBehaviour, IClickable
     }
 }
 
-// public class Teleport : MonoBehaviour
-// {
-//     RaycastHit          hit;
-//     CharacterController controller;
-//     ReticleManager      reticle;
-//     float               teleportDistance = 15f;
-
-//     // Start is called before the first frame update
-//     void Start()
-//     {
-//         controller = GameObject.Find("Player").GetComponent<CharacterController>();
-//         reticle = GameObject.Find("Reticle").GetComponent<ReticleManager>();
-//     }
-
-//     // Update is called once per frame
-//     void Update()
-//     {
-//         bool didHit = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, teleportDistance);
-//         bool canTeleport = false;
-        
-//         if (didHit)
-//             canTeleport = hit.collider.GetComponent<TeleportPad>();
-
-//         if (canTeleport && Input.GetButton("Fire2"))
-//             reticle.SetColor(Color.blue);
-
-//         if (canTeleport && Input.GetButtonUp("Fire2")) {
-//             Vector3 hitPosition =  hit.collider.transform.position;
-//             controller.enabled = false;
-//             controller.transform.position = new Vector3(hitPosition.x, hitPosition.y + 1.5f, hitPosition.z);
-//             controller.enabled = true;
-//         }
-//     }
-// }

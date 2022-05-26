@@ -54,7 +54,7 @@ public class ItemSpawner
         LevelItems["Market"] = new List<string>() 
         {
             "Chicken", "Cucumber", "Carrot", "Lemon", "Tomato", "Orange", "Bread",
-            "Corn", "Watermelon","Pumpkin", "Pizza","Wine","Hamburger",
+            "Corn", "Watermelon", "Pumpkin", "Pizza", "Wine", "Hamburger",
             "Ice Cream", "French Fries", "Banana", "Apple"
         };
 
@@ -240,7 +240,7 @@ public class ItemSpawner
     public void SpawnItems(List<string> items, List<Vector3> positions)
     {
         int numOfItems = Mathf.Min(items.Count, positions.Count);
-        
+
         for (int i = 0; i < numOfItems; i++) 
         {
 
