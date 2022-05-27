@@ -23,27 +23,27 @@ public class ItemSpawner
 
         LevelItems["Scene 1"] = new List<string>() 
         {
-            "Pineapple"
+            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"
         };
 
         LevelItems["Scene 2"] = new List<string>() 
         {
-            "Watermelon", "Corn", "Banana"
+            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"
         };
 
         LevelItems["Scene 3"] = new List<string>() 
         {
-            "Pineapple", "Watermelon", "Orange"
+            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"
         };
 
         LevelItems["Scene 4"] = new List<string>() 
         {
-            "Banana", "Orange", "Tomato"
+            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"
         };
 
         LevelItems["Scene 5"] = new List<string>() 
         {
-            "Watermelon", "Banana"
+            "Banana", "Orange", "Pineapple", "Corn", "Tomato", "Watermelon"
         };
 
         LevelItems["Random"] = new List<string>() 

@@ -128,7 +128,6 @@ public class PuzzleSetter
         int numOfWSs = wordScrambles.Count();
         int numOfWords = words.Count;
         int numOfWSstofill = numOfWSs < numOfWords ? numOfWSs : numOfWords;
-        // int numWordsPerWS;
         int wordIndex = 0;
         int i;
 
@@ -139,10 +138,13 @@ public class PuzzleSetter
 
         int[] divArr = new int[numOfWSstofill];
 
-        // divide words evenly over WSs
-        for (int j = 0; j < numOfWords; j++)
+        if (numOfWSstofill != 0)
         {
-            divArr[j % numOfWSstofill] += 1;
+            // divide words evenly over WSs
+            for (int j = 0; j < numOfWords; j++)
+            {
+                divArr[j % numOfWSstofill] += 1;
+            }
         }
 
         // fill WSs with the amount found above
