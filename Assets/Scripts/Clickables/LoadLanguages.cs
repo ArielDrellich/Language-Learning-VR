@@ -71,7 +71,6 @@ public class LoadLanguages : ScrollSelector, IClickable
         languages.Add(new LanguageInfo("Turkish", "tr")); 
         languages.Add(new LanguageInfo("Vietnamese", "vi")); 
 
-        // langages_rev = languages.Reverse();
         PlayerPrefs.SetInt("languageIndex", 0);
 
         language1Text.text = languages[0].language;

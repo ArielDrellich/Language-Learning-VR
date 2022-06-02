@@ -95,7 +95,6 @@ public class LevelManager : MonoBehaviour
         if (sceneIndex % 2 == 0) 
         {
             checkpoint = sceneIndex;
-            // visitedLevels.Clear()
         }
 
         player.GetComponent<PlayerMovement>().enabled = false;

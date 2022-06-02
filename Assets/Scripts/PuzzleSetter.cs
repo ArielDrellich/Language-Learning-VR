@@ -31,21 +31,6 @@ public class PuzzleSetter
             "corn", "tomato"
         };
 
-        LevelWords["Asi Demo 1"] = new List<string>() 
-        {
-            "game", "puzzle", "brick", "wood"
-        };
-
-        LevelWords["Asi Demo 2"] = new List<string>() 
-        {
-            "cave", "grass", "sun"
-        };
-
-        LevelWords["Asi Demo 3"] = new List<string>() 
-        {
-            "rocks", "sand", "mountain", "snake", "lizard"
-        };
-
         LevelWords["Random"] = new List<string>() 
         {
             "dog", "cat", "hello"

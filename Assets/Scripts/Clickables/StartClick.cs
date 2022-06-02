@@ -64,14 +64,6 @@ public class StartClick : MonoBehaviour, IClickable
             rend.material.color = new Color(1f,1f,1f,0.4f);
         }
 
-        // if (canStart)
-        // {
-        //     rend.material.color = new Color(1f,1f,1f,1f);
-        // }
-        // else
-        // {
-        //     rend.material.color = new Color(1f,1f,1f,0.4f);
-        // }
     }
 
     IEnumerator ChooseLangAlarmCoroutine()

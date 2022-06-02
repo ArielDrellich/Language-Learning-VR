@@ -8,7 +8,6 @@ public class CharObject : MonoBehaviour
 	public TMPro.TMP_Text text;
 	public RectTransform rectTransform;
 	public int index;
-	// public Image image;
 
 	bool isSelected = false;
 
@@ -35,17 +34,15 @@ public class CharObject : MonoBehaviour
 		// Debug.Log("Selected: " + this.character);
 		isSelected = !isSelected;
 
-		// image.color = isSelected ? selectedColor : normalColor;
 		text.color = isSelected ? selectedColor : normalColor;
 
 		if (isSelected)
 		{
 			parent.Select(this);
-			//WordScramble.main.Select(this);
-		} else
+		} 
+		else
 		{
 			parent.UnSelect();
-			//WordScramble.main.UnSelect();
 		}
 	}
 

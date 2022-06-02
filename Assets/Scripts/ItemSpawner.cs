@@ -182,7 +182,6 @@ public class ItemSpawner
     // returns which items it chose should be spawned
     public List<string> ChooseSpawnItems(string levelName, int amountOfItems)
     {
-        // int          itemCount;
         List<string> spawnItems;
         List<string> possibleItems;
 
@@ -196,13 +195,6 @@ public class ItemSpawner
 
         // take random items from list of possible items
         spawnItems = possibleItems.OrderBy(x => random.Next()).Take(amountOfItems).ToList();
-        
-        // // if fewer items than in scene we requested, pull duplicates to reach the number requested
-        // itemCount = spawnItems.Count;
-        // while (itemCount < amountOfItems) {
-        //     spawnItems.AddRange(possibleItems.OrderBy(x => random.Next()).Take(amountOfItems-itemCount).ToList());
-        //     itemCount = spawnItems.Count;
-        // }
 
         return spawnItems;
     }

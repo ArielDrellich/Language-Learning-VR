@@ -29,11 +29,8 @@ using UnityEngine.Networking;
 
 	    public string Translate(string word, string fromLanguage, string toLanguage)
 	    {
-            //Font font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            //var toLanguage = "ru";//Deutsch
-            //var fromLanguage = "en";//English
             var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={HttpUtility.UrlEncode(word)}";
-            // Debug.Log(url);
+
             var webClient = new System.Net.WebClient
             {
                 Encoding = System.Text.Encoding.UTF8

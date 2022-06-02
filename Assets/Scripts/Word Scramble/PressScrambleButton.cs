@@ -29,12 +29,6 @@ public class PressScrambleButton : MonoBehaviour, IClickable
 	                // Debug.Log("Checking answer...");
 	        		animator.Play("button press");
 
-	                // if (ws.CheckWord()) {
-	                //     // Debug.Log("Success");						
-	                // } else {
-	                //     // Debug.Log("You suck");
-					// 	HealthManager.Decrement();
-	                // }
 					ws.CheckWord();
 	            }
 	            else if (hit.collider.name == speaker.name)

@@ -639,6 +639,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   incrementBy: 1
+--- !u!82 &153925509 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 539712814090559198, guid: 723c26ca18e3a3c468f6507f24e91e75,
+    type: 3}
+  m_PrefabInstance: {fileID: 1764891236}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &153925513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,6 +660,19 @@ MonoBehaviour:
   anim: {fileID: 1326634478}
   state: Lift wall
   animationSpeed: 1
+--- !u!114 &153925517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153925505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f564f5f91a2b47f48a947a3720c750c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 153925509}
 --- !u!1 &158597913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1669,27 +1688,27 @@ PrefabInstance:
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.9897762
       objectReference: {fileID: 0}
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.14262894
       objectReference: {fileID: 0}
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
+      value: 16.4
       objectReference: {fileID: 0}
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
@@ -4627,12 +4646,12 @@ PrefabInstance:
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.9774897
       objectReference: {fileID: 0}
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.21098353
       objectReference: {fileID: 0}
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
@@ -4647,7 +4666,7 @@ PrefabInstance:
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
+      value: 24.36
       objectReference: {fileID: 0}
     - target: {fileID: 4511561092180125792, guid: 5e836f5ae93afaa4f80ec5340ad57a1e,
         type: 3}
@@ -8381,6 +8400,21 @@ PrefabInstance:
         type: 3}
       propertyPath: expectedName
       value: Banana
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490053481257675718, guid: 723c26ca18e3a3c468f6507f24e91e75,
+        type: 3}
+      propertyPath: failActions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490053481257675718, guid: 723c26ca18e3a3c468f6507f24e91e75,
+        type: 3}
+      propertyPath: failActions.Array.data[0]
+      value: 
+      objectReference: {fileID: 153925517}
+    - target: {fileID: 4490053481257675718, guid: 723c26ca18e3a3c468f6507f24e91e75,
+        type: 3}
+      propertyPath: failActions.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4490053481257675718, guid: 723c26ca18e3a3c468f6507f24e91e75,
         type: 3}

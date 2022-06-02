@@ -27,6 +27,4 @@ public class RecWord : MonoBehaviour, IClickable
 
     }
 
-
-
 }
