@@ -12,6 +12,7 @@ public class InternetCheck : MonoBehaviour
     bool pickUpStatus;
     bool clickStatus;
     bool movementStatus;
+    bool statusChanged;
 
 
     void Start()
@@ -23,9 +24,7 @@ public class InternetCheck : MonoBehaviour
         NoConnectionTxt.outlineWidth = 0.3f;
         NoConnectionTxt.enabled = false;
 
-        pickUpStatus = pickUp.enabled;
-        clickStatus = click.enabled;
-        movementStatus = movement.enabled;
+        statusChanged = false;
     }
 
     void Update()
@@ -33,18 +32,32 @@ public class InternetCheck : MonoBehaviour
         // There is no internet
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-           NoConnectionTxt.enabled = true;
+            NoConnectionTxt.enabled = true;
+
+            if (!statusChanged)
+            {
+                pickUpStatus = pickUp.enabled;
+                clickStatus = click.enabled;
+                movementStatus = movement.enabled;
+                statusChanged = true;
+            }
+
             // Didn't changed and was turn off
             pickUp.enabled = false;
             click.enabled = false;
             movement.enabled = false;
+
         }
         else
         {
-            NoConnectionTxt.enabled = false;
-            pickUp.enabled = pickUpStatus;
-            click.enabled = clickStatus;
-            movement.enabled = movementStatus;
+            if (statusChanged) // return to old status
+            {
+                NoConnectionTxt.enabled = false;
+                pickUp.enabled = pickUpStatus;
+                click.enabled = clickStatus;
+                movement.enabled = movementStatus;
+                statusChanged = false;
+            }
         }
     }
 }

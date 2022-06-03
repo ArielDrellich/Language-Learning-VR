@@ -409,7 +409,6 @@ public class LevelManager : MonoBehaviour
         // special case for long last level
         if (sceneIndex == amountOfLevels)
         {
-            print("last level");
             maxLevelScore *= 3;
         }
 

@@ -17,9 +17,12 @@ public class PressButton : MonoBehaviour, IClickable
         animator = this.GetComponent<Animator>();
     }
 
-    public void LookedAt(RaycastHit hit) {
+    public void LookedAt(RaycastHit hit) 
+    {
         reticle.SetColor(Color.red);
-        if (Input.GetButtonDown("Fire1")) {
+
+        if (Input.GetButtonDown("Fire1")) 
+        {
             animator.Play("button press");
 
             foreach (Component action in actions)
