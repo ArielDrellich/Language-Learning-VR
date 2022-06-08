@@ -5,6 +5,19 @@ Introducing "**Language Learning VR**" - a brand new approach to improving your 
 Using virtual reality, we allow you to have an immersive experience in our 3D world.   
 You have the opportunity to explore levels, solve puzzles, and beat your highscore all while expanding your vocabulary through this captivating educational experience.
 
+The game supports 20 languages ​​(Arabic, Catalan, Czech, Danish, English, French, German, Greek, Hebrew, Italian, Latvian, Norwegian, Polish, Portuguese, Russian, Slovak, Spanish, Swedish, Turkish and Vietnamese),
+and includes Word spelling puzzles as well as matching a particular object to a word.
+The game can be played in 3 different diffictulties: easy, medium and hard with each level representing the number of puzzles in it.
+
+Each time you start a game, regardless of the level, the game will be different from the previous one because the puzzles and objects are being randomize each time.
+Our game also includes teleportation which means the possibility of walking in "jumps" instead of with the joystick (for those of us who suffer from nausea),
+and an option to return to a previous checkpoint after failing a level.
+
+Also, our game includes Google authentication as well as login with a Google play user in order to allow the player to accumulate records from any device he wants as long as he is connected to his user.
+Furthermore, our game includes a Leaderboard that allows the player to compare his score with the score of the other users, which encourages competitiveness in the game.
+
+Enjoy!
+
 <img src="https://user-images.githubusercontent.com/73121058/171569613-41e6ace4-fbba-44ee-9587-b7784bdff5b1.jpg" width="1024" height="473">
 
 Requirements:
